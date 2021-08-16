@@ -18,7 +18,7 @@ module.exports = {
                 orange: colors.orange,
             },
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             maxWidth: {
                 '8xl': '88rem',
