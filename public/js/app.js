@@ -25336,7 +25336,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-317d1a6e");
 
 var _hoisted_1 = {
-  "class": "relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0"
+  "class": "relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0"
 };
 var _hoisted_2 = {
   key: 0,
