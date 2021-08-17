@@ -78,8 +78,8 @@
                     <h3 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
                         A better way to find student housing
                     </h3>
-                    <p class="mt-4 max-w-3xl mx-auto text-center text-xl leading-7 text-gray-500">
-                        Housing for students in Rexburg is notorious for being difficult to find. We make it simpler by
+                    <p class="mt-4 max-w-4xl mx-auto text-center text-xl leading-7 text-gray-500">
+                        Housing for students in Rexburg is notoriously difficult to find. We make it simpler by
                         having as comprehensive a list as possible. No more relying on search engine results.
                     </p>
                 </div>
