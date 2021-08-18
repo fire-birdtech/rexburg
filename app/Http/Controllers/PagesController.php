@@ -15,4 +15,20 @@ class PagesController extends Controller
             'canRegister' => Route::has('register'),
         ]);
     }
+
+    public function singleList()
+    {
+        return Inertia::render('StudentHousing/List', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
+    }
+
+    public function marriedList()
+    {
+        return Inertia::render('StudentHousing/List', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
+    }
 }
