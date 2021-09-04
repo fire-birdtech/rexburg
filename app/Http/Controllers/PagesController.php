@@ -31,4 +31,12 @@ class PagesController extends Controller
             'canRegister' => Route::has('register'),
         ]);
     }
+
+    public function housingProfile()
+    {
+        return Inertia::render('StudentHousing/Profile', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
+    }
 }
