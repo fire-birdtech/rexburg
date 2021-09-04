@@ -15,19 +15,6 @@
                         </h1>
                         <BadgeCheckIcon v-if="listing.verified" class="ml-4 h-6 w-6 text-sky-500" />
                     </div>
-                    <!-- <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-                        <button type="button" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                            <MailIcon class="-ml-1 mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                            <span>Send an email</span>
-                        </button>
-                        <button type="button" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                            <PhoneIcon class="-ml-1 mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                            <span>{{ listing.phone }}</span>
-                        </button>
-                        <button type="button" class="inline-flex justify-center px-4 py-2 border border-sky-300 shadow-sm text-sm font-medium rounded-md text-white bg-sky-500 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
-                            <span>Visit website</span>
-                        </button>
-                    </div> -->
                 </div>
             </div>
             <div class="hidden sm:block md:hidden mt-6 min-w-0 flex-1">
