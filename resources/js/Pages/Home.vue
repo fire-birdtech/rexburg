@@ -29,7 +29,7 @@
                                 </Link>
                             </div>
                             <div class="mt-6 flex items-center">
-                                <Link to="/student-housing/single" class="w-full bg-gradient-to-r from-sky-400 to-blue-500 rounded-md shadow py-3 text-md leading-5 font-semibold text-white text-center hover:from-sky-500 hover:to-blue-700 focus:outline-none focus:shadow-outline-gray transition duration-150 ease-in-out">
+                                <Link :href="route('housing.single')" class="w-full bg-gradient-to-r from-sky-400 to-blue-500 rounded-md shadow py-3 text-md leading-5 font-semibold text-white text-center hover:from-sky-500 hover:to-blue-700 focus:outline-none focus:shadow-outline-gray transition duration-150 ease-in-out">
                                     View Listings
                                 </Link>
                             </div>
@@ -52,7 +52,7 @@
                                 </Link>
                             </div>
                             <div class="mt-6 flex items-center">
-                                <Link to="/student-housing/married" class="w-full bg-gradient-to-r from-blue-500 to-sky-400 rounded-md shadow py-3 text-md leading-5 font-semibold text-white text-center hover:from-blue-700 hover:to-sky-500 focus:outline-none focus:shadow-outline-gray transition duration-150 ease-in-out">
+                                <Link :href="route('housing.married')" class="w-full bg-gradient-to-r from-blue-500 to-sky-400 rounded-md shadow py-3 text-md leading-5 font-semibold text-white text-center hover:from-blue-700 hover:to-sky-500 focus:outline-none focus:shadow-outline-gray transition duration-150 ease-in-out">
                                     View Listings
                                 </Link>
                             </div>
