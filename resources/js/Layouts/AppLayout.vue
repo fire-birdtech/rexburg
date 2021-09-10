@@ -12,16 +12,39 @@
                         <div class="flex items-center">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <Link :href="route('dashboard')" :active="route().current('dashboard')">
+                                <Link :href="route('home')" :active="route().current('home')">
                                     <jet-application-mark class="block h-9 w-auto" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
-                            <div class="hidden ml-10 space-x-8 lg:block">
+                            <div class="hidden ml-10 space-x-8 lg:flex lg:items-center">
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>
+
+                                <Popover class="relative" v-slot="{ open }">
+                                    <PopoverButton :class="[open ? 'bg-sky-700' : '', 'group text-base font-medium inline-flex items-center text-white hover:text-sky-50 px-4 py-2 rounded-md hover:bg-sky-600 hover:bg-opacity-75']">
+                                        <span>Student Housing</span>
+                                        <ChevronDownIcon :class="[open ? 'text-sky-100' : 'text-white', 'ml-2 h-5 w-5 group-hover:text-sky-100']" aria-hidden="true" />
+                                    </PopoverButton>
+
+                                    <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+                                        <PopoverPanel class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
+                                            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                                <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                                                    <Link v-for="item in housing" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 transition ease-in-out duration-150">
+                                                        <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-sky-600" aria-hidden="true" />
+                                                        <div class="ml-4">
+                                                            <p class="text-base font-medium text-gray-900">{{ item.name }}</p>
+                                                            <p class="mt-1 text-sm text-gray-500">{{ item.description }}</p>
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </PopoverPanel>
+                                    </transition>
+                                </Popover>
                             </div>
                         </div>
 
@@ -198,6 +221,13 @@
     import JetNavLink from '@/Jetstream/NavLink.vue'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
     import { Head, Link } from '@inertiajs/inertia-vue3';
+    import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
+    import { ChevronDownIcon, UserIcon, UsersIcon } from '@heroicons/vue/solid';
+
+    const housing = [
+        { name: "Single Housing", href: route('housing.single'), icon: UserIcon },
+        { name: "Married Housing", href: route('housing.married'), icon: UsersIcon },
+    ];
 
     export default {
         props: {
@@ -207,6 +237,7 @@
         },
 
         components: {
+            ChevronDownIcon,
             Head,
             JetApplicationMark,
             JetBanner,
@@ -215,6 +246,9 @@
             JetNavLink,
             JetResponsiveNavLink,
             Link,
+            Popover,
+            PopoverButton,
+            PopoverPanel,
         },
 
         data() {
@@ -235,6 +269,12 @@
             logout() {
                 this.$inertia.post(route('logout'));
             },
-        }
+        },
+        
+        setup() {
+            return {
+                housing,
+            }
+        },
     }
 </script>
