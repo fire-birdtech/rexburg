@@ -2497,6 +2497,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(224, 242, 254, var(--tw-bg-opacity));
 }
+.hover\:bg-sky-50:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(240, 249, 255, var(--tw-bg-opacity));
+}
 .hover\:bg-opacity-75:hover {
 	--tw-bg-opacity: 0.75;
 }
