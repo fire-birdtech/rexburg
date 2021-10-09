@@ -46675,10 +46675,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "xl:flex-1 xl:flex xl:overflow-y-hidden max-w-8xl mx-auto"
+  "class": "xl:overflow-y-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
 };
 var _hoisted_2 = {
-  "class": "grid gap-8 md:grid-cols-3 max-w-7xl mx-auto py-8"
+  "class": "grid gap-4 md:grid-cols-2 lg:gap-8 lg:grid-cols-3 py-8"
 };
 var _hoisted_3 = {
   "class": "bg-white overflow-hidden shadow hover:shadow-lg rounded-lg transform duration-200 hover:-translate-y-1"
