@@ -24,7 +24,7 @@
                                 </jet-nav-link>
 
                                 <Popover class="relative" v-slot="{ open }">
-                                    <PopoverButton :class="[open ? 'bg-sky-700' : '', 'group text-base font-medium inline-flex items-center text-white hover:text-sky-50 px-4 py-2 rounded-md hover:bg-sky-600 hover:bg-opacity-75']">
+                                    <PopoverButton :class="[open ? 'bg-sky-600' : '', 'group text-base font-medium inline-flex items-center text-white hover:text-sky-50 px-4 py-2 rounded-md hover:bg-sky-600 hover:bg-opacity-75']">
                                         <span>Student Housing</span>
                                         <ChevronDownIcon :class="[open ? 'text-sky-100' : 'text-white', 'ml-2 h-5 w-5 group-hover:text-sky-100']" aria-hidden="true" />
                                     </PopoverButton>
