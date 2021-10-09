@@ -3,7 +3,7 @@
         <div class="xl:overflow-y-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <main class="grid gap-4 md:grid-cols-2 lg:gap-8 lg:grid-cols-3 py-8">
                 <div v-for="(listing, index) in listings" :key="index">
-                    <Link :href="`/student-housing/${listing.housing_type}/${listing.slug}`">
+                    <Link :href="`/student-housing/${listing.slug}`">
                         <div class="bg-white overflow-hidden shadow hover:shadow-lg rounded-lg transform duration-200 hover:-translate-y-1">
                             <img :src="listing.image" alt="" class="rounded-t-lg">
                             <div class="px-4 py-5 sm:p-6">
