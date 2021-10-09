@@ -16,7 +16,7 @@
         computed: {
             classes() {
                 return this.active
-                    ? 'text-base font-medium bg-sky-700 text-white hover:text-sky-50 px-4 py-2 rounded-md'
+                    ? 'text-base font-medium bg-sky-600 text-white hover:text-sky-50 px-4 py-2 rounded-md'
                     : 'text-base font-medium text-white hover:text-sky-50 px-4 py-2 rounded-md hover:bg-sky-600 hover:bg-opacity-75'
             }
         }
