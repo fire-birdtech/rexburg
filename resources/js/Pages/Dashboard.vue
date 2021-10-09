@@ -41,7 +41,7 @@
                 <div class="">
                     <h2>Reviews by me</h2>
                     <div class="py-2 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        <Link v-for="(review, idx) in reviews" :key="idx" href="#" class="hover:-translate-y-1 transition ease-in-out duration-100">
+                        <Link v-for="(review, idx) in reviews" :key="idx" href="#" class="transform duration-200 hover:-translate-y-1">
                             <div class="bg-white overflow-hidden shadow-xl rounded-xl">
                                 <div class="px-4 py-5 sm:p-6">
                                     <h3 class="text-lg font-medium text-gray-900 tracking-tight">{{ review.listing.name }}</h3>
