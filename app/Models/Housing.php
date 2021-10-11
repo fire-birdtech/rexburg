@@ -26,4 +26,12 @@ class Housing extends Model
         'tenant_rating',
         'website_url',
     ];
+
+    /**
+     * Get all of the housing's reviews.
+     */
+    public function reviews()
+    {
+        return $this->morphMany(Review::class, 'reviewable');
+    }
 }

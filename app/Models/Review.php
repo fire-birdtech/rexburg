@@ -16,4 +16,12 @@ class Review extends Model
         'reviewable_type',
         'user_id',
     ];
+
+    /**
+     * Get the parent commentable model (only housing for now).
+     */
+    public function reviewable()
+    {
+        return $this->morphTo();
+    }
 }
