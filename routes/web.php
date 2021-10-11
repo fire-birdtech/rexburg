@@ -20,6 +20,4 @@ Route::get('student-housing/single', [PagesController::class, 'singleList'])->na
 Route::get('student-housing/married', [PagesController::class, 'marriedList'])->name('housing.married');
 Route::get('student-housing/{slug}', [PagesController::class, 'housingProfile'])->name('housing.profile');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
