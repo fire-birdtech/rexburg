@@ -30,6 +30,7 @@ class CreateHousingsTable extends Migration
             $table->string('street');
             $table->string('tenant_rating');
             $table->string('website_url');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
