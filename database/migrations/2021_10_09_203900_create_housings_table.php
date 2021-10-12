@@ -15,22 +15,24 @@ class CreateHousingsTable extends Migration
     {
         Schema::create('housings', function (Blueprint $table) {
             $table->id();
-            $table->longText('about');
-            $table->json('amenities');
-            $table->string('bathroom_range');
-            $table->string('bedroom_range');
-            $table->string('city');
-            $table->string('email_address');
+            $table->longText('about')->nullable();
+            $table->json('amenities')->nullable();
+            $table->string('bathroom_range')->nullable();
+            $table->string('bedroom_range')->nullable();
+            $table->string('city')->nullable();
+            $table->string('cover_image_url')->nullable();
+            $table->string('email_address')->nullable();
             $table->string('housing_type');
             $table->string('name');
-            $table->string('phone_number');
-            $table->string('postal_code');
-            $table->string('rent_range');
+            $table->string('phone_number')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('profile_image_url')->nullable();
+            $table->string('rent_range')->nullable();
             $table->string('slug');
-            $table->string('street');
-            $table->string('tenant_rating');
-            $table->string('website_url');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('street')->nullable();
+            $table->string('tenant_rating')->nullable();
+            $table->string('website_url')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users')->nullable();
             $table->timestamps();
         });
     }
