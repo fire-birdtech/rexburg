@@ -22,6 +22,8 @@ Route::get('student-housing/{slug}', [PagesController::class, 'housingProfile'])
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->name('admin.')->group(function() {
-    Route::get('/', [AdminPagesController::class, 'home'])->name('home');
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
+    Route::name('admin.')->group(function() {
+        Route::get('/', [AdminPagesController::class, 'home'])->name('home');
+    });
 });
