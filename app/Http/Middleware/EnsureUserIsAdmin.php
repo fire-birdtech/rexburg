@@ -16,7 +16,6 @@ class EnsureUserIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        // dd($request->user()->roles());
         if (! $request->user()->hasRole('admin'))
         {
             return redirect()->back();

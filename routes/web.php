@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +21,7 @@ Route::get('student-housing/married', [PagesController::class, 'marriedList'])->
 Route::get('student-housing/{slug}', [PagesController::class, 'housingProfile'])->name('housing.profile');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->name('admin.')->group(function() {
+    Route::get('/', [AdminPagesController::class, 'home'])->name('home');
+});
