@@ -25,5 +25,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [PagesControl
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
     Route::name('admin.')->group(function() {
         Route::get('/', [AdminPagesController::class, 'home'])->name('home');
+        Route::get('housing', [AdminPagesController::class, 'housing'])->name('housing');
     });
 });
