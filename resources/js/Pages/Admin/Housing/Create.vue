@@ -12,6 +12,7 @@
                             <div class="mt-1">
                                 <input id="housing-name" name="housing-name" v-model="housing.name" type="text" autocomplete="housing-name" class="max-w-md shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md" />
                             </div>
+                            <jet-input-error :message="housing.errors.name" class="mt-2" />
                         </div>
 
                         <div>
@@ -30,7 +31,7 @@
                                     <transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
                                         <ListboxOptions class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
                                             <ListboxOption as="template" v-for="type in types" :key="type.id" :value="type" v-slot="{ active, selected }">
-                                                <li :class="[active ? 'text-white bg-sky-600' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-8 pr-4']" @click="updateType">
+                                                <li :class="[active ? 'text-white bg-sky-600' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-8 pr-4']" @click="updateHousingType">
                                                     <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">
                                                         {{ type.name }}
                                                     </span>
@@ -44,6 +45,7 @@
                                     </transition>
                                 </div>
                             </Listbox>
+                            <jet-input-error :message="housing.errors.housing_type" class="mt-2" />
                         </div>
 
                         <div class="pt-2">
@@ -63,6 +65,7 @@
     import AppLayout from '@/Layouts/AppLayout';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
     import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';
+    import JetInputError from '@/Jetstream/InputError.vue';
 
     const types = [
         { id: 1, name: 'Single', value: 'single' },
@@ -73,6 +76,7 @@
         components: {
             AppLayout,
             CheckIcon,
+            JetInputError,
             Listbox,
             ListboxButton,
             ListboxLabel,
@@ -84,16 +88,18 @@
             return {
                 housing: this.$inertia.form({
                     name: null,
-                    type: null,
+                    housing_type: null,
                 }),
             }
         },
         methods: {
             createHousing() {
-                console.log(this.housing);
+                this.housing.post(route('admin.housing.store'), {
+                    errorBag: 'createHousing',
+                });
             },
-            updateType() {
-                this.housing.type = this.selected.value;
+            updateHousingType() {
+                this.housing.housing_type = this.selected.value;
             },
         },
         setup() {

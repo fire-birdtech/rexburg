@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPagesController;
+use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
         Route::prefix('housing')->name('housing.')->group(function() {
             Route::get('/', [AdminPagesController::class, 'housing'])->name('index');
             Route::get('create', [AdminPagesController::class, 'housing_create'])->name('create');
+            Route::post('store', [HousingController::class, 'store'])->name('store');
         });
     });
 });

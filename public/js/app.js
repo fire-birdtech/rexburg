@@ -40686,7 +40686,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var links = [{
   name: "Housing",
-  route: route('admin.housing')
+  route: route('admin.housing.index')
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -40718,6 +40718,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
 /* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/index.js");
+/* harmony import */ var _Jetstream_InputError_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/InputError.vue */ "./resources/js/Jetstream/InputError.vue");
+
 
 
 
@@ -40735,6 +40737,7 @@ var types = [{
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__.default,
     CheckIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_3__.CheckIcon,
+    JetInputError: _Jetstream_InputError_vue__WEBPACK_IMPORTED_MODULE_4__.default,
     Listbox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.Listbox,
     ListboxButton: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.ListboxButton,
     ListboxLabel: _headlessui_vue__WEBPACK_IMPORTED_MODULE_2__.ListboxLabel,
@@ -40746,16 +40749,18 @@ var types = [{
     return {
       housing: this.$inertia.form({
         name: null,
-        type: null
+        housing_type: null
       })
     };
   },
   methods: {
     createHousing: function createHousing() {
-      console.log(this.housing);
+      this.housing.post(route('admin.housing.store'), {
+        errorBag: 'createHousing'
+      });
     },
-    updateType: function updateType() {
-      this.housing.type = this.selected.value;
+    updateHousingType: function updateHousingType() {
+      this.housing.housing_type = this.selected.value;
     }
   },
   setup: function setup() {
@@ -44264,6 +44269,8 @@ var _hoisted_12 = {
   "class": "pt-2"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_jet_input_error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-input-error");
+
   var _component_ListboxLabel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ListboxLabel");
 
   var _component_SelectorIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectorIcon");
@@ -44293,7 +44300,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "max-w-md shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.housing.name]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Listbox, {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.housing.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input_error, {
+        message: $data.housing.errors.name,
+        "class": "mt-2"
+      }, null, 8
+      /* PROPS */
+      , ["message"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Listbox, {
         as: "div",
         modelValue: $setup.selected,
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
@@ -44346,7 +44358,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
                           "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([active ? 'text-white bg-sky-600' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-8 pr-4']),
                           onClick: _cache[1] || (_cache[1] = function () {
-                            return $options.updateType && $options.updateType.apply($options, arguments);
+                            return $options.updateHousingType && $options.updateHousingType.apply($options, arguments);
                           })
                         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
                           "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([selected ? 'font-semibold' : 'font-normal', 'block truncate'])
@@ -44389,7 +44401,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input_error, {
+        message: $data.housing.errors.housing_type,
+        "class": "mt-2"
+      }, null, 8
+      /* PROPS */
+      , ["message"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[3] || (_cache[3] = function () {
           return $options.createHousing && $options.createHousing.apply($options, arguments);
         }),
