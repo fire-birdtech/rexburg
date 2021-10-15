@@ -20,13 +20,13 @@ class CreateHousingsTable extends Migration
             $table->string('bathroom_range')->nullable();
             $table->string('bedroom_range')->nullable();
             $table->string('city')->nullable();
-            $table->string('cover_image_url')->nullable();
+            $table->string('cover_image_path', 2048)->nullable();
             $table->string('email_address')->nullable();
             $table->string('housing_type');
             $table->string('name');
             $table->string('phone_number')->nullable();
             $table->string('postal_code')->nullable();
-            $table->string('profile_image_url')->nullable();
+            $table->string('profile_image_path', 2048)->nullable();
             $table->string('rent_range')->nullable();
             $table->string('slug');
             $table->string('street')->nullable();
