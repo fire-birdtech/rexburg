@@ -25,6 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [PagesControl
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
     Route::name('admin.')->group(function() {
         Route::get('/', [AdminPagesController::class, 'home'])->name('home');
-        Route::get('housing', [AdminPagesController::class, 'housing'])->name('housing');
+        Route::prefix('housing')->name('housing.')->group(function() {
+            Route::get('/', [AdminPagesController::class, 'housing'])->name('index');
+            Route::get('create', [AdminPagesController::class, 'housing_create'])->name('create');
+        });
     });
 });

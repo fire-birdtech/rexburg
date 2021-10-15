@@ -4,11 +4,11 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <h2>Housing</h2>
                 <div class="py-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <button type="button" class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <Link :href="route('admin.housing.create')" class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span class="mt-2 block text-sm font-medium text-gray-900">
                             Create housing
                         </span>
-                    </button>
+                    </Link>
                     <Link href="#">
                         <div class="relative shadow-xl rounded-xl overflow-hidden min-h-full group">
                             <div class="absolute inset-0">
