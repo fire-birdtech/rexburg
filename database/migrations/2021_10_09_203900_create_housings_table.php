@@ -33,7 +33,7 @@ class CreateHousingsTable extends Migration
             $table->string('street')->nullable();
             $table->string('tenant_rating')->nullable();
             $table->string('website_url')->nullable();
-            $table->foreignId('user_id')->references('id')->on('users')->nullable();
+            $table->foreignId('user_id')->nullable()->references('id')->on('users');
             $table->timestamps();
         });
     }
