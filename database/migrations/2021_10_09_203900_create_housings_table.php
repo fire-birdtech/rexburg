@@ -19,6 +19,7 @@ class CreateHousingsTable extends Migration
             $table->json('amenities')->nullable();
             $table->string('bathroom_range')->nullable();
             $table->string('bedroom_range')->nullable();
+            $table->boolean('byui_approved')->nullable();
             $table->string('city')->nullable();
             $table->string('cover_image_path', 2048)->nullable();
             $table->string('email_address')->nullable();

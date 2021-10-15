@@ -16,6 +16,7 @@ class Housing extends Model
         'amenities',
         'bathroom_range',
         'bedroom_range',
+        'byui_approved',
         'city',
         'cover_image_url',
         'email_address',
