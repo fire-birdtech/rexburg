@@ -30,7 +30,7 @@
     import { ChevronRightIcon } from '@heroicons/vue/outline';
 
     const links = [
-        { name: "Housing", route: route('admin.housing') },
+        { name: "Housing", route: route('admin.housing.index') },
     ];
 
     export default {
