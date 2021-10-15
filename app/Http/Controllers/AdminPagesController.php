@@ -14,6 +14,6 @@ class AdminPagesController extends Controller
 
     public function housing()
     {
-        return Inertia::render('Admin/Housing');
+        return Inertia::render('Admin/Housing/Index');
     }
 }
