@@ -63,6 +63,28 @@ class Housing extends Model
     }
 
     /**
+     * Scope a query to only include single housing type.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeSingleHousing($query)
+    {
+        return $query->where('housing_type', 'single');
+    }
+
+    /**
+     * Scope a query to only include married housing type.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeMarriedHousing($query)
+    {
+        return $query->where('housing_type', 'married');
+    }
+
+    /**
      * Get all of the housing's reviews.
      */
     public function reviews()

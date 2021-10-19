@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Housing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -19,6 +20,7 @@ class PagesController extends Controller
     public function singleList()
     {
         return Inertia::render('StudentHousing/List', [
+            'housing' => Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
@@ -27,6 +29,7 @@ class PagesController extends Controller
     public function marriedList()
     {
         return Inertia::render('StudentHousing/List', [
+            'housing' => Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
