@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\HasCoverImage;
+use App\Traits\HasProfileImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -9,7 +11,7 @@ use Spatie\Sluggable\SlugOptions;
 
 class Housing extends Model
 {
-    use HasFactory, HasSlug;
+    use HasCoverImage, HasFactory, HasProfileImage, HasSlug;
 
     protected $fillable = [
         'about',
@@ -18,18 +20,26 @@ class Housing extends Model
         'bedroom_range',
         'byui_approved',
         'city',
-        'cover_image_url',
         'email_address',
         'housing_type',
         'name',
         'phone_number',
         'postal_code',
-        'profile_image_url',
         'rent_range',
         'slug',
         'street',
         'tenant_rating',
         'website_url',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'cover_image_url',
+        'profile_image_url',
     ];
 
     /**
