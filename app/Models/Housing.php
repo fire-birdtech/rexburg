@@ -93,6 +93,14 @@ class Housing extends Model
     }
 
     /**
+     * Get all of the housing's amenities.
+     */
+    public function amenities()
+    {
+        return $this->hasMany(Amenity::class);
+    }
+
+    /**
      * Get the housing's manager
      */
     public function manager()
