@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
 use App\Models\Housing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,16 @@ class PagesController extends Controller
         return Inertia::render('StudentHousing/Profile', [
             'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['reviews', 'manager'])->first(),
             'isAdmin' => auth()->user() ? $request->user()->hasRole('admin') : false,
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
+    }
+
+    public function housingProfileEdit(Request $request)
+    {
+        return Inertia::render('StudentHousing/Edit', [
+            'housing' => Housing::where('slug', $request->slug)->with('amenities')->first(),
+            'amenities' => Amenity::orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);

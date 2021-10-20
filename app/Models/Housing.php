@@ -97,7 +97,7 @@ class Housing extends Model
      */
     public function amenities()
     {
-        return $this->hasMany(Amenity::class);
+        return $this->belongsToMany(Amenity::class);
     }
 
     /**
