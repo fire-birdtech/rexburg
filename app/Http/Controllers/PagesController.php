@@ -29,15 +29,17 @@ class PagesController extends Controller
     public function marriedList()
     {
         return Inertia::render('StudentHousing/List', [
-            'housing' => Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
+            'listing' => Housing::marriedHousing()->withCount('reviews')->with('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
     }
 
-    public function housingProfile()
+    public function housingProfile(Request $request)
     {
         return Inertia::render('StudentHousing/Profile', [
+            'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['reviews', 'manager'])->first(),
+            'isAdmin' => auth()->user() ? $request->user()->hasRole('admin') : false,
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);

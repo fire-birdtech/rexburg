@@ -91,4 +91,12 @@ class Housing extends Model
     {
         return $this->morphMany(Review::class, 'reviewable');
     }
+
+    /**
+     * Get the housing's manager
+     */
+    public function manager()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
