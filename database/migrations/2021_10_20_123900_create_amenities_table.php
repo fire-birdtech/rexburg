@@ -15,6 +15,8 @@ class CreateAmenitiesTable extends Migration
     {
         Schema::create('amenities', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('single_housing')->default('true');
             $table->timestamps();
         });
     }
