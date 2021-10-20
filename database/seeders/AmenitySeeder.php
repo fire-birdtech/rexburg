@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Amenity;
 use Illuminate\Database\Seeder;
 
 class AmenitySeeder extends Seeder
@@ -47,5 +48,11 @@ class AmenitySeeder extends Seeder
             'Online Payments',
             'Recreation Room(s)'
         ];
+
+        foreach($amenities as $amenity) {
+            Amenity::create([
+                'name' => $amenity,
+            ]);
+        }
     }
 }
