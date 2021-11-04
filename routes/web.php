@@ -21,7 +21,10 @@ Route::get('student-housing/single', [PagesController::class, 'singleList'])->na
 Route::get('student-housing/married', [PagesController::class, 'marriedList'])->name('housing.married');
 Route::get('student-housing/{slug}', [PagesController::class, 'housingProfile'])->name('housing.profile');
 
-Route::middleware(['auth:sanctum', 'verified', 'adminOrManager'])->get('student-housing/{slug}/edit', [PagesController::class, 'housingProfileEdit'])->name('housing.profile.edit');
+Route::middleware(['auth:sanctum', 'verified', 'adminOrManager'])->group(function () {
+    Route::get('student-housing/{slug}/edit', [PagesController::class, 'housingProfileEdit'])->name('housing.profile.edit');
+    Route::put('student-housing', [HousingController::class, 'update'])->name('housing.profile.update');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
 

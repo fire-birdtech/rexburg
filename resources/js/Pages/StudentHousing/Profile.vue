@@ -7,7 +7,7 @@
             <div class="-mt-12 sm:-mt-16 sm:flex sm:items-start">
                 <div class="sm:flex sm:items-end sm:space-x-5">
                     <div class="flex">
-                        <img class="h-24 w-24 rounded-full ring-4 ring-gray-100 sm:h-32 sm:w-32" :src="housing.profile_image_url" :alt="housing.name" />
+                        <img @click="showAmenities" class="h-24 w-24 rounded-full ring-4 ring-gray-100 sm:h-32 sm:w-32" :src="housing.profile_image_url" :alt="housing.name" />
                     </div>
                     <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                         <div class="flex items-center sm:hidden md:flex mt-6 min-w-0 flex-1">
@@ -37,7 +37,7 @@
                                 <div class="text-xl font-bold text-sky-600">Contact {{ housing.name }}</div>
                                 <template v-if="housing.website_url !== null">
                                     <div class="mt-6 w-full">
-                                        <a :href="housing.website_url" target="_blank" rel="noopener noreferrer" class="block w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-base text-center font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                                        <a :href="`https://${housing.website_url}`" target="_blank" rel="noopener noreferrer" class="block w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-base text-center font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
                                             Visit website
                                         </a>
                                     </div>
@@ -118,19 +118,19 @@
                             </div>
                         </div>
                         <div class="mt-12 space-y-12">
-                            <!-- <div>
+                            <div>
                                 <h2 class="text-3xl">Amenities</h2>
                                 <div class="py-4">
                                     <dl class="grid grid-cols-1 gap-y-4 sm:gap-y-2 gap-x-3 sm:grid-cols-2 md:grid-cols-3">
                                         <div v-for="(amenity, index) in housing.amenities" :key={index} class="sm:col-span-1">
                                             <dd class="flex mt-1 text-base leading-5 text-gray-900">
                                                 <CheckCircleIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-sky-500" />
-                                                {{ amenity }}
+                                                {{ amenity.name }}
                                             </dd>
                                         </div>
                                     </dl>
                                 </div>
-                            </div> -->
+                            </div>
                             <div v-if="housing.about">
                                 <h2 class="text-3xl">About {{ housing.name }}</h2>
                                 <div class="mt-4 prose prose-lg" v-html="housing.about"></div>
@@ -259,6 +259,11 @@
                     this.housing.email_address !== null
                 );
             },
+        },
+        methods: {
+            showAmenities() {
+                console.log(this.housing.amenities);
+            }
         },
     }
 </script>
