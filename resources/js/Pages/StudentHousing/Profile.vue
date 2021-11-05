@@ -7,7 +7,7 @@
             <div class="-mt-12 sm:-mt-16 sm:flex sm:items-start">
                 <div class="sm:flex sm:items-end sm:space-x-5">
                     <div class="flex">
-                        <img @click="showAmenities" class="h-24 w-24 rounded-full ring-4 ring-gray-100 sm:h-32 sm:w-32" :src="housing.profile_image_url" :alt="housing.name" />
+                        <img class="h-24 w-24 rounded-full ring-4 ring-gray-100 sm:h-32 sm:w-32" :src="housing.profile_image_url" :alt="housing.name" />
                     </div>
                     <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                         <div class="flex items-center sm:hidden md:flex mt-6 min-w-0 flex-1">

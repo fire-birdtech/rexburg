@@ -48468,9 +48468,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8
       /* PROPS */
       , _hoisted_1)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        onClick: _cache[0] || (_cache[0] = function () {
-          return $options.showAmenities && $options.showAmenities.apply($options, arguments);
-        }),
         "class": "h-24 w-24 rounded-full ring-4 ring-gray-100 sm:h-32 sm:w-32",
         src: $props.housing.profile_image_url,
         alt: $props.housing.name
