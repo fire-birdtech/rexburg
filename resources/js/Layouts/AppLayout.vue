@@ -14,7 +14,7 @@
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <Link :href="route('home')" :active="route().current('home')">
-                                    <jet-application-mark class="block h-9 w-auto" />
+                                    <jet-application-mark class="block h-6 w-auto" />
                                 </Link>
                             </div>
 
