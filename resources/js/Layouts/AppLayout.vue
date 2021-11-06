@@ -2,7 +2,8 @@
     <div>
         <Head :title="title" />
 
-        <jet-banner />
+        <!-- <jet-banner /> -->
+        
 
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-sky-500">
@@ -167,6 +168,7 @@
                 <slot></slot>
             </main>
         </div>
+        <Notification />
     </div>
 </template>
 
@@ -180,6 +182,7 @@
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
     import { ChevronDownIcon, UserIcon, UsersIcon } from '@heroicons/vue/solid';
+    import Notification from '@/Components/Notification';
 
     const housing = [
         { name: "Single Housing", href: route('housing.single'), icon: UserIcon },
@@ -203,6 +206,7 @@
             JetNavLink,
             JetResponsiveNavLink,
             Link,
+            Notification,
             Popover,
             PopoverButton,
             PopoverPanel,

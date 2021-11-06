@@ -22,7 +22,6 @@ class HousingController extends Controller
 
     public function update(Request $request)
     {
-        // return response()->json($request['amenities']);
         $request->validateWithBag('updateHousingInformation', [
             'about' => ['nullable', 'string'],
             'bathroom_range' => ['nullable', 'string'],
@@ -74,6 +73,7 @@ class HousingController extends Controller
 
         return $request->wantsJson()
                     ? new JsonResponse('', 200)
-                    : back()->with('status', 'housing-information-updated');
+                    : back()->with('status', 'housing-information-updated')
+                        ->banner('Profile updated successfully!');
     }
 }
