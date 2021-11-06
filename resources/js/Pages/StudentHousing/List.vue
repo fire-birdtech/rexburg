@@ -5,7 +5,7 @@
                 <div v-for="(listing, index) in housing" :key="index">
                     <Link :href="route('housing.profile', [listing.slug])">
                         <div class="bg-white overflow-hidden shadow hover:shadow-lg rounded-lg transform duration-200 hover:-translate-y-1">
-                            <img :src="listing.cover_image_url" alt="" class="rounded-t-lg">
+                            <img :src="listing.cover_image_url" alt="" class="rounded-t-lg h-64">
                             <div class="px-4 py-5 sm:p-6">
                                 <h3 class="text-lg leading-6 font-semibold text-gray-900">{{ listing.name }}</h3>
                                 <div class="mt-1">
