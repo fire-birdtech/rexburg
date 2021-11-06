@@ -18,7 +18,7 @@ class Review extends Model
     ];
 
     /**
-     * Get the parent commentable model (only housing for now).
+     * Get the parent reviewable model (only housing for now).
      */
     public function reviewable()
     {
