@@ -19,7 +19,7 @@
                             </div>
 
                             <!-- Navigation Links -->
-                            <div class="hidden ml-10 space-x-8 lg:flex lg:items-center">
+                            <div class="hidden ml-10 space-x-2 lg:flex lg:items-center">
                                 <jet-nav-link v-if="$page.props.user" :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>

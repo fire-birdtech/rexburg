@@ -43411,7 +43411,7 @@ var _hoisted_6 = {
   "class": "flex-shrink-0 flex items-center"
 };
 var _hoisted_7 = {
-  "class": "hidden ml-10 space-x-8 lg:flex lg:items-center"
+  "class": "hidden ml-10 space-x-2 lg:flex lg:items-center"
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Dashboard ");
