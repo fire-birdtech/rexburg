@@ -33,9 +33,28 @@
                             </div>
                             <div v-if="$page.props.user" class="bg-gray-50 px-4 py-3 sm:px-6">
                                 <p class="text-sm leading-5 text-gray-500">Friends who've lived here</p>
-                                <!-- <div class="flex -space-x-1 overflow-hidden mt-2">
-                                    <img v-for="(friend, index) in listing.friends" :key="index" :src="friend.profile_photo_url" alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
-                                </div> -->
+                                <template v-if="listing.friends">
+                                    <div class="flex -space-x-1 overflow-hidden mt-2">
+                                        <img v-for="(friend, index) in listing.friends" :key="index" :src="friend.profile_photo_url" alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
+                                    </div>
+                                </template>
+                                <template v-else>
+                                    <div class="flex overflow-hidden mt-2">
+                                        <div class="flex justify-start items-center w-full py-1">
+                                            <div class="flex-shrink-0">
+                                                <UserGroupIcon class="h-6 w-6 text-sky-500" aria-hidden="true" />
+                                            </div>
+                                            <div class="ml-3 w-0 flex-1 inline-flex items-center pt-0.5">
+                                                <p class="text-sm font-medium text-gray-500">
+                                                    No friends to display
+                                                </p>
+                                                <button type="button" class="ml-auto inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-sky-800 bg-sky-200 hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                                                    Find friends
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
                             </div>
                         </div>
                     </Link>
@@ -48,11 +67,13 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { Link } from '@inertiajs/inertia-vue3';
+    import { UserGroupIcon } from'@heroicons/vue/solid';
     
     export default {
         components: {
             AppLayout,
             Link,
+            UserGroupIcon,
         },
         props: {
             housing: Array,
