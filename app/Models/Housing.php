@@ -116,4 +116,12 @@ class Housing extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get the housing's claim
+     */
+    public function claim()
+    {
+        return $this->morphOne(Claim::class, 'claimable');
+    }
 }
