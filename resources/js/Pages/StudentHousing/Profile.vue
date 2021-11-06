@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="mt-12 space-y-12">
-                            <div>
+                            <div v-if="housing.amenities.length">
                                 <h2 class="text-3xl">Amenities</h2>
                                 <div class="py-4">
                                     <dl class="grid grid-cols-1 gap-y-4 sm:gap-y-2 gap-x-3 sm:grid-cols-2 md:grid-cols-3">
