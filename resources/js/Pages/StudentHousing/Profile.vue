@@ -18,7 +18,8 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="$page.props.user" class="ml-auto">
+                <div v-if="$page.props.user" class="ml-auto space-x-4">
+                    <button @click="createClaim" v-if="$page.props.user && ! isClaimed" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0">Claim</button>
                     <Link :href="route('housing.profile.edit', [housing.slug])" v-if="(housing.manager?.id === $page.props.user.id) || isAdmin" type="button" class="mt-3 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0">
                         Edit profile
                     </Link>
@@ -260,10 +261,20 @@
                 );
             },
         },
-        methods: {
-            showAmenities() {
-                console.log(this.housing.amenities);
+        data() {
+            return {
+                form: this.$inertia.form({
+                    'housing_id': this.housing.id,
+                }),
+                isClaimed: this.housing.manager || this.housing.claim,
             }
+        },
+        methods: {
+            createClaim() {
+                this.form.post(route('claims.create'), {
+                    onSuccess: () => (this.isClaimed = true),
+                });
+            },
         },
     }
 </script>

@@ -15,6 +15,9 @@ class CreateClaimsTable extends Migration
     {
         Schema::create('claims', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users')->index();
+            $table->morphs('claimable');
+            $table->string('verification_code');
             $table->timestamps();
         });
     }

@@ -42103,9 +42103,23 @@ __webpack_require__.r(__webpack_exports__);
       return this.housing.website_url !== null || this.housing.phone_number !== null || this.housing.email_address !== null;
     }
   },
+  data: function data() {
+    return {
+      form: this.$inertia.form({
+        'housing_id': this.housing.id
+      }),
+      isClaimed: this.housing.manager || this.housing.claim
+    };
+  },
   methods: {
-    showAmenities: function showAmenities() {
-      console.log(this.housing.amenities);
+    createClaim: function createClaim() {
+      var _this = this;
+
+      this.form.post(route('claims.create'), {
+        onSuccess: function onSuccess() {
+          return _this.isClaimed = true;
+        }
+      });
     }
   }
 });
@@ -48309,7 +48323,7 @@ var _hoisted_9 = {
 };
 var _hoisted_10 = {
   key: 0,
-  "class": "ml-auto"
+  "class": "ml-auto space-x-4"
 };
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Edit profile ");
@@ -48661,8 +48675,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.housing.name), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <BadgeCheckIcon v-if=\"housing.verified\" class=\"ml-4 h-6 w-6 text-sky-500\" /> ")])])]), _ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [((_$props$housing$manag = $props.housing.manager) === null || _$props$housing$manag === void 0 ? void 0 : _$props$housing$manag.id) === _ctx.$page.props.user.id || $props.isAdmin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <BadgeCheckIcon v-if=\"housing.verified\" class=\"ml-4 h-6 w-6 text-sky-500\" /> ")])])]), _ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [_ctx.$page.props.user && !$data.isClaimed ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
         key: 0,
+        onClick: _cache[0] || (_cache[0] = function () {
+          return $options.createClaim && $options.createClaim.apply($options, arguments);
+        }),
+        "class": "inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0"
+      }, "Claim")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), ((_$props$housing$manag = $props.housing.manager) === null || _$props$housing$manag === void 0 ? void 0 : _$props$housing$manag.id) === _ctx.$page.props.user.id || $props.isAdmin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+        key: 1,
         href: _ctx.route('housing.profile.edit', [$props.housing.slug]),
         type: "button",
         "class": "mt-3 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0"

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPagesController;
+use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,11 @@ Route::middleware(['auth:sanctum', 'verified', 'adminOrManager'])->group(functio
     Route::put('student-housing', [HousingController::class, 'update'])->name('housing.profile.update');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+    Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
+    Route::post('claim', [ClaimController::class, 'create'])->name('claims.create');
+});
+
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
     Route::name('admin.')->group(function() {
