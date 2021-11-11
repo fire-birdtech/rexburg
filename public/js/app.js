@@ -48335,7 +48335,7 @@ var _hoisted_13 = {
   "class": "text-3xl font-bold text-gray-900 truncate"
 };
 var _hoisted_14 = {
-  "class": "md:flex"
+  "class": "lg:flex"
 };
 var _hoisted_15 = {
   key: 0,
@@ -48372,10 +48372,10 @@ var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_27 = {
-  "class": "hidden mt-4 md:flex md:items-center"
+  "class": "hidden mt-4 xl:flex xl:items-center"
 };
 var _hoisted_28 = {
-  "class": "ml-2 text-lg font-mediu text-gray-700"
+  "class": "ml-2 text-base lg:text-lg font-medium text-gray-700"
 };
 var _hoisted_29 = {
   "class": "mt-8 lg:w-2/3 md:mt-2 md:order-1"
@@ -48432,7 +48432,7 @@ var _hoisted_43 = {
   "class": "px-4 md:py-4 md:px-0 flex flex-col w-full md:flex-row items-center divide-y-2 md:divide-x-2 md:divide-y-0 divide-gray-400"
 };
 var _hoisted_44 = {
-  "class": "flex flex-col items-center w-full py-4 md:px-12 md:py-0"
+  "class": "flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0"
 };
 
 var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -48445,7 +48445,7 @@ var _hoisted_46 = {
   "class": "text-2xl text-gray-700 font-medium"
 };
 var _hoisted_47 = {
-  "class": "flex flex-col items-center w-full py-4 md:px-12 md:py-0"
+  "class": "flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0"
 };
 
 var _hoisted_48 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -48458,7 +48458,7 @@ var _hoisted_49 = {
   "class": "text-2xl text-gray-700 font-medium"
 };
 var _hoisted_50 = {
-  "class": "flex flex-col items-center w-full py-4 md:px-12 md:py-0"
+  "class": "flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0"
 };
 
 var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -48487,7 +48487,7 @@ var _hoisted_56 = {
   "class": "py-4"
 };
 var _hoisted_57 = {
-  "class": "grid grid-cols-1 gap-y-4 sm:gap-y-2 gap-x-3 sm:grid-cols-2 md:grid-cols-3"
+  "class": "grid grid-cols-1 gap-y-4 sm:gap-y-2 gap-x-3 sm:grid-cols-2 xl:grid-cols-3"
 };
 var _hoisted_58 = {
   "class": "flex mt-1 text-base leading-5 text-gray-900"
@@ -48728,7 +48728,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         key: 2
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
         href: "mailto:".concat($props.housing.email_address),
-        "class": "mt-4 inline-flex md:hidden justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        "class": "mt-4 inline-flex xl:hidden justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MailIcon, {
         "class": "-ml-1 mr-2 h-5 w-5 text-gray-400",
         "aria-hidden": "true"

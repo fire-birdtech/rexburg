@@ -30,7 +30,7 @@
                     {{ housing.name }}
                 </h1>
             </div>
-            <div class="md:flex">
+            <div class="lg:flex">
                 <aside v-if="contactNotNull" class="mt-8 md:w-1/3 md:order-2">
                     <div class="sticky top-12">
                         <div class="rounded-xl border-2 border-gray-400 p-4">
@@ -54,13 +54,13 @@
                                     </div>
                                 </template>
                                 <template v-if="housing.email_address !== null">
-                                    <a :href="`mailto:${housing.email_address}`" class="mt-4 inline-flex md:hidden justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                    <a :href="`mailto:${housing.email_address}`" class="mt-4 inline-flex xl:hidden justify-center w-full px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                                         <MailIcon class="-ml-1 mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
                                         <span>Send an email</span>
                                     </a>
-                                    <div class="hidden mt-4 md:flex md:items-center">
+                                    <div class="hidden mt-4 xl:flex xl:items-center">
                                         <MailOutlineIcon class="flex-shrink-0 w-6 h-6 text-gray-500" />
-                                        <span class="ml-2 text-lg font-mediu text-gray-700">{{ housing.email_address }}</span>
+                                        <span class="ml-2 text-base lg:text-lg font-medium text-gray-700">{{ housing.email_address }}</span>
                                     </div>
                                 </template>
                             </div>
@@ -104,15 +104,15 @@
                         </div>
                         <div class="mt-8 flex md:inline-flex w-auto border border-gray-400 rounded-md">
                             <div class="px-4 md:py-4 md:px-0 flex flex-col w-full md:flex-row items-center divide-y-2 md:divide-x-2 md:divide-y-0 divide-gray-400">
-                                <div class="flex flex-col items-center w-full py-4 md:px-12 md:py-0">
+                                <div class="flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0">
                                     <div class="text-lg text-gray-500">Semesterly Rent</div>
                                     <div class="text-2xl text-gray-700 font-medium">{{ housing.rent_range }}</div>
                                 </div>
-                                <div class="flex flex-col items-center w-full py-4 md:px-12 md:py-0">
+                                <div class="flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0">
                                     <div class="text-lg text-gray-500">Bedrooms</div>
                                     <div class="text-2xl text-gray-700 font-medium">{{ housing.bedroom_range }} bd</div>
                                 </div>
-                                <div class="flex flex-col items-center w-full py-4 md:px-12 md:py-0">
+                                <div class="flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0">
                                     <div class="text-lg text-gray-500">Bathrooms</div>
                                     <div class="text-2xl text-gray-700 font-medium">{{ housing.bathroom_range }} ba</div>
                                 </div>
@@ -122,7 +122,7 @@
                             <div v-if="housing.amenities.length">
                                 <h2 class="text-3xl">Amenities</h2>
                                 <div class="py-4">
-                                    <dl class="grid grid-cols-1 gap-y-4 sm:gap-y-2 gap-x-3 sm:grid-cols-2 md:grid-cols-3">
+                                    <dl class="grid grid-cols-1 gap-y-4 sm:gap-y-2 gap-x-3 sm:grid-cols-2 xl:grid-cols-3">
                                         <div v-for="(amenity, index) in housing.amenities" :key={index} class="sm:col-span-1">
                                             <dd class="flex mt-1 text-base leading-5 text-gray-900">
                                                 <CheckCircleIcon class="flex-shrink-0 mr-1.5 h-5 w-5 text-sky-500" />
