@@ -19,7 +19,6 @@
                                         About
                                     </label>
                                     <div class="mt-1">
-                                        <!-- <textarea id="about" name="about" rows="8" v-model="currentHousing.about" class="shadow-sm focus:ring-sky-500 focus:border-sky-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" /> -->
                                         <text-editor
                                             :value="currentHousing.about"
                                             @input="updateAbout($event)"
