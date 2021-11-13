@@ -124,4 +124,12 @@ class Housing extends Model
     {
         return $this->morphOne(Claim::class, 'claimable');
     }
+
+    /**
+     * Get the housing's users that have lived in the housing
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

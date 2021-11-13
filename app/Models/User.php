@@ -77,4 +77,12 @@ class User extends Authenticatable
         }
             return false;
     }
+
+    /**
+     * Get the housings that the user has lived at
+     */
+    public function housings()
+    {
+        return $this->belongsToMany(Housing::class);
+    }
 }
