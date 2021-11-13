@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReviewsTable extends Migration
+class AddScoreToHousingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->longText('body');
-            $table->integer('rating');
-            $table->morphs('reviewable');
-            $table->timestamps();
+        Schema::table('housings', function (Blueprint $table) {
+            $table->decimal('score', 2, 1)->nullable()->after('rent_range');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::table('housings', function (Blueprint $table) {
+            $table->dropColumn('score');
+        });
     }
 }

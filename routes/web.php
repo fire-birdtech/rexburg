@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified', 'adminOrManager'])->group(functio
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
     Route::post('claim', [ClaimController::class, 'create'])->name('claims.create');
+    Route::post('review', [ReviewController::class, 'create'])->name('reviews.create');
 });
 
 
