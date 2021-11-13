@@ -137,7 +137,7 @@
                                 <template v-if="housing.reviews_count > 0">
                                     <div class="mt-8 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-12 ">
                                         <div class="flex flex-col rounded-md border-2 border-sky-800">
-                                            <div class="flex-1 flex flex-col items-center px-10 py-6 text-sky-500">
+                                            <div class="flex-1 flex flex-col items-center justify-center px-10 py-6 text-sky-500">
                                                 <div class="text-6xl font-medium">{{ housing.score }}</div>
                                                 <div class="text-3xl">{{ scoredescription }}</div>
                                             </div>

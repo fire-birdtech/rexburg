@@ -48614,7 +48614,7 @@ var _hoisted_65 = {
   "class": "flex flex-col rounded-md border-2 border-sky-800"
 };
 var _hoisted_66 = {
-  "class": "flex-1 flex flex-col items-center px-10 py-6 text-sky-500"
+  "class": "flex-1 flex flex-col items-center justify-center px-10 py-6 text-sky-500"
 };
 var _hoisted_67 = {
   "class": "text-6xl font-medium"
