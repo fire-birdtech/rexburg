@@ -98,7 +98,7 @@
                             </div>
                             <span class="text-gray-800 font-bold text-xl">{{ housing.score }}</span>
                         </div>
-                        <div class="mt-8 flex md:inline-flex w-auto border border-gray-400 rounded-md">
+                        <div class="mt-8 flex md:inline-flex w-full max-w-3xl border border-gray-400 rounded-md">
                             <div class="px-4 md:py-4 md:px-0 flex flex-col w-full md:flex-row items-center divide-y-2 md:divide-x-2 md:divide-y-0 divide-gray-400">
                                 <div class="flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0">
                                     <div class="text-lg text-gray-500">Semesterly Rent</div>
