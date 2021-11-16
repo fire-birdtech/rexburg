@@ -85,4 +85,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Housing::class);
     }
+
+    /**
+     * Get the reviews that the user made
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class)->with('reviewable');
+    }
 }
