@@ -281,6 +281,7 @@
     import { AnnotationIcon, DeviceMobileIcon, MailIcon as MailOutlineIcon } from '@heroicons/vue/outline';
     import TextEditor from '@/Components/TextEditor';
     import Stars from '@/Components/Stars';
+    import JetInputError from '@/Jetstream/InputError';
 
     const ratings = [
         { name: "5" },
