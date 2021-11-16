@@ -240,6 +240,7 @@
                                                                     </div>
                                                                 </RadioGroup>
                                                             </div>
+                                                            <jet-input-error :message="review.errors.rating" class="mt-1" />
                                                             <div class="mt-4">
                                                                 <text-editor
                                                                     :value="review.body"
