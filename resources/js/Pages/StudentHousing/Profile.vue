@@ -11,7 +11,7 @@
                     </div>
                     <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                         <div class="flex items-center sm:hidden md:flex mt-6 min-w-0 flex-1">
-                            <h1 class="text-2xl md:text-4xl font-bold text-gray-900 truncate">
+                            <h1 @click="showData" class="text-2xl md:text-4xl font-bold text-gray-900 truncate">
                                 {{ housing.name }}
                             </h1>
                             <!-- <BadgeCheckIcon v-if="housing.verified" class="ml-4 h-6 w-6 text-sky-500" /> -->
@@ -406,6 +406,9 @@
                     preserveScroll: true,
                     onSuccess: () => this.clearReview(),
                 });
+            },
+            showData() {
+                console.log(this.housing)
             }
         },
         setup() {
