@@ -23,6 +23,10 @@ class ReviewController extends Controller
             'rating' => $request['rating'],
         ]));
 
+        if ($request['livedHere'] === "Yes") {
+            $housing->users()->sync(auth()->user()->id);
+        }
+
         return $request->wantsJson()
                     ? new JsonResponse('', 200)
                     : back()->with('status', 'claim-created')

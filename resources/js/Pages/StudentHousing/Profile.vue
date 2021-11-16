@@ -1,13 +1,13 @@
 <template>
     <app-layout :canLogin="canLogin" :canRegister="canRegister">
         <div>
-            <img :src="housing.cover_image_url" :alt="housing.name" class="h-32 w-full object-cover lg:h-56">
+            <img :src="housing.cover_image_url" :alt="housing.name" class="h-32 w-full object-cover lg:h-56 bg-gray-300">
         </div>
         <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="-mt-12 sm:-mt-16 sm:flex sm:items-start">
                 <div class="sm:flex sm:items-end sm:space-x-5">
                     <div class="flex">
-                        <img class="h-24 w-24 rounded-full ring-4 ring-gray-100 sm:h-32 sm:w-32" :src="housing.profile_image_url" :alt="housing.name" />
+                        <img class="h-24 w-24 rounded-full ring-4 ring-gray-100 sm:h-32 sm:w-32 bg-gray-300" :src="housing.profile_image_url" :alt="housing.name" />
                     </div>
                     <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                         <div class="flex items-center sm:hidden md:flex mt-6 min-w-0 flex-1">
@@ -228,7 +228,7 @@
                                                             </DialogTitle>
                                                             <div class="mt-6">
                                                                 <RadioGroup v-model="activeRating" class="mt-2">
-                                                                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                                                                    <div class="grid grid-cols-3 gap-4 sm:grid-cols-6">
                                                                         <RadioGroupOption as="template" v-for="rating in ratings" :key="rating.name" :value="rating" v-slot="{ active, checked }">
                                                                             <div @click="updateRating(rating)" :class="[active ? 'ring-2 ring-offset-2 ring-sky-500' : '', checked ? 'bg-sky-600 border-transparent text-white hover:bg-sky-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50', 'cursor-pointer focus:outline-none border rounded-md py-3 px-3 flex flex-col items-center justify-center text-sm font-medium uppercase sm:flex-1']">
                                                                                 <RadioGroupLabel as="p" class="inline-flex items-center text-base">
@@ -247,9 +247,23 @@
                                                                     @input="updateBody($event)"
                                                                 />
                                                             </div>
+                                                            <div class="mt-4">
+                                                                <p>Have you lived at {{ housing.name }}?</p>
+                                                                <RadioGroup v-model="activeTenantOption" class="mt-2">
+                                                                    <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
+                                                                        <RadioGroupOption as="template" v-for="tenantOption in tenant" :key="tenantOption.name" :value="tenantOption" v-slot="{ active, checked }">
+                                                                            <div @click="updateTenantOption(tenantOption)" :class="[active ? 'ring-2 ring-offset-2 ring-sky-500' : '', checked ? 'bg-sky-600 border-transparent text-white hover:bg-sky-700' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50', 'cursor-pointer focus:outline-none border rounded-md py-2 px-2 flex flex-col items-center justify-center text-sm font-medium uppercase sm:flex-1']">
+                                                                                <RadioGroupLabel as="p" class="inline-flex items-center text-base">
+                                                                                    {{ tenantOption.name }}
+                                                                                </RadioGroupLabel>
+                                                                            </div>
+                                                                        </RadioGroupOption>
+                                                                    </div>
+                                                                </RadioGroup>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="mt-5 sm:ml-10 sm:pl-6 sm:flex">
+                                                    <div class="mt-5 sm:ml-10 sm:pl-6 sm:flex md:mt-8">
                                                         <button @click="submitReview" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-sky-600 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:w-auto">
                                                             Submit review
                                                         </button>
@@ -291,6 +305,11 @@
         { name: "1" },
     ];
 
+    const tenant = [
+        { name: "Yes" },
+        { name: "No" },
+    ];
+
     export default defineComponent({
         components: {
             AnnotationIcon,
@@ -303,6 +322,7 @@
             DialogTitle,
             DeviceMobileIcon,
             HomeIcon,
+            JetInputError,
             Link,
             LocationMarkerIcon,
             MailIcon,
@@ -344,6 +364,7 @@
                     'housing_id': this.housing.id,
                     body: null,
                     rating: null,
+                    livedHere: null,
                 }),
                 isClaimed: this.housing.manager || this.housing.claim,
                 scoredescription: this.calculateDescription(),
@@ -376,8 +397,12 @@
             updateRating(rating) {
                 this.review.rating = Number(rating.name);
             },
+            updateTenantOption(option) {
+                this.review.livedHere = option.name;
+            },
             submitReview() {
                 this.review.post(route('reviews.create'), {
+                    errorBag: 'createReview',
                     preserveScroll: true,
                     onSuccess: () => this.clearReview(),
                 });
@@ -386,10 +411,13 @@
         setup() {
             const open = ref(false);
             const activeRating = ref({});
+            const activeTenantOption = ref({});
             return {
                 activeRating,
+                activeTenantOption,
                 open,
                 ratings,
+                tenant,
             }
         },
     })

@@ -1582,6 +1582,9 @@ select {
 .max-w-2xl {
 	max-width: 42rem;
 }
+.max-w-3xl {
+	max-width: 48rem;
+}
 .flex-1 {
 	flex: 1 1 0%;
 }
@@ -1785,11 +1788,6 @@ select {
 	margin-right: calc(2.5rem * var(--tw-space-x-reverse));
 	margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-y-10 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
-}
 .divide-y > :not([hidden]) ~ :not([hidden]) {
 	--tw-divide-y-reverse: 0;
 	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1992,6 +1990,10 @@ select {
 .bg-sky-100 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(224, 242, 254, var(--tw-bg-opacity));
+}
+.bg-gray-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -2374,6 +2376,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
+.text-sky-500 {
+	--tw-text-opacity: 1;
+	color: rgba(14, 165, 233, var(--tw-text-opacity));
+}
 .text-sky-100 {
 	--tw-text-opacity: 1;
 	color: rgba(224, 242, 254, var(--tw-text-opacity));
@@ -2386,17 +2392,9 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(12, 74, 110, var(--tw-text-opacity));
 }
-.text-sky-500 {
-	--tw-text-opacity: 1;
-	color: rgba(14, 165, 233, var(--tw-text-opacity));
-}
 .text-sky-800 {
 	--tw-text-opacity: 1;
 	color: rgba(7, 89, 133, var(--tw-text-opacity));
-}
-.text-sky-300 {
-	--tw-text-opacity: 1;
-	color: rgba(125, 211, 252, var(--tw-text-opacity));
 }
 .text-sky-400 {
 	--tw-text-opacity: 1;
@@ -2695,10 +2693,6 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(14, 165, 233, var(--tw-border-opacity));
 }
-.focus\:border-sky-300:focus {
-	--tw-border-opacity: 1;
-	border-color: rgba(125, 211, 252, var(--tw-border-opacity));
-}
 .focus\:border-indigo-500:focus {
 	--tw-border-opacity: 1;
 	border-color: rgba(99, 102, 241, var(--tw-border-opacity));
@@ -2991,6 +2985,10 @@ select {
 		flex: 1 1 0%;
 	}
 
+	.sm\:flex-shrink-0 {
+		flex-shrink: 0;
+	}
+
 	.sm\:translate-y-0 {
 		--tw-translate-y: 0px;
 		transform: var(--tw-transform);
@@ -3227,6 +3225,10 @@ select {
 		margin-top: 0.5rem;
 	}
 
+	.md\:mt-8 {
+		margin-top: 2rem;
+	}
+
 	.md\:flex {
 		display: flex;
 	}
@@ -3396,12 +3398,12 @@ select {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 
-	.lg\:grid-cols-3 {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-	}
-
 	.lg\:grid-cols-2 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.lg\:grid-cols-3 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 
 	.lg\:items-center {
