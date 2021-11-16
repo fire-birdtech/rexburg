@@ -11,6 +11,11 @@ class ReviewController extends Controller
 {
     public function create(Request $request)
     {
+        $request->validateWithBag('createReview', [
+            'rating' => ['required'],
+            'body' => ['nullable', 'string'],
+        ]);
+
         $housing = Housing::where('id', $request['housing_id'])->first();
         $housing->reviews()->save(new Review([
             'user_id' => auth()->user()->id,
