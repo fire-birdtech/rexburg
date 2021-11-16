@@ -48411,7 +48411,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = ["src", "alt"];
 var _hoisted_2 = {
-  "class": "max-w-8xl mx-auto px-4 sm:px-6 lg:px-8"
+  "class": "max-w-8xl mx-auto px-4 pb-20 sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
   "class": "-mt-12 sm:-mt-16 sm:flex sm:items-start"
