@@ -3,7 +3,7 @@
         <div>
             <img :src="housing.cover_image_url" :alt="housing.name" class="h-32 w-full object-cover lg:h-56 bg-gray-300">
         </div>
-        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-8xl mx-auto px-4 pb-20 sm:px-6 lg:px-8">
             <div class="-mt-12 sm:-mt-16 sm:flex sm:items-start">
                 <div class="sm:flex sm:items-end sm:space-x-5">
                     <div class="flex">
