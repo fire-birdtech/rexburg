@@ -350,17 +350,11 @@
         },
         methods: {
             calculateDescription() {
-                if (this.housing.score >= 5) {
-                    return "Execllent";
-                } else if (this.housing.score >= 4) {
-                    return "Great";
-                } else if (this.housing.score >= 3) {
-                    return "Good";
-                } else if (this.housing.score >=2) {
-                    return "Okay";
-                } else if (this.housing.score >=1) {
-                    return "Poor";
-                }
+                if (this.housing.score >= 5) { return "Execllent"; }
+                if (this.housing.score >= 4) { return "Great"; }
+                if (this.housing.score >= 3) { return "Good"; }
+                if (this.housing.score >= 2) { return "Okay"; }
+                if (this.housing.score >= 1) { return "Poor"; }
             },
             clearReview() {
                 this.open = false;
