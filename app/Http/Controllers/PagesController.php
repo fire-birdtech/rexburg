@@ -73,7 +73,8 @@ class PagesController extends Controller
     {
         return Inertia::render('Dashboard', [
             'housings' => auth()->user()->housings,
-            'reviews' => auth()->user()->reviews,
+            'managed' => auth()->user()->managed,
+            'reviews' => auth()->user()->reviews->take(3),
         ]);
     }
 }

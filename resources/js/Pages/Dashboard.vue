@@ -2,41 +2,17 @@
     <app-layout title="Dashboard">
         <div class="py-12 px-4 md:px-0">
             <div class="max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
-                <div class="">
+                <div v-if="managed.length">
                     <h2>My properties</h2>
                     <div class="py-2 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                        <Link href="#">
-                            <div class="relative shadow-xl rounded-xl overflow-hidden min-h-full group">
-                                <div class="absolute inset-0">
-                                    <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&h=1200&q=80" alt="" class="h-full w-full object-cover transform transition duration-200 ease-in-out group-hover:scale-110">
-                                    <div class="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-300" :style="{ mixBlendMode: 'multiply' }"></div>
-                                </div>
-                                <div class="relative flex flex-col min-h-full px-4 pt-20 pb-4">
-                                    <div class="flex-grow">
-                                        <p class="font-bold text-white text-lg truncate">Greenleaf Apartments</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
+                        <DashboardReviewable v-for="housing in managed" :key="housing.id" :image="housing.cover_image_url" :name="housing.name" :slug="housing.slug" />
                     </div>
                 </div>
-                <div class="">
+                <div>
                     <h2>Places I've lived</h2>
                     <template v-if="housings.length">
                         <div class="py-2 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                            <Link href="#">
-                                <div class="relative shadow-xl rounded-xl overflow-hidden min-h-full group">
-                                    <div class="absolute inset-0">
-                                        <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&h=1200&q=80" alt="" class="h-full w-full object-cover transform transition duration-200 ease-in-out group-hover:scale-110">
-                                        <div class="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-300" :style="{ mixBlendMode: 'multiply' }"></div>
-                                    </div>
-                                    <div class="relative flex flex-col min-h-full px-4 pt-20 pb-4">
-                                        <div class="flex-grow">
-                                            <p class="font-bold text-white text-lg truncate">Greenleaf Apartments</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
+                            <DashboardReviewable v-for="housing in housings" :key="housing.id" :image="housing.cover_image_url" :name="housing.name" :slug="housing.slug" />
                         </div>
                     </template>
                     <template v-else>
@@ -48,12 +24,12 @@
                         </div>
                     </template>
                 </div>
-                <div class="">
+                <div>
                     <h2>Reviews by me</h2>
                     <template v-if="reviews.length">
                         <div class="py-2 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                             <Link v-for="(review, idx) in reviews" :key="idx" href="#" class="transform duration-200 hover:-translate-y-1">
-                                <div class="bg-white overflow-hidden shadow-xl rounded-xl">
+                                <div class="bg-white shadow-xl rounded-xl">
                                     <div class="px-4 py-5 sm:p-6">
                                         <h3 class="text-lg font-medium text-gray-900 tracking-tight">{{ review.reviewable.name }}</h3>
                                         <div class="mt-2 flex items-center text-sm text-gray-600">
@@ -78,13 +54,15 @@
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { Link } from '@inertiajs/inertia-vue3';
     import Stars from '@/Components/Stars';
+    import DashboardReviewable from '@/Components/DashboardReviewable';
 
     export default {
         components: {
             AppLayout,
+            DashboardReviewable,
             Link,
             Stars,
         },
-        props: ['housings', 'reviews'],
+        props: ['housings', 'managed', 'reviews'],
     }
 </script>

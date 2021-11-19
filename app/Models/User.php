@@ -93,4 +93,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class)->with('reviewable');
     }
+
+    /**
+     * Get the housings which the user manages
+     */
+    public function managed()
+    {
+        return $this->hasMany(Housing::class);
+    }
 }
