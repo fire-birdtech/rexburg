@@ -2,9 +2,6 @@
     <div>
         <Head :title="title" />
 
-        <!-- <jet-banner /> -->
-        
-
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-sky-500">
                 <!-- Primary Navigation Menu -->
@@ -125,8 +122,16 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
+                        <jet-responsive-nav-link v-if="$page.props.user" :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
+                        </jet-responsive-nav-link>
+
+                        <jet-responsive-nav-link :href="route('housing.single')" :active="route().current('housing.single')">
+                            Single Housing
+                        </jet-responsive-nav-link>
+
+                        <jet-responsive-nav-link :href="route('housing.married')" :active="route().current('housing.married')">
+                            Married Housing
                         </jet-responsive-nav-link>
                     </div>
 
@@ -138,18 +143,14 @@
                             </div>
 
                             <div>
-                                <div class="font-medium text-base text-gray-800">{{ $page.props.user?.name }}</div>
-                                <div class="font-medium text-sm text-gray-500">{{ $page.props.user?.email }}</div>
+                                <div class="font-medium text-base text-gray-50">{{ $page.props.user?.name }}</div>
+                                <div class="font-medium text-sm text-gray-100">{{ $page.props.user?.email }}</div>
                             </div>
                         </div>
 
                         <div class="mt-3 space-y-1">
                             <jet-responsive-nav-link :href="route('profile.show')" :active="route().current('profile.show')">
                                 Profile
-                            </jet-responsive-nav-link>
-
-                            <jet-responsive-nav-link :href="route('api-tokens.index')" :active="route().current('api-tokens.index')" v-if="$page.props.jetstream.hasApiFeatures">
-                                API Tokens
                             </jet-responsive-nav-link>
 
                             <!-- Authentication -->
