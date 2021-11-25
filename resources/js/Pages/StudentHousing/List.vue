@@ -35,9 +35,6 @@
                                                 <p class="text-sm font-medium text-gray-500">
                                                     No friends to display
                                                 </p>
-                                                <button type="button" class="ml-auto inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-sky-800 bg-sky-200 hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
-                                                    Find friends
-                                                </button>
                                             </div>
                                         </div>
                                     </div>
