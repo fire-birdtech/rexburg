@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Claim;
 use App\Models\Housing;
+use ClaimStatus;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ class ClaimController extends Controller
         $housing = Housing::where('id', $request['housing_id'])->first();
         $housing->claim()->save(new Claim([
             'user_id' => auth()->user()->id,
+            'status' => ClaimStatus::PENDING,
         ]));
 
         return $request->wantsJson()

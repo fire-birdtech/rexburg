@@ -20,6 +20,9 @@
                                                 Claimed By Email
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Verification Code
                                             </th>
                                             <!-- <th scope="col" class="relative px-6 py-3">
@@ -37,6 +40,18 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{ claim.user.email }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                <template v-if="claim.status === 'pending'">
+                                                    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                                        Pending
+                                                    </span>
+                                                </template>
+                                                <template v-if="claim.status === 'claimed'">
+                                                    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                                        Claimed
+                                                    </span>
+                                                </template>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{ claim.verification_code }}
