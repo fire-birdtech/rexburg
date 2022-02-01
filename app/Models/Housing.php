@@ -126,7 +126,7 @@ class Housing extends Model
     }
 
     /**
-     * Get the housing's users that have lived in the housing
+     * Get the list of users who have lived in the housing
      */
     public function users()
     {

@@ -134,6 +134,7 @@
                             </div>
                             <div>
                                 <ReviewList
+                                    :housing-id="housing.id"
                                     :name="housing.name"
                                     :reviews="housing.reviews"
                                     :reviews-count="housing.reviews_count"
@@ -207,12 +208,6 @@
                 form: this.$inertia.form({
                     'housing_id': this.housing.id,
                 }),
-                review: this.$inertia.form({
-                    'housing_id': this.housing.id,
-                    body: null,
-                    rating: null,
-                    livedHere: null,
-                }),
                 isClaimed: this.housing.manager || this.housing.claim,
                 scoredescription: this.calculateDescription(),
             }
@@ -225,30 +220,9 @@
                 if (this.housing.score >= 2) { return "Okay"; }
                 if (this.housing.score >= 1) { return "Poor"; }
             },
-            clearReview() {
-                this.open = false;
-                this.review.body = null;
-                this.review.rating = null;
-            },
             createClaim() {
                 this.form.post(route('claims.create'), {
                     onSuccess: () => (this.isClaimed = true),
-                });
-            },
-            updateBody(event) {
-                this.review.body = event.target.innerHTML;
-            },
-            updateRating(rating) {
-                this.review.rating = Number(rating.name);
-            },
-            updateTenantOption(option) {
-                this.review.livedHere = option.name;
-            },
-            submitReview() {
-                this.review.post(route('reviews.create'), {
-                    errorBag: 'createReview',
-                    preserveScroll: true,
-                    onSuccess: () => this.clearReview(),
                 });
             },
         },

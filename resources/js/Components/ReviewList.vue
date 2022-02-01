@@ -105,7 +105,7 @@
                                         />
                                     </div>
                                     <div class="mt-4">
-                                        <p>Have you lived at {{ housing.name }}?</p>
+                                        <p>Have you lived at {{ name }}?</p>
                                         <RadioGroup v-model="activeTenantOption" class="mt-2">
                                             <div class="grid grid-cols-3 gap-3 sm:grid-cols-6">
                                                 <RadioGroupOption as="template" v-for="tenantOption in tenant" :key="tenantOption.name" :value="tenantOption" v-slot="{ active, checked }">
@@ -161,6 +161,7 @@
 
     export default {
         props: [
+            'housingId',
             'name',
             'reviews',
             'reviewsCount',
@@ -189,7 +190,36 @@
         data () {
             return {
                 open: false,
+                review: this.$inertia.form({
+                    'housing_id': this.housingId,
+                    body: null,
+                    rating: null,
+                    livedHere: null,
+                }),
             }
+        },
+        methods: {
+            clearReview() {
+                this.open = false;
+                this.review.body = null;
+                this.review.rating = null;
+            },
+            submitReview() {
+                this.review.post(route('reviews.create'), {
+                    errorBag: 'createReview',
+                    preserveScroll: true,
+                    onSuccess: () => this.clearReview(),
+                });
+            },
+            updateBody(event) {
+                this.review.body = event.target.innerHTML;
+            },
+            updateRating(rating) {
+                this.review.rating = Number(rating.name);
+            },
+            updateTenantOption(option) {
+                this.review.livedHere = option.name;
+            },
         },
         setup() {
             const activeRating = ref({});

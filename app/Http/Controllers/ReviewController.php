@@ -24,7 +24,7 @@ class ReviewController extends Controller
         ]));
 
         if ($request['livedHere'] === "Yes") {
-            $housing->users()->sync(auth()->user()->id);
+            $housing->users()->attach(auth()->user()->id);
         }
 
         return $request->wantsJson()

@@ -35,6 +35,7 @@
                 <div class="mt-8 lg:w-2/3 md:mt-2 md:order-1">
                     <div class="md:px-4 md:py-5">
                         <ReviewList
+                            :housing-id="housing.id"
                             :name="housing.name"
                             :reviews="housing.reviews"
                             :reviews-count="housing.reviews_count"
