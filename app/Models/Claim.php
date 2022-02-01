@@ -25,5 +25,13 @@ class Claim extends Model
         return $this->morphTo();
     }
 
+    /**
+     * Get the user who submitted the claim
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     
 }

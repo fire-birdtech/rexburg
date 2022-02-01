@@ -31,6 +31,7 @@
 
     const links = [
         { name: "Housing", route: route('admin.housing.index') },
+        { name: "Claims", route: route('admin.claims.index') },
     ];
 
     export default {

@@ -44,5 +44,6 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
             Route::get('create', [AdminPagesController::class, 'housing_create'])->name('create');
             Route::post('store', [HousingController::class, 'store'])->name('store');
         });
+        Route::get('/claims', [AdminPagesController::class, 'claims'])->name('claims.index');
     });
 });
