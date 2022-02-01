@@ -18,28 +18,6 @@
                                     <span class="ml-4">{{ listing.reviews_count }} {{ listing.reviews_count === 1 ? 'review' : 'reviews' }}</span>
                                 </div>
                             </div>
-                            <div v-if="$page.props.user" class="bg-gray-50 px-4 py-3 sm:px-6">
-                                <p class="text-sm leading-5 text-gray-500">Friends who've lived here</p>
-                                <template v-if="listing.friends">
-                                    <div class="flex -space-x-1 overflow-hidden mt-2">
-                                        <img v-for="(friend, index) in listing.friends" :key="index" :src="friend.profile_photo_url" alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white">
-                                    </div>
-                                </template>
-                                <template v-else>
-                                    <div class="flex overflow-hidden mt-2">
-                                        <div class="flex justify-start items-center w-full py-1">
-                                            <div class="flex-shrink-0">
-                                                <UserGroupIcon class="h-6 w-6 text-sky-500" aria-hidden="true" />
-                                            </div>
-                                            <div class="ml-3 w-0 flex-1 inline-flex items-center pt-0.5">
-                                                <p class="text-sm font-medium text-gray-500">
-                                                    No friends to display
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </template>
-                            </div>
                         </div>
                     </Link>
                 </div>

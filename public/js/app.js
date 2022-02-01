@@ -49052,45 +49052,8 @@ var _hoisted_11 = {
 var _hoisted_12 = {
   "class": "ml-4"
 };
-var _hoisted_13 = {
-  key: 0,
-  "class": "bg-gray-50 px-4 py-3 sm:px-6"
-};
-
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-sm leading-5 text-gray-500"
-}, "Friends who've lived here", -1
-/* HOISTED */
-);
-
-var _hoisted_15 = {
-  key: 0,
-  "class": "flex -space-x-1 overflow-hidden mt-2"
-};
-var _hoisted_16 = ["src"];
-var _hoisted_17 = {
-  key: 1,
-  "class": "flex overflow-hidden mt-2"
-};
-var _hoisted_18 = {
-  "class": "flex justify-start items-center w-full py-1"
-};
-var _hoisted_19 = {
-  "class": "flex-shrink-0"
-};
-
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "ml-3 w-0 flex-1 inline-flex items-center pt-0.5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-sm font-medium text-gray-500"
-}, " No friends to display ")], -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Stars = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Stars");
-
-  var _component_UserGroupIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("UserGroupIcon");
 
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
@@ -49127,21 +49090,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             /* TEXT */
             ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(listing.reviews_count) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(listing.reviews_count === 1 ? 'review' : 'reviews'), 1
             /* TEXT */
-            )])]), _ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, [_hoisted_14, listing.friends ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_15, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(listing.friends, function (friend, index) {
-              return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
-                key: index,
-                src: friend.profile_photo_url,
-                alt: "",
-                "class": "inline-block h-8 w-8 rounded-full ring-2 ring-white"
-              }, null, 8
-              /* PROPS */
-              , _hoisted_16);
-            }), 128
-            /* KEYED_FRAGMENT */
-            ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UserGroupIcon, {
-              "class": "h-6 w-6 text-sky-500",
-              "aria-hidden": "true"
-            })]), _hoisted_20])]))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])];
+            )])])])];
           }),
           _: 2
           /* DYNAMIC */
