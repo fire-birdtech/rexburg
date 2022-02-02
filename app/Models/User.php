@@ -101,4 +101,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Housing::class);
     }
+
+    /**
+     * Get the user's claims
+     */
+    public function claims()
+    {
+        return $this->hasMany(Claim::class);
+    }
 }

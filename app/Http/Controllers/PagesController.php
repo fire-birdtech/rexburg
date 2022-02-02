@@ -72,6 +72,7 @@ class PagesController extends Controller
     public function dashboard()
     {
         return Inertia::render('Dashboard', [
+            'claims' => auth()->user()->claims,
             'housings' => auth()->user()->housings,
             'managed' => auth()->user()->managed,
             'reviews' => auth()->user()->reviews->take(3),

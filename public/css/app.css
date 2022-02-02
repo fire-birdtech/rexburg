@@ -1311,6 +1311,12 @@ select {
 .z-40 {
 	z-index: 40;
 }
+.order-3 {
+	order: 3;
+}
+.order-2 {
+	order: 2;
+}
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
@@ -2052,6 +2058,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 250, 229, var(--tw-bg-opacity));
 }
+.bg-sky-700 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(3, 105, 161, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -2695,6 +2705,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(224, 242, 254, var(--tw-bg-opacity));
 }
+.hover\:bg-indigo-50:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(238, 242, 255, var(--tw-bg-opacity));
+}
+.hover\:bg-indigo-500:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
+}
 .hover\:bg-opacity-75:hover {
 	--tw-bg-opacity: 0.75;
 }
@@ -2957,6 +2975,14 @@ select {
 }
 @media (min-width: 640px) {
 
+	.sm\:order-2 {
+		order: 2;
+	}
+
+	.sm\:order-3 {
+		order: 3;
+	}
+
 	.sm\:col-span-4 {
 		grid-column: span 4 / span 4;
 	}
@@ -3041,6 +3067,10 @@ select {
 
 	.sm\:-mt-16 {
 		margin-top: -4rem;
+	}
+
+	.sm\:ml-2 {
+		margin-left: 0.5rem;
 	}
 
 	.sm\:block {
@@ -3292,6 +3322,10 @@ select {
 		padding: 2rem;
 	}
 
+	.sm\:p-3 {
+		padding: 0.75rem;
+	}
+
 	.sm\:px-6 {
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
@@ -3403,6 +3437,10 @@ select {
 
 	.md\:mt-2 {
 		margin-top: 0.5rem;
+	}
+
+	.md\:inline {
+		display: inline;
 	}
 
 	.md\:flex {
@@ -3622,6 +3660,11 @@ select {
 	.lg\:py-24 {
 		padding-top: 6rem;
 		padding-bottom: 6rem;
+	}
+
+	.lg\:px-0 {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 
 	.lg\:pt-24 {
