@@ -139,28 +139,6 @@
                                     </div>
                                 </div>
                             </li>
-
-                            <li class="mt-10">
-                                <div class="flex">
-                                    <div class="flex-shrink-0">
-                                        <div
-                                            class="flex items-center justify-center h-12 w-12 rounded-md bg-sky-500 text-white">
-                                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
-                                                <path
-                                                    d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z">
-                                                </path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="ml-4">
-                                        <h5 class="text-lg leading-6 font-medium text-gray-900">Connect with friends</h5>
-                                        <p class="mt-2 text-base leading-6 text-gray-500">
-                                            Connect with your friends and see where they've lived. You could even hear
-                                            their thoughts straight from the horse's mouth.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
 
