@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
     Route::post('claim', [ClaimController::class, 'create'])->name('claims.create');
     Route::post('review', [ReviewController::class, 'create'])->name('reviews.create');
+    Route::get('/verify', [PagesController::class, 'verify'])->name('claims.verify');
+    Route::patch('/verify', [ClaimController::class, 'verify'])->name('claims.verify.update');
 });
 
 

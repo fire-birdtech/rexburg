@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ClaimStatus;
 use App\Traits\HasVerificationCode;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class Claim extends Model
     protected $fillable = [
         'claimable_id',
         'claimable_type',
+        'status',
         'user_id',
         'verification_code',
     ];
@@ -33,5 +35,11 @@ class Claim extends Model
         return $this->belongsTo(User::class);
     }
 
-    
+    /**
+     * Get the pending claims
+     */
+    public function scopePending($query)
+    {
+        $query->where('status', ClaimStatus::PENDING);
+    }
 }

@@ -2,7 +2,7 @@
     <app-layout title="Dashboard">
         <div class="py-12 px-4 md:px-0">
             <div class="max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
-                <div v-if="claims.length">
+                <div v-if="claims > 0">
                     <div class="max-w-7xl mx-auto">
                         <div class="p-2 rounded-lg bg-sky-500 shadow-lg sm:p-3">
                             <div class="flex items-center justify-between flex-wrap">
