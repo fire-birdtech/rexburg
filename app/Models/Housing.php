@@ -114,7 +114,7 @@ class Housing extends Model
      */
     public function manager()
     {
-        return $this->belongsTo(User::class);
+        return $this->morphOne(Manage::class, 'manageable');
     }
 
     /**

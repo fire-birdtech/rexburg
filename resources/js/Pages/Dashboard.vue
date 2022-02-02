@@ -15,18 +15,18 @@
                                     </p>
                                 </div>
                                 <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-                                    <a href="#" class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-sky-600 bg-white hover:bg-sky-100">
+                                    <Link :href="route('claims.verify')" class="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-sky-600 bg-white hover:bg-sky-100">
                                         Verify
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div v-if="managed.length">
+                <div v-if="manages.length">
                     <h2>My properties</h2>
                     <div class="py-2 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                        <DashboardReviewable v-for="housing in managed" :key="housing.id" :image="housing.cover_image_url" :name="housing.name" :slug="housing.slug" />
+                        <DashboardReviewable v-for="housing in manages" :key="housing.id" :image="housing.manageable.cover_image_url" :name="housing.manageable.name" :slug="housing.manageable.slug" />
                     </div>
                 </div>
                 <div>
@@ -86,6 +86,6 @@
             SpeakerphoneIcon,
             Stars,
         },
-        props: ['claims', 'housings', 'managed', 'reviews'],
+        props: ['claims', 'housings', 'manages', 'reviews'],
     }
 </script>

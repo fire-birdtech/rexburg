@@ -69,12 +69,12 @@ class PagesController extends Controller
         ]);
     }
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
         return Inertia::render('Dashboard', [
             'claims' => auth()->user()->claims,
             'housings' => auth()->user()->housings,
-            'managed' => auth()->user()->managed,
+            'manages' => $request->user()->manages,
             'reviews' => auth()->user()->reviews->take(3),
         ]);
     }

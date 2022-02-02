@@ -15,7 +15,7 @@ class CreateManagesTable extends Migration
     {
         Schema::create('manages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->index();
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->morphs('manageable');
             $table->timestamps();
         });
