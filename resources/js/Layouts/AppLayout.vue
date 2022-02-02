@@ -11,7 +11,7 @@
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <Link :href="route('home')" :active="route().current('home')">
-                                    <jet-application-mark class="block h-6 w-auto" />
+                                    <application-mark class="block h-6 w-auto" />
                                 </Link>
                             </div>
 
@@ -170,7 +170,7 @@
 </template>
 
 <script>
-    import JetApplicationMark from '@/Jetstream/ApplicationMark.vue'
+    import ApplicationMark from '@/Components/ApplicationMarkWhite.vue'
     import JetBanner from '@/Jetstream/Banner.vue'
     import JetDropdown from '@/Jetstream/Dropdown.vue'
     import JetDropdownLink from '@/Jetstream/DropdownLink.vue'
@@ -194,9 +194,9 @@
         },
 
         components: {
+            ApplicationMark,
             ChevronDownIcon,
             Head,
-            JetApplicationMark,
             JetBanner,
             JetDropdown,
             JetDropdownLink,
