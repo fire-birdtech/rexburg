@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Claim;
 use App\Models\Housing;
-use ClaimStatus;
+use App\ClaimStatus;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
