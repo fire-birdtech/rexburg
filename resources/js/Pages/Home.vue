@@ -170,23 +170,19 @@
                 </Link>
             </div>
         </div>
-        <footer>
-            <div class="py-8">
-                <p class="text-base text-gray-400 xl:text-center">
-                &copy; {{ new Date().getFullYear() }} Fire Bird Technologies, LLC. All rights reserved.
-                </p>
-            </div>
-        </footer>
+        <Footer />
     </app-layout>
 </template>
 
 <script>
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
+    import Footer from '@/Components/Footer';
 
     export default {
         components: {
             AppLayout,
+            Footer,
             Head,
             Link,
         },
