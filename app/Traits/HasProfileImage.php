@@ -61,7 +61,7 @@ trait HasProfileImage
      */
     protected function defaultProfileImageUrl()
     {
-        return 'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&h=1200&q=80';
+        return asset('images/default-apartment-image.jpg');
     }
 
     /**

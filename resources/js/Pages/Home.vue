@@ -15,7 +15,7 @@
                 <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-2 lg:max-w-none">
                     <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                         <div class="flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&crop=focalpoint&fp-y=0.61&w=887&h=400&q=80" alt="" class="h-64 w-full object-cover">
+                            <img :src="singleHousing" alt="a group of friends" class="h-64 w-full object-cover">
                         </div>
                         <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                             <div class="flex-1">
@@ -38,7 +38,7 @@
 
                     <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                         <div class="flex-shrink-0">
-                            <img class="h-64 w-full object-cover" src="https://images.unsplash.com/photo-1528213049955-adbe6fe1dcbd?ixlib=rb-1.2.1&auto=format&fit=crop&crop=focalpoint&fp-y=0.36&w=1350&h=550&q=80" alt="" />
+                            <img :src="marriedHousing" alt="married couple in front of trees" class="h-64 w-full object-cover" />
                         </div>
                         <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                             <div class="flex-1">
@@ -178,6 +178,9 @@
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
     import Footer from '@/Components/Footer';
+    import listingImage from '../../images/listing.png';
+    import singleHousing from '../../images/single-housing.jpg';
+    import marriedHousing from '../../images/married-housing.jpg';
 
     export default {
         components: {
@@ -189,7 +192,9 @@
 
         data() {
             return {
-                listingImage: 'images/listing.png',
+                listingImage,
+                marriedHousing,
+                singleHousing
             }
         },
 
