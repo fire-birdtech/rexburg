@@ -1320,6 +1320,9 @@ select {
 .-m-3 {
 	margin: -0.75rem;
 }
+.-m-2 {
+	margin: -0.5rem;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1441,6 +1444,9 @@ select {
 }
 .table {
 	display: table;
+}
+.flow-root {
+	display: flow-root;
 }
 .grid {
 	display: grid;
@@ -2647,6 +2653,10 @@ select {
 .hover\:bg-sky-100:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(224, 242, 254, var(--tw-bg-opacity));
+}
+.hover\:bg-gray-200:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 .hover\:bg-opacity-75:hover {
 	--tw-bg-opacity: 0.75;
