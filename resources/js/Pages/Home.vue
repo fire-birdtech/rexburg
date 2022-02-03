@@ -170,6 +170,13 @@
                 </Link>
             </div>
         </div>
+        <footer>
+            <div class="py-8">
+                <p class="text-base text-gray-400 xl:text-center">
+                &copy; {{ new Date().getFullYear() }} Fire Bird Technologies, LLC. All rights reserved.
+                </p>
+            </div>
+        </footer>
     </app-layout>
 </template>
 
