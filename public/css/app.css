@@ -1604,9 +1604,6 @@ select {
 .max-w-3xl {
 	max-width: 48rem;
 }
-.max-w-xs {
-	max-width: 20rem;
-}
 .flex-1 {
 	flex: 1 1 0%;
 }
@@ -3620,10 +3617,6 @@ select {
 	.xl\:px-12 {
 		padding-left: 3rem;
 		padding-right: 3rem;
-	}
-
-	.xl\:text-center {
-		text-align: center;
 	}
 
 	.xl\:text-lg {

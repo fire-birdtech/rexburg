@@ -24,7 +24,7 @@
                                         Single Housing
                                     </h3>
                                     <p class="mt-3 text-base leading-6 text-gray-500">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.
+                                        Single housing is the largest portion of BYU-I approved housing. You can find private rooms or apartments ranging from 4-8 people. Click the button below to find your preferences.
                                     </p>
                                 </Link>
                             </div>
@@ -47,7 +47,7 @@
                                         Married Housing
                                     </h3>
                                     <p class="mt-3 text-base leading-6 text-gray-500">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.
+                                        Married housing is crucial to find when you get married. Married housing comes in different sizes and amenities. Find what you prefer by clicking the button below.
                                     </p>
                                 </Link>
                             </div>
@@ -90,9 +90,8 @@
                             Search our comprehensive listings
                         </h4>
                         <p class="mt-3 text-lg leading-7 text-gray-500">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur minima sequi recusandae,
-                            porro maiores officia assumenda aliquam laborum ab aliquid veritatis impedit odit adipisci
-                            optio iste blanditiis facere. Totam, velit.
+                            Our promise is to provide up-to-date information and listing for each apartment complex we’re
+                            partnered with. We encourage tenant reviews so each person can make a clear decision.
                         </p>
 
                         <ul class="mt-10">
@@ -164,7 +163,7 @@
                     <span class="block">Find the best housing for you.</span>
                     <span class="block text-sky-900">Start using RexburgGuru today.</span>
                 </h2>
-                <p class="mt-4 text-lg leading-6 text-teal-100">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.</p>
+                <p class="mt-4 text-lg leading-6 text-teal-100">RexburgGuru is here to provide up-to-date information on apartment complexes in Rexburg. Find your apartment preferences today!</p>
                 <Link href="#" class="mt-8 w-full bg-white border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base leading-6 font-medium text-teal-500 hover:text-sky-900 transition duration-150 ease-in-out sm:w-auto">
                     Sign up for free
                 </Link>
