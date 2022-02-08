@@ -132,7 +132,7 @@
                     </div>
 
                     <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div v-if="$page.props.user" class="pt-4 pb-1 border-t border-gray-200">
                         <div class="flex items-center px-4">
                             <div v-if="$page.props.jetstream.managesProfilePhotos" class="flex-shrink-0 mr-3" >
                                 <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
@@ -155,6 +155,13 @@
                                     Log Out
                                 </jet-responsive-nav-link>
                             </form>
+                        </div>
+                    </div>
+
+                    <div v-else class="pt-6 pb-2 px-5">
+                        <div class="text-center text-base font-medium text-sky-200">
+                            <Link :href="route('register')" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-sky-500 bg-white"> Sign up </Link>
+                            <Link :href="route('login')" class="block mt-2 py-4 text-white"> Sign in </Link>
                         </div>
                     </div>
                 </div>
