@@ -30,7 +30,7 @@ class PagesController extends Controller
     public function marriedList()
     {
         return Inertia::render('StudentHousing/List', [
-            'listing' => Housing::marriedHousing()->withCount('reviews')->with('reviews')->orderBy('name', 'asc')->get(),
+            'housing' => Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
