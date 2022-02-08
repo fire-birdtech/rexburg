@@ -10,7 +10,8 @@
                                 <h3 class="text-lg leading-6 font-semibold text-gray-900">{{ listing.name }}</h3>
                                 <div class="mt-1">
                                     <span class="text-gray-900">{{ listing.rent_range }}</span>
-                                    <span class="ml-1 text-sm text-gray-600">/semester</span>
+                                    <span v-if="listing.housing_type === 'single'" class="ml-1 text-sm text-gray-600">/semester</span>
+                                    <span v-if="listing.housing_type === 'married'" class="ml-1 text-sm text-gray-600">/month</span>
                                 </div>
                                 <div class="mt-2 flex items-center text-sm text-gray-600">
                                     <Stars size="h-4 w-4" :score="listing.score" />
