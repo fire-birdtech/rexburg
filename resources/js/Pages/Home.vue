@@ -164,7 +164,7 @@
                     <span class="block text-sky-900">Start using RexburgGuru today.</span>
                 </h2>
                 <p class="mt-4 text-lg leading-6 text-teal-100">RexburgGuru is here to provide up-to-date information on apartment complexes in Rexburg. Find your apartment preferences today!</p>
-                <Link href="#" class="mt-8 w-full bg-white border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base leading-6 font-medium text-teal-500 hover:text-sky-900 transition duration-150 ease-in-out sm:w-auto">
+                <Link :href="route('register')" class="mt-8 w-full bg-white border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base leading-6 font-medium text-teal-500 hover:text-sky-900 transition duration-150 ease-in-out sm:w-auto">
                     Sign up for free
                 </Link>
             </div>
