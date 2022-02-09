@@ -101,7 +101,8 @@
                         <div class="mt-8 flex md:inline-flex w-full max-w-3xl border border-gray-400 rounded-md">
                             <div class="px-4 md:py-4 md:px-0 flex flex-col w-full md:flex-row items-center divide-y-2 md:divide-x-2 md:divide-y-0 divide-gray-400">
                                 <div class="flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0">
-                                    <div class="text-lg text-gray-500">Semesterly Rent</div>
+                                    <div v-if="housing.housing_type === 'single'" class="text-lg text-gray-500">Semesterly Rent</div>
+                                    <div v-if="housing.housing_type === 'married'" class="text-lg text-gray-500">Monthly Rent</div>
                                     <div class="text-2xl text-gray-700 font-medium">{{ housing.rent_range }}</div>
                                 </div>
                                 <div class="flex flex-col items-center w-full py-4 md:px-8 xl:px-12 md:py-0">
