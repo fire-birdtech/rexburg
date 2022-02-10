@@ -9,7 +9,7 @@
                             Create housing
                         </span>
                     </Link>
-                    <Link v-for="housing in housings" :key="housing.id" href="#">
+                    <Link v-for="housing in housings" :key="housing.id" :href="route('housing.profile', [housing.slug])">
                         <div class="relative shadow-xl rounded-xl overflow-hidden min-h-full group">
                             <div class="absolute inset-0">
                                 <img :src="housing.cover_image_url" alt="" class="h-full w-full object-cover transform transition duration-200 ease-in-out group-hover:scale-110">
