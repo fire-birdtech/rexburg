@@ -31,7 +31,7 @@
                                     <transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
                                         <ListboxOptions class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
                                             <ListboxOption as="template" v-for="type in types" :key="type.id" :value="type" v-slot="{ active, selected }">
-                                                <li :class="[active ? 'text-white bg-sky-600' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-8 pr-4']" @click="updateHousingType">
+                                                <li :class="[active ? 'text-white bg-sky-600' : 'text-gray-900', 'cursor-default select-none relative py-2 pl-8 pr-4']" @click="updateHousingType(type.value)">
                                                     <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">
                                                         {{ type.name }}
                                                     </span>
@@ -98,8 +98,8 @@
                     errorBag: 'createHousing',
                 });
             },
-            updateHousingType() {
-                this.housing.housing_type = this.selected.value;
+            updateHousingType(type) {
+                this.housing.housing_type = type;
             },
         },
         setup() {
