@@ -118,6 +118,14 @@ class Housing extends Model
     }
 
     /**
+     * Check if the housing has a manager
+     */
+    public function hasManager()
+    {
+        return $this->manager ? true : false;
+    }
+
+    /**
      * Get the housing's claim
      */
     public function claim()

@@ -24,7 +24,7 @@ Route::get('student-housing/married', [PagesController::class, 'marriedList'])->
 Route::get('student-housing/{slug}', [PagesController::class, 'housingProfile'])->name('housing.profile');
 Route::get('student-housing/{slug}/reviews', [PagesController::class, 'housingReviews'])->name('housing.reviews');
 
-Route::middleware(['auth:sanctum', 'verified', 'adminOrManager'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'manager'])->group(function () {
     Route::get('student-housing/{slug}/edit', [PagesController::class, 'housingProfileEdit'])->name('housing.profile.edit');
     Route::put('student-housing', [HousingController::class, 'update'])->name('housing.profile.update');
 });

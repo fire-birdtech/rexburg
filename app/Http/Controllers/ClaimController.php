@@ -55,6 +55,8 @@ class ClaimController extends Controller
         $claim->status = ClaimStatus::CLAIMED;
         $claim->save();
 
+        $request->user()->roles()->attach(1);
+
         return redirect()->route('dashboard')->banner('You now manage ' . $claim->claimable->name);
     }
 }
