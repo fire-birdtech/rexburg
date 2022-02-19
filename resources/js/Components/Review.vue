@@ -2,7 +2,7 @@
     <blockquote class="flex flex-col">
         <div class="flex">
             <div class="flex-shrink-0 inline-flex rounded-full border-2 border-sky-600">
-                <img :src="review.user.profile_photo_url" alt="" class="h-12 w-12 rounded-full">
+                <img :src="review.user.profile_photo_url" alt="" class="h-12 w-12 rounded-full object-cover">
             </div>
             <div class="ml-4">
                 <div class="flex items-center text-base leading-6 font-medium text-gray-900">
