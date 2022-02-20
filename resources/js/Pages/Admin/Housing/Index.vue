@@ -1,27 +1,52 @@
 <template>
     <admin-layout title="Admin Housing">
         <div class="py-12 px-4 md:px-0">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <h2>Housing</h2>
-                <div class="py-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <Link :href="route('admin.housing.create')" class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <span class="mt-2 block text-sm font-medium text-gray-900">
-                            Create housing
-                        </span>
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-gray-900">Housing</h2>
+                    <Link :href="route('admin.housing.create')" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                        Create Housing
                     </Link>
-                    <Link v-for="housing in housings" :key="housing.id" :href="route('housing.profile', [housing.slug])">
-                        <div class="relative shadow-xl rounded-xl overflow-hidden min-h-full group">
-                            <div class="absolute inset-0">
-                                <img :src="housing.cover_image_url" alt="" class="h-full w-full object-cover transform transition duration-200 ease-in-out group-hover:scale-110">
-                                <div class="absolute inset-0 bg-gradient-to-r from-sky-300 to-blue-300" :style="{ mixBlendMode: 'multiply' }"></div>
-                            </div>
-                            <div class="relative flex flex-col min-h-full px-4 pt-20 pb-4">
-                                <div class="flex-grow">
-                                    <p class="font-bold text-white text-lg truncate">{{ housing.name }}</p>
-                                </div>
+                </div>
+                <div class="py-4 flex flex-col">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Housing Type</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Manager</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"># of Reviews</th>
+                                            <th scope="col" class="relative px-6 py-3">
+                                                <span class="sr-only">Edit</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(housing, housingIdx) in housings" :key="housing.id" :class="housingIdx % 2 === 0 ? 'bg-white' : 'bg-gray-100'">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                {{ housing.name }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{ housing.housing_type }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{ housing.manager?.user.name }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{ housing.reviews_count }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <a href="#" class="text-indigo-600 hover:text-sky-900">Edit</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </Link>
+                    </div>
                 </div>
             </div>
         </div>
