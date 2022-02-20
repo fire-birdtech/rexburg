@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Admin Claims">
+    <admin-layout title="Admin Claims">
         <div class="py-12 px-4 md:px-0">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <h2>Claims</h2>
@@ -68,21 +68,18 @@
                 </div>
             </div>
         </div>
-    </app-layout>
+    </admin-layout>
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout';
+    import AdminLayout from '@/Layouts/AdminLayout';
 
     export default {
         components: {
-            AppLayout,
+            AdminLayout,
         },
         props: {
             claims: Array,
-        },
-        mounted() {
-            console.log(this.claims);
         },
     }
 </script>

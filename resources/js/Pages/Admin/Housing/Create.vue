@@ -1,5 +1,5 @@
 <template>
-    <app-layout>
+    <admin-layout>
         <div class="py-12 px-4 md:px-0">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <h2>Add new Student Housing</h2>
@@ -57,12 +57,12 @@
                 </form>
             </div>
         </div>
-    </app-layout>
+    </admin-layout>
 </template>
 
 <script>
     import { ref } from 'vue';
-    import AppLayout from '@/Layouts/AppLayout';
+    import AdminLayout from '@/Layouts/AdminLayout';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
     import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';
     import JetInputError from '@/Jetstream/InputError.vue';
@@ -74,7 +74,7 @@
 
     export default {
         components: {
-            AppLayout,
+            AdminLayout,
             CheckIcon,
             JetInputError,
             Listbox,

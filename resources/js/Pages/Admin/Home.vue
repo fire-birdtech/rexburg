@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Admin Dashboard">
+    <admin-layout title="Admin Dashboard">
         <div class="py-12 px-4 md:px-0">
             <div class="max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
                 <h2>Admin Dashboard</h2>
@@ -21,11 +21,11 @@
                 </div>
             </div>
         </div>
-    </app-layout>
+    </admin-layout>
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout';
+    import AdminLayout from '@/Layouts/AdminLayout';
     import { Link } from '@inertiajs/inertia-vue3';
     import { ChevronRightIcon } from '@heroicons/vue/outline';
 
@@ -36,7 +36,7 @@
 
     export default {
         components: {
-            AppLayout,
+            AdminLayout,
             ChevronRightIcon,
             Link,
         },
