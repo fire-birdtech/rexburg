@@ -44,8 +44,8 @@
                     </div>
                     <div class="flex-1 flex flex-col overflow-y-auto">
                         <nav class="flex-1 px-2 py-4 space-y-1">
-                            <Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.component === $page.component ? 'bg-sky-700 text-white' : 'hover:bg-sky-500 text-white', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
-                                <component :is="item.icon" :class="[item.component === $page.component ? 'text-sky-200' : 'text-sky-300 group-hover:text-sky-200', 'mr-3 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
+                            <Link v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.components.includes($page.component) ? 'bg-sky-700 text-white' : 'hover:bg-sky-500 text-white', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
+                                <component :is="item.icon" :class="[item.components.includes($page.component) ? 'text-sky-200' : 'text-sky-300 group-hover:text-sky-200', 'mr-3 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
                                 {{ item.name }}
                             </Link>
                         </nav>
@@ -126,12 +126,12 @@
     import { Link } from '@inertiajs/inertia-vue3';
 
     const navigation = [
-        { name: 'Dashboard', href: route('admin.home'), icon: ViewGridIcon, component: 'Admin/Home' },
-        { name: 'Housing', href: route('admin.housing.index'), icon: HomeIcon, component: 'Admin/Housing/Index' },
-        { name: 'Projects', href: '#', icon: OfficeBuildingIcon },
-        { name: 'Calendar', href: '#', icon: CalendarIcon },
-        { name: 'Documents', href: '#', icon: InboxIcon },
-        { name: 'Reports', href: '#', icon: ChartBarIcon },
+        { name: 'Dashboard', href: route('admin.home'), icon: ViewGridIcon, components: ['Admin/Home'] },
+        { name: 'Housing', href: route('admin.housing.index'), icon: HomeIcon, components: ['Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show'] },
+        { name: 'Projects', href: '#', icon: OfficeBuildingIcon, components: [] },
+        { name: 'Calendar', href: '#', icon: CalendarIcon, components: [] },
+        { name: 'Documents', href: '#', icon: InboxIcon, components: [] },
+        { name: 'Reports', href: '#', icon: ChartBarIcon, components: [] },
     ];
     const userNavigation = [
         { name: 'Your Profile', href: '#' },

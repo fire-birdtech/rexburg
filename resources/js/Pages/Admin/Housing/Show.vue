@@ -1,0 +1,223 @@
+<template>
+    <admin-layout>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
+            <div class="flex items-center space-x-5">
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <img class="h-16 w-16 rounded-full object-cover" :src="housing.profile_image_url" :alt="housing.name" />
+                        <span class="absolute inset-0 shadow-inner rounded-full" aria-hidden="true" />
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900"> {{ housing.name }} </h1>
+                    <p class="text-sm font-medium text-gray-500">Managed by <a href="#" class="text-gray-900"> {{ housing.manager.user.name }} </a> since <time :datetime="convertDateTime(housing.manager.created_at)"> {{ convertDate(housing.manager.created_at) }} </time></p>
+                </div>
+            </div>
+            <div class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3">
+                <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">Disqualify</button>
+                <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-sky-500">
+                    <PencilAltIcon class="h-5 w-5" />
+                </button>
+            </div>
+        </div>
+
+        <div class="my-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+            <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+                <!-- Profile Cover Image -->
+                <section>
+                    <div class="shadow sm:rounded-lg sm:overflow-hidden">
+                        <img class="h-36 w-full object-cover" :src="housing.cover_image_url" :alt="housing.name" />
+                    </div>
+                </section>
+
+                <!-- Description list-->
+                <section aria-labelledby="housing-information-title">
+                    <div class="relative bg-white shadow sm:rounded-lg sm:overflow-hidden">
+                        <div class="px-4 py-5 sm:px-6">
+                            <h2 id="housing-information-title" class="text-lg leading-6 font-medium text-gray-900">Housing Information</h2>
+                        </div>
+                        <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+                            <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Name</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.name }} </dd>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Website</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.website_url }} </dd>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Email address</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.email_address }} </dd>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Phone</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.phone_number }} </dd>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <dt class="text-sm font-medium text-gray-500">Address</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ `${housing.street}, ${housing.city}, Idaho ${housing.postal_code}` }} </dd>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <dt class="text-sm font-medium text-gray-500">About</dt>
+                                    <div class="mt-1 prose prose-lg text-sm text-gray-900" v-html="housing.about" />
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Rent</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.rent_range }} </dd>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Housing Type</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.housing_type }} </dd>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Bedrooms</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.bedroom_range }} </dd>
+                                </div>
+                                <div class="sm:col-span-1">
+                                    <dt class="text-sm font-medium text-gray-500">Bathrooms</dt>
+                                    <dd class="mt-1 text-sm text-gray-900"> {{ housing.bathroom_range }} </dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reviews-->
+                <section aria-labelledby="reviews-title">
+                    <div class="bg-white shadow sm:rounded-lg sm:overflow-hidden">
+                        <div class="divide-y divide-gray-200">
+                            <div class="px-4 py-5 sm:px-6">
+                                <h2 id="reviews-title" class="text-lg font-medium text-gray-900">Reviews</h2>
+                            </div>
+                            <div class="px-4 py-6 sm:px-6">
+                                <ul role="list" class="space-y-8">
+                                    <li v-for="review in housing.reviews" :key="review.id">
+                                        <div class="flex space-x-3">
+                                            <div class="flex-shrink-0">
+                                                <img class="h-10 w-10 rounded-full object-cover" :src="review.user.profile_photo_url" :alt="review.user.name" />
+                                            </div>
+                                            <div>
+                                                <div class="text-sm">
+                                                    <a href="#" class="font-medium text-gray-900">{{ review.user.name }}</a>
+                                                </div>
+                                                <div class="mt-1 text-sm text-gray-700">
+                                                    <p>{{ review.body }}</p>
+                                                </div>
+                                                <div class="mt-2 text-sm space-x-2">
+                                                    <span class="text-gray-500 font-medium">{{ convertDateFromNow(review.created_at) }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <Link href="#" class="block bg-sky-50 text-sm font-medium text-sky-500 text-center px-4 py-4 hover:text-sky-700 sm:rounded-b-lg"> View all reviews </Link>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Actions -->
+                <section aria-labelledby="actions-title">
+                    <div class="bg-white shadow sm:rounded-lg sm:overflow-hidden">
+                        <div class="divide-y divide-gray-200">
+                            <div class="px-4 py-5 sm:px-6">
+                                <h2 id="actions-title" class="text-lg font-medium text-gray-900">Actions</h2>
+                            </div>
+                            <div class="flex items-center justify-between px-4 py-6 sm:px-6">
+                                <div>
+                                    <h3 class="text-base leading-6 font-medium text-gray-900">Remove housing manager</h3>
+                                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Housing information will not be affected.</p>
+                                </div>
+                                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-sky-700 bg-sky-100 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"> Remove manager </button>
+                            </div>
+                            <div class="flex items-center justify-between px-4 py-6 sm:px-6">
+                                <div>
+                                    <h3 class="text-base leading-6 font-medium text-gray-900">Delete housing</h3>
+                                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Once you delete this housing, there is no going back.</p>
+                                </div>
+                                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"> Delete housing </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section aria-labelledby="revision-history-title" class="lg:col-start-3 lg:col-span-1">
+                <div class="bg-white shadow sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h2 id="revision-history-title" class="text-lg font-medium text-gray-900">Revision History</h2>
+
+                        <!-- Revision History -->
+                        <div class="mt-6 flow-root">
+                            <ul role="list" class="-mb-8">
+                                <!-- <li v-for="(item, itemIdx) in timeline" :key="item.id">
+                                    <div class="relative pb-8">
+                                        <span v-if="itemIdx !== timeline.length - 1" class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true" />
+                                        <div class="relative flex space-x-3">
+                                            <div>
+                                                <span :class="[item.type.bgColorClass, 'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white']">
+                                                    <component :is="item.type.icon" class="w-5 h-5 text-white" aria-hidden="true" />
+                                                </span>
+                                            </div>
+                                            <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                                                <div>
+                                                    <p class="text-sm text-gray-500">
+                                                        {{ item.content }} <a href="#" class="font-medium text-gray-900">{{ item.target }}</a>
+                                                    </p>
+                                                </div>
+                                                <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                                                    <time :datetime="item.datetime">{{ item.date }}</time>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <Link href="#" class="block bg-sky-50 text-sm font-medium text-sky-500 text-center px-4 py-4 hover:text-sky-700 sm:rounded-b-lg"> View full history </Link>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </admin-layout>
+</template>
+
+<script>
+    import AdminLayout from '@/Layouts/AdminLayout';
+    import dayjs from 'dayjs';
+    import relativeTime from 'dayjs/plugin/relativeTime';
+    import { Link } from '@inertiajs/inertia-vue3';
+    import { PencilAltIcon } from '@heroicons/vue/outline';
+
+    dayjs.extend(relativeTime);
+
+    export default {
+        components: {
+            AdminLayout,
+            Link,
+            PencilAltIcon,
+        },
+        props: {
+            housing: Object,
+        },
+        methods: {
+            convertDate(date) {
+                return dayjs(date).format('MMMM D, YYYY');
+            },
+            convertDateTime(date) {
+                return dayjs(date).format('YYYY-MM-DD')
+            },
+            convertDateFromNow(date) {
+                return dayjs(date).fromNow();
+            },
+        },
+        mounted() {
+            console.log(this.housing);
+        }
+    }
+</script>

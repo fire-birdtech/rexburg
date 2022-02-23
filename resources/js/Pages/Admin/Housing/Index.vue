@@ -38,8 +38,13 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{ housing.reviews_count }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="#" class="text-indigo-600 hover:text-sky-900">Edit</a>
+                                            <td class="flex items-center justify-end space-x-4 px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <Link :href="route('admin.housing.show', [housing.id])" class="text-sky-600 hover:text-sky-900">
+                                                    <EyeIcon class="h-6 w-6" />
+                                                </Link>
+                                                <Link href="#" class="text-sky-600 hover:text-sky-900">
+                                                    <PencilAltIcon class="h-6 w-6" />
+                                                </Link>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -56,11 +61,14 @@
 <script>
     import AdminLayout from '@/Layouts/AdminLayout';
     import { Link } from '@inertiajs/inertia-vue3';
+    import { EyeIcon, PencilAltIcon } from '@heroicons/vue/outline';
 
     export default {
         components: {
             AdminLayout,
+            EyeIcon,
             Link,
+            PencilAltIcon,
         },
         props: {
             housings: Object,
