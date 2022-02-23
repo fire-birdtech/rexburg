@@ -10,7 +10,7 @@
                 </div>
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900"> {{ housing.name }} </h1>
-                    <p class="text-sm font-medium text-gray-500">Managed by <a href="#" class="text-gray-900"> {{ housing.manager.user.name }} </a> since <time :datetime="convertDateTime(housing.manager.created_at)"> {{ convertDate(housing.manager.created_at) }} </time></p>
+                    <p v-if="housing.manager" class="text-sm font-medium text-gray-500">Managed by <a href="#" class="text-gray-900"> {{ housing.manager.user.name }} </a> since <time :datetime="convertDateTime(housing.manager.created_at)"> {{ convertDate(housing.manager.created_at) }} </time></p>
                 </div>
             </div>
             <div class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3">
@@ -126,7 +126,7 @@
                             <div class="px-4 py-5 sm:px-6">
                                 <h2 id="actions-title" class="text-lg font-medium text-gray-900">Actions</h2>
                             </div>
-                            <div class="flex items-center justify-between px-4 py-6 sm:px-6">
+                            <div v-if="housing.manager" class="flex items-center justify-between px-4 py-6 sm:px-6">
                                 <div>
                                     <h3 class="text-base leading-6 font-medium text-gray-900">Remove housing manager</h3>
                                     <p class="mt-1 max-w-2xl text-sm text-gray-500">Housing information will not be affected.</p>
