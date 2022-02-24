@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Housing extends Model
 {
-    use HasCoverImage, HasFactory, HasProfileImage, HasSlug;
+    use HasCoverImage, HasFactory, HasProfileImage, HasSlug, RevisionableTrait;
 
     protected $fillable = [
         'about',
@@ -70,6 +71,8 @@ class Housing extends Model
     {
         return 'slug';
     }
+
+    protected $revisionCreationsEnabled = true;
 
     /**
      * Scope a query to only include single housing type.

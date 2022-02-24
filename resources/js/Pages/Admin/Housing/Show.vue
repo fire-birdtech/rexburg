@@ -149,34 +149,29 @@
                 <div class="bg-white shadow sm:rounded-lg">
                     <div class="px-4 py-5 sm:px-6">
                         <h2 id="revision-history-title" class="text-lg font-medium text-gray-900">Revision History</h2>
+                    </div>
 
-                        <!-- Revision History -->
-                        <div class="mt-6 flow-root">
-                            <ul role="list" class="-mb-8">
-                                <!-- <li v-for="(item, itemIdx) in timeline" :key="item.id">
-                                    <div class="relative pb-8">
-                                        <span v-if="itemIdx !== timeline.length - 1" class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true" />
-                                        <div class="relative flex space-x-3">
-                                            <div>
-                                                <span :class="[item.type.bgColorClass, 'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white']">
-                                                    <component :is="item.type.icon" class="w-5 h-5 text-white" aria-hidden="true" />
-                                                </span>
-                                            </div>
-                                            <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
-                                                <div>
-                                                    <p class="text-sm text-gray-500">
-                                                        {{ item.content }} <a href="#" class="font-medium text-gray-900">{{ item.target }}</a>
-                                                    </p>
-                                                </div>
-                                                <div class="text-right text-sm whitespace-nowrap text-gray-500">
-                                                    <time :datetime="item.datetime">{{ item.date }}</time>
-                                                </div>
-                                            </div>
+                    <!-- Revision History -->
+                    <div class="flow-root border-t border-gray-200">
+                        <ul role="list" class="divide-y divide-gray-200">
+                            <li v-for="item in housing.revision_history" :key="item.id" class="p-4">
+                                <div class="flex space-x-3">
+                                    <img class="h-6 w-6 rounded-full object-cover" :src="item.user.profile_photo_url" :alt="item.user.name" />
+                                    <div class="flex-1 space-y-1">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-sm font-medium">{{ item.user.name }}</h3>
+                                            <p class="text-sm text-gray-500">{{ convertDateFromNowNoSuffix(item.updated_at) }}</p>
                                         </div>
+                                        <p class="text-sm text-gray-500">
+                                            {{ getRevisionAction(item.key) }} <span class="font-medium text-gray-700">{{ convertKey(item.key) }}</span>
+                                            <template v-if="item.old_value"> from <span class="italic">{{ item.old_value }}</span></template>
+                                            {{' '}}
+                                            to <span class="italic">{{ item.new_value }}</span>
+                                        </p>
                                     </div>
-                                </li> -->
-                            </ul>
-                        </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                     <div>
                         <Link href="#" class="block bg-sky-50 text-sm font-medium text-sky-500 text-center px-4 py-4 hover:text-sky-700 sm:rounded-b-lg"> View full history </Link>
@@ -193,6 +188,7 @@
     import relativeTime from 'dayjs/plugin/relativeTime';
     import { Link } from '@inertiajs/inertia-vue3';
     import { PencilAltIcon } from '@heroicons/vue/outline';
+    import { convertKey } from '@/Utils/convertKey';
 
     dayjs.extend(relativeTime);
 
@@ -214,6 +210,21 @@
             },
             convertDateFromNow(date) {
                 return dayjs(date).fromNow();
+            },
+            convertDateFromNowNoSuffix(date) {
+                return dayjs(date).fromNow(true);
+            },
+            convertKey,
+            getRevisionAction(key) {
+                switch (key) {
+                    case 'created_at':
+                        return 'Created';
+                        break;
+                
+                    default:
+                        return 'Updated';
+                        break;
+                }
             },
         },
         mounted() {
