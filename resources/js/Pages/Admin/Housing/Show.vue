@@ -184,13 +184,10 @@
 
 <script>
     import AdminLayout from '@/Layouts/AdminLayout';
-    import relativeTime from 'dayjs/plugin/relativeTime';
     import { Link } from '@inertiajs/inertia-vue3';
     import { PencilAltIcon } from '@heroicons/vue/outline';
     import { convertKey } from '@/Utils/convertKey';
     import { convertDate, convertDateFromNow, convertDateFromNowNoSuffix, convertDateTime } from '@/Utils/convertDate';
-
-    dayjs.extend(relativeTime);
 
     export default {
         components: {
