@@ -52,7 +52,7 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout';
-    import { convertDate } from '@/Utils/convertDate';
+    import { convertDateWithDay } from '@/Utils/convertDate';
     import ReviewList from '@/Components/ReviewList';
     import { Link } from '@inertiajs/inertia-vue3';
     import { ArrowLeftIcon } from '@heroicons/vue/outline';
@@ -75,7 +75,7 @@
             }
         },
         methods: {
-            convertDate,
+            convertDateWithDay,
             calculateDescription() {
                 if (this.housing.score >= 5) { return "Excellent"; }
                 if (this.housing.score >= 4) { return "Great"; }

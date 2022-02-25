@@ -184,11 +184,11 @@
 
 <script>
     import AdminLayout from '@/Layouts/AdminLayout';
-    import dayjs from 'dayjs';
     import relativeTime from 'dayjs/plugin/relativeTime';
     import { Link } from '@inertiajs/inertia-vue3';
     import { PencilAltIcon } from '@heroicons/vue/outline';
     import { convertKey } from '@/Utils/convertKey';
+    import { convertDate, convertDateFromNow, convertDateFromNowNoSuffix, convertDateTime } from '@/Utils/convertDate';
 
     dayjs.extend(relativeTime);
 
@@ -202,18 +202,10 @@
             housing: Object,
         },
         methods: {
-            convertDate(date) {
-                return dayjs(date).format('MMMM D, YYYY');
-            },
-            convertDateTime(date) {
-                return dayjs(date).format('YYYY-MM-DD')
-            },
-            convertDateFromNow(date) {
-                return dayjs(date).fromNow();
-            },
-            convertDateFromNowNoSuffix(date) {
-                return dayjs(date).fromNow(true);
-            },
+            convertDate,
+            convertDateTime,
+            convertDateFromNow,
+            convertDateFromNowNoSuffix,
             convertKey,
             getRevisionAction(key) {
                 switch (key) {
@@ -226,9 +218,6 @@
                         break;
                 }
             },
-        },
-        mounted() {
-            console.log(this.housing);
         }
     }
 </script>

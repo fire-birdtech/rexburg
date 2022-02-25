@@ -12,7 +12,7 @@
                         <StarIcon class="ml-1 -mr-0.5 h-3 w-3 text-sky-400" />
                     </div>
                 </div>
-                <div class="text-sm leading-6 font-medium text-sky-600">{{ convertDate(review.created_at) }}</div>
+                <div class="text-sm leading-6 font-medium text-sky-600">{{ convertDateWithDay(review.created_at) }}</div>
             </div>
         </div>
         <div class="relative text-base leading-5 text-gray-900 md:flex-grow mt-4">
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    import { convertDate } from '@/Utils/convertDate';
+    import { convertDateWithDay } from '@/Utils/convertDate';
     import { StarIcon } from '@heroicons/vue/solid';
 
     export default {
@@ -34,7 +34,7 @@
             StarIcon,
         },
         methods: {
-            convertDate,
+            convertDateWithDay,
         },
     }
 </script>
