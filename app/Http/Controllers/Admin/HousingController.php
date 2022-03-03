@@ -10,7 +10,7 @@ use Inertia\Inertia;
 
 class HousingController extends Controller
 {
-    public function show($id)
+    public function show(int $id)
     {
         $housing = Housing::where('id', $id)->with(['manager.user', 'reviews.user', 'reviews' => function($query) {
             $query->orderBy('created_at', 'desc')->take(4);
@@ -24,6 +24,13 @@ class HousingController extends Controller
 
         return Inertia::render('Admin/Housing/Show', [
             'housing' => $housing,
+        ]);
+    }
+
+    public function edit(int $id)
+    {
+        return Inertia::render('Admin/Housing/Edit', [
+            'housing' => Housing::find($id)
         ]);
     }
 }

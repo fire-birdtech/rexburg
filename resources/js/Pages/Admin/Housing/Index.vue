@@ -42,7 +42,7 @@
                                                 <Link :href="route('admin.housing.show', [housing.id])" class="text-sky-600 hover:text-sky-900">
                                                     <EyeIcon class="h-6 w-6" />
                                                 </Link>
-                                                <Link href="#" class="text-sky-600 hover:text-sky-900">
+                                                <Link :href="route('admin.housing.edit', [housing.id])" class="text-sky-600 hover:text-sky-900">
                                                     <PencilAltIcon class="h-6 w-6" />
                                                 </Link>
                                             </td>
