@@ -28,6 +28,8 @@ Route::get('student-housing/{slug}/reviews', [PagesController::class, 'housingRe
 Route::middleware(['auth:sanctum', 'verified', 'manager'])->group(function () {
     Route::get('student-housing/{slug}/edit', [PagesController::class, 'housingProfileEdit'])->name('housing.profile.edit');
     Route::put('student-housing', [HousingController::class, 'update'])->name('housing.profile.update');
+    Route::delete('student-housing/{id}/cover', [HousingController::class, 'destroyCoverImage'])->name('housing-cover-image.destroy');
+    Route::delete('student-housing/{id}/profile', [HousingController::class, 'destroyProfileImage'])->name('housing-profile-image.destroy');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
@@ -47,6 +49,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
             Route::get('create', [AdminPagesController::class, 'housing_create'])->name('create');
             Route::post('store', [HousingController::class, 'store'])->name('store');
             Route::get('{id}', [AdminHousingController::class, 'show'])->name('show');
+            Route::get('{id}/edit', [AdminHousingController::class, 'edit'])->name('edit');
         });
         Route::get('/claims', [AdminPagesController::class, 'claims'])->name('claims.index');
     });

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Housing;
+use Error;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class HousingController extends Controller
@@ -23,7 +25,7 @@ class HousingController extends Controller
     public function update(Request $request)
     {
         $request->validateWithBag('updateHousingInformation', [
-            'about' => ['nullable', 'string'],
+            'about' => ['nullable', 'string', 'max:1000'],
             'bathroom_range' => ['nullable', 'string'],
             'bedroom_range' => ['nullable', 'string'],
             'byui_approved' => ['nullable', 'boolean'],
@@ -75,5 +77,39 @@ class HousingController extends Controller
                     ? new JsonResponse('', 200)
                     : back()->with('status', 'housing-information-updated')
                         ->banner('Profile updated successfully!');
+    }
+
+    /**
+     * Delete the housing's cover image
+     * 
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function destroyCoverImage(Request $request): RedirectResponse
+    {
+        try {
+            Housing::find($request->id)->deleteCoverImage();
+
+            return back(303)
+                    ->with('status', 'cover-image-deleted')
+                    ->banner('Cover image deleted successfully');
+        } catch (Error $error) { }
+    }
+
+    /**
+     * Delete the housing's profile image
+     * 
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function destroyProfileImage(Request $request): RedirectResponse
+    {
+        try {
+            Housing::find($request->id)->deleteProfileImage();
+
+            return back(303)
+                    ->with('status', 'profile-image-deleted')
+                    ->banner('Profile image deleted successfully');
+        } catch (Error $error) { }
     }
 }
