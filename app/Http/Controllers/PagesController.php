@@ -63,7 +63,7 @@ class PagesController extends Controller
     {
         $housing = Housing::where('slug', $request->slug)->with(['amenities', 'manager'])->first();
         if (! $housing->hasManager() || $request->user()->id !== $housing->manager->user_id) {
-            return redirect()->back();
+            return redirect()->route('errors.404');
         }
         return Inertia::render('StudentHousing/Edit', [
             'housing' => $housing,

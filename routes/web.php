@@ -40,7 +40,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::patch('/verify', [ClaimController::class, 'verify'])->name('claims.verify.update');
 });
 
-
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
     Route::name('admin.')->group(function() {
         Route::get('/', [AdminPagesController::class, 'home'])->name('home');
@@ -54,3 +53,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
         Route::get('/claims', [AdminPagesController::class, 'claims'])->name('claims.index');
     });
 });
+
+Route::get('404', function () {
+    return inertia('Errors/404');
+})->name('errors.404');
