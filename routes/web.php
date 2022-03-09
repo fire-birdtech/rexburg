@@ -6,6 +6,7 @@ use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\HousingController as AdminHousingController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,9 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
             Route::post('store', [HousingController::class, 'store'])->name('store');
             Route::get('{id}', [AdminHousingController::class, 'show'])->name('show');
             Route::get('{id}/edit', [AdminHousingController::class, 'edit'])->name('edit');
+        });
+        Route::prefix('users')->name('users.')->group(function () {
+            Route::get('/', [AdminUserController::class, 'index'])->name('index');
         });
         Route::get('/claims', [AdminPagesController::class, 'claims'])->name('claims.index');
     });

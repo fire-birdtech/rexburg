@@ -22,8 +22,8 @@
                             <div class="mt-5 flex-1 h-0 overflow-y-auto">
                                 <nav class="px-2 space-y-1">
                                     <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'group flex items-center px-2 py-2 text-base font-medium rounded-md']">
-                                    <component :is="item.icon" :class="[item.current ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300', 'mr-4 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
-                                    {{ item.name }}
+                                        <component :is="item.icon" :class="[item.current ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300', 'mr-4 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
+                                        {{ item.name }}
                                     </a>
                                 </nav>
                             </div>
@@ -113,11 +113,10 @@
         BellIcon,
         CalendarIcon,
         ChartBarIcon,
-        FolderIcon,
         HomeIcon,
         InboxIcon,
         MenuAlt2Icon,
-        OfficeBuildingIcon,
+        UsersIcon,
         ViewGridIcon,
         XIcon,
     } from '@heroicons/vue/outline';
@@ -128,7 +127,7 @@
     const navigation = [
         { name: 'Dashboard', href: route('admin.home'), icon: ViewGridIcon, components: ['Admin/Home'] },
         { name: 'Housing', href: route('admin.housing.index'), icon: HomeIcon, components: ['Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show', 'Admin/Housing/Edit'] },
-        { name: 'Projects', href: '#', icon: OfficeBuildingIcon, components: [] },
+        { name: 'Users', href: route('admin.users.index'), icon: UsersIcon, components: ['Admin/Users/Index'] },
         { name: 'Calendar', href: '#', icon: CalendarIcon, components: [] },
         { name: 'Documents', href: '#', icon: InboxIcon, components: [] },
         { name: 'Reports', href: '#', icon: ChartBarIcon, components: [] },
