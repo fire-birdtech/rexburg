@@ -103,6 +103,7 @@
                                 <Stars size="h-6 w-6" :score="housing.score" />
                             </div>
                             <span class="text-gray-800 font-bold text-xl">{{ housing.score }}</span>
+                            <Link href="#review-list" class="hover:underline hover:underline-offset-2">See reviews</Link>
                         </div>
                         <div class="mt-8 flex md:inline-flex w-full max-w-3xl border border-gray-400 rounded-md">
                             <div class="px-4 md:py-4 md:px-0 flex flex-col w-full md:flex-row items-center divide-y-2 md:divide-x-2 md:divide-y-0 divide-gray-400">
@@ -139,7 +140,7 @@
                                 <h2 class="text-3xl">About {{ housing.name }}</h2>
                                 <div class="mt-4 prose prose-lg" v-html="housing.about"></div>
                             </div>
-                            <div>
+                            <div id="review-list" class="scroll-mt-4">
                                 <ReviewList
                                     :housing-id="housing.id"
                                     :name="housing.name"
