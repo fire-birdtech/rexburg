@@ -14,7 +14,7 @@
                             <h1 class="text-2xl md:text-4xl font-bold text-gray-900 truncate">
                                 {{ housing.name }}
                             </h1>
-                            <!-- <BadgeCheckIcon v-if="housing.verified" class="ml-4 h-6 w-6 text-sky-500" /> -->
+                            <BadgeCheckIcon v-if="isClaimed" class="ml-4 h-6 w-6 text-sky-500" />
                         </div>
                     </div>
                 </div>
