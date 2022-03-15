@@ -52,8 +52,8 @@
                                 <Menu as="div" class="ml-3 relative">
                                     <div>
                                         <MenuButton class="max-w-xs bg-sky-500 rounded-full flex items-center text-sm focus:outline-none lg:p-2 lg:rounded-md lg:hover:bg-sky-600 lg:hover:bg-opacity-75">
-                                            <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
-                                            <span class="hidden ml-3 text-white text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>{{ $page.props.user.name }}</span>
+                                            <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.auth.name" />
+                                            <span class="hidden ml-3 text-white text-sm font-medium lg:block"><span class="sr-only">Open user menu for </span>{{ $page.props.auth.name }}</span>
                                             <ChevronDownIcon class="hidden flex-shrink-0 ml-1 h-5 w-5 text-sky-50 lg:block" aria-hidden="true" />
                                         </MenuButton>
                                     </div>
