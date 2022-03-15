@@ -29,15 +29,12 @@
                                                 {{ user.email }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{ user.created_at }}
+                                                {{ convertDate(user.created_at) }}
                                             </td>
                                             <td class="flex items-center justify-end space-x-4 px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <!-- <Link :href="route('admin.housing.show', [user.id])" class="text-sky-600 hover:text-sky-900">
+                                                <Link :href="route('admin.users.show', [user.id])" class="text-sky-600 hover:text-sky-900">
                                                     <EyeIcon class="h-6 w-6" />
                                                 </Link>
-                                                <Link :href="route('admin.housing.edit', [user.id])" class="text-sky-600 hover:text-sky-900">
-                                                    <PencilAltIcon class="h-6 w-6" />
-                                                </Link> -->
                                             </td>
                                         </tr>
                                     </tbody>
@@ -55,6 +52,7 @@
     import AdminLayout from '@/Layouts/AdminLayout';
     import { Link } from '@inertiajs/inertia-vue3';
     import { EyeIcon, PencilAltIcon } from '@heroicons/vue/outline';
+    import { convertDate } from '@/Utils/convertDate';
 
     export default {
         components: {
@@ -65,6 +63,9 @@
         },
         props: {
             users: Object,
+        },
+        methods: {
+            convertDate,
         },
     }
 </script>

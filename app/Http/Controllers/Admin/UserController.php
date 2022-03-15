@@ -14,4 +14,11 @@ class UserController extends Controller
             'users' => User::orderBy('name', 'asc')->get()
         ]);
     }
+
+    public function show(int $id)
+    {
+        return inertia('Admin/Users/Show', [
+            'user' => User::where('id', $id)->withCount('reviews')->first()
+        ]);
+    }
 }
