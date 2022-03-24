@@ -74,6 +74,8 @@ class Housing extends Model
 
     protected $revisionCreationsEnabled = true;
 
+    protected $dontKeepRevisionOf = ['score'];
+
     /**
      * Scope a query to only include single housing type.
      *
