@@ -1,7 +1,7 @@
 <template>
     <admin-layout title="Admin Dashboard">
         <div class="py-12 px-4 md:px-0">
-            <div class="max-w-7xl mx-auto space-y-8 sm:px-6 lg:px-8">
+            <div class="max-w-8xl mx-auto space-y-8 sm:px-6 lg:px-8">
                 <h2>Admin Dashboard</h2>
                 <div class="mt-4 bg-white shadow overflow-hidden sm:rounded-md">
                     <ul role="list" class="divide-y divide-gray-200">

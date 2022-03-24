@@ -1,6 +1,6 @@
 <template>
     <admin-layout>
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-8xl lg:px-8">
             <div class="flex items-center space-x-5">
                 <div class="flex-shrink-0">
                     <div class="relative">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+        <div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-8xl lg:grid-flow-col-dense lg:grid-cols-3">
             <div class="space-y-6 lg:col-start-1 lg:col-span-2">
                 <div v-if="user.suspended_until" class="rounded-md bg-yellow-100 p-4">
                     <div class="flex">

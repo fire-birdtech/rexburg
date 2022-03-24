@@ -1,7 +1,7 @@
 <template>
     <admin-layout>
         <div class="py-12 px-4 md:px-0">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-8xl mx-auto">
                 <div class="flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-900">Users</h2>
                 </div>

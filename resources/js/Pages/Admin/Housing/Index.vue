@@ -1,7 +1,7 @@
 <template>
     <admin-layout title="Admin Housing">
         <div class="py-12 px-4 md:px-0">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-8xl mx-auto">
                 <div class="flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-900">Housing</h2>
                     <Link :href="route('admin.housing.create')" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
