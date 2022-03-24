@@ -22,7 +22,7 @@
 
         <div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
             <div class="space-y-6 lg:col-start-1 lg:col-span-2">
-                <div class="rounded-md bg-yellow-100 p-4">
+                <div v-if="user.suspended_until" class="rounded-md bg-yellow-100 p-4">
                     <div class="flex">
                         <div class="flex-shrink-0">
                             <ExclamationIcon class="h-5 w-5 text-yellow-500" aria-hidden="true" />
@@ -33,17 +33,16 @@
                     </div>
                 </div>
 
-                <div class="rounded-md bg-red-100 p-4">
+                <div v-if="user.suspensions.length" class="rounded-md bg-red-100 p-4">
                     <div class="flex">
                         <div class="flex-shrink-0">
                             <XCircleIcon class="h-5 w-5 text-red-400" aria-hidden="true" />
                         </div>
                         <div class="ml-3">
-                            <h3 class="text-sm font-medium text-red-800">This user has been suspended 2 times.</h3>
+                            <h3 class="text-sm font-medium text-red-800">This user has been suspended {{ user.suspensions_count }} {{ user.suspensions_count > 1 ? 'times' : 'time' }}.</h3>
                             <div class="mt-2 text-sm text-red-700">
                                 <ul role="list" class="list-disc pl-5 space-y-1">
-                                    <li>Your password must be at least 8 characters</li>
-                                    <li>Your password must include at least one pro wrestling finishing move</li>
+                                    <li v-for="suspension in user.suspensions" :key="suspension.id">{{ suspension.reason }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -62,7 +61,7 @@
                                     <h3 class="text-base leading-6 font-medium text-gray-900">Suspend this user account</h3>
                                     <p class="mt-1 max-w-2xl text-sm text-gray-500">User information will not be affected.</p>
                                 </div>
-                                <button type="button" :disabled="$page.props.auth.id === user.id" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed"> Suspend user </button>
+                                <button type="button" @click.prevent="suspend" :disabled="$page.props.auth.id === user.id" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed"> Suspend user </button>
                             </div>
                             <div class="flex items-center justify-between px-4 py-6 sm:px-6">
                                 <div>
@@ -124,10 +123,17 @@
         props: {
             user: Object,
         },
-        setup() {
+        setup(props) {
+            const suspend = () => {
+                Inertia.post(route('admin.users.suspend', [props.user.id]), {
+                    user_id: props.user.id,
+                    reason: "",
+                });
+            }
             return {
                 convertDate,
                 convertDateTime,
+                suspend,
             }
         },
     }

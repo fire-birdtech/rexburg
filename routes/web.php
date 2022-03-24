@@ -54,6 +54,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
         Route::prefix('users')->name('users.')->group(function () {
             Route::get('/', [AdminUserController::class, 'index'])->name('index');
             Route::get('{id}', [AdminUserController::class, 'show'])->name('show');
+            Route::post('/{id}/suspend', [AdminUserController::class, 'suspend'])->name('suspend');
         });
         Route::get('/claims', [AdminPagesController::class, 'claims'])->name('claims.index');
     });

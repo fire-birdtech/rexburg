@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserSuspension;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -18,7 +20,21 @@ class UserController extends Controller
     public function show(int $id)
     {
         return inertia('Admin/Users/Show', [
-            'user' => User::where('id', $id)->withCount('reviews')->first()
+            'user' => User::where('id', $id)->withCount(['reviews', 'suspensions'])->with(['suspensions'])->first()
         ]);
+    }
+
+    public function suspend(Request $request)
+    {
+        $user = User::where('id', $request->user_id)->firstOrFail();
+        $user->suspended_until = Carbon::now()->addWeeks(1);
+        $user->save();
+
+        UserSuspension::create([
+            'user_id' => $user->id,
+            'reason' => 'Donec pharetra, orci vel accumsan.'
+        ]);
+
+        return back();
     }
 }

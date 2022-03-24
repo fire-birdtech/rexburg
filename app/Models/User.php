@@ -27,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'suspended_until',
     ];
 
     /**
@@ -108,5 +109,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function claims()
     {
         return $this->hasMany(Claim::class);
+    }
+
+    /**
+     * Get the user's suspensions
+     */
+    public function suspensions()
+    {
+        return $this->hasMany(UserSuspension::class);
     }
 }
