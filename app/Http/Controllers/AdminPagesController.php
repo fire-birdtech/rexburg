@@ -25,11 +25,4 @@ class AdminPagesController extends Controller
     {
         return Inertia::render('Admin/Housing/Create');
     }
-
-    public function claims()
-    {
-        return Inertia::render('Admin/Claims/Index', [
-            'claims' => Claim::orderBy('created_at', 'asc')->with(['claimable', 'user'])->get(),
-        ]);
-    }
 }

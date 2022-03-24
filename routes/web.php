@@ -5,6 +5,7 @@ use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Admin\ClaimsController as AdminClaimsController;
 use App\Http\Controllers\Admin\HousingController as AdminHousingController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
@@ -56,7 +57,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
             Route::get('{id}', [AdminUserController::class, 'show'])->name('show');
             Route::post('/{id}/suspend', [AdminUserController::class, 'suspend'])->name('suspend');
         });
-        Route::get('/claims', [AdminPagesController::class, 'claims'])->name('claims.index');
+        Route::get('/claims', [AdminClaimsController::class, 'index'])->name('claims.index');
     });
 });
 
