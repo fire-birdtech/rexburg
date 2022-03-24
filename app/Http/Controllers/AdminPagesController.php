@@ -13,16 +13,4 @@ class AdminPagesController extends Controller
     {
         return Inertia::render('Admin/Home');
     }
-
-    public function housing()
-    {
-        return Inertia::render('Admin/Housing/Index', [
-            'housings' => Housing::with('manager.user')->withCount('reviews')->orderBy('name', 'asc')->get(),
-        ]);
-    }
-
-    public function housing_create()
-    {
-        return Inertia::render('Admin/Housing/Create');
-    }
 }

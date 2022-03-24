@@ -10,6 +10,18 @@ use Inertia\Inertia;
 
 class HousingController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('Admin/Housing/Index', [
+            'housings' => Housing::with('manager.user')->withCount('reviews')->orderBy('name', 'asc')->get(),
+        ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('Admin/Housing/Create');
+    }
+
     public function show(int $id)
     {
         $housing = Housing::where('id', $id)->with(['manager.user', 'reviews.user', 'reviews' => function($query) {
