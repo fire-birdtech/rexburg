@@ -4,9 +4,14 @@
             <div class="max-w-8xl mx-auto px-8">
                 <div class="flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-900">Housing</h2>
-                    <Link :href="route('admin.housing.create')" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
-                        Create Housing
-                    </Link>
+                    <div class="space-x-3">
+                        <Link :href="route('admin.claims.index')" class="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                            View Claims
+                        </Link>
+                        <Link :href="route('admin.housing.create')" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                            Create Housing
+                        </Link>
+                    </div>
                 </div>
                 <div class="py-4 flex flex-col">
                     <div class="-my-2 overflow-x-auto -mx-8">
