@@ -124,7 +124,7 @@
 
     const navigation = [
         { name: 'Dashboard', href: route('admin.home'), icon: ViewGridIcon, components: ['Admin/Home'] },
-        { name: 'Housing', href: route('admin.housing.index'), icon: HomeIcon, components: ['Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show', 'Admin/Housing/Edit'] },
+        { name: 'Housing', href: route('admin.housing.index'), icon: HomeIcon, components: ['Admin/Claims/Index', 'Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show', 'Admin/Housing/Edit'] },
         { name: 'Users', href: route('admin.users.index'), icon: UsersIcon, components: ['Admin/Users/Index', 'Admin/Users/Show'] },
         { name: 'Calendar', href: '#', icon: CalendarIcon, components: [] },
         { name: 'Documents', href: '#', icon: InboxIcon, components: [] },
