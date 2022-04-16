@@ -1,11 +1,13 @@
 <template>
     <admin-layout title="Admin Claims">
-        <div class="py-12 px-4 md:px-0">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <h2>Claims</h2>
+        <div class="py-4">
+            <div class="max-w-8xl mx-auto px-8">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-gray-900">Claims</h2>
+                </div>
                 <div class="py-4 flex flex-col">
-                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="-my-2 overflow-x-auto -mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full px-8">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
