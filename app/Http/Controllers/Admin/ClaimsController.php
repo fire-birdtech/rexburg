@@ -22,4 +22,9 @@ class ClaimsController extends Controller
             'claim' => Claim::where('id', $id)->with(['claimable', 'user'])->firstOrFail(),
         ]);
     }
+
+    public function approve(int $id)
+    {
+        return 'Approved. Send postcard';
+    }
 }
