@@ -157,21 +157,33 @@
                     <div class="flow-root border-t border-gray-200">
                         <ul role="list" class="divide-y divide-gray-200">
                             <li v-for="item in housing.revision_history" :key="item.id" class="p-4">
-                                <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full object-cover" :src="item.user.profile_photo_url" :alt="item.user.name" />
-                                    <div class="flex-1 space-y-1">
-                                        <div class="flex items-center justify-between">
-                                            <h3 class="text-sm font-medium">{{ item.user.name }}</h3>
-                                            <p class="text-sm text-gray-500">{{ convertDateFromNowNoSuffix(item.updated_at) }}</p>
+                                <template v-if="item.key === 'created_at'">
+                                    <div class="flex">
+                                        <div class="flex-1">
+                                            <p class="text-sm text-gray-500">
+                                                <span class="font-medium text-gray-700">{{ convertKey(item.key) }}</span>
+                                                on <span class="italic">{{ convertDate(item.new_value) }}</span>
+                                            </p>
                                         </div>
-                                        <p class="text-sm text-gray-500">
-                                            {{ getRevisionAction(item.key) }} <span class="font-medium text-gray-700">{{ convertKey(item.key) }}</span>
-                                            <template v-if="item.old_value"> from <span class="italic">{{ item.old_value }}</span></template>
-                                            {{' '}}
-                                            to <span class="italic">{{ item.new_value }}</span>
-                                        </p>
                                     </div>
-                                </div>
+                                </template>
+                                <template v-else>
+                                    <div class="flex space-x-3">
+                                        <img class="h-6 w-6 rounded-full object-cover" :src="item.user.profile_photo_url" :alt="item.user.name" />
+                                        <div class="flex-1 space-y-1">
+                                            <div class="flex items-center justify-between">
+                                                <h3 class="text-sm font-medium">{{ item.user.name }}</h3>
+                                                <p class="text-sm text-gray-500">{{ convertDateFromNowNoSuffix(item.updated_at) }}</p>
+                                            </div>
+                                            <p class="text-sm text-gray-500">
+                                                {{ getRevisionAction(item.key) }} <span class="font-medium text-gray-700">{{ convertKey(item.key) }}</span>
+                                                <template v-if="item.old_value"> from <span class="italic">{{ item.old_value }}</span></template>
+                                                {{' '}}
+                                                to <span class="italic">{{ item.new_value }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </template>
                             </li>
                         </ul>
                     </div>
