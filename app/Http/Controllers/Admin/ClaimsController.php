@@ -27,4 +27,12 @@ class ClaimsController extends Controller
     {
         return 'Approved. Send postcard';
     }
+
+    public function reject(int $id)
+    {
+        $claim = Claim::where('id', $id)->firstOrFail();
+        $claim->delete();
+
+        return redirect()->route('admin.claims.index');
+    }
 }
