@@ -17,6 +17,9 @@ class Claim extends Model
         'status',
         'user_id',
         'verification_code',
+        'street_address',
+        'city',
+        'postal_code',
     ];
 
     /**

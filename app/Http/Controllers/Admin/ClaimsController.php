@@ -15,4 +15,11 @@ class ClaimsController extends Controller
             'claims' => Claim::orderBy('created_at', 'asc')->with(['claimable', 'user'])->get(),
         ]);
     }
+
+    public function show(int $id)
+    {
+        return Inertia::render('Admin/Claims/Show', [
+            'claim' => Claim::where('id', $id)->with(['claimable', 'user'])->firstOrFail(),
+        ]);
+    }
 }

@@ -16,6 +16,9 @@ class ClaimController extends Controller
         $housing = Housing::where('id', $request['housing_id'])->first();
         $housing->claim()->save(new Claim([
             'user_id' => auth()->user()->id,
+            'street_address' => $request['street_address'],
+            'city' => $request['city'],
+            'postal_code' => $request['postal_code'],
             'status' => ClaimStatus::PENDING,
         ]));
 

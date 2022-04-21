@@ -179,13 +179,40 @@
                                 </div>
                                 <div class="mt-3 text-center sm:mt-5">
                                     <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900"> Claim {{ housing.name }} </DialogTitle>
-                                    <div class="mt-3">
-                                        <p class="text-base text-gray-600">By clicking "Claim" below, you verify that you are either the owner or manager of {{ housing.name }} and accept the responsibilty of maintaining this profile.</p>
-                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <form>
+                                        <p class="text-sm text-gray-600">Please enter the address of {{ housing.name }}.</p>
+                                        <div class="mt-3 grid grid-cols-1 gap-y-3 gap-x-4 sm:grid-cols-6">
+                                            <div class="sm:col-span-6">
+                                                <label for="street-address" class="block text-sm font-medium text-gray-700"> Street address </label>
+                                                <div class="mt-1">
+                                                    <input type="text" v-model="form.street_address" name="street-address" id="street-address" autocomplete="street-address" class="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                </div>
+                                            </div>
+
+                                            <div class="sm:col-span-3">
+                                                <label for="city" class="block text-sm font-medium text-gray-700"> City </label>
+                                                <div class="mt-1">
+                                                    <input type="text" v-model="form.city" name="city" id="city" autocomplete="address-level2" class="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                </div>
+                                            </div>
+
+                                            <div class="sm:col-span-3">
+                                                <label for="region" class="block text-sm font-medium text-gray-700"> ZIP / Postal code </label>
+                                                <div class="mt-1">
+                                                    <input type="text" v-model="form.postal_code" name="postal-code" id="postal-code" autocomplete="postal-code" class="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="mt-6">
+                                    <p class="text-sm text-gray-600">By clicking "Claim" below, you verify that you are either the owner or manager of {{ housing.name }} and accept the responsibilty of maintaining this profile.</p>
                                 </div>
                             </div>
                             <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
-                                <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-sky-600 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:col-start-2 sm:text-sm" @click="open = false">Claim</button>
+                                <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-sky-600 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:col-start-2 sm:text-sm disabled:cursor-not-allowed disabled:bg-opacity-80" :disabled="!form.street_address || !form.city || !form.postal_code" @click="createClaim">Claim</button>
                                 <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0 sm:col-start-1 sm:text-sm" @click="claimDialogOpen = false" ref="cancelButtonRef">Cancel</button>
                             </div>
                         </div>
@@ -254,6 +281,9 @@
             return {
                 form: this.$inertia.form({
                     'housing_id': this.housing.id,
+                    'street_address': null,
+                    'city': null,
+                    'postal_code': null,
                 }),
                 isClaimed: this.housing.manager || this.housing.claim,
                 scoredescription: this.calculateDescription(),

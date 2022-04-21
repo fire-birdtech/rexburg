@@ -27,9 +27,9 @@
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Verification Code
                                             </th>
-                                            <!-- <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Edit</span>
-                                            </th> -->
+                                            <th scope="col" class="relative px-6 py-3">
+                                                <span class="sr-only">Edit</span>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,9 +58,11 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{ claim.verification_code }}
                                             </td>
-                                            <!-- <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                            </td> -->
+                                            <td class="flex items-center justify-end space-x-4 px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <Link :href="route('admin.claims.show', [claim.id])" class="text-sky-600 hover:text-sky-900">
+                                                    <EyeIcon class="h-6 w-6" />
+                                                </Link>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -75,10 +77,14 @@
 
 <script>
     import AdminLayout from '@/Layouts/AdminLayout';
+    import { Link } from '@inertiajs/inertia-vue3';
+    import { EyeIcon } from '@heroicons/vue/outline';
 
     export default {
         components: {
             AdminLayout,
+            EyeIcon,
+            Link,
         },
         props: {
             claims: Array,

@@ -57,7 +57,10 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
             Route::get('{id}', [AdminUserController::class, 'show'])->name('show');
             Route::post('/{id}/suspend', [AdminUserController::class, 'suspend'])->name('suspend');
         });
-        Route::get('/claims', [AdminClaimsController::class, 'index'])->name('claims.index');
+        Route::prefix('claims')->name('claims.')->group(function () {
+            Route::get('/', [AdminClaimsController::class, 'index'])->name('index');
+            Route::get('{id}', [AdminClaimsController::class, 'show'])->name('show');
+        });
     });
 });
 
