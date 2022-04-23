@@ -68,7 +68,7 @@
                                     <h3 class="text-base leading-6 font-medium text-gray-900">Delete this user account</h3>
                                     <p class="mt-1 max-w-2xl text-sm text-gray-500">Once you delete this user, there is no going back.</p>
                                 </div>
-                                <button type="button" :disabled="$page.props.auth.id === user.id" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed"> Delete user </button>
+                                <button type="button" :disabled="$page.props.auth.id === user.id || user.suspensions.length < 3" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed"> Delete user </button>
                             </div>
                         </div>
                     </div>
