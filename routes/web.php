@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminPagesController;
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\ClaimsController as AdminClaimsController;
 use App\Http\Controllers\Admin\HousingController as AdminHousingController;
+use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Manager\PagesController as ManagerPagesController;
 use Illuminate\Support\Facades\Route;
