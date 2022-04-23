@@ -1,4 +1,5 @@
 <template>
+    <Head :title="title" />
     <div class="min-h-screen bg-gray-100">
         <div>
             <TransitionRoot as="template" :show="sidebarOpen">
@@ -120,7 +121,7 @@
     } from '@heroicons/vue/outline';
     import { SearchIcon } from '@heroicons/vue/solid';
     import ApplicationMark from '@/Components/ApplicationMarkWhite.vue';
-    import { Link } from '@inertiajs/inertia-vue3';
+    import { Head, Link } from '@inertiajs/inertia-vue3';
 
     const navigation = [
         { name: 'Dashboard', href: route('admin.home'), icon: ViewGridIcon, components: ['Admin/Home'] },
@@ -136,10 +137,14 @@
     ];
 
     export default {
+        props: {
+            title: String,
+        },
         components: {
             ApplicationMark,
             Dialog,
             DialogOverlay,
+            Head,
             Link,
             Menu,
             MenuButton,
