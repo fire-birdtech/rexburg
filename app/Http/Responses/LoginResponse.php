@@ -19,6 +19,10 @@ class LoginResponse implements LoginResponseContract
             return redirect()->intended(RouteServiceProvider::ADMINHOME);
         }
 
+        if ($request->user()->hasRole('manager')) {
+            return redirect()->intended(RouteServiceProvider::MANAGERHOME);
+        }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\ClaimsController as AdminClaimsController;
 use App\Http\Controllers\Admin\HousingController as AdminHousingController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Manager\PagesController as ManagerPagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::post('review', [ReviewController::class, 'create'])->name('reviews.create');
     Route::get('/verify', [PagesController::class, 'verify'])->name('claims.verify');
     Route::patch('/verify', [ClaimController::class, 'verify'])->name('claims.verify.update');
+});
+
+Route::middleware(['auth:sanctum', 'verified', 'manager'])->group(function() {
+    Route::prefix('manager')->name('manager.')->group(function() {
+        Route::get('/', [ManagerPagesController::class, 'dashboard'])->name('dashboard');
+    });
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
