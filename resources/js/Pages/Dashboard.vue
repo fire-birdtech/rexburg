@@ -51,12 +51,6 @@
                     </div>
                 </template>
                 <template v-else>
-                    <div v-if="manages.length">
-                        <h2>My properties</h2>
-                        <div class="py-2 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                            <DashboardReviewable v-for="housing in manages" :key="housing.id" :image="housing.manageable.cover_image_url" :name="housing.manageable.name" :slug="housing.manageable.slug" />
-                        </div>
-                    </div>
                     <div v-if="housings.length">
                         <h2>Places I've lived</h2>
                         <div class="py-2 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
