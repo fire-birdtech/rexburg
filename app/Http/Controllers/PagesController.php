@@ -21,7 +21,7 @@ class PagesController extends Controller
     public function singleList()
     {
         return Inertia::render('StudentHousing/List', [
-            'housing' => Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
+            'housings' => Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
@@ -30,7 +30,7 @@ class PagesController extends Controller
     public function marriedList()
     {
         return Inertia::render('StudentHousing/List', [
-            'housing' => Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
+            'housings' => Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
