@@ -37,4 +37,11 @@ class UserController extends Controller
 
         return back();
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('admin.users.index')->banner('User deleted successfully.');
+    }
 }

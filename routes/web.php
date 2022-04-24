@@ -63,6 +63,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
             Route::get('/', [AdminUserController::class, 'index'])->name('index');
             Route::get('{id}', [AdminUserController::class, 'show'])->name('show');
             Route::post('/{id}/suspend', [AdminUserController::class, 'suspend'])->name('suspend');
+            Route::delete('{user}', [AdminUserController::class, 'destroy'])->name('delete');
         });
         Route::prefix('claims')->name('claims.')->group(function () {
             Route::get('/', [AdminClaimsController::class, 'index'])->name('index');
