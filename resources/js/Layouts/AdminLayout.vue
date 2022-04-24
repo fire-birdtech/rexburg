@@ -76,8 +76,8 @@
                                 </div>
                                 <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                                     <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                        <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
-                                            <a :href="item.href" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">{{ item.name }}</a>
+                                        <MenuItem v-slot="{ active }">
+                                            <Link :href="route('dashboard')" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Main site</Link>
                                         </MenuItem>
                                     </MenuItems>
                                 </transition>
@@ -125,10 +125,6 @@
         { name: 'Housing', href: route('admin.housing.index'), icon: HomeIcon, components: ['Admin/Claims/Index', 'Admin/Claims/Show', 'Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show', 'Admin/Housing/Edit'] },
         { name: 'Users', href: route('admin.users.index'), icon: UsersIcon, components: ['Admin/Users/Index', 'Admin/Users/Show'] },
     ];
-    const userNavigation = [
-        { name: 'Your Profile', href: '#' },
-        { name: 'Sign out', href: '#' },
-    ];
 
     export default {
         props: {
@@ -152,12 +148,11 @@
             XIcon
         },
         setup() {
-            const sidebarOpen = ref(false)
+            const sidebarOpen = ref(false);
 
             return {
-            navigation,
-            userNavigation,
-            sidebarOpen,
+                navigation,
+                sidebarOpen,
             }
         },
     }
