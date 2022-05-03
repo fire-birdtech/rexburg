@@ -59,7 +59,11 @@
                     <div class="flex-1">
                         <p class="text-lg">We currently don't have any reviews for {{ name }}.</p>
                         <p class="mt-4 text-md text-gray-800">Be the first to share details of your own experience.</p>
-                        <button @click="open = true" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Write my review</button>
+                        <button v-if="$page.props.user" @click="open = true" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Write my review</button>
+                        <div v-else class="inline-flex flex-col sm:flex-row mt-4 w-full sm:space-x-2">
+                            <Link :href="route('register')" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Create an account</Link>
+                            <Link :href="route('login')" class="mt-3 sm:mt-0 inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Login</Link>
+                        </div>
                     </div>
                 </div>
             </div>
