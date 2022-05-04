@@ -1,5 +1,5 @@
 <template>
-    <app-layout :canLogin="canLogin" :canRegister="canRegister">
+    <app-layout title="Student Housing" :canLogin="canLogin" :canRegister="canRegister">
         <div class="xl:overflow-y-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <main class="grid gap-4 md:grid-cols-2 lg:gap-5 lg:grid-cols-4 py-8">
                 <HousingCard v-for="(housing, index) in housings" :key="index" :housing="housing" />

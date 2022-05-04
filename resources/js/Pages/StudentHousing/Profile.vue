@@ -1,5 +1,5 @@
 <template>
-    <app-layout :canLogin="canLogin" :canRegister="canRegister">
+    <app-layout :title="housing.name" :canLogin="canLogin" :canRegister="canRegister">
         <div>
             <img :src="housing.cover_image_url" :alt="housing.name" class="h-32 w-full object-cover lg:h-56 bg-gray-300">
         </div>
