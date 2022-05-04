@@ -60,6 +60,6 @@ class ClaimController extends Controller
 
         $request->user()->roles()->attach(1);
 
-        return redirect()->route('dashboard')->banner('You now manage ' . $claim->claimable->name);
+        return redirect()->route('manager.dashboard')->banner('You now manage ' . $claim->claimable->name);
     }
 }
