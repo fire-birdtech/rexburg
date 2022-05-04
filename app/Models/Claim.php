@@ -41,8 +41,8 @@ class Claim extends Model
     /**
      * Get the pending claims
      */
-    public function scopePending($query)
+    public function scopeApproved($query)
     {
-        $query->where('status', ClaimStatus::PENDING);
+        $query->where('status', ClaimStatus::APPROVED);
     }
 }
