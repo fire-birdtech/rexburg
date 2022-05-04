@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b781ecea7d1c1cd12b85a1fa328cec62",
+    "content-hash": "9cec1317502e107d9471913831c318c2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2091,6 +2091,68 @@
                 }
             ],
             "time": "2021-11-21T11:48:40+00:00"
+        },
+        {
+            "name": "lob/lob-php",
+            "version": "v3.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lob/lob-php.git",
+                "reference": "59f0ef9dcb58e4166353bd96f3db6e8afbfebba7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lob/lob-php/zipball/59f0ef9dcb58e4166353bd96f3db6e8afbfebba7",
+                "reference": "59f0ef9dcb58e4166353bd96f3db6e8afbfebba7",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0||~7.0",
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "dompdf/dompdf": "0.6.*",
+                "phpunit/phpunit": "9.5.*",
+                "satooshi/php-coveralls": "2.*||1.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Lob": "src/",
+                    "Lob\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lob",
+                    "email": "support@lob.com",
+                    "homepage": "https://www.lob.com"
+                }
+            ],
+            "description": "Lob.com API PHP wrapper.",
+            "homepage": "https://www.lob.com/",
+            "keywords": [
+                "api",
+                "lob",
+                "printing",
+                "rest",
+                "web service",
+                "wrapper"
+            ],
+            "support": {
+                "issues": "https://github.com/lob/lob-php/issues",
+                "source": "https://github.com/lob/lob-php/tree/v3.5.2"
+            },
+            "time": "2022-04-05T15:01:05+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -8702,5 +8764,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

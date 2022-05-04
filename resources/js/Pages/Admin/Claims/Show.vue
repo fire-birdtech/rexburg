@@ -8,9 +8,18 @@
                         <p class="mt-1 max-w-2xl text-sm text-gray-500">Created {{ convertDate(claim.created_at) }}</p>
                     </div>
                     <div class="mt-4 flex md:mt-0 md:ml-4">
-                        <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" @click="rejectClaim">Reject</button>
-                        <button type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" @click="approveClaim">Approve</button>
+                        <template v-if="claim.status === 'pending'">
+                            <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" @click="rejectClaim">Reject</button>
+                            <button type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" @click="approveClaim">Approve</button>
+                        </template>
+                        <template v-if="claim.status === 'approved'">
+                            <span class="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium border border-green-500 bg-green-100 text-green-800">
+                                <CheckCircleIcon class="-ml-0.5 mr-1.5 h-6 w-6 text-green-500" />
+                                Approved
+                            </span>
+                        </template>
                     </div>
+                    
                 </div>
                 <div class="mt-6 grid grid-cols-3 gap-x-4">
                     <div class="bg-white shadow overflow-hidden col-span-2 sm:rounded-lg">
@@ -61,6 +70,7 @@
     import { defineComponent } from "vue";
     import AdminLayout from '@/Layouts/AdminLayout';
     import { convertDate } from '@/Utils/convertDate';
+    import { CheckCircleIcon } from '@heroicons/vue/outline';
 
     export default defineComponent({
         props: {
@@ -68,6 +78,7 @@
         },
         components: {
             AdminLayout,
+            CheckCircleIcon,
         },
         methods: {
             convertDate,

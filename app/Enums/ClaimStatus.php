@@ -6,4 +6,5 @@ class ClaimStatus
 {
     const PENDING = 'pending';
     const CLAIMED = 'claimed';
+    const APPROVED = 'approved';
 }

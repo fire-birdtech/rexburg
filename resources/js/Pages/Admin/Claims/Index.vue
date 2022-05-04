@@ -49,9 +49,9 @@
                                                         Pending
                                                     </span>
                                                 </template>
-                                                <template v-if="claim.status === 'claimed'">
+                                                <template v-if="claim.status === 'claimed' || claim.status === 'approved'">
                                                     <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                                        Claimed
+                                                        {{ claim.status.charAt(0).toUpperCase() + claim.status.slice(1) }}
                                                     </span>
                                                 </template>
                                             </td>
