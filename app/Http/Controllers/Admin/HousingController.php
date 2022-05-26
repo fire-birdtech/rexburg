@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Housing;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -44,5 +45,43 @@ class HousingController extends Controller
         return Inertia::render('Admin/Housing/Edit', [
             'housing' => Housing::find($id)
         ]);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validateWithBag('updateHousingInformation', [
+            'bathroom_range' => ['nullable', 'string'],
+            'bedroom_range' => ['nullable', 'string'],
+            'city' => ['nullable', 'string'],
+            'email_address' => ['nullable', 'email'],
+            'housing_type' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'phone_number' => ['nullable', 'regex:/^([0-9\s\-\+\(\)]*)$/'],
+            'postal_code' => ['nullable', 'digits:5'],
+            'rent_range' => ['nullable', 'string'],
+            'street' => ['nullable', 'string'],
+            'website_url' => ['nullable', 'string'],
+        ]);
+
+        $housing = Housing::where('id', $request['id'])->first();
+
+        $housing->forceFill([
+            'bathroom_range' => $request['bathroom_range'],
+            'bedroom_range' => $request['bedroom_range'],
+            'city' => $request['city'],
+            'email_address' => $request['email_address'],
+            'housing_type' => $request['housing_type'],
+            'name' => $request['name'],
+            'phone_number' => $request['phone_number'],
+            'postal_code' => $request['postal_code'],
+            'rent_range' => $request['rent_range'],
+            'street' => $request['street'],
+            'website_url' => $request['website_url'],
+        ])->save();
+
+        return $request->wantsJson()
+                    ? new JsonResponse('', 200)
+                    : back()->with('status', 'housing-information-updated')
+                        ->banner('Profile updated successfully!');
     }
 }
