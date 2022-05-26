@@ -147,6 +147,10 @@
         housingTypes.findIndex(type => type.value === props.housing.housing_type)
     ]);
 
+    const updateHousingType = (value) => {
+        props.housing.housing_type = value;
+    }
+
     const updateHousingInformation = () =>  {
         Inertia.post(route('admin.housing.update', [props.housing.id]), props.housing, {
             errorBag: 'updateHousingInformation',
