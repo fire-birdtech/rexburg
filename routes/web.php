@@ -55,7 +55,7 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
         Route::prefix('housing')->name('housing.')->group(function() {
             Route::get('/', [AdminHousingController::class, 'index'])->name('index');
             Route::get('create', [AdminHousingController::class, 'create'])->name('create');
-            Route::post('store', [HousingController::class, 'store'])->name('store');
+            Route::post('store', [AdminHousingController::class, 'store'])->name('store');
             Route::get('{id}', [AdminHousingController::class, 'show'])->name('show');
             Route::post('{id}', [AdminHousingController::class, 'update'])->name('update');
             Route::get('{id}/edit', [AdminHousingController::class, 'edit'])->name('edit');

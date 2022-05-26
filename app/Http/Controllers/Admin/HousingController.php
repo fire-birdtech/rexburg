@@ -23,6 +23,18 @@ class HousingController extends Controller
         return Inertia::render('Admin/Housing/Create');
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'housing_type' => 'required',
+        ]);
+
+        $housing = Housing::create($request->all());
+
+        return redirect()->route('admin.housing.show', $housing->id);
+    }
+
     public function show(int $id)
     {
         $housing = Housing::where('id', $id)->with(['manager.user', 'reviews.user', 'reviews' => function($query) {
@@ -81,7 +93,7 @@ class HousingController extends Controller
 
         return $request->wantsJson()
                     ? new JsonResponse('', 200)
-                    : back()->with('status', 'housing-information-updated')
+                    : redirect()->route('admin.housing.show', $housing->id)->with('status', 'housing-information-updated')
                         ->banner('Profile updated successfully!');
     }
 }
