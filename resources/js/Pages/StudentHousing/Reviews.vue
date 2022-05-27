@@ -1,5 +1,5 @@
 <template>
-    <app-layout :title="`${housing.name} Reviews`" :canLogin="canLogin" :canRegister="canRegister">
+    <app-layout :title="`${housing.name} Reviews`" :description="pageDescription" :canLogin="canLogin" :canRegister="canRegister">
         <div>
             <img :src="housing.cover_image_url" :alt="housing.name" class="h-32 w-full object-cover lg:h-56 bg-gray-300">
         </div>
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+    import { ref } from 'vue';
     import AppLayout from '@/Layouts/AppLayout';
     import { convertDateWithDay } from '@/Utils/convertDate';
     import ReviewList from '@/Components/ReviewList';
@@ -83,6 +84,15 @@
                 if (this.housing.score >= 2) { return "Okay"; }
                 if (this.housing.score >= 1) { return "Poor"; }
             },
+        },
+        setup(props) {
+            const pageDescription = ref(
+                `Read reviews about ${props.housing.name} ${props.housing.housing_type} student housing on Rexburg Guru!`
+            );
+
+            return {
+                pageDescription,
+            }
         },
     }
 </script>

@@ -1,6 +1,8 @@
 <template>
     <div>
-        <Head :title="title" />
+        <Head :title="title">
+            <meta head-key="description" name="description" :content="description || defaultDescription" />
+        </Head>
 
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-sky-500">
@@ -179,6 +181,7 @@
             canLogin: Boolean,
             canRegister: Boolean,
             title: String,
+            description: String,
         },
 
         components: {
@@ -221,8 +224,11 @@
             },
         },
         
-        setup() {
+        setup(props) {
+            const defaultDescription = "We are the go-to place for everything Rexburg. Students at BYU-Idaho can find housing and more to come. Create your free account today!";
+
             return {
+                defaultDescription,
                 housing,
             }
         },

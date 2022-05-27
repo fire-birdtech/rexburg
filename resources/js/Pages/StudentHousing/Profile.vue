@@ -1,5 +1,5 @@
 <template>
-    <app-layout :title="housing.name" :canLogin="canLogin" :canRegister="canRegister">
+    <app-layout :title="housing.name" :description="pageDescription" :canLogin="canLogin" :canRegister="canRegister">
         <div>
             <img :src="housing.cover_image_url" :alt="housing.name" class="h-32 w-full object-cover lg:h-56 bg-gray-300">
         </div>
@@ -306,11 +306,16 @@
                 });
             },
         },
-        setup() {
+        setup(props) {
             const claimDialogOpen = ref(false);
+
+            const pageDescription = ref(
+                `Check out ${props.housing.name} ${props.housing.housing_type} student housing on Rexburg Guru!`
+            );
             
             return {
                 claimDialogOpen,
+                pageDescription,
             }
         },
     })

@@ -24,6 +24,7 @@ class PagesController extends Controller
             'housings' => Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'type' => 'single',
         ]);
     }
 
@@ -33,6 +34,7 @@ class PagesController extends Controller
             'housings' => Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'type' => 'married',
         ]);
     }
 
