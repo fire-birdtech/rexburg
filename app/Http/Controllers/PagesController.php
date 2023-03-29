@@ -41,7 +41,7 @@ class PagesController extends Controller
     public function housingProfile(Request $request)
     {
         return Inertia::render('StudentHousing/Profile', [
-            'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['amenities', 'reviews.user', 'reviews' => function($query) {
+            'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['amenities', 'reviews.user', 'reviews' => function ($query) {
                 $query->orderBy('created_at', 'desc')->take(4);
             }, 'manager', 'claim'])->first(),
             'isAdmin' => auth()->user() ? $request->user()->hasRole('admin') : false,
@@ -53,7 +53,7 @@ class PagesController extends Controller
     public function housingReviews(Request $request)
     {
         return Inertia::render('StudentHousing/Reviews', [
-            'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['reviews.user', 'reviews' => function($query) {
+            'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['reviews.user', 'reviews' => function ($query) {
                 $query->orderBy('created_at', 'desc');
             }])->first(),
             'caLogin' => Route::has('login'),
@@ -67,6 +67,7 @@ class PagesController extends Controller
         if (! $housing->hasManager() || $request->user()->id !== $housing->manager->user_id) {
             return redirect()->route('errors.404');
         }
+
         return Inertia::render('StudentHousing/Edit', [
             'housing' => $housing,
             'amenities' => Amenity::orderBy('name', 'asc')->get(),

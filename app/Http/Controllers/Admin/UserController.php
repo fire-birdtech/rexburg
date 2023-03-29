@@ -13,14 +13,14 @@ class UserController extends Controller
     public function index()
     {
         return inertia('Admin/Users/Index', [
-            'users' => User::orderBy('name', 'asc')->get()
+            'users' => User::orderBy('name', 'asc')->get(),
         ]);
     }
 
     public function show(int $id)
     {
         return inertia('Admin/Users/Show', [
-            'user' => User::where('id', $id)->withCount(['reviews', 'suspensions'])->with(['suspensions'])->first()
+            'user' => User::where('id', $id)->withCount(['reviews', 'suspensions'])->with(['suspensions'])->first(),
         ]);
     }
 
@@ -32,7 +32,7 @@ class UserController extends Controller
 
         UserSuspension::create([
             'user_id' => $user->id,
-            'reason' => 'Donec pharetra, orci vel accumsan.'
+            'reason' => 'Donec pharetra, orci vel accumsan.',
         ]);
 
         return back();

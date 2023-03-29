@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\ClaimController;
-use App\Http\Controllers\HousingController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\ClaimsController as AdminClaimsController;
 use App\Http\Controllers\Admin\HousingController as AdminHousingController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\ClaimController;
+use App\Http\Controllers\HousingController;
 use App\Http\Controllers\Manager\PagesController as ManagerPagesController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +35,7 @@ Route::middleware(['auth:sanctum', 'verified', 'manager'])->group(function () {
     Route::delete('student-housing/{id}/profile', [HousingController::class, 'destroyProfileImage'])->name('housing-profile-image.destroy');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
     Route::post('claim', [ClaimController::class, 'create'])->name('claims.create');
     Route::post('review', [ReviewController::class, 'create'])->name('reviews.create');
@@ -43,16 +43,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::patch('/verify', [ClaimController::class, 'verify'])->name('claims.verify.update');
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'manager'])->group(function() {
-    Route::prefix('manager')->name('manager.')->group(function() {
+Route::middleware(['auth:sanctum', 'verified', 'manager'])->group(function () {
+    Route::prefix('manager')->name('manager.')->group(function () {
         Route::get('/', [ManagerPagesController::class, 'dashboard'])->name('dashboard');
     });
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
-    Route::name('admin.')->group(function() {
+Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function () {
+    Route::name('admin.')->group(function () {
         Route::get('/', [AdminPagesController::class, 'home'])->name('home');
-        Route::prefix('housing')->name('housing.')->group(function() {
+        Route::prefix('housing')->name('housing.')->group(function () {
             Route::get('/', [AdminHousingController::class, 'index'])->name('index');
             Route::get('create', [AdminHousingController::class, 'create'])->name('create');
             Route::post('store', [AdminHousingController::class, 'store'])->name('store');

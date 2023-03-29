@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\ClaimStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Claim;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Lob\Lob;
 
@@ -48,19 +47,19 @@ class ClaimsController extends Controller
         $lob = new Lob(env('LOB_API_KEY'));
 
         $from = $lob->addresses()->create([
-            'name'          => 'RexburgGuru',
+            'name' => 'RexburgGuru',
             'address_line1' => '6022 Santo Domingo Rd',
-            'address_city'  => 'Colorado Springs',
+            'address_city' => 'Colorado Springs',
             'address_state' => 'CO',
-            'address_zip'   => '80911',
+            'address_zip' => '80911',
         ]);
 
         $to = $lob->addresses()->create([
-            'name'          => $recipient->user->name,
+            'name' => $recipient->user->name,
             'address_line1' => $recipient->street_address,
-            'address_city'  => $recipient->city,
+            'address_city' => $recipient->city,
             'address_state' => 'ID',
-            'address_zip'   => $recipient->postal_code,
+            'address_zip' => $recipient->postal_code,
         ]);
 
         $postcard = $lob->postcards()->create([
