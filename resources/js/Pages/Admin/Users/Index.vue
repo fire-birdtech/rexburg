@@ -50,7 +50,7 @@
 
 <script>
     import AdminLayout from '@/Layouts/AdminLayout.vue';
-    import { Link } from '@inertiajs/inertia-vue3';
+    import { Link } from '@inertiajs/vue3';
     import { EyeIcon, PencilAltIcon } from '@heroicons/vue/outline';
     import { convertDate } from '@/Utils/convertDate';
 

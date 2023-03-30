@@ -146,7 +146,7 @@
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { convertDate, convertDateTime } from '@/Utils/convertDate';
     import { ExclamationIcon, XCircleIcon } from '@heroicons/vue/solid';
-    import { Inertia } from '@inertiajs/inertia';
+    import { router } from '@inertiajs/vue3';
     import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
 
     export default {
@@ -165,13 +165,13 @@
         },
         setup(props) {
             const suspend = () => {
-                Inertia.post(route('admin.users.suspend', [props.user.id]), {
+                router.post(route('admin.users.suspend', [props.user.id]), {
                     user_id: props.user.id,
                     reason: "",
                 });
             }
             const deleteUser = () => {
-                Inertia.delete(route('admin.users.delete', [props.user.id]));
+                router.delete(route('admin.users.delete', [props.user.id]));
             }
             const open = ref(false);
             return {

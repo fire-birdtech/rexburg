@@ -137,7 +137,7 @@
     import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';
     import { ref } from 'vue';
     import { housingTypes } from '@/Utils/housingTypes';
-    import { Inertia } from '@inertiajs/inertia';
+    import { router } from '@inertiajs/vue3';
 
     const props = defineProps({
         housing: Object,
@@ -152,7 +152,7 @@
     }
 
     const updateHousingInformation = () =>  {
-        Inertia.post(route('admin.housing.update', [props.housing.id]), props.housing, {
+        router.post(route('admin.housing.update', [props.housing.id]), props.housing, {
             errorBag: 'updateHousingInformation',
             preserveScroll: true,
         });

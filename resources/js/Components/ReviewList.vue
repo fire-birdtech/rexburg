@@ -141,7 +141,7 @@
 
 <script>
     import { ref } from 'vue';
-    import { Link } from '@inertiajs/inertia-vue3';
+    import { Link } from '@inertiajs/vue3';
     import Stars from '@/Components/Stars.vue';
     import Review from '@/Components/Review.vue';
     import { Dialog, DialogOverlay, DialogTitle, RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption, TransitionChild, TransitionRoot } from '@headlessui/vue';
