@@ -10,7 +10,6 @@ trait HasProfileImage
     /**
      * Update the housing's cover image.
      *
-     * @param  \Illuminate\Http\UploadedFile  $photo
      * @return void
      */
     public function updateProfileImage(UploadedFile $photo)

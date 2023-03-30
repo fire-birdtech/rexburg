@@ -69,9 +69,6 @@ class HousingController extends Controller
 
     /**
      * Delete the housing's cover image
-     * 
-     * @param Request $request
-     * @return RedirectResponse
      */
     public function destroyCoverImage(Request $request): RedirectResponse
     {
@@ -81,14 +78,12 @@ class HousingController extends Controller
             return back(303)
                     ->with('status', 'cover-image-deleted')
                     ->banner('Cover image deleted successfully');
-        } catch (Error $error) { }
+        } catch (Error $error) {
+        }
     }
 
     /**
      * Delete the housing's profile image
-     * 
-     * @param Request $request
-     * @return RedirectResponse
      */
     public function destroyProfileImage(Request $request): RedirectResponse
     {
@@ -98,6 +93,7 @@ class HousingController extends Controller
             return back(303)
                     ->with('status', 'profile-image-deleted')
                     ->banner('Profile image deleted successfully');
-        } catch (Error $error) { }
+        } catch (Error $error) {
+        }
     }
 }

@@ -17,7 +17,7 @@ trait UpdatesScore
     {
         $reviewableReviews = $this->reviewable->reviews;
         $ratingTotal = null;
-        foreach($reviewableReviews as $review) {
+        foreach ($reviewableReviews as $review) {
             $ratingTotal += $review->rating;
         }
         $score = $ratingTotal / count($reviewableReviews);

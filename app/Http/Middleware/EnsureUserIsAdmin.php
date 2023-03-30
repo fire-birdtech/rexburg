@@ -10,16 +10,14 @@ class EnsureUserIsAdmin
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        if (! $request->user()->hasRole('admin'))
-        {
+        if (! $request->user()->hasRole('admin')) {
             return redirect()->back();
         }
+
         return $next($request);
     }
 }

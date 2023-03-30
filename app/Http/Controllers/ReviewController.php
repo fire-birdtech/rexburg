@@ -23,7 +23,7 @@ class ReviewController extends Controller
             'rating' => $request['rating'],
         ]));
 
-        if ($request['livedHere'] === "Yes") {
+        if ($request['livedHere'] === 'Yes') {
             $housing->users()->attach(auth()->user()->id);
         }
 

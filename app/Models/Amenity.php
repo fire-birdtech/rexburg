@@ -11,6 +11,6 @@ class Amenity extends Model
 
     protected $fillable = [
         'name',
-        'single_housing'
+        'single_housing',
     ];
 }

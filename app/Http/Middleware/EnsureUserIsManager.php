@@ -10,16 +10,14 @@ class EnsureUserIsManager
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        if (! $request->user()->hasRole('manager'))
-        {
+        if (! $request->user()->hasRole('manager')) {
             return redirect()->back();
         }
+
         return $next($request);
     }
 }

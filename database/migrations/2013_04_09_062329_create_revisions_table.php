@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRevisionsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -21,7 +21,7 @@ class CreateRevisionsTable extends Migration
             $table->text('new_value')->nullable();
             $table->timestamps();
 
-            $table->index(array('revisionable_id', 'revisionable_type'));
+            $table->index(['revisionable_id', 'revisionable_type']);
         });
     }
 
@@ -34,4 +34,4 @@ class CreateRevisionsTable extends Migration
     {
         Schema::dropIfExists('revisions');
     }
-}
+};

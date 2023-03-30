@@ -46,10 +46,10 @@ class AmenitySeeder extends Seeder
             'On-site Maintenance',
             'Barbecue Grill(s)',
             'Online Payments',
-            'Recreation Room(s)'
+            'Recreation Room(s)',
         ];
 
-        foreach($amenities as $amenity) {
+        foreach ($amenities as $amenity) {
             Amenity::create([
                 'name' => $amenity,
             ]);

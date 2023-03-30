@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ClaimStatus;
 use App\Models\Claim;
 use App\Models\Housing;
-use App\Enums\ClaimStatus;
 use App\Models\Manage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -31,28 +31,25 @@ class ClaimController extends Controller
     public function verify(Request $request)
     {
         $request->validateWithBag('updateClaim', [
-            'verification_code' => 'required|string'
+            'verification_code' => 'required|string',
         ]);
 
         $claim = Claim::where('verification_code', $request['verification_code'])->first();
 
-        if (is_null($claim))
-        {
+        if (is_null($claim)) {
             return back()->withErrors(['message' => 'The verification code could not be found']);
         }
 
-        if ($claim->status === ClaimStatus::CLAIMED)
-        {
+        if ($claim->status === ClaimStatus::CLAIMED) {
             return back()->withErrors(['message' => 'The verification code has already been used']);
         }
 
-        if ($request->user()->id !== $claim->user_id)
-        {
+        if ($request->user()->id !== $claim->user_id) {
             return back()->withErrors(['message' => 'The verification code is incorrect']);
         }
 
         $claim->claimable->manager()->save(new Manage([
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ]));
 
         $claim->status = ClaimStatus::CLAIMED;
@@ -60,6 +57,6 @@ class ClaimController extends Controller
 
         $request->user()->roles()->attach(1);
 
-        return redirect()->route('manager.dashboard')->banner('You now manage ' . $claim->claimable->name);
+        return redirect()->route('manager.dashboard')->banner('You now manage '.$claim->claimable->name);
     }
 }
