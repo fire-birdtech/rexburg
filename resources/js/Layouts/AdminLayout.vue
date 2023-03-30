@@ -118,7 +118,7 @@
     } from '@heroicons/vue/outline';
     import { SearchIcon } from '@heroicons/vue/solid';
     import ApplicationMark from '@/Components/ApplicationMarkWhite.vue';
-    import { Head, Link } from '@inertiajs/inertia-vue3';
+    import { Head, Link } from '@inertiajs/vue3';
 
     const navigation = [
         { name: 'Dashboard', href: route('admin.home'), icon: ViewGridIcon, components: ['Admin/Home'] },

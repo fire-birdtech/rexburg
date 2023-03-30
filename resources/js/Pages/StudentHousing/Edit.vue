@@ -290,7 +290,7 @@
 
 <script>
     import { ref } from 'vue';
-    import { Link } from '@inertiajs/inertia-vue3';
+    import { Link } from '@inertiajs/vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
     import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';

@@ -172,7 +172,7 @@
 </template>
 
 <script>
-    import { Head, Link } from '@inertiajs/inertia-vue3';
+    import { Head, Link } from '@inertiajs/vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
     import Footer from '@/Components/Footer.vue';
     import listingImage from '../../images/listing.png';

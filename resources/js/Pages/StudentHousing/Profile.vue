@@ -225,7 +225,7 @@
 
 <script>
     import { defineComponent, ref } from 'vue';
-    import { Link } from '@inertiajs/inertia-vue3';
+    import { Link } from '@inertiajs/vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { BadgeCheckIcon, CheckCircleIcon, CheckIcon, ChevronRightIcon, HomeIcon, LocationMarkerIcon, MailIcon, PhoneIcon, StarIcon, UserIcon, UsersIcon } from '@heroicons/vue/solid';
     import { DeviceMobileIcon, MailIcon as MailOutlineIcon } from '@heroicons/vue/outline';
