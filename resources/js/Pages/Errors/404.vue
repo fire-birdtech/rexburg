@@ -25,7 +25,7 @@
 
 <script>
     import { Link } from '@inertiajs/inertia-vue3';
-    import AppLayout from '@/Layouts/AppLayout';
+    import AppLayout from '@/Layouts/AppLayout.vue';
     import ApplicationMark from '@/Components/ApplicationMarkBlue.vue';
 
     export default {

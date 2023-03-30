@@ -291,11 +291,11 @@
 <script>
     import { ref } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
-    import AppLayout from '@/Layouts/AppLayout';
+    import AppLayout from '@/Layouts/AppLayout.vue';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
     import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';
     import JetInputError from '@/Jetstream/InputError.vue';
-    import TextEditor from '@/Components/TextEditor';
+    import TextEditor from '@/Components/TextEditor.vue';
 
     const housingTypes = [
         { name: "Single", value: "single" },

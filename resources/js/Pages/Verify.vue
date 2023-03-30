@@ -27,8 +27,8 @@
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout';
-    import JetInputError from '@/Jetstream/InputError';
+    import AppLayout from '@/Layouts/AppLayout.vue';
+    import JetInputError from '@/Jetstream/InputError.vue';
 
     export default {
         components: {

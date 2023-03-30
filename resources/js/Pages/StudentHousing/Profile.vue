@@ -229,10 +229,10 @@
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { BadgeCheckIcon, CheckCircleIcon, CheckIcon, ChevronRightIcon, HomeIcon, LocationMarkerIcon, MailIcon, PhoneIcon, StarIcon, UserIcon, UsersIcon } from '@heroicons/vue/solid';
     import { DeviceMobileIcon, MailIcon as MailOutlineIcon } from '@heroicons/vue/outline';
-    import TextEditor from '@/Components/TextEditor';
-    import Stars from '@/Components/Stars';
-    import JetInputError from '@/Jetstream/InputError';
-    import ReviewList from '@/Components/ReviewList';
+    import TextEditor from '@/Components/TextEditor.vue';
+    import Stars from '@/Components/Stars.vue';
+    import JetInputError from '@/Jetstream/InputError.vue';
+    import ReviewList from '@/Components/ReviewList.vue';
     import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
 
     export default defineComponent({

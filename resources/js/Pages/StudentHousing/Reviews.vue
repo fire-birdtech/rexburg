@@ -52,9 +52,9 @@
 
 <script>
     import { ref } from 'vue';
-    import AppLayout from '@/Layouts/AppLayout';
+    import AppLayout from '@/Layouts/AppLayout.vue';
     import { convertDateWithDay } from '@/Utils/convertDate';
-    import ReviewList from '@/Components/ReviewList';
+    import ReviewList from '@/Components/ReviewList.vue';
     import { Link } from '@inertiajs/inertia-vue3';
     import { ArrowLeftIcon } from '@heroicons/vue/outline';
 

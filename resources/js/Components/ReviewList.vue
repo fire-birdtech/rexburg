@@ -142,13 +142,13 @@
 <script>
     import { ref } from 'vue';
     import { Link } from '@inertiajs/inertia-vue3';
-    import Stars from '@/Components/Stars';
-    import Review from '@/Components/Review';
+    import Stars from '@/Components/Stars.vue';
+    import Review from '@/Components/Review.vue';
     import { Dialog, DialogOverlay, DialogTitle, RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption, TransitionChild, TransitionRoot } from '@headlessui/vue';
     import { AnnotationIcon } from '@heroicons/vue/outline';
     import { StarIcon } from '@heroicons/vue/solid';
-    import TextEditor from '@/Components/TextEditor';
-    import JetInputError from '@/Jetstream/InputError';
+    import TextEditor from '@/Components/TextEditor.vue';
+    import JetInputError from '@/Jetstream/InputError.vue';
 
     const ratings = [
         { name: "5" },
