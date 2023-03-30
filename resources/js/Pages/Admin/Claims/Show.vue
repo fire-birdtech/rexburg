@@ -68,7 +68,7 @@
 
 <script>
     import { defineComponent } from "vue";
-    import AdminLayout from '@/Layouts/AdminLayout';
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { convertDate } from '@/Utils/convertDate';
     import { CheckCircleIcon } from '@heroicons/vue/outline';
 

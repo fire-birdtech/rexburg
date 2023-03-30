@@ -18,8 +18,8 @@
 
 <script>
     import { defineComponent } from 'vue';
-    import AppLayout from '@/Layouts/AppLayout';
-    import DashboardReviewable from '@/Components/DashboardReviewable';
+    import AppLayout from '@/Layouts/AppLayout.vue';
+    import DashboardReviewable from '@/Components/DashboardReviewable.vue';
 
     export default defineComponent({
         components: {

@@ -174,7 +174,7 @@
 <script>
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
-    import Footer from '@/Components/Footer';
+    import Footer from '@/Components/Footer.vue';
     import listingImage from '../../images/listing.png';
     import singleHousing from '../../images/single-housing.jpg';
     import marriedHousing from '../../images/married-housing.jpg';

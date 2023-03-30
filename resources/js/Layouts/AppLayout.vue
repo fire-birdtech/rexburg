@@ -168,7 +168,7 @@
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
     import { ChevronDownIcon, UserIcon, UsersIcon } from '@heroicons/vue/solid';
-    import Notification from '@/Components/Notification';
+    import Notification from '@/Components/Notification.vue';
     import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 
     const housing = [

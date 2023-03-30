@@ -132,7 +132,7 @@
 </template>
 
 <script setup>
-    import AdminLayout from '@/Layouts/AdminLayout';
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
     import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';
     import { ref } from 'vue';

@@ -82,8 +82,8 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { Link } from '@inertiajs/inertia-vue3';
-    import Stars from '@/Components/Stars';
-    import DashboardReviewable from '@/Components/DashboardReviewable';
+    import Stars from '@/Components/Stars.vue';
+    import DashboardReviewable from '@/Components/DashboardReviewable.vue';
     import { SpeakerphoneIcon } from '@heroicons/vue/outline';
     import { UserIcon, UsersIcon } from '@heroicons/vue/solid';
 

@@ -143,7 +143,7 @@
 
 <script>
     import { ref } from 'vue';
-    import AdminLayout from '@/Layouts/AdminLayout';
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { convertDate, convertDateTime } from '@/Utils/convertDate';
     import { ExclamationIcon, XCircleIcon } from '@heroicons/vue/solid';
     import { Inertia } from '@inertiajs/inertia';

@@ -64,7 +64,7 @@
 </template>
 
 <script>
-    import AdminLayout from '@/Layouts/AdminLayout';
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Link } from '@inertiajs/inertia-vue3';
     import { EyeIcon, PencilAltIcon } from '@heroicons/vue/outline';
 
