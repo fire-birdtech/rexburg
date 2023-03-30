@@ -31,11 +31,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @vite('resources/css/app.css')
 
         <!-- Scripts -->
         @routes
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        @vite('resources/js/app.js')
     </head>
     <body class="font-sans antialiased">
         @inertia
