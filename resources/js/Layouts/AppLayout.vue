@@ -167,7 +167,7 @@
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
     import { Head, Link } from '@inertiajs/vue3';
     import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
-    import { ChevronDownIcon, UserIcon, UsersIcon } from '@heroicons/vue/solid';
+    import { ChevronDownIcon, UserIcon, UsersIcon } from '@heroicons/vue/24/solid';
     import Notification from '@/Components/Notification.vue';
     import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 

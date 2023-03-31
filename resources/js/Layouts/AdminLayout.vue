@@ -115,8 +115,8 @@
         UsersIcon,
         ViewGridIcon,
         XIcon,
-    } from '@heroicons/vue/outline';
-    import { SearchIcon } from '@heroicons/vue/solid';
+    } from '@heroicons/vue/24/outline';
+    import { SearchIcon } from '@heroicons/vue/24/solid';
     import ApplicationMark from '@/Components/ApplicationMarkWhite.vue';
     import { Head, Link } from '@inertiajs/vue3';
 

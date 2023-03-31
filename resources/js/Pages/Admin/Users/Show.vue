@@ -145,7 +145,7 @@
     import { ref } from 'vue';
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { convertDate, convertDateTime } from '@/Utils/convertDate';
-    import { ExclamationIcon, XCircleIcon } from '@heroicons/vue/solid';
+    import { ExclamationIcon, XCircleIcon } from '@heroicons/vue/24/solid';
     import { router } from '@inertiajs/vue3';
     import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
 

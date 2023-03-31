@@ -227,8 +227,8 @@
     import { defineComponent, ref } from 'vue';
     import { Link } from '@inertiajs/vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
-    import { BadgeCheckIcon, CheckCircleIcon, CheckIcon, ChevronRightIcon, HomeIcon, LocationMarkerIcon, MailIcon, PhoneIcon, StarIcon, UserIcon, UsersIcon } from '@heroicons/vue/solid';
-    import { DeviceMobileIcon, MailIcon as MailOutlineIcon } from '@heroicons/vue/outline';
+    import { BadgeCheckIcon, CheckCircleIcon, CheckIcon, ChevronRightIcon, HomeIcon, LocationMarkerIcon, MailIcon, PhoneIcon, StarIcon, UserIcon, UsersIcon } from '@heroicons/vue/24/solid';
+    import { DeviceMobileIcon, MailIcon as MailOutlineIcon } from '@heroicons/vue/24/outline';
     import TextEditor from '@/Components/TextEditor.vue';
     import Stars from '@/Components/Stars.vue';
     import JetInputError from '@/Jetstream/InputError.vue';

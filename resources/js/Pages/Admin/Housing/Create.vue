@@ -64,7 +64,7 @@
     import { ref } from 'vue';
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
-    import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';
+    import { CheckIcon, SelectorIcon } from '@heroicons/vue/24/solid';
     import JetInputError from '@/Jetstream/InputError.vue';
 
     const types = [

@@ -293,7 +293,7 @@
     import { Link } from '@inertiajs/vue3';
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
-    import { CheckIcon, SelectorIcon } from '@heroicons/vue/solid';
+    import { CheckIcon, SelectorIcon } from '@heroicons/vue/24/solid';
     import JetInputError from '@/Jetstream/InputError.vue';
     import TextEditor from '@/Components/TextEditor.vue';
 

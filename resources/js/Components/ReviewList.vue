@@ -145,8 +145,8 @@
     import Stars from '@/Components/Stars.vue';
     import Review from '@/Components/Review.vue';
     import { Dialog, DialogOverlay, DialogTitle, RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption, TransitionChild, TransitionRoot } from '@headlessui/vue';
-    import { AnnotationIcon } from '@heroicons/vue/outline';
-    import { StarIcon } from '@heroicons/vue/solid';
+    import { AnnotationIcon } from '@heroicons/vue/24/outline';
+    import { StarIcon } from '@heroicons/vue/24/solid';
     import TextEditor from '@/Components/TextEditor.vue';
     import JetInputError from '@/Jetstream/InputError.vue';
 

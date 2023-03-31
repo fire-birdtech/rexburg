@@ -70,7 +70,7 @@
     import { defineComponent } from "vue";
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { convertDate } from '@/Utils/convertDate';
-    import { CheckCircleIcon } from '@heroicons/vue/outline';
+    import { CheckCircleIcon } from '@heroicons/vue/24/outline';
 
     export default defineComponent({
         props: {

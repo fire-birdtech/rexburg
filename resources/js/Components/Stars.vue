@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import { StarIcon } from '@heroicons/vue/solid';
+    import { StarIcon } from '@heroicons/vue/24/solid';
     
     export default {
         props: ['size', 'score'],
