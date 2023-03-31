@@ -1,32 +1,17 @@
-<script>
-import { ref } from 'vue'
-import { CheckCircleIcon } from '@heroicons/vue/24/outline'
-import { XMarkIcon } from '@heroicons/vue/24/solid'
+<script setup>
+import { computed, ref, watch } from 'vue';
+import { CheckCircleIcon } from '@heroicons/vue/24/outline';
+import { XMarkIcon } from '@heroicons/vue/24/solid';
+import { Link, usePage } from '@inertiajs/vue3';
 
-export default {
-    components: {
-        CheckCircleIcon,
-        XMarkIcon,
-    },
-    setup() {
-        const show = ref(true)
+const show = ref(true);
 
-        return {
-            show,
-        }
-    },
-    computed: {
-        message() {
-            setTimeout(this.close, 2500);
-            return this.$page.props.jetstream.flash?.banner || null
-        },
-    },
-    methods: {
-        close() {
-            this.$page.props.jetstream.flash.banner = null;
-        }
-    },
-}
+const notification = computed(() => usePage().props.notification);
+
+watch(notification, async () => {
+    show.value = true;
+    setTimeout(() => usePage().props.notification = null, 4000);
+});
 </script>
 
 <template>
@@ -35,7 +20,7 @@ export default {
         <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
             <!-- Notification panel, dynamically insert this into the live region when it needs to be displayed -->
             <transition enter-active-class="transform ease-out duration-300 transition" enter-from-class="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2" enter-to-class="translate-y-0 opacity-100 sm:translate-x-0" leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
-                <div v-if="show && message" class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+                <div v-if="show && notification" class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div class="p-4">
                         <div class="flex items-start">
                             <div class="flex-shrink-0">
@@ -43,7 +28,7 @@ export default {
                             </div>
                             <div class="ml-3 w-0 flex-1 pt-0.5">
                                 <p class="text-sm font-medium text-gray-900">
-                                    {{ message }}
+                                    {{ notification.message }}
                                 </p>
                             </div>
                             <div class="ml-4 flex-shrink-0 flex">
