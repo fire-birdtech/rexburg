@@ -68,8 +68,8 @@ defineProps({
                             <p class="text-lg leading-8 text-slate-300">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</p>
                         </div>
                         <div class="mt-10 aspect-[6/5] max-w-lg space-y-6 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2">
-                            <a
-                                href="#"
+                            <Link
+                                :href="route('housing.single')"
                                 class="scale-100 p-6 bg-white dark:bg-slate-800/50 dark:bg-gradient-to-bl from-slate-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-slate-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-sky-500"
                             >
                                 <img class="absolute inset-0 h-full w-full rounded-lg object-cover brightness-50 saturate-40" :src="singleHousing" alt="" />
@@ -100,9 +100,9 @@ defineProps({
                                         />
                                     </svg>
                                 </div>
-                            </a>
-                            <a
-                                href="#"
+                            </Link>
+                            <Link
+                                :href="route('housing.married')"
                                 class="scale-100 p-6 bg-white dark:bg-slate-800/50 dark:bg-gradient-to-bl from-slate-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-slate-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-sky-500"
                             >
                                 <img class="absolute inset-0 h-full w-full rounded-lg object-cover brightness-50 saturate-40" :src="marriedHousing" alt="" />
@@ -133,7 +133,7 @@ defineProps({
                                         />
                                     </svg>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
