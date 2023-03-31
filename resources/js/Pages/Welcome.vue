@@ -11,10 +11,11 @@ import marriedHousing from '../../images/married-housing.jpg';
 const mobileMenuOpen = ref(false);
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Resources', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Housing', href: '#' },
+//   { name: 'Businesses', href: '#' },
+//   { name: 'Jobs', href: '#' },
+//   { name: 'Rides', href: '#' },
+//   { name: 'Activities', href: '#' },
 ];
 
 defineProps({
