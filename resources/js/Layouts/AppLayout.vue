@@ -5,6 +5,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import { ChevronDownIcon, UserIcon, UsersIcon } from '@heroicons/vue/24/solid';
+import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 import Notification from '@/Components/Notification.vue';
 
 defineProps({
