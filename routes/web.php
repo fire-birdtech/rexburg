@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 Route::get('student-housing/single', [PagesController::class, 'singleList'])->name('housing.single');
 Route::get('student-housing/married', [PagesController::class, 'marriedList'])->name('housing.married');
+Route::get('student-housing/{slug}', [PagesController::class, 'housingProfile'])->name('housing.profile');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

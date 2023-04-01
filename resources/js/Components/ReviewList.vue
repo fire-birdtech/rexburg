@@ -1,5 +1,5 @@
 <template>
-    <h2 class="text-3xl">Tenant Reviews of {{ name }}</h2>
+    <h2 class="text-3xl text-slate-900 dark:text-slate-100">Tenant Reviews of {{ name }}</h2>
         <template v-if="reviewsCount > 0">
             <div class="mt-8 flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-4 md:space-x-8">
                 <div class="flex flex-col rounded-md border-2 border-sky-800">
@@ -81,7 +81,7 @@
                         <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
                             <div class="sm:flex sm:items-start">
                                 <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-sky-100 sm:mx-0 sm:h-10 sm:w-10">
-                                    <AnnotationIcon class="h-6 w-6 text-sky-600" aria-hidden="true" />
+                                    <ChatBubbleBottomCenterTextIcon class="h-6 w-6 text-sky-600" aria-hidden="true" />
                                 </div>
                                 <div class="mt-3 w-full text-center sm:mt-0 sm:ml-6 sm:text-left">
                                     <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900">
@@ -145,7 +145,7 @@
     import Stars from '@/Components/Stars.vue';
     import Review from '@/Components/Review.vue';
     import { Dialog, DialogOverlay, DialogTitle, RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption, TransitionChild, TransitionRoot } from '@headlessui/vue';
-    import { AnnotationIcon } from '@heroicons/vue/24/outline';
+    import { ChatBubbleBottomCenterTextIcon } from '@heroicons/vue/24/outline';
     import { StarIcon } from '@heroicons/vue/24/solid';
     import TextEditor from '@/Components/TextEditor.vue';
     import JetInputError from '@/Jetstream/InputError.vue';
@@ -174,7 +174,7 @@
             'slug',
         ],
         components: {
-            AnnotationIcon,
+            ChatBubbleBottomCenterTextIcon,
             Dialog,
             DialogOverlay,
             DialogTitle,
