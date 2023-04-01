@@ -65,7 +65,14 @@ defineProps({
                             We're changing the way students enjoy Rexburg.
                         </h1>
                         <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-                            <p class="text-lg leading-8 text-slate-300">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</p>
+                            <p class="text-lg leading-8 text-slate-300">
+                                Are you a college student in Rexburg, Idaho struggling to find the perfect 
+                                place to live? Look no further than RexburgGuru, designed specifically for 
+                                students like you. Search through a variety of listings to find the perfect 
+                                place to call home while pursuing your education. Don't settle for subpar 
+                                housing options - let us help you find the perfect fit for your needs and 
+                                budget. Start your search today!
+                            </p>
                         </div>
                         <div class="mt-10 aspect-[6/5] max-w-lg space-y-6 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2">
                             <Link
