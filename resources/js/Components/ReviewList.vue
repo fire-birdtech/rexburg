@@ -1,3 +1,79 @@
+<script setup>
+import { ref } from 'vue';
+import { Link, useForm } from '@inertiajs/vue3';
+import Stars from '@/Components/Stars.vue';
+import Review from '@/Components/Review.vue';
+import { Dialog, DialogOverlay, DialogTitle, RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import { ChatBubbleBottomCenterTextIcon } from '@heroicons/vue/24/outline';
+import { StarIcon } from '@heroicons/vue/24/solid';
+import TextEditor from '@/Components/TextEditor.vue';
+import JetInputError from '@/Jetstream/InputError.vue';
+
+const ratings = [
+    { name: "5" },
+    { name: "4" },
+    { name: "3" },
+    { name: "2" },
+    { name: "1" },
+];
+
+const props = defineProps([
+    'housingId',
+    'name',
+    'reviews',
+    'reviewsCount',
+    'score',
+    'scoreDescription',
+    'slug',
+]);
+
+const tenant = [
+    { name: "Yes" },
+    { name: "No" },
+];
+
+const open = ref(false);
+
+const activeRating = ref({});
+const activeTenantOption = ref({});
+
+const review = useForm({
+    'housing_id': props.housingId,
+    body: null,
+    rating: null,
+    livedHere: null,
+});
+
+const clearReview = () => {
+    open.value = false;
+    review.reset(route('reviews.create'), {
+        errorBag: 'createReview',
+        preserveScroll: true,
+        onSuccess: () => clearReview(),
+    });
+}
+
+const submitReview = () => {
+    review.post(route('reviews.create'), {
+        errorBag: 'createReview',
+        preserveScroll: true,
+        onSuccess: () => clearReview(),
+    });
+}
+
+const updateBody = (event) => {
+    review.body = event.target.innerHTML;
+}
+
+const updateRating = (rating) => {
+    review.rating = Number(rating.name);
+}
+
+const updateTenantOption = (option) => {
+    review.livedHere = option.name;
+}
+</script>
+
 <template>
     <h2 class="text-3xl text-slate-900 dark:text-slate-100">Tenant Reviews of {{ name }}</h2>
         <template v-if="reviewsCount > 0">
@@ -154,103 +230,3 @@
             </Dialog>
         </TransitionRoot>
 </template>
-
-<script>
-    import { ref } from 'vue';
-    import { Link } from '@inertiajs/vue3';
-    import Stars from '@/Components/Stars.vue';
-    import Review from '@/Components/Review.vue';
-    import { Dialog, DialogOverlay, DialogTitle, RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption, TransitionChild, TransitionRoot } from '@headlessui/vue';
-    import { ChatBubbleBottomCenterTextIcon } from '@heroicons/vue/24/outline';
-    import { StarIcon } from '@heroicons/vue/24/solid';
-    import TextEditor from '@/Components/TextEditor.vue';
-    import JetInputError from '@/Jetstream/InputError.vue';
-
-    const ratings = [
-        { name: "5" },
-        { name: "4" },
-        { name: "3" },
-        { name: "2" },
-        { name: "1" },
-    ];
-
-    const tenant = [
-        { name: "Yes" },
-        { name: "No" },
-    ];
-
-    export default {
-        props: [
-            'housingId',
-            'name',
-            'reviews',
-            'reviewsCount',
-            'score',
-            'scoreDescription',
-            'slug',
-        ],
-        components: {
-            ChatBubbleBottomCenterTextIcon,
-            Dialog,
-            DialogOverlay,
-            DialogTitle,
-            JetInputError,
-            Link,
-            RadioGroup,
-            RadioGroupDescription,
-            RadioGroupLabel,
-            RadioGroupOption,
-            Review,
-            StarIcon,
-            Stars,
-            TextEditor,
-            TransitionChild,
-            TransitionRoot,
-        },
-        data () {
-            return {
-                open: false,
-                review: this.$inertia.form({
-                    'housing_id': this.housingId,
-                    body: null,
-                    rating: null,
-                    livedHere: null,
-                }),
-            }
-        },
-        methods: {
-            clearReview() {
-                this.open = false;
-                this.review.body = null;
-                this.review.rating = null;
-            },
-            submitReview() {
-                this.review.post(route('reviews.create'), {
-                    errorBag: 'createReview',
-                    preserveScroll: true,
-                    onSuccess: () => this.clearReview(),
-                });
-            },
-            updateBody(event) {
-                this.review.body = event.target.innerHTML;
-            },
-            updateRating(rating) {
-                this.review.rating = Number(rating.name);
-            },
-            updateTenantOption(option) {
-                this.review.livedHere = option.name;
-            },
-        },
-        setup() {
-            const activeRating = ref({});
-            const activeTenantOption = ref({});
-
-            return {
-                activeRating,
-                activeTenantOption,
-                ratings,
-                tenant,
-            }
-        },
-    }
-</script>
