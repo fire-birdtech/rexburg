@@ -74,7 +74,7 @@ const createClaim = () => {
                             </div>
                         </div>
                     </div>
-                    <div v-if="housing.manager?.user_id === $page.props.auth?.user.id" class="ml-auto space-x-4">
+                    <div v-if="housing.manager !== null && (housing.manager?.user_id === $page.props.auth?.user?.id)" class="ml-auto space-x-4">
                         <Link :href="route('housing.profile.edit', [housing.slug])" class="mt-3 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0">
                             Edit profile
                         </Link>
