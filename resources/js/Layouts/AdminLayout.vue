@@ -13,7 +13,7 @@
                                 <div class="absolute top-0 right-0 -mr-12 pt-2">
                                     <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" @click="sidebarOpen = false">
                                         <span class="sr-only">Close sidebar</span>
-                                        <XIcon class="h-6 w-6 text-white" aria-hidden="true" />
+                                        <XMarkIcon class="h-6 w-6 text-white" aria-hidden="true" />
                                     </button>
                                 </div>
                             </TransitionChild>
@@ -57,7 +57,7 @@
                 <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow">
                     <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500 md:hidden" @click="sidebarOpen = true">
                         <span class="sr-only">Open sidebar</span>
-                        <MenuAlt2Icon class="h-6 w-6" aria-hidden="true" />
+                        <Bars3BottomLeftIcon class="h-6 w-6" aria-hidden="true" />
                     </button>
                     <div class="flex-1 px-6 flex justify-end">
                         <div class="ml-4 flex items-center md:ml-6">
@@ -111,17 +111,17 @@
     import {
         BellIcon,
         HomeIcon,
-        MenuAlt2Icon,
+        Bars3BottomLeftIcon,
         UsersIcon,
-        ViewGridIcon,
-        XIcon,
+        Squares2X2Icon,
+        XMarkIcon,
     } from '@heroicons/vue/24/outline';
-    import { SearchIcon } from '@heroicons/vue/24/solid';
+    import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid';
     import ApplicationMark from '@/Components/ApplicationMarkWhite.vue';
     import { Head, Link } from '@inertiajs/vue3';
 
     const navigation = [
-        { name: 'Dashboard', href: route('admin.home'), icon: ViewGridIcon, components: ['Admin/Home'] },
+        { name: 'Dashboard', href: route('admin.home'), icon: Squares2X2Icon, components: ['Admin/Home'] },
         { name: 'Housing', href: route('admin.housing.index'), icon: HomeIcon, components: ['Admin/Claims/Index', 'Admin/Claims/Show', 'Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show', 'Admin/Housing/Edit'] },
         { name: 'Users', href: route('admin.users.index'), icon: UsersIcon, components: ['Admin/Users/Index', 'Admin/Users/Show'] },
     ];
@@ -143,9 +143,9 @@
             TransitionChild,
             TransitionRoot,
             BellIcon,
-            MenuAlt2Icon,
-            SearchIcon,
-            XIcon
+            Bars3BottomLeftIcon,
+            MagnifyingGlassIcon,
+            XMarkIcon
         },
         setup() {
             const sidebarOpen = ref(false);

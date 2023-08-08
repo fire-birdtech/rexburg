@@ -94,7 +94,7 @@
                                                 <ListboxButton class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 sm:text-sm">
                                                     <span class="block truncate">{{ selected.name }}</span>
                                                     <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                                                        <SelectorIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                                                        <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                                                     </span>
                                                 </ListboxButton>
 
@@ -134,7 +134,7 @@
 <script setup>
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
-    import { CheckIcon, SelectorIcon } from '@heroicons/vue/24/solid';
+    import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/24/solid';
     import { ref } from 'vue';
     import { housingTypes } from '@/Utils/housingTypes';
     import { router } from '@inertiajs/vue3';

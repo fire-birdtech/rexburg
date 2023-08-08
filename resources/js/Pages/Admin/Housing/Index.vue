@@ -48,7 +48,7 @@
                                                     <EyeIcon class="h-6 w-6" />
                                                 </Link>
                                                 <Link :href="route('admin.housing.edit', [housing.id])" class="text-sky-600 hover:text-sky-900">
-                                                    <PencilAltIcon class="h-6 w-6" />
+                                                    <PencilSquareIcon class="h-6 w-6" />
                                                 </Link>
                                             </td>
                                         </tr>
@@ -66,14 +66,14 @@
 <script>
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Link } from '@inertiajs/vue3';
-    import { EyeIcon, PencilAltIcon } from '@heroicons/vue/24/outline';
+    import { EyeIcon, PencilSquareIcon } from '@heroicons/vue/24/outline';
 
     export default {
         components: {
             AdminLayout,
             EyeIcon,
             Link,
-            PencilAltIcon,
+            PencilSquareIcon,
         },
         props: {
             housings: Object,
