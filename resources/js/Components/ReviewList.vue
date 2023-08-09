@@ -8,6 +8,7 @@ import { ChatBubbleBottomCenterTextIcon } from '@heroicons/vue/24/outline';
 import { StarIcon } from '@heroicons/vue/24/solid';
 import TextEditor from '@/Components/TextEditor.vue';
 import JetInputError from '@/Jetstream/InputError.vue';
+import PrimaryButton from './PrimaryButton.vue';
 
 const ratings = [
     { name: "5" },
@@ -101,7 +102,7 @@ const updateTenantOption = (option) => {
                             <div class="flex-1">
                                 <template v-if="$page.props.user">
                                     <p class="text-lg">Share details of your own experience with {{ name }}.</p>
-                                    <button @click="open = true" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Write my review</button>
+                                    <PrimaryButton @click="open = true">Write my review</PrimaryButton>
                                 </template>
                                 <template v-else>
                                     <p class="text-base xl:text-lg">Login or create a free account to share details of your experience with {{ name }}.</p>
@@ -114,7 +115,7 @@ const updateTenantOption = (option) => {
                         </div>
                         <div class="md:hidden">
                             <template v-if="$page.props.user">
-                                <button @click="open = true" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Write my review</button>
+                                <PrimaryButton @click="open = true">Write my review</PrimaryButton>
                             </template>
                             <template v-else>
                                 <div class="inline-flex flex-col sm:flex-row mt-4 w-full sm:space-x-2">
@@ -137,7 +138,7 @@ const updateTenantOption = (option) => {
                     <div class="flex-1">
                         <p class="text-lg dark:text-slate-200">We currently don't have any reviews for {{ name }}.</p>
                         <p class="mt-3 text-md text-slate-800 dark:text-slate-400">Be the first to share details of your own experience.</p>
-                        <button v-if="$page.props.auth.user" @click="open = true" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Write my review</button>
+                        <PrimaryButton v-if="$page.props.auth.user" @click="open = true" class="mt-4">Write my review</PrimaryButton>
                         <div v-else class="inline-flex flex-col sm:flex-row mt-4 w-full sm:space-x-2">
                             <Link :href="route('register')" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Create an account</Link>
                             <Link :href="route('login')" class="mt-3 sm:mt-0 inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-md shadow-sm text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Login</Link>
@@ -217,9 +218,9 @@ const updateTenantOption = (option) => {
                                 </div>
                             </div>
                             <div class="mt-5 sm:ml-10 sm:pl-6 sm:flex md:mt-8">
-                                <button @click="submitReview" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-sky-600 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:w-auto">
+                                <PrimaryButton @click="submitReview" type="button">
                                     Submit review
-                                </button>
+                                </PrimaryButton>
                                 <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-slate-300 dark:border-slate-700 px-4 py-2 bg-white dark:bg-slate-700 dark:bg-opacity-40 text-base font-medium text-slate-700 dark:text-slate-200 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0 sm:ml-3 sm:w-auto" @click="open = false" ref="cancelButtonRef">
                                     Cancel
                                 </button>

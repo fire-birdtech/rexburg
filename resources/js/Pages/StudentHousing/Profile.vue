@@ -9,6 +9,7 @@ import Stars from '@/Components/Stars.vue';
 import JetInputError from '@/Jetstream/InputError.vue';
 import ReviewList from '@/Components/ReviewList.vue';
 import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const props = defineProps({
     housing: Object,
@@ -75,9 +76,9 @@ const createClaim = () => {
                         </div>
                     </div>
                     <div v-if="housing.manager !== null && (housing.manager?.user_id === $page.props.auth?.user?.id)" class="ml-auto space-x-4">
-                        <Link :href="route('housing.profile.edit', [housing.slug])" class="mt-3 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0">
+                        <PrimaryButton as="link" :href="route('housing.edit', [housing.slug])" class="mt-3 sm:mt-0">
                             Edit profile
-                        </Link>
+                        </PrimaryButton>
                     </div>
                 </div>
                 <div class="hidden sm:block md:hidden mt-6 min-w-0 flex-1">
@@ -213,7 +214,7 @@ const createClaim = () => {
                     </div>
                 </div>
             </div>
-            
+
             <TransitionRoot as="template" :show="claimDialogOpen">
                 <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="claimDialogOpen = false">
                     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -264,7 +265,7 @@ const createClaim = () => {
                                     </div>
                                 </div>
                                 <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
-                                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-sky-600 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:col-start-2 sm:text-sm disabled:cursor-not-allowed disabled:bg-opacity-80" :disabled="!form.street_address || !form.city || !form.postal_code" @click="createClaim">Claim</button>
+                                    <PrimaryButton class="sm:col-start-2" :disabled="!form.street_address || !form.city || !form.postal_code" @click="createClaim">Claim</PrimaryButton>
                                     <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-slate-300 dark:border-slate-700 shadow-sm px-4 py-2 bg-white dark:bg-slate-700 dark:bg-opacity-40 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 sm:mt-0 sm:col-start-1 sm:text-sm" @click="claimDialogOpen = false" ref="cancelButtonRef">Cancel</button>
                                 </div>
                             </div>
