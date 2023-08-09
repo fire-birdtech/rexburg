@@ -6,18 +6,25 @@
             </div>
 
             <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div class="bg-slate-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
                     <form class="space-y-6" action="#" method="POST">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700"> Verification code </label>
-                            <div class="mt-1">
-                                <input type="text" v-model="form.verification_code" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm" />
-                                <jet-input-error :message="$page.props.errors?.updateClaim?.message" class="mt-1" />
-                            </div>
+                            <InputLabel for="verification_code" value="Verification code" />
+
+                            <TextInput
+                                id="verification_code"
+                                type="text"
+                                class="mt-1 block w-full"
+                                v-model="form.verification_code"
+                                required
+                                autofocus
+                            />
+
+                            <InputError class="mt-2" :message="form.errors?.message" />
                         </div>
 
                         <div>
-                            <button type="submit" @click.prevent="verify" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Verify</button>
+                            <PrimaryButton type="submit" @click.prevent="verify" class="w-full flex justify-center">Verify</PrimaryButton>
                         </div>
                     </form>
                 </div>
@@ -29,11 +36,19 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout.vue';
     import JetInputError from '@/Jetstream/InputError.vue';
+    import InputLabel from '@/Components/InputLabel.vue';
+    import InputError from '@/Components/InputError.vue';
+    import TextInput from '@/Components/TextInput.vue';
+    import PrimaryButton from '@/Components/PrimaryButton.vue';
 
     export default {
         components: {
             AppLayout,
             JetInputError,
+            InputLabel,
+            InputError,
+            TextInput,
+            PrimaryButton,
         },
         data() {
             return {

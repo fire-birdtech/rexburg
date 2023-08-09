@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -34,6 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/verify', [PagesController::class, 'verify'])->name('claims.verify');
+    Route::patch('/verify', [ClaimController::class, 'verify'])->name('claims.verify.update');
 });
 
 require __DIR__.'/auth.php';
