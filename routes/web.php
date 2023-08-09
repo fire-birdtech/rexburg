@@ -41,3 +41,7 @@ require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 
 require __DIR__.'/manager.php';
+
+Route::get('404', function () {
+    return inertia('Errors/404');
+})->name('errors.404');
