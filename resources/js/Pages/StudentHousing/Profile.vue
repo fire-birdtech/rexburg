@@ -144,7 +144,7 @@ const createClaim = () => {
                         <div class="sticky top-12">
                             <div class="rounded-xl bg-slate-900 border border-slate-600 px-4 py-5 shadow sm:p-6">
                                 <div class="flex flex-col items-center">
-                                    <div class="text-xl font-bold text-sky-600">Contact {{ housing.name }}</div>
+                                    <div class="text-xl font-bold text-slate-900 dark:text-slate-100">Contact {{ housing.name }}</div>
                                     <template v-if="housing.website_url !== null">
                                         <div class="mt-6 w-full">
                                             <a :href="`https://${housing.website_url}`" target="_blank" rel="noopener noreferrer" class="block w-full text-center rounded-md bg-[#B3D9E6] px-3.5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-[#DBEDF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:bg-opacity-80 transition ease-in-out duration-150">
