@@ -115,9 +115,9 @@ class Housing extends Model
     }
 
     /**
-     * Get the housing's manager
+     * Get the housing's managers
      */
-    public function manager()
+    public function managers()
     {
         return $this->morphToMany(User::class, 'manageable');
     }
