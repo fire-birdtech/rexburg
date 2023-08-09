@@ -119,15 +119,7 @@ class Housing extends Model
      */
     public function manager()
     {
-        return $this->morphOne(Manage::class, 'manageable');
-    }
-
-    /**
-     * Check if the housing has a manager
-     */
-    public function hasManager()
-    {
-        return $this->manager ? true : false;
+        return $this->morphToMany(User::class, 'manageable');
     }
 
     /**

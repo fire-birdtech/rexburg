@@ -81,7 +81,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function housings()
     {
-        return $this->belongsToMany(Housing::class);
+        return $this->morphedByMany(Housing::class, 'manageable');
     }
 
     /**
@@ -90,14 +90,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function reviews()
     {
         return $this->hasMany(Review::class)->with('reviewable');
-    }
-
-    /**
-     * Get the housings which the user manages
-     */
-    public function manages()
-    {
-        return $this->hasMany(Manage::class)->with('manageable');
     }
 
     /**
