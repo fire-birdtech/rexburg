@@ -43,7 +43,7 @@ class PagesController extends Controller
         return Inertia::render('StudentHousing/Profile', [
             'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['amenities', 'reviews.user', 'reviews' => function ($query) {
                 $query->orderBy('created_at', 'desc')->take(4);
-            }, 'manager', 'claim'])->first(),
+            }, 'managers', 'claim'])->first(),
             'isAdmin' => auth()->user() ? $request->user()->hasRole('admin') : false,
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),

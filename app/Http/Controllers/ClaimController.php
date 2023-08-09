@@ -48,9 +48,7 @@ class ClaimController extends Controller
             return back()->withErrors(['message' => 'The verification code is incorrect']);
         }
 
-        $claim->claimable->manager()->save(new Manage([
-            'user_id' => auth()->user()->id,
-        ]));
+        $claim->claimable->managers()->save($request->user());
 
         $claim->status = ClaimStatus::CLAIMED;
         $claim->save();
