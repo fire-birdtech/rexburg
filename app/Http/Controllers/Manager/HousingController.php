@@ -12,9 +12,9 @@ class HousingController extends Controller
 {
     public function edit(Housing $housing, Request $request)
     {
-        $housing->load(['amenities', 'manager']);
+        $housing->load(['amenities', 'managers']);
 
-        if ($request->user()->id !== $housing->manager[0]->id) {
+        if ($request->user()->cannot('update', $housing)) {
             return redirect()->route('errors.404');
         }
 
