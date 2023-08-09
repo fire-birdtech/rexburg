@@ -38,18 +38,6 @@ class PagesController extends Controller
         ]);
     }
 
-    public function housingProfile(Request $request)
-    {
-        return Inertia::render('StudentHousing/Profile', [
-            'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['amenities', 'reviews.user', 'reviews' => function ($query) {
-                $query->orderBy('created_at', 'desc')->take(4);
-            }, 'managers', 'claim'])->first(),
-            'isAdmin' => auth()->user() ? $request->user()->hasRole('admin') : false,
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-        ]);
-    }
-
     public function housingReviews(Request $request)
     {
         return Inertia::render('StudentHousing/Reviews', [

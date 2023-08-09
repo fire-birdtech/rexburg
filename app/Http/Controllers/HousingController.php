@@ -7,9 +7,22 @@ use Error;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class HousingController extends Controller
 {
+    public function show(Request $request)
+    {
+        return inertia('StudentHousing/Profile', [
+            'housing' => Housing::where('slug', $request->slug)->withCount('reviews')->with(['amenities', 'reviews.user', 'reviews' => function ($query) {
+                $query->orderBy('created_at', 'desc')->take(4);
+            }, 'managers', 'claim'])->first(),
+            'isAdmin' => auth()->user() ? $request->user()->hasRole('admin') : false,
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
+    }
+
     public function update(Request $request)
     {
         $request->validateWithBag('updateHousingInformation', [

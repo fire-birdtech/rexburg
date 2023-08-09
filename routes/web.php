@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClaimController;
+use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -24,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('student-housing/single', [PagesController::class, 'singleList'])->name('housing.single');
 Route::get('student-housing/married', [PagesController::class, 'marriedList'])->name('housing.married');
-Route::get('student-housing/{slug}', [PagesController::class, 'housingProfile'])->name('housing.profile');
+Route::get('student-housing/{slug}', [HousingController::class, 'show'])->name('housing.show');
 Route::get('student-housing/{slug}/reviews', [PagesController::class, 'housingReviews'])->name('housing.reviews');
 
 Route::get('/dashboard', function () {

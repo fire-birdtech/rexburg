@@ -8,7 +8,7 @@ defineProps(['housing']);
 
 <template>
     <Link
-        :href="route('housing.profile', [housing.slug])"
+        :href="route('housing.show', [housing.slug])"
         class="scale-100 p-6 bg-white dark:bg-slate-800/50 dark:bg-gradient-to-bl from-slate-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-slate-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-sky-500"
     >
         <img class="absolute inset-0 h-full w-full rounded-lg object-cover brightness-50 saturate-40" :src="housing.cover_image_url" :alt="housing.name" />
@@ -31,7 +31,7 @@ defineProps(['housing']);
                     </div>
                 </div>
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
-                    <Link :href="route('housing.profile', [housing.slug])">
+                    <Link :href="route('housing.show', [housing.slug])">
                         <span class="absolute inset-0" />
                         {{ housing.name }}
                     </Link>

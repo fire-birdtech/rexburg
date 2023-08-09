@@ -1,5 +1,5 @@
 <template>
-    <Link :href="route('housing.profile', [slug])">
+    <Link :href="route('housing.show', [slug])">
         <div class="relative shadow-xl rounded-xl overflow-hidden min-h-full group">
             <div class="absolute inset-0">
                 <img :src="image" :alt="name" class="h-full w-full object-cover transform transition duration-200 ease-in-out group-hover:scale-110">
