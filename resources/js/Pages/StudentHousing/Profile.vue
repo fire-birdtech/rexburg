@@ -14,6 +14,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 const props = defineProps({
     housing: Object,
     isAdmin: Boolean,
+    canEdit: Boolean,
     canLogin: Boolean,
     canRegister: Boolean,
 });
@@ -75,7 +76,7 @@ const createClaim = () => {
                             </div>
                         </div>
                     </div>
-                    <div v-if="housing.manager !== null && (housing.manager?.user_id === $page.props.auth?.user?.id)" class="ml-auto space-x-4">
+                    <div v-if="canEdit" class="ml-auto space-x-4">
                         <PrimaryButton as="link" :href="route('housing.edit', [housing.slug])" class="mt-3 sm:mt-0">
                             Edit profile
                         </PrimaryButton>
