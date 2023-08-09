@@ -147,7 +147,7 @@ const createClaim = () => {
                                     <div class="text-xl font-bold text-sky-600">Contact {{ housing.name }}</div>
                                     <template v-if="housing.website_url !== null">
                                         <div class="mt-6 w-full">
-                                            <a :href="`https://${housing.website_url}`" target="_blank" rel="noopener noreferrer" class="block w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-base text-center font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                                            <a :href="`https://${housing.website_url}`" target="_blank" rel="noopener noreferrer" class="block w-full text-center rounded-md bg-[#B3D9E6] px-3.5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-[#DBEDF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:bg-opacity-80 transition ease-in-out duration-150">
                                                 Visit website
                                             </a>
                                         </div>
