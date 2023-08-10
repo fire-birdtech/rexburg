@@ -18,7 +18,7 @@
                     <EyeIcon class="h-5 w-5" />
                 </Link>
                 <Link :href="route('admin.housing.edit', [housing.id])" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-sky-500">
-                    <PencilAltIcon class="h-5 w-5" />
+                    <PencilSquareIcon class="h-5 w-5" />
                 </Link>
             </div>
         </div>
@@ -199,7 +199,7 @@
 <script>
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Link } from '@inertiajs/vue3';
-    import { EyeIcon, PencilAltIcon } from '@heroicons/vue/24/outline';
+    import { EyeIcon, PencilSquareIcon } from '@heroicons/vue/24/outline';
     import { convertKey } from '@/Utils/convertKey';
     import { convertDate, convertDateFromNow, convertDateFromNowNoSuffix, convertDateTime } from '@/Utils/convertDate';
 
@@ -208,7 +208,7 @@
             AdminLayout,
             EyeIcon,
             Link,
-            PencilAltIcon,
+            PencilSquareIcon,
         },
         props: {
             housing: Object,

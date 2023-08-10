@@ -51,7 +51,7 @@
 <script>
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Link } from '@inertiajs/vue3';
-    import { EyeIcon, PencilAltIcon } from '@heroicons/vue/24/outline';
+    import { EyeIcon } from '@heroicons/vue/24/outline';
     import { convertDate } from '@/Utils/convertDate';
 
     export default {
@@ -59,7 +59,6 @@
             AdminLayout,
             EyeIcon,
             Link,
-            PencilAltIcon
         },
         props: {
             users: Object,

@@ -25,7 +25,7 @@
                 <div v-if="user.suspended_until" class="rounded-md bg-yellow-100 p-4">
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <ExclamationIcon class="h-5 w-5 text-yellow-500" aria-hidden="true" />
+                            <ExclamationTriangleIcon class="h-5 w-5 text-yellow-500" aria-hidden="true" />
                         </div>
                         <div class="ml-3">
                             <h3 class="text-sm font-medium text-yellow-800">This user is currently suspended</h3>
@@ -119,7 +119,7 @@
                         <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
                             <div class="sm:flex sm:items-start">
                                 <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                                    <ExclamationIcon class="h-6 w-6 text-red-600" aria-hidden="true" />
+                                    <ExclamationTriangleIcon class="h-6 w-6 text-red-600" aria-hidden="true" />
                                 </div>
                                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                     <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900"> Delete user account </DialogTitle>
@@ -145,7 +145,7 @@
     import { ref } from 'vue';
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { convertDate, convertDateTime } from '@/Utils/convertDate';
-    import { ExclamationIcon, XCircleIcon } from '@heroicons/vue/24/solid';
+    import { ExclamationTriangleIcon, XCircleIcon } from '@heroicons/vue/24/solid';
     import { router } from '@inertiajs/vue3';
     import { Dialog, DialogOverlay, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
 
@@ -155,7 +155,7 @@
             Dialog,
             DialogOverlay,
             DialogTitle,
-            ExclamationIcon,
+            ExclamationTriangleIcon,
             TransitionChild,
             TransitionRoot,
             XCircleIcon,
