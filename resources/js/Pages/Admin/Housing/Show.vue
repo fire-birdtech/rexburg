@@ -200,7 +200,7 @@
     import AdminLayout from '@/Layouts/AdminLayout.vue';
     import { Link } from '@inertiajs/vue3';
     import { EyeIcon, PencilSquareIcon } from '@heroicons/vue/24/outline';
-    import { convertKey } from '@/Utils/convertKey';
+    import convertKey from '@/Utils/convertKey';
     import { convertDate, convertDateFromNow, convertDateFromNowNoSuffix, convertDateTime } from '@/Utils/convertDate';
 
     export default {
