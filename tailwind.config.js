@@ -17,8 +17,10 @@ module.exports = {
     },
   },
 
+  /* eslint-disable */
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
   ],
+  /* eslint-enable */
 };
