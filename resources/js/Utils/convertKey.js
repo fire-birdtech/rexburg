@@ -1,59 +1,45 @@
-export function convertKey(key) {
-    switch (key) {
-        case 'about':
-            return 'About';
-            break;
+export default function convertKey(key) {
+  switch (key) {
+    case 'about':
+      return 'About';
 
-        case 'bathroom_range':
-            return 'Bathroom Range';
-            break;
+    case 'bathroom_range':
+      return 'Bathroom Range';
 
-        case 'bedroom_range':
-            return 'Bedroom Range';
-            break;
+    case 'bedroom_range':
+      return 'Bedroom Range';
 
-        case 'byui_approved':
-            return 'BYU-Idaho Approved';
-            break;
+    case 'byui_approved':
+      return 'BYU-Idaho Approved';
 
-        case 'city':
-            return 'City';
-            break;
+    case 'city':
+      return 'City';
 
-        case 'created_at':
-            return 'Created';
-            break;
+    case 'created_at':
+      return 'Created';
 
-        case 'email_address':
-            return 'Email Address';
-            break;
+    case 'email_address':
+      return 'Email Address';
 
-        case 'housing_type':
-            return 'Housing Type';
-            break;
+    case 'housing_type':
+      return 'Housing Type';
 
-        case 'name':
-            return 'Name';
-            break;
+    case 'name':
+      return 'Name';
 
-        case 'phone_number':
-            return 'Phone Number';
-            break;
-        
-        case 'postal_code':
-            return 'Postal Code';
-            break;
+    case 'phone_number':
+      return 'Phone Number';
 
-        case 'rent_range':
-            return 'Rent Range';
-            break;
+    case 'postal_code':
+      return 'Postal Code';
 
-        case 'street':
-            return 'Street';
-            break;
-    
-        default:
-            return key;
-            break;
-    }
+    case 'rent_range':
+      return 'Rent Range';
+
+    case 'street':
+      return 'Street';
+
+    default:
+      return key;
+  }
 }

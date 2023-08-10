@@ -136,7 +136,7 @@
     import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
     import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/24/solid';
     import { ref } from 'vue';
-    import { housingTypes } from '@/Utils/housingTypes';
+    import housingTypes from '@/Utils/housingTypes';
     import { router } from '@inertiajs/vue3';
 
     const props = defineProps({
