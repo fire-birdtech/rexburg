@@ -15,7 +15,10 @@ jobs:
         with:
           node-version: 16
 
-      - name: Build frontend
+      - name: Install Composer Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Install NPM Dependencies and Build
         run: npm install && npm run build
 
       - name: Lint
