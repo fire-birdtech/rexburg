@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'airbnb-base',
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:tailwindcss/recommended',
     'plugin:vue/vue3-essential',
@@ -23,14 +24,17 @@ module.exports = {
       },
     },
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   plugins: [
-    'vue',
+    '@typescript-eslint',
     'tailwindcss',
+    'vue',
   ],
+  root: true,
   rules: {
     'max-len': 0,
     'no-undef': 1,
@@ -43,7 +47,7 @@ module.exports = {
         map: [
           ['@', './resources/js'],
         ],
-        extensions: ['.js', '.vue'],
+        extensions: ['.js', '.ts', '.tsx', '.vue'],
       },
     },
   },
