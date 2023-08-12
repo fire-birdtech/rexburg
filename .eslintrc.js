@@ -46,6 +46,7 @@ module.exports = {
     'no-undef': 1,
     'react/react-in-jsx-scope': 0,
     'import/extensions': 0,
+    'tailwindcss/no-custom-classname': 0,
     'vue/multi-word-component-names': 0,
     'vue/no-reserved-component-names': 1,
   },
