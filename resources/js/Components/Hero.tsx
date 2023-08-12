@@ -1,11 +1,23 @@
-import { Link } from "@inertiajs/react";
+import { Link } from '@inertiajs/react';
 
 import singleHousing from '../../images/single-housing.jpg';
 import marriedHousing from '../../images/married-housing.jpg';
 
 const links = [
-  { name: 'Single Housing', href: route('housing.single'), image: singleHousing, alt: 'Group of students', description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.' },
-  { name: 'Married Housing', href: route('housing.married'), image: marriedHousing, alt: 'Young married couple', description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.' },
+  {
+    name: 'Single Housing',
+    href: route('housing.single'),
+    image: singleHousing,
+    alt: 'Group of students',
+    description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.',
+  },
+  {
+    name: 'Married Housing',
+    href: route('housing.married'),
+    image: marriedHousing,
+    alt: 'Young married couple',
+    description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.',
+  },
 ];
 
 export default function Hero() {
@@ -15,14 +27,14 @@ export default function Hero() {
         <div className="mx-auto max-w-7xl px-6 py-12 sm:py-36 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
             <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-zinc-100 sm:text-6xl lg:col-span-2 xl:col-auto">
-              We're changing the way students enjoy Rexburg.
+              We&apos;re changing the way students enjoy Rexburg.
             </h1>
             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
               <p className="text-lg leading-8 text-slate-300">
                 Are you a college student in Rexburg, Idaho struggling to find the perfect
                 place to live? Look no further than RexburgGuru, designed specifically for
                 students like you. Search through a variety of listings to find the perfect
-                place to call home while pursuing your education. Don't settle for subpar
+                place to call home while pursuing your education. Don&apos;t settle for subpar
                 housing options - let us help you find the perfect fit for your needs and
                 budget. Start your search today!
               </p>

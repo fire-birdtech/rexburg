@@ -1,7 +1,7 @@
-import { PageProps } from "@/types";
-import { Head } from "@inertiajs/react";
-import MainNav from "@/Components/MainNav";
-import Hero from "@/Components/Hero";
+import { Head } from '@inertiajs/react';
+import MainNav from '@/Components/MainNav';
+import Hero from '@/Components/Hero';
+import { PageProps } from '@/types';
 
 export default function Welcome({ auth }: PageProps) {
   return (

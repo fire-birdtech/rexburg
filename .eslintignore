@@ -1,0 +1,6 @@
+node_modules
+public
+resources/js/types
+storage
+vendor
+tailwind.config.js
