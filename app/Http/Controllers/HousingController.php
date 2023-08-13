@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Route;
 
 class HousingController extends Controller
 {
+    public function index(Request $request)
+    {
+        return inertia('StudentHousing/Index', [
+            'housings' => $request->is('student-housing/single') ?
+                Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get() :
+                Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
+        ]);
+    }
     public function show(Request $request, Housing $housing)
     {
         return inertia('StudentHousing/Profile', [

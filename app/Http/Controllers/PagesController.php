@@ -18,26 +18,6 @@ class PagesController extends Controller
         ]);
     }
 
-    public function singleList()
-    {
-        return Inertia::render('StudentHousing/List', [
-            'housings' => Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'type' => 'single',
-        ]);
-    }
-
-    public function marriedList()
-    {
-        return Inertia::render('StudentHousing/List', [
-            'housings' => Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'type' => 'married',
-        ]);
-    }
-
     public function housingReviews(Request $request)
     {
         return Inertia::render('StudentHousing/Reviews', [

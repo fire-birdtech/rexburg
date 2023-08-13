@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { Bars3Icon } from '@heroicons/react/24/outline';
 import { Link } from '@inertiajs/react';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import { PageProps } from '@/types';
+import { User } from '@/types';
+
+type NavProps = {
+    user: User;
+}
 
 const navigation = [
   { name: 'Housing', href: '#' },
@@ -12,7 +16,7 @@ const navigation = [
   //   { name: 'Activities', href: '#' },
 ];
 
-export default function MainNav({ auth }: PageProps) {
+export default function MainNav({ user }: NavProps) {
   const [, setMobileMenuOpen] = useState(false);
 
   return (
@@ -38,7 +42,7 @@ export default function MainNav({ auth }: PageProps) {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-          {auth.user ? (
+          {user ? (
             <Link href={route('dashboard')} className="text-sm font-semibold leading-6 text-slate-400 hover:text-white">
               Dashboard <span aria-hidden="true">&rarr;</span>
             </Link>

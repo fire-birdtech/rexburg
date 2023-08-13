@@ -23,8 +23,8 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 });
 
-Route::get('student-housing/single', [PagesController::class, 'singleList'])->name('housing.single');
-Route::get('student-housing/married', [PagesController::class, 'marriedList'])->name('housing.married');
+Route::get('student-housing/single', [HousingController::class, 'index'])->name('housing.single');
+Route::get('student-housing/married', [HousingController::class, 'index'])->name('housing.married');
 Route::get('student-housing/{housing}', [HousingController::class, 'show'])->name('housing.show');
 Route::get('student-housing/{slug}/reviews', [PagesController::class, 'housingReviews'])->name('housing.reviews');
 
