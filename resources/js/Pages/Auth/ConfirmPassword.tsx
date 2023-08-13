@@ -1,6 +1,6 @@
 import { useEffect, FormEventHandler } from 'react';
 import { Head, useForm } from '@inertiajs/react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import Guest from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import { PrimaryButton } from '@/Components/Buttons';
@@ -24,7 +24,7 @@ export default function ConfirmPassword() {
   };
 
   return (
-    <GuestLayout>
+    <Guest>
       <Head title="Confirm Password" />
 
       <div className="mb-4 text-sm text-slate-400">
@@ -54,6 +54,6 @@ export default function ConfirmPassword() {
           </PrimaryButton>
         </div>
       </form>
-    </GuestLayout>
+    </Guest>
   );
 }
