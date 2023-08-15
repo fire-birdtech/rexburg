@@ -10,7 +10,7 @@ export function PrimaryButton({
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
   href?: string
 }) {
-  const classes = `rounded-md bg-[#B3D9E6] px-3.5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-[#DBEDF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:bg-opacity-80 transition ease-in-out duration-150 ${disabled && 'opacity-25'} ${className}`;
+  const classes = `rounded-md bg-[#B3D9E6] px-3.5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-[#DBEDF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed transition ease-in-out duration-150 ${disabled && 'opacity-25'} ${className}`;
 
   return href ? (
     <Link className={classes} href={href}>
@@ -40,6 +40,25 @@ export function SecondaryButton({
     </Link>
   ) : (
     <button {...props} className={classes}>
+      {children}
+    </button>
+  );
+}
+
+export function DangerButton({
+  className = '',
+  disabled,
+  children,
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button
+      {...props}
+      className={
+        `rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-red-50 shadow-sm transition duration-150 ease-in-out hover:bg-red-500/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed ${disabled && 'opacity-25'} ${className}`
+      }
+      disabled={disabled}
+    >
       {children}
     </button>
   );
