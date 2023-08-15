@@ -21,7 +21,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
-});
+})->name('welcome');
 
 Route::get('student-housing/single', [HousingController::class, 'index'])->name('housing.single');
 Route::get('student-housing/married', [HousingController::class, 'index'])->name('housing.married');
