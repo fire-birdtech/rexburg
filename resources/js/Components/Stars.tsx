@@ -1,7 +1,7 @@
 import { StarIcon } from '@heroicons/react/24/solid';
 
 type StarsProps = {
-  score: string;
+  score: number;
   className?: string;
 }
 

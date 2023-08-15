@@ -1,12 +1,21 @@
 import { Link } from '@inertiajs/react';
-import { Housing } from '@/types';
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
+import { DevicePhoneMobileIcon, EnvelopeIcon as EnvelopeOutlineIcon } from '@heroicons/react/24/outline';
 import Stars from './Stars';
+import { Housing } from '@/types';
 
 type HousingCardProps = {
   housing: Housing;
 }
 
-export default function HousingCard({ housing }: HousingCardProps) {
+type ContactCardProps = {
+  name: string;
+  websiteUrl: string;
+  email: string;
+  phone: string;
+}
+
+export function HousingCard({ housing }: HousingCardProps) {
   return (
     <Link
       href={route('housing.show', [housing.slug])}
@@ -42,5 +51,64 @@ export default function HousingCard({ housing }: HousingCardProps) {
         </div>
       </div>
     </Link>
+  );
+}
+
+export function ContactCard({
+  name,
+  websiteUrl,
+  email,
+  phone,
+}: ContactCardProps) {
+  return (
+    <div className="sticky top-12">
+      <div className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-5 shadow sm:p-6">
+        <div className="flex flex-col items-center">
+          <div className="text-xl font-bold text-slate-100">
+            Contact {name}
+          </div>
+          {websiteUrl && (
+            <div className="mt-6 w-full">
+              <a
+                href={`https://${websiteUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-md bg-[#B3D9E6] px-3.5 py-2.5 text-center text-sm font-semibold text-slate-800 shadow-sm transition duration-150 ease-in-out hover:bg-[#DBEDF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:bg-[#B3D9E6]/80"
+              >
+                Visit website
+              </a>
+            </div>
+          )}
+          {phone && (
+            <>
+              <a href={`tel:${phone}`} className="mt-4 inline-flex w-full justify-center rounded-md border border-slate-700 bg-slate-700/40 px-4 py-2 text-sm font-medium text-slate-200 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 xl:hidden">
+                <PhoneIcon className="-ml-1 mr-2 h-5 w-5 text-slate-400" aria-hidden="true" />
+                {phone}
+              </a>
+              <div className="mt-4 hidden xl:flex xl:items-center">
+                <DevicePhoneMobileIcon className="h-6 w-6 shrink-0 text-slate-400" />
+                <span className="ml-2 text-base font-medium text-slate-300 lg:text-lg">
+                  {phone}
+                </span>
+              </div>
+            </>
+          )}
+          {email && (
+            <>
+              <a href={`mailto:${email}`} className="mt-4 inline-flex w-full justify-center rounded-md border border-slate-700 bg-slate-700/40 px-4 py-2 text-sm font-medium text-slate-200 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 xl:hidden">
+                <EnvelopeIcon className="-ml-1 mr-2 h-5 w-5 text-slate-400" aria-hidden="true" />
+                Send an email
+              </a>
+              <div className="mt-4 hidden xl:flex xl:items-center">
+                <EnvelopeOutlineIcon className="h-6 w-6 shrink-0 text-slate-400" />
+                <span className="ml-2 text-base font-medium text-slate-300 lg:text-lg">
+                  {email}
+                </span>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

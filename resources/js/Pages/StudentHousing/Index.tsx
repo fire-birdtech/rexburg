@@ -1,6 +1,6 @@
 import { Head } from '@inertiajs/react';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
-import HousingCard from '@/Components/Cards';
+import { HousingCard } from '@/Components/Cards';
 import { Housing, PageProps } from '@/types';
 
 export default function StudentHousingIndex({ auth, housings }: PageProps & { housings: Housing[] }) {
