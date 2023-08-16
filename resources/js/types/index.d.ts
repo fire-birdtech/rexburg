@@ -48,6 +48,7 @@ export interface Housing {
     byui_approved?: boolean;
     city: string;
     claim: Claim;
+    cover_image_path: string;
     cover_image_url: string;
     email_address: string;
     housing_type: string;
@@ -55,6 +56,7 @@ export interface Housing {
     name: string;
     phone_number: string;
     postal_code: string;
+    profile_image_path: string;
     profile_image_url: string;
     rent_range: string;
     reviews: Review[];

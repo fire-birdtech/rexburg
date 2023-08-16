@@ -21,7 +21,7 @@ class HousingController extends Controller
 
         return inertia('StudentHousing/Edit', [
             'housing' => $housing,
-            'amenities' => Amenity::orderBy('name', 'asc')->get(),
+            'availableAmenities' => Amenity::orderBy('name', 'asc')->get(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
