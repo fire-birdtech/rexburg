@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { User } from '@/types';
+import { Review, User } from '@/types';
 import Stars from './Stars';
 import { PrimaryButton, SecondaryButton } from './Buttons';
 import { ReviewModal } from './Modals';
@@ -7,6 +7,7 @@ import { ReviewModal } from './Modals';
 type ReviewListProps = {
   id: number;
   name: string;
+  reviews: Review[];
   reviewsCount: number;
   score: number;
   scoreDescription: string;

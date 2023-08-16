@@ -164,6 +164,7 @@ export default function StudentHousingShow({ auth, canEdit, housing }: PageProps
                   <ReviewList
                     id={housing.id}
                     name={housing.name}
+                    reviews={housing.reviews}
                     reviewsCount={housing.reviews_count}
                     score={housing.score}
                     scoreDescription={housing.score_description}
