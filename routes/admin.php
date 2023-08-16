@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\ClaimsController as AdminClaimsController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HousingController as AdminHousingController;
-use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function() {
     Route::name('admin.')->group(function() {
-        Route::get('/', [AdminPagesController::class, 'home'])->name('home');
+        Route::get('dashboard', [DashboardController::class, 'main'])->name('dashboards.main');
         Route::prefix('housing')->name('housing.')->group(function() {
             Route::get('/', [AdminHousingController::class, 'index'])->name('index');
             Route::get('create', [AdminHousingController::class, 'create'])->name('create');
