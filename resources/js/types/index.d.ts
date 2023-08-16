@@ -4,6 +4,7 @@ export interface User {
     email: string;
     email_verified_at: string;
     profile_image_url?: string;
+    created_at: string;
 }
 
 export interface Manager {
