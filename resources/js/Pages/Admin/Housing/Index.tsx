@@ -19,6 +19,14 @@ export default function HousingIndex({ auth, housings }: PageProps & { housings:
               A list of all student housing including their name and type.
             </p>
           </div>
+          <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <Link
+              href={route('admin.housing.create')}
+              className="block rounded-md bg-sky-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
+            >
+              Add housing
+            </Link>
+          </div>
         </div>
         <div className="mt-8 flow-root">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -50,7 +58,7 @@ export default function HousingIndex({ auth, housings }: PageProps & { housings:
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{housing.housing_type}</td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{housing.reviews_count}</td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                          <Link href={route('admin.housing.show', [housing.id])} className="text-indigo-600 hover:text-indigo-900">
+                          <Link href={route('admin.housing.show', [housing.id])} className="text-sky-600 hover:text-sky-900">
                             Edit<span className="sr-only">, {housing.name}</span>
                           </Link>
                         </td>
