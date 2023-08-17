@@ -24,6 +24,8 @@ export interface Manager {
 }
 
 export interface Claim {
+    id: number;
+    claimable: Housing;
     claimable_id: number;
     claimable_type: string;
     status: string;
@@ -32,6 +34,7 @@ export interface Claim {
     street_address: string;
     city: string;
     postal_code: string;
+    user: User;
 }
 
 export interface Amenity {
