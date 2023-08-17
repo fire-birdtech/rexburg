@@ -155,7 +155,7 @@
 
                     <!-- Revision History -->
                     <div class="flow-root border-t border-gray-200">
-                        <ul role="list" class="divide-y divide-gray-200">
+                        <ul role="list" class="divide-y divide-gray-200 overflow-hidden">
                             <li v-for="item in housing.revision_history" :key="item.id" class="p-4">
                                 <template v-if="item.key === 'created_at'">
                                     <div class="flex">

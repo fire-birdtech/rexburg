@@ -37,7 +37,7 @@ class HousingController extends Controller
 
     public function show(int $id)
     {
-        $housing = Housing::where('id', $id)->with(['manager.user', 'reviews.user', 'reviews' => function ($query) {
+        $housing = Housing::where('id', $id)->with(['managers', 'reviews.user', 'reviews' => function ($query) {
             $query->orderBy('created_at', 'desc')->take(4);
         }, 'revisionHistory' => function ($query) {
             $query->orderBy('created_at', 'desc')->take(5);

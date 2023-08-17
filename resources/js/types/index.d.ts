@@ -20,6 +20,7 @@ export interface Manager {
     id: number;
     name: string;
     email: string;
+    profile_photo_url: string;
 }
 
 export interface Claim {
@@ -71,12 +72,25 @@ export interface Housing {
     rent_range: string;
     reviews: Review[];
     reviews_count: number;
+    revision_history: Revision[];
     score: number;
     score_description: string;
     slug: string;
     street: string;
     tenant_rating: string;
     website_url: string;
+}
+
+export interface Revision {
+    id: number;
+    revisionable_type: string;
+    revisionable_id: number;
+    user: User;
+    key: string;
+    old_value: string;
+    new_value: string;
+    created_at: string;
+    updated_at: string;
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
