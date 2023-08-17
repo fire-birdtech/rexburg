@@ -14,7 +14,7 @@ class HousingController extends Controller
     public function index()
     {
         return Inertia::render('Admin/Housing/Index', [
-            'housings' => Housing::with('manager.user')->withCount('reviews')->orderBy('name', 'asc')->get(),
+            'housings' => Housing::withCount('reviews')->orderBy('name', 'asc')->get(),
         ]);
     }
 
