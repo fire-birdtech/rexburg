@@ -1,10 +1,19 @@
+export interface Suspension {
+    user_id: number;
+    reason: string;
+}
+
 export interface User {
     id: number;
-    name: string;
+    created_at: string;
     email: string;
     email_verified_at: string;
-    profile_image_url?: string;
-    created_at: string;
+    name: string;
+    profile_photo_url?: string;
+    reviews_count: number;
+    suspended_until?: string;
+    suspensions: Suspension[];
+    suspensions_count: number;
 }
 
 export interface Manager {
