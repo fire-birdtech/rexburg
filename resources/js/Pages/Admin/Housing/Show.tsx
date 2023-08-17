@@ -254,9 +254,9 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                         <div className="h-1.5 w-1.5 rounded-full bg-gray-100 ring-1 ring-gray-300" />
                       </div>
                       <div>
-                        <p className="flex-auto py-0.5 text-xs leading-5 text-gray-500">
+                        <p className="flex-auto break-words py-0.5 text-xs leading-5 text-gray-500">
                           {item.key === 'created_at' ? (
-                            <p>Housing profile created {convertDateFromNow(item.created_at)}.</p>
+                            <span>Housing profile created {convertDateFromNow(item.created_at)}.</span>
                           ) : (
                             <>
                               <span className="font-medium text-gray-900">{item.user?.name}</span> updated the {convertKey(item.key)} {convertDateFromNow(item.updated_at)}.
