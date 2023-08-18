@@ -5,7 +5,6 @@ import { convertDate } from '@/Utils/convertDate';
 import { Claim, PageProps } from '@/types';
 
 export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim }) {
-  claim.status = 'pending';
   const approve = () => {
     router.post(route('admin.claims.approve', [claim.id]));
   };
@@ -32,10 +31,16 @@ export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim })
           <div className="mt-4 flex md:ml-4 md:mt-0">
             {claim.status === 'pending' ? (
               <>
-                <button className="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
+                <button
+                  onClick={() => reject()}
+                  className="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                >
                   Reject
                 </button>
-                <button className="ml-3 inline-flex items-center rounded-md border border-transparent bg-sky-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
+                <button
+                  onClick={() => approve()}
+                  className="ml-3 inline-flex items-center rounded-md border border-transparent bg-sky-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                >
                   Approve
                 </button>
               </>
