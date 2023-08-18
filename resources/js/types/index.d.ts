@@ -35,6 +35,7 @@ export interface Claim {
     city: string;
     postal_code: string;
     user: User;
+    created_at: string;
 }
 
 export interface Amenity {
