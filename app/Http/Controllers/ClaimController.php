@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Enums\ClaimStatus;
 use App\Models\Claim;
 use App\Models\Housing;
-use App\Models\Manage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

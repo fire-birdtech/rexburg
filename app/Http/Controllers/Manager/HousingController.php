@@ -81,6 +81,6 @@ class HousingController extends Controller
         return $request->wantsJson()
                     ? new JsonResponse('', 200)
                     : back()->with('status', 'housing-information-updated');
-                        // ->banner('Profile updated successfully!');
+        // ->banner('Profile updated successfully!');
     }
 }

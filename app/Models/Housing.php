@@ -141,10 +141,19 @@ class Housing extends Model
 
     public function getScoreDescriptionAttribute(): string
     {
-        if ($this->score >= 5) return 'Excellent';
-        if ($this->score >= 4) return 'Great';
-        if ($this->score >= 3) return 'Good';
-        if ($this->score >= 2) return 'Okay';
+        if ($this->score >= 5) {
+            return 'Excellent';
+        }
+        if ($this->score >= 4) {
+            return 'Great';
+        }
+        if ($this->score >= 3) {
+            return 'Good';
+        }
+        if ($this->score >= 2) {
+            return 'Okay';
+        }
+
         return 'Poor';
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Amenity;
 use App\Models\Housing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

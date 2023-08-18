@@ -6,7 +6,6 @@ use App\Models\Housing;
 use Error;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 class HousingController extends Controller
 {
@@ -18,6 +17,7 @@ class HousingController extends Controller
                 Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
         ]);
     }
+
     public function show(Request $request, Housing $housing)
     {
         return inertia('StudentHousing/Show', [
@@ -38,8 +38,8 @@ class HousingController extends Controller
             Housing::find($request->id)->deleteCoverImage();
 
             return back(303)
-                    ->with('status', 'cover-image-deleted')
-                    ->banner('Cover image deleted successfully');
+                ->with('status', 'cover-image-deleted')
+                ->banner('Cover image deleted successfully');
         } catch (Error $error) {
         }
     }
@@ -53,8 +53,8 @@ class HousingController extends Controller
             Housing::find($request->id)->deleteProfileImage();
 
             return back(303)
-                    ->with('status', 'profile-image-deleted')
-                    ->banner('Profile image deleted successfully');
+                ->with('status', 'profile-image-deleted')
+                ->banner('Profile image deleted successfully');
         } catch (Error $error) {
         }
     }
