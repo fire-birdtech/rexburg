@@ -24,9 +24,8 @@ class ClaimsController extends Controller
         ]);
     }
 
-    public function approve(int $id)
+    public function approve(Claim $claim)
     {
-        $claim = Claim::where('id', $id)->firstOrFail();
         $this->sendPostcard($claim);
         $claim->status = ClaimStatus::APPROVED;
         $claim->save();
@@ -34,12 +33,12 @@ class ClaimsController extends Controller
         return back()->with('success', 'Claim successfully approved!');
     }
 
-    public function reject(int $id)
+    public function reject(Claim $claim)
     {
-        $claim = Claim::where('id', $id)->with(['claimable', 'user'])->firstOrFail();
-        $claim->delete();
+        $claim->status = ClaimStatus::REJECTED;
+        $claim->save();
 
-        return redirect()->route('admin.claims.index');
+        return back()->with('success', 'Claim has been rejected.');
     }
 
     public function sendPostcard($recipient)
@@ -76,7 +75,7 @@ class ClaimsController extends Controller
                             -moz-box-sizing: border-box;
                             box-sizing: border-box;
                         }
-                
+
                         body {
                             width: 6.25in;
                             height: 4.25in;
@@ -84,7 +83,7 @@ class ClaimsController extends Controller
                             padding: 0;
                             background: #FFFFFF;
                         }
-                
+
                         #safe-area {
                             position: absolute;
                             width: 5.875in;
@@ -96,7 +95,7 @@ class ClaimsController extends Controller
                         }
                     </style>
                 </head>
-                
+
                 <body>
                     <div id='safe-area'>
                         <!-- All text should appear within the safe area. -->

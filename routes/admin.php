@@ -26,8 +26,8 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group
         Route::prefix('claims')->name('claims.')->group(function () {
             Route::get('/', [AdminClaimsController::class, 'index'])->name('index');
             Route::get('{id}', [AdminClaimsController::class, 'show'])->name('show');
-            Route::post('{id}', [AdminClaimsController::class, 'approve'])->name('approve');
-            Route::delete('{id}', [AdminClaimsController::class, 'reject'])->name('reject');
+            Route::put('{claim}', [AdminClaimsController::class, 'approve'])->name('approve');
+            Route::put('{claim}', [AdminClaimsController::class, 'reject'])->name('reject');
         });
     });
 });

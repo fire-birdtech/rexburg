@@ -6,10 +6,10 @@ import { Claim, PageProps } from '@/types';
 
 export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim }) {
   const approve = () => {
-    router.post(route('admin.claims.approve', [claim.id]));
+    router.put(route('admin.claims.approve', [claim.id]));
   };
   const reject = () => {
-    router.post(route('admin.claims.reject', [claim.id]));
+    router.put(route('admin.claims.reject', [claim.id]));
   };
 
   return (
