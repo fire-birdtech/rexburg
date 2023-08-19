@@ -133,7 +133,7 @@ export default function MainNav({ user }: NavProps) {
                         <Link
                           href={route('profile.edit')}
                           className={classNames(
-                            active ? 'text-white' : 'text-slate-300',
+                            active ? 'text-white bg-slate-700' : 'text-slate-300',
                             'block p-2 text-sm',
                           )}
                         >
