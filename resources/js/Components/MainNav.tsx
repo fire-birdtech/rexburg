@@ -133,7 +133,7 @@ export default function MainNav({ user }: NavProps) {
                         <Link
                           href={route('profile.edit')}
                           className={classNames(
-                            active ? 'text-white bg-slate-700' : 'text-slate-300',
+                            active ? 'text-white' : 'text-slate-300',
                             'block p-2 text-sm',
                           )}
                         >
@@ -196,7 +196,7 @@ export default function MainNav({ user }: NavProps) {
                   <Link
                     key={index}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-400 hover:bg-white"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
                   >
                     {item.name}
                   </Link>
@@ -205,7 +205,7 @@ export default function MainNav({ user }: NavProps) {
               <div className="py-6">
                 <Link
                   href={route('login')}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-white"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
                 >
                   Log in
                 </Link>
