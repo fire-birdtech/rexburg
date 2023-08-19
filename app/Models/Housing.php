@@ -6,6 +6,7 @@ use App\Traits\HasCoverImage;
 use App\Traits\HasProfileImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Venturecraft\Revisionable\RevisionableTrait;
@@ -137,6 +138,11 @@ class Housing extends Model
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function view(): MorphMany
+    {
+        return $this->morphMany(View::class, 'viewable');
     }
 
     public function getScoreDescriptionAttribute(): string
