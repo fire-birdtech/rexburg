@@ -1,9 +1,9 @@
 import { Head } from '@inertiajs/react';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import EmptyDashboard from '@/Components/EmptyStates/EmptyDashboard';
-import { PageProps } from '@/types';
+import { PageProps, View } from '@/types';
 
-export default function Dashboard({ auth }: PageProps) {
+export default function Dashboard({ auth, views }: PageProps & { views: View[] }) {
   return (
     <Authenticated
       user={auth.user}
