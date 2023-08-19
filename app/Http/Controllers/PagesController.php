@@ -9,14 +9,6 @@ use Inertia\Inertia;
 
 class PagesController extends Controller
 {
-    public function home()
-    {
-        return Inertia::render('Home', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-        ]);
-    }
-
     public function housingReviews(Request $request)
     {
         return Inertia::render('StudentHousing/Reviews', [
