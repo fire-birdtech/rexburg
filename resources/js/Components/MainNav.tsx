@@ -1,8 +1,8 @@
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';
-import { Menu, Popover, Transition } from '@headlessui/react';
+import { Dialog, Menu, Popover, Transition } from '@headlessui/react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import { ChevronDownIcon, UserIcon, UsersIcon } from '@heroicons/react/24/solid';
+import { ChevronDownIcon, UserIcon, UsersIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import classNames from '@/Utils/classNames';
 import { User } from '@/types';
@@ -35,8 +35,13 @@ const navigation = [
   //   { name: 'Activities', href: '#' },
 ];
 
+const mobileNavigation = [
+  { name: 'Single Housing', href: route('housing.single') },
+  { name: 'Married Housing', href: route('housing.married') },
+];
+
 export default function MainNav({ user }: NavProps) {
-  const [, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -48,7 +53,7 @@ export default function MainNav({ user }: NavProps) {
           </Link>
         </div>
         <div className="flex lg:hidden">
-          <button onClick={() => setMobileMenuOpen(true)} className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <button onClick={() => setMobileMenuOpen(true)} className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-200">
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
@@ -163,6 +168,48 @@ export default function MainNav({ user }: NavProps) {
           )}
         </div>
       </nav>
+      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-slate-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+            <Link className="-m-1.5 p-1.5" href={user ? route('dashboard') : route('welcome')}>
+              <span className="sr-only">RexburgGuru</span>
+              <ApplicationLogo className="h-6 w-auto" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-slate-200"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-slate-200/10">
+              <div className="space-y-2 py-6">
+                {mobileNavigation.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-400 hover:bg-white"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              <div className="py-6">
+                <Link
+                  href={route('login')}
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-white"
+                >
+                  Log in
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
     </header>
   );
 }
