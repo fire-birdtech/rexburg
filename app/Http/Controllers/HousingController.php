@@ -20,6 +20,10 @@ class HousingController extends Controller
 
     public function show(Request $request, Housing $housing)
     {
+        $housing->views()->create([
+            'user_id' => $request->user()?->id ?: null,
+        ]);
+
         return inertia('StudentHousing/Show', [
             'housing' => Housing::where('slug', $housing->slug)->withCount('reviews')->with(['amenities', 'reviews.user', 'reviews' => function ($query) {
                 $query->orderBy('created_at', 'desc')->take(4);

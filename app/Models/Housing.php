@@ -140,7 +140,7 @@ class Housing extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function view(): MorphMany
+    public function views(): MorphMany
     {
         return $this->morphMany(View::class, 'viewable');
     }
