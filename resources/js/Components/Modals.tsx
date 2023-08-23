@@ -46,7 +46,10 @@ export function ReviewModal({
   const submit = () => {
     post(route('reviews.create'), {
       preserveScroll: true,
-      onSuccess: () => reset(),
+      onSuccess: () => {
+        reset();
+        setOpen();
+      },
     });
   };
 

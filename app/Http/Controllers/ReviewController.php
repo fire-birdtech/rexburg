@@ -4,32 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Housing;
 use App\Models\Review;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function create(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        $request->validateWithBag('createReview', [
-            'rating' => ['required'],
-            'body' => ['nullable', 'string'],
-        ]);
-
-        $housing = Housing::where('id', $request['housing_id'])->first();
-        $housing->reviews()->save(new Review([
-            'user_id' => auth()->user()->id,
+        $housing = Housing::find($request->id);
+        $housing?->reviews()->save(new Review([
+            'user_id' => $request->user()->id,
             'body' => $request['body'],
             'rating' => $request['rating'],
         ]));
 
         if ($request['livedHere'] === 'Yes') {
-            $housing->users()->attach(auth()->user()->id);
+            $housing?->users()->attach($request->user()->id);
         }
 
-        return $request->wantsJson()
-                    ? new JsonResponse('', 200)
-                    : back()->with('status', 'claim-created')
-                        ->banner('Review submitted successsfully');
+        return back()->with('notification', 'Review submitted successfully');
     }
 }
