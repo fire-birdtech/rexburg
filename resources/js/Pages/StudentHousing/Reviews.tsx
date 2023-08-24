@@ -4,8 +4,8 @@ import CoverImage from '@/Components/CoverImage';
 import ProfileImage from '@/Components/ProfileImage';
 import { PrimaryButton } from '@/Components/Buttons';
 import ReviewList from '@/Components/ReviewList';
-import { Housing, PageProps } from '@/types';
 import Container from '@/Components/Container';
+import { Housing, PageProps } from '@/types';
 
 export default function StudentHousingReviews({
   auth,
