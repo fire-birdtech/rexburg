@@ -5,23 +5,27 @@ import ProfileImage from '@/Components/ProfileImage';
 import { PrimaryButton } from '@/Components/Buttons';
 import ReviewList from '@/Components/ReviewList';
 import { Housing, PageProps } from '@/types';
+import Container from '@/Components/Container';
 
-export default function StudentHousingReviews({ auth, housing }: PageProps & { housing: Housing }) {
+export default function StudentHousingReviews({
+  auth,
+  housing,
+}: PageProps & { housing: Housing }) {
   return (
     <Authenticated
       user={auth.user}
     >
-      <Head title={`${housing.name} Reviews`} />
+      <Head title={`${housing.name} Reviews`}/>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="pt-8">
-          <CoverImage src={housing.cover_image_url} name={housing.name} />
+      <Container>
+        <div>
+          <CoverImage src={housing.cover_image_url} name={housing.name}/>
         </div>
         <div className="max-w-8xl mx-auto px-4 pb-20 sm:px-6 lg:px-8">
           <div className="-mt-12 sm:-mt-16 sm:flex sm:items-start">
             <div className="sm:flex sm:items-end sm:space-x-5">
               <div className="flex">
-                <ProfileImage src={housing.profile_image_url} name={housing.name} />
+                <ProfileImage src={housing.profile_image_url} name={housing.name}/>
               </div>
               <div className="mt-6 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                 <div className="mt-6 flex min-w-0 flex-1 items-center sm:hidden md:flex">
@@ -59,7 +63,7 @@ export default function StudentHousingReviews({ auth, housing }: PageProps & { h
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </Authenticated>
   );
 }

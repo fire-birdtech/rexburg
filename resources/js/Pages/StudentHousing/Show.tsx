@@ -7,7 +7,6 @@ import {
   UserIcon,
   UsersIcon,
 } from '@heroicons/react/24/solid';
-// import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import { PrimaryButton } from '@/Components/Buttons';
 import Address from '@/Components/Address';
@@ -19,9 +18,14 @@ import ProfileImage from '@/Components/ProfileImage';
 import { ContactCard } from '@/Components/Cards';
 import ReviewList from '@/Components/ReviewList';
 import { ClaimHousingModal } from '@/Components/Modals';
+import Container from '@/Components/Container';
 import { Housing, PageProps } from '@/types';
 
-export default function StudentHousingShow({ auth, canEdit, housing }: PageProps & { housing: Housing, canEdit: boolean }) {
+export default function StudentHousingShow({
+  auth,
+  canEdit,
+  housing,
+}: PageProps & { housing: Housing, canEdit: boolean }) {
   const isClaimed = housing.managers.length || housing.claim !== null;
 
   const [claimDialogOpen, setClaimDialogOpen] = useState(false);
@@ -30,17 +34,17 @@ export default function StudentHousingShow({ auth, canEdit, housing }: PageProps
     <Authenticated
       user={auth.user}
     >
-      <Head title={housing.name} />
+      <Head title={housing.name}/>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="pt-8">
-          <CoverImage src={housing.cover_image_url} name={housing.name} />
+      <Container>
+        <div>
+          <CoverImage src={housing.cover_image_url} name={housing.name}/>
         </div>
         <div className="max-w-8xl mx-auto px-4 pb-20 sm:px-6 lg:px-8">
           <div className="-mt-12 sm:-mt-16 sm:flex sm:items-start">
             <div className="sm:flex sm:items-end sm:space-x-5">
               <div className="flex">
-                <ProfileImage src={housing.profile_image_url} name={housing.name} />
+                <ProfileImage src={housing.profile_image_url} name={housing.name}/>
               </div>
               <div className="mt-6 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                 <div className="mt-6 flex min-w-0 flex-1 items-center sm:hidden md:flex">
@@ -66,10 +70,12 @@ export default function StudentHousingShow({ auth, canEdit, housing }: PageProps
           </div>
           {auth.user && !isClaimed && (
             <button onClick={() => setClaimDialogOpen(true)} className="group mt-6 inline-flex space-x-4">
-              <span className="rounded bg-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 group-hover:bg-slate-50">
+              <span
+                className="rounded bg-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 group-hover:bg-slate-50">
                 Claim this housing
               </span>
-              <span className="inline-flex items-center space-x-1 text-sm font-medium text-slate-400 group-hover:text-slate-50">
+              <span
+                className="inline-flex items-center space-x-1 text-sm font-medium text-slate-400 group-hover:text-slate-50">
                 <span>Do you manage {housing.name}? &rarr;</span>
                 {/* <ChevronRightIcon className="h-5 w-5" aria-hidden="true" /> */}
               </span>
@@ -80,20 +86,21 @@ export default function StudentHousingShow({ auth, canEdit, housing }: PageProps
             city={housing.city}
             postalCode={housing.postal_code}
           />
-          <div className="flex flex-col space-y-3 pt-4 text-slate-300 sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 sm:space-y-0">
-            {housing.byui_approved && <MetaDataItem icon={<CheckIcon />} value="BYU-Idaho Approved" />}
+          <div
+            className="flex flex-col space-y-3 pt-4 text-slate-300 sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 sm:space-y-0">
+            {housing.byui_approved && <MetaDataItem icon={<CheckIcon/>} value="BYU-Idaho Approved"/>}
             {housing.housing_type === 'single' ? (
-              <MetaDataItem icon={<UserIcon />} value="Single Housing" />
+              <MetaDataItem icon={<UserIcon/>} value="Single Housing"/>
             ) : (
-              <MetaDataItem icon={<UsersIcon />} value="Married Housing" />
+              <MetaDataItem icon={<UsersIcon/>} value="Married Housing"/>
             )}
-            <MetaDataItem icon={<MapPinIcon />} value={housing.city} />
+            <MetaDataItem icon={<MapPinIcon/>} value={housing.city}/>
           </div>
           {housing.reviews_count > 0 && (
             <>
               <div className="flex items-center space-x-4 pt-5">
                 <div className="flex space-x-1">
-                  <Stars className="h-6 w-6" score={housing.score} />
+                  <Stars className="h-6 w-6" score={housing.score}/>
                 </div>
               </div>
               <Link href="#review-list" className="hover:underline hover:underline-offset-2">
@@ -140,7 +147,7 @@ export default function StudentHousingShow({ auth, canEdit, housing }: PageProps
                         {housing.amenities.map((amenity, index) => (
                           <div key={index} className="sm:col-span-1">
                             <dd className="mt-1 flex text-base leading-5 text-slate-100">
-                              <CheckCircleIcon className="mr-1.5 h-5 w-5 shrink-0 text-sky-500" />
+                              <CheckCircleIcon className="mr-1.5 h-5 w-5 shrink-0 text-sky-500"/>
                               {amenity.name}
                             </dd>
                           </div>
@@ -190,7 +197,7 @@ export default function StudentHousingShow({ auth, canEdit, housing }: PageProps
           open={claimDialogOpen}
           setOpen={() => setClaimDialogOpen(false)}
         />
-      </div>
+      </Container>
     </Authenticated>
   );
 }
