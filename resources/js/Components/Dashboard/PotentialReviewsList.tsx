@@ -3,9 +3,9 @@ import { View } from '@/types';
 
 export default function PotentialReviewsList({ views }: { views: View[] }) {
   return (
-    <div className="px-4 sm:px-6 md:px-8">
+    <div>
       <h3 className="text-base font-semibold leading-6 text-slate-100">Are you able to review these places?</h3>
-      <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
+      <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {views.map((view) => (
           <div
             key={view.id}
