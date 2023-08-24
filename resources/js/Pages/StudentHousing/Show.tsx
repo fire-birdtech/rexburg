@@ -97,16 +97,17 @@ export default function StudentHousingShow({
             <MetaDataItem icon={<MapPinIcon/>} value={housing.city}/>
           </div>
           {housing.reviews_count > 0 && (
-            <>
+            <div className="flex items-end space-x-2">
               <div className="flex items-center space-x-4 pt-5">
                 <div className="flex space-x-1">
                   <Stars className="h-6 w-6" score={housing.score}/>
                 </div>
               </div>
-              <Link href="#review-list" className="hover:underline hover:underline-offset-2">
+              <div className="text-slate-200">({housing.score})</div>
+              <Link href="#review-list" className="text-slate-400 hover:underline hover:underline-offset-2">
                 See reviews
               </Link>
-            </>
+            </div>
           )}
           <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
             <StatisticItem

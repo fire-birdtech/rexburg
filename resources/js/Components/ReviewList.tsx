@@ -47,7 +47,7 @@ export default function ReviewList({
                 </div>
               </div>
             </div>
-            <div className="flex-1 overflow-hidden rounded-md bg-slate-200">
+            <div className="flex-1 overflow-hidden rounded-md bg-slate-800 text-slate-300">
               <div className="flex flex-col space-y-4 p-8 xl:p-10">
                 <div className="flex flex-col justify-center space-y-8 sm:flex-row sm:items-center sm:space-x-6 sm:space-y-0 xl:space-x-10">
                   <div className="shrink-0">
@@ -65,7 +65,7 @@ export default function ReviewList({
                     {user ? (
                       <>
                         <p className="text-lg">Share details of your own experience with {name}.</p>
-                        <PrimaryButton onClick={() => setOpen(true)}>
+                        <PrimaryButton className="mt-3" onClick={() => setOpen(true)}>
                           Write my review
                         </PrimaryButton>
                       </>
