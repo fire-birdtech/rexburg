@@ -1,5 +1,6 @@
 import { Head } from '@inertiajs/react';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
+import PotentialReviewsList from '@/Components/Dashboard/PotentialReviewsList';
 import EmptyDashboard from '@/Components/EmptyStates/EmptyDashboard';
 import { PageProps, View } from '@/types';
 
@@ -12,7 +13,13 @@ export default function Dashboard({ auth, views }: PageProps & { views: View[] }
 
       <div className="py-12">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <EmptyDashboard />
+          {views.length > 0 ? (
+            <>
+              <PotentialReviewsList views={views} />
+            </>
+          ) : (
+            <EmptyDashboard />
+          )}
         </div>
       </div>
     </Authenticated>

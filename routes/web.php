@@ -5,10 +5,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +38,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/verify', [PagesController::class, 'verify'])->name('claims.verify');
     Route::patch('/verify', [ClaimController::class, 'verify'])->name('claims.verify.update');
+
+    Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.create');
 });
 
 require __DIR__.'/auth.php';
