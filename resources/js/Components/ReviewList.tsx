@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Review, User } from '@/types';
 import Stars from './Stars';
 import { PrimaryButton, SecondaryButton } from './Buttons';
 import { ReviewModal } from './Modals';
+import ReviewItem from '@/Components/ReviewItem';
+import { Review, User } from '@/types';
 
 type ReviewListProps = {
   id: number;
@@ -17,6 +18,7 @@ type ReviewListProps = {
 export default function ReviewList({
   id,
   name,
+  reviews,
   reviewsCount,
   score,
   scoreDescription,
@@ -105,7 +107,11 @@ export default function ReviewList({
               </div>
             </div>
           </div>
-          <div className="mt-16 space-y-20"></div>
+          <div className="mt-16 space-y-20">
+            {reviews.map((review) => (
+              <ReviewItem review={review} />
+            ))}
+          </div>
         </>
       ) : (
         <div className="mt-8 flex-1 overflow-hidden rounded-xl border border-slate-600 bg-slate-900">
