@@ -1,4 +1,4 @@
-export default function convertKey(key) {
+export default function convertKey(key: string) {
   switch (key) {
     case 'about':
       return 'About';
