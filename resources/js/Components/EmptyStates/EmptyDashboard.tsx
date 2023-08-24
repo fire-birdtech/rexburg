@@ -7,13 +7,13 @@ import { Link } from '@inertiajs/react';
 const actions = [
   {
     name: 'Find single student housing',
-    description: 'Vivamus diam dolor, egestas elementum ligula et.',
+    description: 'Private and shared rooms available.',
     href: route('housing.single'),
     icon: UserIcon,
   },
   {
     name: 'Find married student housing',
-    description: 'Aenean vehicula pellentesque elit eu dictum. Phasellus.',
+    description: 'Space for the two of you plus any extras.',
     href: route('housing.married'),
     icon: UsersIcon,
   },
