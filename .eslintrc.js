@@ -10,7 +10,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:tailwindcss/recommended',
-    'plugin:vue/vue3-essential',
   ],
   overrides: [
     {
@@ -36,7 +35,6 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'tailwindcss',
-    'vue',
   ],
   root: true,
   rules: {
@@ -47,8 +45,6 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'import/extensions': 0,
     'tailwindcss/no-custom-classname': 0,
-    'vue/multi-word-component-names': 0,
-    'vue/no-reserved-component-names': 1,
   },
   settings: {
     'import/resolver': {
@@ -56,7 +52,7 @@ module.exports = {
         map: [
           ['@', './resources/js'],
         ],
-        extensions: ['.js', '.ts', '.tsx', '.vue'],
+        extensions: ['.js', '.ts', '.tsx'],
       },
       node: {
         extensions: ['.ts', '.tsx'],
