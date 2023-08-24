@@ -22,7 +22,7 @@ const actions = [
 const otherActions = [
   {
     name: 'Manage a student housing profile',
-    description: 'Etiam sollicitudin augue sed nunc luctus tincidunt.',
+    description: 'Claim the profile for your student housing.',
     href: '#',
     icon: HomeModernIcon,
   },
