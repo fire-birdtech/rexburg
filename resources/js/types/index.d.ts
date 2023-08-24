@@ -45,6 +45,7 @@ export interface Amenity {
 }
 
 export interface Review {
+  id: number;
     body: string;
     created_at: string;
     rating: string;
