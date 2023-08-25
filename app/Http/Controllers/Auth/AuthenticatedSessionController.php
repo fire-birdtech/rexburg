@@ -40,6 +40,7 @@ class AuthenticatedSessionController extends Controller
         if ($request->user()->hasRole('manager')) {
             return redirect(RouteServiceProvider::MANAGERHOME);
         }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

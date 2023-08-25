@@ -27,6 +27,7 @@ class RedirectIfAuthenticated
                 if ($request->user()->hasRole('manager')) {
                     return redirect(RouteServiceProvider::MANAGERHOME);
                 }
+
                 return redirect(RouteServiceProvider::HOME);
             }
         }
