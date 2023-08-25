@@ -45,6 +45,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'import/extensions': 0,
     'tailwindcss/no-custom-classname': 0,
+    'no-tabs': 0,
   },
   settings: {
     'import/resolver': {
