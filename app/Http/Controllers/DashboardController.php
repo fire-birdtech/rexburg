@@ -18,6 +18,7 @@ class DashboardController extends Controller
         }])->latest()->get()->unique('viewable_id');
 
         return inertia('Dashboard', [
+            'claims' => $request->user()->claims->load('claimable'),
             'views' => $views->flatten(),
         ]);
     }
