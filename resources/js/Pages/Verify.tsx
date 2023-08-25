@@ -1,3 +1,4 @@
+import { FormEventHandler } from 'react';
 import { Head, useForm } from '@inertiajs/react';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import InputLabel from '@/Components/InputLabel';
@@ -5,7 +6,6 @@ import TextInput from '@/Components/TextInput';
 import InputError from '@/Components/InputError';
 import { PrimaryButton } from '@/Components/Buttons';
 import { PageProps } from '@/types';
-import { FormEventHandler } from 'react';
 
 export default function VerifyClaim({ auth }: PageProps) {
   const {
