@@ -38,6 +38,14 @@ export interface Claim {
     created_at: string;
 }
 
+export interface Claimable {
+  id: number;
+  type: string;
+  name: string;
+  slug: string;
+  cover_image_url: string;
+}
+
 export interface Amenity {
     id: number;
     name: string;

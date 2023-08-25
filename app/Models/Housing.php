@@ -7,6 +7,7 @@ use App\Traits\HasProfileImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Venturecraft\Revisionable\RevisionableTrait;
@@ -127,7 +128,7 @@ class Housing extends Model
     /**
      * Get the housing's claim
      */
-    public function claim()
+    public function claim(): MorphOne
     {
         return $this->morphOne(Claim::class, 'claimable');
     }

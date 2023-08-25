@@ -6,6 +6,7 @@ use App\Enums\ClaimStatus;
 use App\Traits\HasVerificationCode;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Claim extends Model
 {
@@ -25,7 +26,7 @@ class Claim extends Model
     /**
      * Get the parent claimable model (only housing for now).
      */
-    public function claimable()
+    public function claimable(): MorphTo
     {
         return $this->morphTo();
     }

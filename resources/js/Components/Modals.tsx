@@ -1,4 +1,6 @@
-import { Fragment, PropsWithChildren } from 'react';
+import {
+  FormEventHandler, Fragment, PropsWithChildren, useEffect,
+} from 'react';
 import { Dialog, RadioGroup, Transition } from '@headlessui/react';
 import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
 import { CheckBadgeIcon, StarIcon } from '@heroicons/react/24/solid';
@@ -19,9 +21,9 @@ type ReviewModalProps = {
 }
 
 type ClaimHousingModalProps = {
-  id: number;
+  id: number | undefined;
   type: string;
-  name: string;
+  name: string | undefined;
   open: boolean;
   setOpen: () => void;
 }
@@ -188,8 +190,14 @@ export function ClaimHousingModal({
     postal_code: '',
   });
 
-  const submit = () => {
-    post(route('claims.create'), {
+  useEffect(() => {
+    setData('id', id);
+  }, [id]);
+
+  const submit: FormEventHandler = (e) => {
+    e.preventDefault();
+
+    post(route('claims.store'), {
       preserveScroll: true,
       onSuccess: () => {
         reset();
@@ -198,9 +206,14 @@ export function ClaimHousingModal({
     });
   };
 
+  const onClose = () => {
+    setOpen();
+    reset();
+  };
+
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={setOpen}>
+      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={() => onClose()}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -235,7 +248,7 @@ export function ClaimHousingModal({
                     </Dialog.Title>
                   </div>
                   <div className="mt-3">
-                    <form onSubmit={() => submit()}>
+                    <form onSubmit={submit}>
                       <p className="text-sm text-slate-300">
                         Please enter the address of {name}.
                       </p>
@@ -290,10 +303,10 @@ export function ClaimHousingModal({
                         </p>
                       </div>
                       <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                        <PrimaryButton type="submit" disabled={!data.street_address || !data.city || !data.postal_code || processing}>
+                        <PrimaryButton type="submit" disabled={data.street_address === '' || data.city === '' || data.postal_code === '' || processing}>
                           Claim
                         </PrimaryButton>
-                        <SecondaryButton type="button" onClick={setOpen}>
+                        <SecondaryButton type="button" onClick={() => onClose()}>
                           Cancel
                         </SecondaryButton>
                       </div>

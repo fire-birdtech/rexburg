@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\Manager\HousingController;
 use App\Http\Controllers\Manager\PagesController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum', 'verified', 'manager'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('manager/claim', [ClaimController::class, 'index'])->name('claims.index');
+    Route::post('manager/claim', [ClaimController::class, 'store'])->name('claims.store');
+});
+Route::middleware(['auth', 'verified', 'manager'])->group(function () {
     Route::get('manager/dashboard', [PagesController::class, 'dashboard'])->name('manager.dashboard');
     Route::get('student-housing/{housing}/edit', [HousingController::class, 'edit'])->name('housing.edit');
     Route::put('student-housing', [HousingController::class, 'update'])->name('housing.update');

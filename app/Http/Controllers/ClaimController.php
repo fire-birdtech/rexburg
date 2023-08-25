@@ -5,26 +5,32 @@ namespace App\Http\Controllers;
 use App\Enums\ClaimStatus;
 use App\Models\Claim;
 use App\Models\Housing;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Inertia\Response;
+use Inertia\ResponseFactory;
 
 class ClaimController extends Controller
 {
-    public function create(Request $request)
+    public function index(): Response|ResponseFactory
     {
-        $housing = Housing::where('id', $request['housing_id'])->first();
-        $housing->claim()->save(new Claim([
-            'user_id' => auth()->user()->id,
+        return inertia('Manager/Claim', [
+            'claimables' => Housing::doesntHave('claim')->doesntHave('managers')->orderBy('name', 'asc')->get(),
+        ]);
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+        $housing = Housing::find($request->id);
+        $housing?->claim()->save(new Claim([
+            'user_id' => $request->user()->id,
             'street_address' => $request['street_address'],
             'city' => $request['city'],
             'postal_code' => $request['postal_code'],
             'status' => ClaimStatus::PENDING,
         ]));
 
-        return $request->wantsJson()
-                    ? new JsonResponse('', 200)
-                    : back()->with('status', 'claim-created')
-                        ->banner('Claim submitted successsfully');
+        return back()->with('notification', 'Claim submitted successfully!');
     }
 
     public function verify(Request $request)
