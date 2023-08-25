@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('manager/claim', [ClaimController::class, 'index'])->name('claims.index');
     Route::post('manager/claim', [ClaimController::class, 'store'])->name('claims.store');
+    Route::put('manager/claim', [ClaimController::class, 'verify'])->name('claims.verify');
 });
 Route::middleware(['auth', 'verified', 'manager'])->group(function () {
     Route::get('manager/dashboard', [PagesController::class, 'dashboard'])->name('manager.dashboard');

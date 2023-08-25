@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ClaimStatus;
+use App\Http\Requests\ClaimVerifyRequest;
 use App\Models\Claim;
 use App\Models\Housing;
 use Illuminate\Http\RedirectResponse;
@@ -33,12 +34,8 @@ class ClaimController extends Controller
         return back()->with('notification', 'Claim submitted successfully!');
     }
 
-    public function verify(Request $request)
+    public function verify(ClaimVerifyRequest $request)
     {
-        $request->validateWithBag('updateClaim', [
-            'verification_code' => 'required|string',
-        ]);
-
         $claim = Claim::where('verification_code', $request['verification_code'])->first();
 
         if (is_null($claim)) {
@@ -60,6 +57,6 @@ class ClaimController extends Controller
 
         $request->user()->roles()->attach(1);
 
-        return redirect()->route('manager.dashboard')->banner('You now manage '.$claim->claimable->name);
+        return redirect()->route('manager.dashboard')->with('notification', "You now manage {$claim->claimable->name}.");
     }
 }

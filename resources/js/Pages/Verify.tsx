@@ -8,13 +8,13 @@ import { PageProps } from '@/types';
 
 export default function VerifyClaim({ auth }: PageProps) {
   const {
-    data, setData, patch, processing, errors,
+    data, setData, put, processing, errors,
   } = useForm({
     verification_code: '',
   });
 
   const submit = () => {
-    patch(route('claims.verify.update'));
+    put(route('claims.verify'));
   };
 
   return (
