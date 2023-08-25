@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\HousingController as AdminHousingController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(function () {
     Route::name('admin.')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'main'])->name('dashboards.main');
         Route::prefix('housing')->name('housing.')->group(function () {
