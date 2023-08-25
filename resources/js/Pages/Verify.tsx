@@ -5,6 +5,7 @@ import TextInput from '@/Components/TextInput';
 import InputError from '@/Components/InputError';
 import { PrimaryButton } from '@/Components/Buttons';
 import { PageProps } from '@/types';
+import { FormEventHandler } from 'react';
 
 export default function VerifyClaim({ auth }: PageProps) {
   const {
@@ -13,7 +14,9 @@ export default function VerifyClaim({ auth }: PageProps) {
     verification_code: '',
   });
 
-  const submit = () => {
+  const submit: FormEventHandler = (e) => {
+    e.preventDefault();
+
     put(route('claims.verify'));
   };
 
@@ -32,7 +35,7 @@ export default function VerifyClaim({ auth }: PageProps) {
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-slate-800 px-4 py-8 shadow sm:rounded-lg sm:px-10">
-            <form onSubmit={() => submit()} className="space-y-6">
+            <form onSubmit={submit} className="space-y-6">
               <div>
                 <InputLabel htmlFor="code" value="Verification code" />
 
@@ -46,7 +49,7 @@ export default function VerifyClaim({ auth }: PageProps) {
                   autoFocus
                 />
 
-                <InputError message={errors.verification_code} className="mt-2" />
+                <InputError message={errors.verification_code || errors.message} className="mt-2" />
               </div>
 
               <PrimaryButton className="flex w-full justify-center" disabled={processing}>
