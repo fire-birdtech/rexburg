@@ -26,8 +26,8 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(functio
         Route::prefix('claims')->name('claims.')->group(function () {
             Route::get('/', [AdminClaimsController::class, 'index'])->name('index');
             Route::get('{id}', [AdminClaimsController::class, 'show'])->name('show');
-            Route::put('{claim}', [AdminClaimsController::class, 'approve'])->name('approve');
-            Route::put('{claim}', [AdminClaimsController::class, 'reject'])->name('reject');
+            Route::put('{claim}/approve', [AdminClaimsController::class, 'approve'])->name('approve');
+            Route::put('{claim}/reject', [AdminClaimsController::class, 'reject'])->name('reject');
         });
     });
 });
