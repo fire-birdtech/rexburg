@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\Manager\HousingController;
-use App\Http\Controllers\Manager\PagesController;
+use App\Http\Controllers\Manager\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -11,7 +11,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('manager/claim', [ClaimController::class, 'verify'])->name('claims.verify');
 });
 Route::middleware(['auth', 'verified', 'manager'])->group(function () {
-    Route::get('manager/dashboard', [PagesController::class, 'dashboard'])->name('manager.dashboard');
+    Route::get('manager/dashboard', DashboardController::class)->name('manager.dashboard');
     Route::get('student-housing/{housing}/edit', [HousingController::class, 'edit'])->name('housing.edit');
     Route::put('student-housing', [HousingController::class, 'update'])->name('housing.update');
     Route::delete('student-housing/{id}/cover', [HousingController::class, 'destroyCoverImage'])->name('housing-cover-image.destroy');
