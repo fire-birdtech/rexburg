@@ -57,7 +57,7 @@ export function ReviewModal({
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={setOpen}>
+      <Dialog as="div" className="fixed inset-0 z-20 overflow-y-auto" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -70,7 +70,7 @@ export function ReviewModal({
           <div className="fixed inset-0 bg-slate-700/75 transition-opacity"></div>
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 z-20 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
@@ -213,7 +213,7 @@ export function ClaimHousingModal({
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={() => onClose()}>
+      <Dialog as="div" className="fixed inset-0 z-20 overflow-y-auto" onClose={() => onClose()}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -226,7 +226,7 @@ export function ClaimHousingModal({
           <div className="fixed inset-0 bg-slate-700/75 transition-opacity"></div>
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 z-20 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
