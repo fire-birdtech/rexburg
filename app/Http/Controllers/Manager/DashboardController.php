@@ -46,7 +46,6 @@ class DashboardController extends Controller
                     $views[$key][$housing->name] = $housingViews->where('day', $date->format('Y-m-d'))->first()->getAttribute('count');
                 }
             }
-
             $reviews[] = [
                 'name' => $housing->name,
                 'score' => $housing->score,
