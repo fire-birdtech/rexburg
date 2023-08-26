@@ -4,6 +4,7 @@ use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
@@ -24,12 +25,7 @@ Route::get('/', function (Request $request) {
     return inertia('Welcome');
 })->name('welcome');
 
-Route::get('/privacy-policy', function () {
-    $policyFile = \App\Rexburg::localizedMarkdownPath('policy.md');
-    return inertia('PrivacyPolicy', [
-        'policy' => \Illuminate\Support\Str::markdown(file_get_contents($policyFile)),
-    ]);
-});
+Route::get('/privacy-policy', PrivacyPolicyController::class)->name('privacy-policy');
 
 Route::get('student-housing/single', [HousingController::class, 'index'])->name('housing.single');
 Route::get('student-housing/married', [HousingController::class, 'index'])->name('housing.married');
