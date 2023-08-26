@@ -1,8 +1,8 @@
-import Container from '@/Components/Container';
 import { Head } from '@inertiajs/react';
 import {
   AreaChart, Card, Flex, Grid, Text,
 } from '@tremor/react';
+import Container from '@/Components/Container';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import { Housing, PageProps } from '@/types';
 
