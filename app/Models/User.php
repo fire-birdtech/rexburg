@@ -25,6 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'suspended_until',
+        'terms_accepted_at',
     ];
 
     /**
