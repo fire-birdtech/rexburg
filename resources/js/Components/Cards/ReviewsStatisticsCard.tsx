@@ -14,20 +14,17 @@ interface Review {
 	total: number;
 }
 
-export default function TotalReviewsCard({ reviews }: { reviews: Review[] }) {
+export default function ReviewsStatisticsCard({ reviews }: { reviews: Review[] }) {
   return (
 		<Card>
-			<Text>
-				Total Reviews
-			</Text>
 			{reviews.map((review, index) => (
-				<div className="mt-5">
+				<div key={index} className={index > 0 ? 'mt-5' : ''}>
 					<Text>{review.name}</Text>
 					<Flex className="mt-1 space-x-2 truncate" justifyContent="start" alignItems="baseline">
 						<Metric>{review.score}</Metric>
 						<Text>from {review.total} reviews</Text>
 					</Flex>
-					<div key={index} className="mt-2">
+					<div className="mt-2">
 						<CategoryBar
 							values={review.data.map((item) => (item.total / review.total) * 100)}
 							colors={['blue', 'rose', 'sky', 'purple', 'cyan']}

@@ -2,7 +2,7 @@ import { Head } from '@inertiajs/react';
 import { Grid } from '@tremor/react';
 import Container from '@/Components/Container';
 import ProfileViewsCard from '@/Components/Cards/ProfileViewsCard';
-import TotalReviewsCard from '@/Components/Cards/TotalReviewsCard';
+import ReviewsStatisticsCard from '@/Components/Cards/ReviewsStatisticsCard';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import { Housing, PageProps } from '@/types';
 
@@ -21,7 +21,7 @@ export default function ManagerDashboard({ auth, housings, reviews, views }: Pag
             <ProfileViewsCard names={housingNames} views={views}/>
           </div>
           <aside>
-            <TotalReviewsCard reviews={reviews} />
+            <ReviewsStatisticsCard reviews={reviews} />
           </aside>
         </Grid>
       </Container>
