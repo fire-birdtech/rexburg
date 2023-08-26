@@ -11,7 +11,7 @@ export default function ProfileViewsCard({ names, views }: { names: string[], vi
 				</Text>
 			</Flex>
 			<AreaChart
-				className="mt-6 h-32"
+				className="mt-2 h-32"
 				data={views}
 				categories={names}
 				index="Day"
