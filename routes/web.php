@@ -45,11 +45,11 @@ Route::middleware('auth')->group(function () {
     Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.create');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
-require __DIR__ . '/admin.php';
+require __DIR__.'/admin.php';
 
-require __DIR__ . '/manager.php';
+require __DIR__.'/manager.php';
 
 Route::get('404', function () {
     return inertia('Errors/404');

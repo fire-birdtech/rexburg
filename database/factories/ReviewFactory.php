@@ -19,7 +19,7 @@ class ReviewFactory extends Factory
     {
         return [
             'body' => $this->faker->sentence(),
-            'rating' => $this->faker->numberBetween(1,5),
+            'rating' => $this->faker->numberBetween(1, 5),
             'reviewable_id' => 1,
             'reviewable_type' => Housing::class,
             'user_id' => 3,

@@ -56,7 +56,7 @@ class DashboardController extends Controller
                 ])->count(),
                 'data' => Review::select([
                     DB::raw('count(*) as total'),
-                    'rating'
+                    'rating',
                 ])
                     ->where([
                         ['reviewable_id', $housing->id],

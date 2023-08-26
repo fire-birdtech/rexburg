@@ -8,9 +8,6 @@ class Rexburg
 {
     /**
      * Find the path to a localized Markdown resource.
-     *
-     * @param string $name
-     * @return string|null
      */
     public static function localizedMarkdownPath(string $name): ?string
     {
