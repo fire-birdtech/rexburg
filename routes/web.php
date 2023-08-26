@@ -4,8 +4,10 @@ use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HousingController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\TermsOfServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function (Request $request) {
     return inertia('Welcome');
 })->name('welcome');
+
+Route::get('privacy-policy', PrivacyPolicyController::class)->name('privacy-policy');
+Route::get('terms-of-service', TermsOfServiceController::class)->name('terms-of-service');
 
 Route::get('student-housing/single', [HousingController::class, 'index'])->name('housing.single');
 Route::get('student-housing/married', [HousingController::class, 'index'])->name('housing.married');

@@ -9,13 +9,11 @@ class EnsureUserIsManager
 {
     /**
      * Handle an incoming request.
-     *
-     * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         if (! $request->user()->hasRole('manager')) {
-            return redirect()->back();
+            return redirect()->route('errors.404');
         }
 
         return $next($request);
