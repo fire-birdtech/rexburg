@@ -27,16 +27,16 @@ class DashboardController extends Controller
         foreach ($housings as $housing) {
             $housingViews = View::select([
                 DB::raw('count(*) as count'),
-                DB::raw('DATE(created_at) as day')
+                DB::raw('DATE(created_at) as day'),
             ])
-            ->where([
-                ['viewable_id', $housing->id],
-                ['viewable_type', Housing::class],
-                ['created_at', '!=', Carbon::now()],
-                ['created_at', '>', Carbon::now()->subDays(8)]
-            ])
-            ->groupBy('day')
-            ->get();
+                ->where([
+                    ['viewable_id', $housing->id],
+                    ['viewable_type', Housing::class],
+                    ['created_at', '!=', Carbon::now()],
+                    ['created_at', '>', Carbon::now()->subDays(8)],
+                ])
+                ->groupBy('day')
+                ->get();
             foreach ($range as $key => $date) {
                 if ($housingViews->doesntContain('day', $date->format('Y-m-d'))) {
                     $views[$key][$housing->name] = 0;
@@ -45,6 +45,7 @@ class DashboardController extends Controller
                 }
             }
         }
+
         return inertia('Manager/Dashboard', [
             'housings' => $housings,
             'views' => $views,
