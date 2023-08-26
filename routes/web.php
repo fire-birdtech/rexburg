@@ -24,6 +24,13 @@ Route::get('/', function (Request $request) {
     return inertia('Welcome');
 })->name('welcome');
 
+Route::get('/privacy-policy', function () {
+    $policyFile = \App\Rexburg::localizedMarkdownPath('policy.md');
+    return inertia('PrivacyPolicy', [
+        'policy' => \Illuminate\Support\Str::markdown(file_get_contents($policyFile)),
+    ]);
+});
+
 Route::get('student-housing/single', [HousingController::class, 'index'])->name('housing.single');
 Route::get('student-housing/married', [HousingController::class, 'index'])->name('housing.married');
 Route::get('student-housing/{housing}', [HousingController::class, 'show'])->name('housing.show');
@@ -42,11 +49,11 @@ Route::middleware('auth')->group(function () {
     Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.create');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-require __DIR__.'/admin.php';
+require __DIR__ . '/admin.php';
 
-require __DIR__.'/manager.php';
+require __DIR__ . '/manager.php';
 
 Route::get('404', function () {
     return inertia('Errors/404');
