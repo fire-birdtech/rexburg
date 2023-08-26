@@ -6,7 +6,9 @@ import ReviewsStatisticsCard from '@/Components/Cards/ReviewsStatisticsCard';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import { Housing, PageProps } from '@/types';
 
-export default function ManagerDashboard({ auth, housings, reviews, views }: PageProps & { housings: Housing[], reviews: never[], views: never[] }) {
+export default function ManagerDashboard({
+  auth, housings, reviews, views,
+}: PageProps & { housings: Housing[], reviews: never[], views: never[] }) {
   const housingNames = housings.map((housing) => housing.name);
   return (
     <Authenticated
