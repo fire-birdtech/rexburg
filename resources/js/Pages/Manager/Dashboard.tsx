@@ -6,7 +6,7 @@ import TotalReviewsCard from '@/Components/Cards/TotalReviewsCard';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
 import { Housing, PageProps } from '@/types';
 
-export default function ManagerDashboard({ auth, housings, views }: PageProps & { housings: Housing[], views: never[] }) {
+export default function ManagerDashboard({ auth, housings, reviews, views }: PageProps & { housings: Housing[], reviews: never[], views: never[] }) {
   const housingNames = housings.map((housing) => housing.name);
   return (
     <Authenticated
@@ -18,7 +18,7 @@ export default function ManagerDashboard({ auth, housings, views }: PageProps & 
         <h2 className="text-xl font-semibold text-slate-100">Hello, {auth.user.name.split(' ')[0]}!</h2>
         <Grid numItems={2} className="mt-8 gap-6">
           <ProfileViewsCard names={housingNames} views={views}/>
-          <TotalReviewsCard />
+          <TotalReviewsCard reviews={reviews} />
         </Grid>
       </Container>
     </Authenticated>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Models\Housing;
+use App\Models\Review;
 use App\Models\View;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $housings = $request->user()->managedHousings;
         $range = CarbonPeriod::create(now()->subDays(8), now()->subDay());
         $views = [];
+        $reviews = null;
         foreach ($range as $date) {
             $views[] = [
                 'Day' => $date->format('M d'),
@@ -44,10 +46,31 @@ class DashboardController extends Controller
                     $views[$key][$housing->name] = $housingViews->where('day', $date->format('Y-m-d'))->first()->getAttribute('count');
                 }
             }
+
+            $reviews[] = [
+                'name' => $housing->name,
+                'score' => $housing->score,
+                'total' => Review::where([
+                    ['reviewable_id', $housing->id],
+                    ['reviewable_type', Housing::class],
+                ])->count(),
+                'data' => Review::select([
+                    DB::raw('count(*) as total'),
+                    'rating'
+                ])
+                    ->where([
+                        ['reviewable_id', $housing->id],
+                        ['reviewable_type', Housing::class],
+                    ])
+                    ->groupBy('rating')
+                    ->orderBy('rating')
+                    ->get(),
+            ];
         }
 
         return inertia('Manager/Dashboard', [
             'housings' => $housings,
+            'reviews' => $reviews,
             'views' => $views,
         ]);
     }
