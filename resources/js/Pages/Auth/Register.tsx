@@ -1,3 +1,4 @@
+import Checkbox from '@/Components/Checkbox';
 import { useEffect, FormEventHandler } from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
 import Guest from '@/Layouts/GuestLayout';
@@ -14,6 +15,7 @@ export default function Register() {
     email: '',
     password: '',
     password_confirmation: '',
+    terms: false,
   });
 
   useEffect(() => () => {
@@ -97,6 +99,34 @@ export default function Register() {
           />
 
           <InputError message={errors.password_confirmation} className="mt-2" />
+        </div>
+
+        <div className="mt-4 block">
+          <label className="flex items-center">
+            <Checkbox
+              name="terms"
+              checked={data.terms}
+              onChange={(e) => setData('terms', e.target.checked)}
+            />
+            <span className="ml-2 text-sm text-slate-400">
+              I agree to the{' '}
+              <a
+                href={route('terms-of-service')}
+                target="_blank"
+                rel="noreferrer noopener nofollow"
+                className="text-sm underline hover:text-white"
+              >Terms of Service</a>{' '}
+              and{' '}
+              <a
+                href={route('privacy-policy')}
+                target="_blank"
+                rel="noreferrer noopener nofollow"
+                className="text-sm underline hover:text-white"
+              >Privacy Policy</a>
+            </span>
+          </label>
+
+          <InputError message={errors.terms} className="mt-2"/>
         </div>
 
         <div className="mt-4 flex items-center justify-end">
