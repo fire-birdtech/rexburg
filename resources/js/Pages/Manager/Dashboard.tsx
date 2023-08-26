@@ -4,40 +4,10 @@ import {
   AreaChart, Card, Flex, Grid, Text,
 } from '@tremor/react';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
-import { PageProps } from '@/types';
+import { Housing, PageProps } from '@/types';
 
-const data = [
-  {
-    Day: 'Aug 18',
-    Views: 82,
-  },
-  {
-    Day: 'Aug 19',
-    Views: 34,
-  },
-  {
-    Day: 'Aug 20',
-    Views: 60,
-  },
-  {
-    Day: 'Aug 21',
-    Views: 69,
-  },
-  {
-    Day: 'Aug 22',
-    Views: 66,
-  },
-  {
-    Day: 'Aug 23',
-    Views: 86,
-  },
-  {
-    Day: 'Aug 24',
-    Views: 41,
-  },
-];
-
-export default function ManagerDashboard({ auth }: PageProps) {
+export default function ManagerDashboard({ auth, housings, views }: PageProps & { housings: Housing[], views: never[] }) {
+  const housingNames = housings.map((housing) => housing.name);
   return (
     <Authenticated
       user={auth.user}
@@ -53,9 +23,9 @@ export default function ManagerDashboard({ auth }: PageProps) {
             </Flex>
             <AreaChart
               className="mt-6 h-32"
-              data={data}
-              categories={['Views']}
-              colors={['blue']}
+              data={views}
+              categories={housingNames}
+              colors={['sky', 'blue']}
               index="Day"
               showXAxis={true}
               showGridLines={false}
