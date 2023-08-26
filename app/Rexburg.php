@@ -9,10 +9,10 @@ class Rexburg
     /**
      * Find the path to a localized Markdown resource.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string|null
      */
-    public static function localizedMarkdownPath($name)
+    public static function localizedMarkdownPath(string $name): ?string
     {
         $localName = preg_replace('#(\.md)$#i', '.'.app()->getLocale().'$1', $name);
 
