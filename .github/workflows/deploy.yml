@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  workflow_run:
-    workflows: ["Laravel","Lint"]
-    types: [completed]
+on: workflow_dispatch
 
 jobs:
   forge-deploy:
