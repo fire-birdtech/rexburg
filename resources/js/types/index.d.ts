@@ -3,6 +3,11 @@ export interface Suspension {
     reason: string;
 }
 
+export interface Role {
+    id: number;
+    name: string;
+}
+
 export interface User {
     id: number;
     created_at: string;
@@ -11,6 +16,7 @@ export interface User {
     name: string;
     profile_photo_url?: string;
     reviews_count: number;
+    roles: Role[];
     suspended_until?: string;
     suspensions: Suspension[];
     suspensions_count: number;

@@ -47,11 +47,28 @@ const mobileNavigation = [
 export default function MainNav({ user }: NavProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const dashboardLink = () => {
+    const isManager = user?.roles.map((role: { name: string; }) => role.name).indexOf('manager');
+    const isAdmin = user?.roles.map((role: { name: string; }) => role.name).indexOf('admin');
+
+    if (user !== null) {
+      if (isManager !== -1) {
+        return route('manager.dashboard');
+      }
+      if (isAdmin !== -1) {
+        return route('admin.dashboards.main');
+      }
+      return route('dashboard');
+    }
+
+    return route('welcome');
+  };
+
   return (
     <header className="absolute inset-x-0 top-0 z-10">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 lg:py-10" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link className="-m-1.5 p-1.5" href={user ? route('dashboard') : route('welcome')}>
+          <Link className="-m-1.5 p-1.5" href={dashboardLink()}>
             <span className="sr-only">RexburgGuru</span>
             <ApplicationLogo className="h-6 w-auto" />
           </Link>
