@@ -1,5 +1,8 @@
 import { Head, Link } from '@inertiajs/react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
+import {
+  AreaChart, Card, Flex, Text,
+} from '@tremor/react';
 import Admin from '@/Layouts/AdminLayout';
 import { PageProps } from '@/types';
 
@@ -8,7 +11,7 @@ const links = [
   { name: 'Claims', route: route('admin.claims.index') },
 ];
 
-export default function MainDashboard({ auth }: PageProps) {
+export default function MainDashboard({ auth, views }: PageProps & { views: never[] }) {
   return (
     <Admin
       user={auth.user}
@@ -20,6 +23,25 @@ export default function MainDashboard({ auth }: PageProps) {
           <h2 className="text-slate-200">
             Admin Dashboard
           </h2>
+          <Card className="w-full">
+            <Flex alignItems="start">
+              <Text>
+                Profile Views
+              </Text>
+            </Flex>
+            <AreaChart
+              className="h-32"
+              data={views}
+              categories={['Views']}
+              index="Day"
+              colors={['sky']}
+              showXAxis={true}
+              showGridLines={false}
+              startEndOnly={true}
+              showYAxis={false}
+              showLegend={false}
+            />
+          </Card>
           <div className="mt-4 overflow-hidden bg-white shadow sm:rounded-md">
             <ul className="divide-y divide-gray-200" role="list">
               {links.map((link, index) => (
