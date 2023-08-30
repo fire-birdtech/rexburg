@@ -9,11 +9,7 @@ import {
 } from '@heroicons/react/24/solid';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import classNames from '@/Utils/classNames';
-import { User } from '@/types';
-
-type NavProps = {
-  user: User;
-}
+import { NavProps, User } from '@/types';
 
 const navigation = [
   {
