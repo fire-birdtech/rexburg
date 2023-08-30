@@ -6,12 +6,19 @@ import Admin from '@/Layouts/AdminLayout';
 import { convertDate, convertDateTime } from '@/Utils/convertDate';
 import { PageProps, User } from '@/types';
 
-export default function UserShow({ auth, user }: PageProps & { user: User }) {
+export default function UserShow({
+  auth,
+  user
+}: PageProps & { user: User }) {
   const [openSuspend, setOpenSuspend] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
 
   const {
-    data: suspended, setData: setSuspended, post, processing: suspendProcessing, errors,
+    data: suspended,
+    setData: setSuspended,
+    post,
+    processing: suspendProcessing,
+    errors,
   } = useForm({
     reason: '',
   });
@@ -31,19 +38,19 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
     <Admin
       user={auth.user}
     >
-      <Head title={user.name} />
+      <Head title={user.name}/>
 
       <div>
         <div className="max-w-8xl mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:px-8">
           <div className="flex items-center space-x-5">
             <div className="shrink-0">
               <div className="relative">
-                <img className="h-16 w-16 rounded-full object-cover" src={user.profile_photo_url} alt={user.name} />
-                <span className="absolute inset-0 rounded-full shadow-inner" aria-hidden="true" />
+                <img className="h-16 w-16 rounded-full object-cover" src={user.profile_photo_url} alt={user.name}/>
+                <span className="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"/>
               </div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-2xl font-bold text-slate-200">
                 {user.name}
               </h1>
               <p className="text-sm font-medium text-gray-500">
@@ -62,7 +69,7 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
               <div className="rounded-md bg-yellow-100 p-4">
                 <div className="flex">
                   <div className="shrink-0">
-                    <ExclamationTriangleIcon className="h-5 w-5 text-yellow-800" aria-hidden="true" />
+                    <ExclamationTriangleIcon className="h-5 w-5 text-yellow-800" aria-hidden="true"/>
                   </div>
                   <div className="ml-3">
                     <h3 className="text-sm font-medium text-yellow-800">
@@ -77,11 +84,12 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
               <div className="rounded-md bg-red-100 p-4">
                 <div className="flex">
                   <div className="shrink-0">
-                    <XCircleIcon className="h-5 w-5 text-red-800" />
+                    <XCircleIcon className="h-5 w-5 text-red-800"/>
                   </div>
                   <div className="ml-3">
                     <h3 className="text-sm font-medium text-red-800">
-                      This user has been suspended {user.suspensions_count} {user.suspensions_count > 1 ? 'times' : 'time'}.
+                      This user has been
+                      suspended {user.suspensions_count} {user.suspensions_count > 1 ? 'times' : 'time'}.
                     </h3>
                     <div className="mt-2 text-sm text-red-700">
                       <ul className="list-disc space-y-1 pl-5">
@@ -98,19 +106,19 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
             ) : null}
 
             <section aria-labelledby="actions-title">
-              <div className="bg-white shadow sm:overflow-hidden sm:rounded-lg">
-                <div className="divide-y divide-gray-200">
+              <div className="bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+                <div className="divide-y divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
-                    <h2 id="actions-title" className="text-lg font-medium text-gray-900">
+                    <h2 id="actions-title" className="text-lg font-medium text-slate-200">
                       Actions
                     </h2>
                   </div>
                   <div className="flex items-center justify-between px-4 py-6 sm:px-6">
                     <div>
-                      <h3 className="text-base font-medium leading-6 text-gray-900">
+                      <h3 className="text-base font-medium leading-6 text-slate-200">
                         Suspend this user account
                       </h3>
-                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                      <p className="mt-1 max-w-2xl text-sm text-slate-400">
                         User information will not be affected.
                       </p>
                     </div>
@@ -126,10 +134,10 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
 
                   <div className="flex items-center justify-between px-4 py-6 sm:px-6">
                     <div>
-                      <h3 className="text-base font-medium leading-6 text-gray-900">
+                      <h3 className="text-base font-medium leading-6 text-slate-200">
                         Delete this user account
                       </h3>
-                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                      <p className="mt-1 max-w-2xl text-sm text-slate-400">
                         Once you delete this user, there is no going back.
                       </p>
                     </div>
@@ -148,25 +156,25 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
           </div>
 
           <section aria-labelledby="stats-title" className="lg:col-span-1 lg:col-start-3">
-            <div className="bg-white shadow sm:rounded-lg">
+            <div className="bg-slate-800 shadow sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
-                <h2 id="stats-title" className="text-lg font-medium text-gray-900">
+                <h2 id="stats-title" className="text-lg font-medium text-slate-200">
                   User Statistics
                 </h2>
               </div>
 
-              <div className="flow-root border-t border-gray-200">
-                <ul role="list" className="divide-y divide-gray-200">
+              <div className="flow-root border-t border-slate-700">
+                <ul role="list" className="divide-y divide-slate-700">
                   <li className="px-6 py-4">
                     <div className="relative">
                       <div className="relative flex space-x-3">
                         <div className="flex min-w-0 flex-1 justify-between space-x-4">
                           <div>
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm text-slate-400">
                               Reviews
                             </p>
                           </div>
-                          <div className="whitespace-nowrap text-right text-sm text-gray-500">
+                          <div className="whitespace-nowrap text-right text-sm text-slate-400">
                             {user.reviews_count}
                           </div>
                         </div>
@@ -191,7 +199,7 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
+            <div className="fixed inset-0 bg-gray-500/75 transition-opacity"/>
           </Transition.Child>
 
           <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -205,10 +213,12 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <div className="relative inline-block overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 sm:align-middle">
+                <div
+                  className="relative inline-block overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 sm:align-middle">
                   <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-yellow-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationTriangleIcon className="h-6 w-6 text-yellow-600" />
+                    <div
+                      className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-yellow-100 sm:mx-0 sm:h-10 sm:w-10">
+                      <ExclamationTriangleIcon className="h-6 w-6 text-yellow-600"/>
                     </div>
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
@@ -236,10 +246,12 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button onClick={() => suspend()} disabled={suspendProcessing} className="inline-flex w-full justify-center rounded-md border border-transparent bg-yellow-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
+                    <button onClick={() => suspend()} disabled={suspendProcessing}
+                            className="inline-flex w-full justify-center rounded-md border border-transparent bg-yellow-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
                       Suspend
                     </button>
-                    <button onClick={() => setOpenSuspend(false)} className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">
+                    <button onClick={() => setOpenSuspend(false)}
+                            className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">
                       Cancel
                     </button>
                   </div>
@@ -261,7 +273,7 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
+            <div className="fixed inset-0 bg-gray-500/75 transition-opacity"/>
           </Transition.Child>
 
           <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -275,10 +287,12 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <div className="relative inline-block overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 sm:align-middle">
+                <div
+                  className="relative inline-block overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 sm:align-middle">
                   <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationTriangleIcon className="h-6 w-6 text-red-600" />
+                    <div
+                      className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                      <ExclamationTriangleIcon className="h-6 w-6 text-red-600"/>
                     </div>
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
@@ -298,10 +312,12 @@ export default function UserShow({ auth, user }: PageProps & { user: User }) {
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button onClick={() => deleteUser()} className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
+                    <button onClick={() => deleteUser()}
+                            className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
                       Delete
                     </button>
-                    <button onClick={() => setOpenDelete(false)} className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">
+                    <button onClick={() => setOpenDelete(false)}
+                            className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">
                       Cancel
                     </button>
                   </div>

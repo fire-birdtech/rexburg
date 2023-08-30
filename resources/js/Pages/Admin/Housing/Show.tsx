@@ -24,7 +24,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
               </div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-2xl font-bold text-slate-200">
                 {housing.name}
               </h1>
             </div>
@@ -58,57 +58,57 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="housing-information-title">
-              <div className="relative bg-white shadow sm:overflow-hidden sm:rounded-lg">
+              <div className="relative bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 sm:px-6">
-                  <h2 id="housing-information-title" className="text-lg font-medium leading-6 text-gray-900">
+                  <h2 id="housing-information-title" className="text-lg font-medium leading-6 text-slate-300">
                     Housing Information
                   </h2>
                 </div>
-                <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
+                <div className="border-t border-slate-700 px-4 py-5 sm:px-6">
                   <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">
+                      <dt className="text-sm font-medium text-slate-400">
                         Name
                       </dt>
-                      <dd className="mt-1 text-sm text-gray-900">
+                      <dd className="mt-1 text-sm text-slate-200">
                         {housing.name}
                       </dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">Website</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{housing.website_url}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Website</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{housing.website_url}</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{housing.email_address}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Email address</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{housing.email_address}</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">Phone</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{housing.phone_number}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Phone</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{housing.phone_number}</dd>
                     </div>
                     <div className="sm:col-span-2">
-                      <dt className="text-sm font-medium text-gray-500">Address</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{`${housing.street}, ${housing.city}, Idaho ${housing.postal_code}`}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Address</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{`${housing.street}, ${housing.city}, Idaho ${housing.postal_code}`}</dd>
                     </div>
                     <div className="sm:col-span-2">
-                      <dt className="text-sm font-medium text-gray-500">About</dt>
-                      <div className="prose prose-lg mt-1 text-sm text-gray-900" dangerouslySetInnerHTML={{ __html: housing.about }} />
+                      <dt className="text-sm font-medium text-slate-400">About</dt>
+                      <div className="prose prose-lg mt-1 text-sm text-slate-200" dangerouslySetInnerHTML={{ __html: housing.about }} />
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">Rent</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{housing.rent_range}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Rent</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{housing.rent_range}</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">Housing Type</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{housing.housing_type}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Housing Type</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{housing.housing_type}</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">Bedrooms</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{housing.bedroom_range}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Bedrooms</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{housing.bedroom_range}</dd>
                     </div>
                     <div className="sm:col-span-1">
-                      <dt className="text-sm font-medium text-gray-500">Bathrooms</dt>
-                      <dd className="mt-1 text-sm text-gray-900">{housing.bathroom_range}</dd>
+                      <dt className="text-sm font-medium text-slate-400">Bathrooms</dt>
+                      <dd className="mt-1 text-sm text-slate-200">{housing.bathroom_range}</dd>
                     </div>
                   </dl>
                 </div>
@@ -116,15 +116,15 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="reviews-title">
-              <div className="bg-white shadow sm:overflow-hidden sm:rounded-lg">
-                <div className="divide-y divide-gray-200">
+              <div className="bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+                <div className="divide-y divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
-                    <h2 id="reviews-title" className="text-lg font-medium text-gray-900">
+                    <h2 id="reviews-title" className="text-lg font-medium text-slate-200">
                       Reviews
                     </h2>
                   </div>
                   <div className="px-4 py-6 sm:px-6">
-                    <div className="space-y-8">
+                    <ul className="space-y-8">
                       {housing.reviews.map((review) => (
                         <li key={housing.id}>
                           <div className="flex space-x-3">
@@ -137,17 +137,17 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                             </div>
                             <div>
                               <div className="text-sm">
-                                <Link href="#" className="font-medium text-gray-900">
+                                <Link href="#" className="font-medium text-slate-200">
                                   {review.user.name}
                                 </Link>
                               </div>
-                              <div className="mt-1 text-sm text-gray-700">
+                              <div className="mt-1 text-sm text-slate-400">
                                 <p>
                                   {review.body}
                                 </p>
                               </div>
                               <div className="mt-2 space-x-2 text-sm">
-                                <div className="font-medium text-gray-500">
+                                <div className="font-medium text-slate-400">
                                   {convertDateFromNow(review.created_at)}
                                 </div>
                               </div>
@@ -155,11 +155,11 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                           </div>
                         </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
                 <div>
-                  <Link href="#" className="block bg-sky-50 p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 sm:rounded-b-lg">
+                  <Link href="#" className="block bg-slate-800 p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 sm:rounded-b-lg">
                     View all reviews
                   </Link>
                 </div>
@@ -167,19 +167,19 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="actions-title">
-              <div className="bg-white shadow sm:overflow-hidden sm:rounded-lg">
-                <div className="divide-y divide-gray-200">
+              <div className="bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+                <div className="divide-y divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
-                    <h2 id="actions-title" className="text-lg font-medium text-gray-900">
+                    <h2 id="actions-title" className="text-lg font-medium text-slate-200">
                       Actions
                     </h2>
                   </div>
                   <div className="flex items-center justify-between px-4 py-6 sm:px-6">
                     <div>
-                      <h3 className="text-base font-medium leading-6 text-gray-900">
+                      <h3 className="text-base font-medium leading-6 text-slate-200">
                         Delete Housing
                       </h3>
-                      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                      <p className="mt-1 max-w-2xl text-sm text-slate-400">
                         Once you delete this housing, there is no going back.
                       </p>
                     </div>
@@ -192,10 +192,10 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="managers-title">
-              <div className="bg-white shadow sm:overflow-hidden sm:rounded-lg">
-                <div className="divide-y divide-gray-200">
+              <div className="bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+                <div className="divide-y divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
-                    <h2 id="managers-title" className="text-lg font-medium text-gray-900">
+                    <h2 id="managers-title" className="text-lg font-medium text-slate-200">
                       Managers
                     </h2>
                   </div>
@@ -210,8 +210,8 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                               alt={manager.name}
                             />
                             <div className="min-w-0 flex-auto">
-                              <p className="text-sm font-semibold leading-6 text-gray-900">{manager.name}</p>
-                              <p className="mt-1 truncate text-xs leading-5 text-gray-500">{manager.email}</p>
+                              <p className="text-sm font-semibold leading-6 text-slate-200">{manager.name}</p>
+                              <p className="mt-1 truncate text-xs leading-5 text-slate-400">{manager.email}</p>
                             </div>
                           </div>
                           <button type="button" className="inline-flex items-center rounded-md border border-transparent bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
@@ -223,7 +223,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                   ) : (
                     <div className="py-4 text-center">
                       <UserIcon className="mx-auto h-8 w-8 text-gray-400" />
-                      <p className="mt-2 text-sm font-semibold text-gray-900">No Managers to display</p>
+                      <p className="mt-2 text-sm font-semibold text-slate-200">No Managers to display</p>
                     </div>
                   )}
                 </div>
@@ -232,13 +232,13 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
           </div>
 
           <section aria-labelledby="revision-history-title" className="lg:col-span-1 lg:col-start-3">
-            <div className="bg-white shadow sm:rounded-lg">
+            <div className="bg-slate-800 shadow sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
-                <h2 id="revision-history-title" className="text-lg font-medium text-gray-900">
+                <h2 id="revision-history-title" className="text-lg font-medium text-slate-200">
                   Revision History
                 </h2>
               </div>
-              <div className="flow-root border-t border-gray-200">
+              <div className="flow-root border-t border-slate-700">
                 <ul className="space-y-6 overflow-hidden px-2 py-6">
                   {housing.revision_history.map((item, itemIdx) => (
                     <li className="relative flex flex-wrap gap-x-1" key={item.id}>
@@ -250,16 +250,16 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                       >
                         <div className="w-px bg-gray-200" />
                       </div>
-                      <div className="relative flex h-6 w-6 flex-none items-center justify-center bg-white">
+                      <div className="relative flex h-6 w-6 flex-none items-center justify-center bg-slate-800">
                         <div className="h-1.5 w-1.5 rounded-full bg-gray-100 ring-1 ring-gray-300" />
                       </div>
                       <div>
-                        <p className="flex-auto break-words py-0.5 text-xs leading-5 text-gray-500">
+                        <p className="flex-auto break-words py-0.5 text-xs leading-5 text-slate-400">
                           {item.key === 'created_at' ? (
                             <span>Housing profile created {convertDateFromNow(item.created_at)}.</span>
                           ) : (
                             <>
-                              <span className="font-medium text-gray-900">{item.user?.name}</span> updated the {convertKey(item.key)} {convertDateFromNow(item.updated_at)}.
+                              <span className="font-medium text-slate-200">{item.user?.name}</span> updated the {convertKey(item.key)} {convertDateFromNow(item.updated_at)}.
                             </>
                           )}
                         </p>
@@ -269,7 +269,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                 </ul>
               </div>
               <div>
-                <Link href="#" className="block bg-sky-50 p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 sm:rounded-b-lg">
+                <Link href="#" className="block bg-slate-800 p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 sm:rounded-b-lg">
                   View full history
                 </Link>
               </div>

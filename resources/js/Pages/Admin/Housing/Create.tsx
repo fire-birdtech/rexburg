@@ -1,3 +1,7 @@
+import { PrimaryButton } from '@/Components/Buttons';
+import InputError from '@/Components/InputError';
+import InputLabel from '@/Components/InputLabel';
+import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid';
@@ -32,32 +36,32 @@ export default function HousingCreate({ auth }: PageProps) {
       <Head title="Housing Create" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2>Add new student housing</h2>
+        <h2 className="text-slate-200">Add new student housing</h2>
         <form className="mt-4" onSubmit={submit}>
           <div className="space-y-6 sm:space-y-5">
             <div>
-              <label htmlFor="housing-name" className="block text-sm font-medium text-gray-800">
-                Housing name
-              </label>
-              <div className="mt-1">
-                <input id="housing-name" name="housing-name" value={data.name} type="text" className="block w-full max-w-md rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm" />
-              </div>
-              {errors.name !== null ? (
-                <label className="mt-2">
-                  {errors.name}
-                </label>
-              ) : null}
+              <InputLabel htmlFor="housing-name" value="Housing name" />
+
+              <TextInput
+                id="housing-name"
+                name="housing-name"
+                value={data.name}
+                className="mt-1 block w-full max-w-md"
+                onChange={(e) => setData('name', e.target.value)}
+              />
+
+              <InputError message={errors.name} className="mt-1"/>
             </div>
 
             <div>
               <Listbox value={data.housing_type} onChange={(value) => setData('housing_type', value)}>
                 {({ open }) => (
                   <>
-                    <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">
+                    <Listbox.Label className="block text-sm font-medium leading-6 text-slate-300">
                       Housing type
                     </Listbox.Label>
-                    <div className="relative mt-2 max-w-md">
-                      <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-600 sm:text-sm sm:leading-6">
+                    <div className="relative mt-1 max-w-md">
+                      <Listbox.Button className="relative w-full cursor-default rounded-md bg-slate-900 py-1.5 pl-3 pr-10 text-left text-slate-300 shadow-sm ring-1 ring-inset ring-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-600 sm:text-sm sm:leading-6">
                         <span className="block truncate">
                           {data.housing_type.name}
                         </span>
@@ -73,12 +77,12 @@ export default function HousingCreate({ auth }: PageProps) {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                       >
-                        <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+                        <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-slate-800 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
                           {types.map((type, index) => (
                             <Listbox.Option
                               key={index}
                               className={({ active }) => classNames(
-                                active ? 'bg-sky-600 text-white' : 'text-gray-900',
+                                active ? 'bg-slate-900 text-white' : 'text-slate-200',
                                 'relative cursor-default select-none py-2 pl-3 pr-9',
                               )}
                               value={type}
@@ -108,17 +112,16 @@ export default function HousingCreate({ auth }: PageProps) {
                   </>
                 )}
               </Listbox>
-              {errors.housing_type !== null ? (
-                <label className="mt-2">
-                  {errors.housing_type}
-                </label>
-              ) : null}
+
+              <InputError message={errors.housing_type} className="mt-1"/>
             </div>
 
             <div className="pt-2">
-              <button type="button" disabled={processing} className="inline-flex items-center rounded-md border border-transparent bg-sky-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
+              <PrimaryButton
+                disabled={processing}
+              >
                 Create
-              </button>
+              </PrimaryButton>
             </div>
           </div>
         </form>

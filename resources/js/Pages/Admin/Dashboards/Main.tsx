@@ -17,7 +17,7 @@ export default function MainDashboard({ auth }: PageProps) {
 
       <div className="px-4 md:px-0">
         <div className="max-w-8xl mx-auto space-y-8 sm:px-6 lg:px-8">
-          <h2>
+          <h2 className="text-slate-200">
             Admin Dashboard
           </h2>
           <div className="mt-4 overflow-hidden bg-white shadow sm:rounded-md">
