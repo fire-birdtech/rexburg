@@ -1,5 +1,5 @@
-import { PrimaryButton } from '@/Components/Buttons';
 import { Head, Link } from '@inertiajs/react';
+import { PrimaryButton } from '@/Components/Buttons';
 import Admin from '@/Layouts/AdminLayout';
 import { Housing, PageProps } from '@/types';
 

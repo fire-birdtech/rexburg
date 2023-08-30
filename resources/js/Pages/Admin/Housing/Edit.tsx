@@ -1,12 +1,11 @@
+import { Head, useForm } from '@inertiajs/react';
 import { PrimaryButton } from '@/Components/Buttons';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import TextInputWithAddon from '@/Components/TextInputWithAddon';
-import { Head, useForm } from '@inertiajs/react';
 import Admin from '@/Layouts/AdminLayout';
 import { Housing, PageProps } from '@/types';
-import { Text } from '@tremor/react';
 
 export default function HousingEdit({ auth, housing }: PageProps & { housing: Housing }) {
   const {

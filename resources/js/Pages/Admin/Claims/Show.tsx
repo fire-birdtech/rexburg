@@ -1,7 +1,7 @@
-import { DangerButton, PrimaryButton } from '@/Components/Buttons';
 import { Head, router } from '@inertiajs/react';
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid';
 import Admin from '@/Layouts/AdminLayout';
+import { DangerButton, PrimaryButton } from '@/Components/Buttons';
 import { convertDate } from '@/Utils/convertDate';
 import { Claim, PageProps } from '@/types';
 

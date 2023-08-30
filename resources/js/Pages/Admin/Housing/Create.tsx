@@ -1,11 +1,11 @@
+import { FormEventHandler, Fragment } from 'react';
+import { Head, useForm } from '@inertiajs/react';
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid';
 import { PrimaryButton } from '@/Components/Buttons';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
-import { Head, useForm } from '@inertiajs/react';
-import { Listbox, Transition } from '@headlessui/react';
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid';
-import { FormEventHandler, Fragment } from 'react';
 import Admin from '@/Layouts/AdminLayout';
 import classNames from '@/Utils/classNames';
 import { PageProps } from '@/types';

@@ -8,7 +8,7 @@ import { PageProps, User } from '@/types';
 
 export default function UserShow({
   auth,
-  user
+  user,
 }: PageProps & { user: User }) {
   const [openSuspend, setOpenSuspend] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
