@@ -30,13 +30,13 @@ export default function MainDashboard({ auth, views }: PageProps & { views: neve
               </Text>
             </Flex>
             <AreaChart
-              className="h-32"
+              className="mt-4 h-32"
               data={views}
               categories={['Views']}
               index="Day"
               colors={['sky']}
               showXAxis={true}
-              showGridLines={false}
+              showGridLines={true}
               startEndOnly={true}
               showYAxis={false}
               showLegend={false}
