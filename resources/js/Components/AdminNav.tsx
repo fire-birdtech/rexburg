@@ -2,9 +2,10 @@ import { Fragment, useState } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
+  ArrowRightOnRectangleIcon,
   Bars3Icon, HomeIcon, Squares2X2Icon, UsersIcon, XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { ChevronRightIcon, Cog6ToothIcon } from '@heroicons/react/24/solid';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import classNames from '@/Utils/classNames';
 import { NavProps } from '@/types';
@@ -47,7 +48,7 @@ export default function AdminNav({ user }: NavProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-900/80"/>
+            <div className="fixed inset-0 bg-slate-900/80"/>
           </Transition.Child>
 
           <div className="fixed inset-0 flex">
@@ -78,7 +79,7 @@ export default function AdminNav({ user }: NavProps) {
                   </div>
                 </Transition.Child>
 
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-slate-600 px-6 pb-2">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-slate-900 px-6 pb-6">
                   <div className="flex h-16 shrink-0 items-center">
                     <ApplicationLogo className="block h-8 w-auto"/>
                   </div>
@@ -94,7 +95,7 @@ export default function AdminNav({ user }: NavProps) {
                                   item.components.includes(component)
                                     ? 'bg-sky-700 text-white'
                                     : 'text-sky-200 hover:text-white hover:bg-sky-700',
-                                  'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                                  'group flex gap-x-3 rounded-2xl px-3 py-2 text-sm leading-6 font-semibold',
                                 )}
                               >
                                 <item.icon
@@ -112,14 +113,15 @@ export default function AdminNav({ user }: NavProps) {
                       </li>
                       <li className="mt-auto">
                         <Link
-                          href="#"
-                          className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-sky-200 hover:bg-sky-700 hover:text-white"
+                          href={route('logout')}
+                          method="post"
+                          className="group -mx-2 flex gap-x-3 rounded-2xl px-3 py-2 text-sm font-semibold leading-6 text-sky-200 hover:bg-sky-700 hover:text-white"
                         >
-                          <Cog6ToothIcon
+                          <ArrowRightOnRectangleIcon
                             className="h-6 w-6 shrink-0 text-sky-200 group-hover:text-white"
                             aria-hidden="true"
                           />
-                          Settings
+                          Logout
                         </Link>
                       </li>
                     </ul>
