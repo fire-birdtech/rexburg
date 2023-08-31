@@ -38,11 +38,11 @@ const navigation = [
 const mobileNavigation = [
   {
     name: 'Single Housing',
-    href: route('housing.single')
+    href: route('housing.single'),
   },
   {
     name: 'Married Housing',
-    href: route('housing.married')
+    href: route('housing.married'),
   },
 ];
 
