@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
-  HomeIcon, Squares2X2Icon, UsersIcon, XMarkIcon,
+  Bars3Icon, HomeIcon, Squares2X2Icon, UsersIcon, XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { ChevronRightIcon, Cog6ToothIcon } from '@heroicons/react/24/solid';
 import ApplicationLogo from '@/Components/ApplicationLogo';
@@ -229,6 +229,23 @@ export default function AdminNav({ user }: NavProps) {
               </li>
             </ul>
           </nav>
+        </div>
+      </div>
+
+      <div className="lg:hidden">
+        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between gap-x-4 bg-transparent px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+          <button type="button" className="-m-2.5 p-2.5 text-slate-300 lg:hidden" onClick={() => setSidebarOpen(true)}>
+            <span className="sr-only">Open sidebar</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
+          <Link href={route('profile.edit')}>
+            <span className="sr-only">Your profile</span>
+            <img
+              className="h-8 w-8 rounded-full bg-indigo-700"
+              src={user.profile_photo_url}
+              alt={user.name}
+            />
+          </Link>
         </div>
       </div>
     </>
