@@ -117,6 +117,18 @@ export interface View {
     viewable: Housing;
 }
 
+export interface RatingData {
+  rating: number;
+  total: number;
+}
+
+export interface Rating {
+  data: RatingData[];
+  name: string;
+  score: string;
+  total: number;
+}
+
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
         user: User;

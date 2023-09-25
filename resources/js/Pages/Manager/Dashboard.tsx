@@ -2,13 +2,13 @@ import { Head } from '@inertiajs/react';
 import { Grid } from '@tremor/react';
 import Container from '@/Components/Container';
 import ProfileViewsCard from '@/Components/Cards/ProfileViewsCard';
-import ReviewsStatisticsCard from '@/Components/Cards/ReviewsStatisticsCard';
+import RatingsStatisticsCard from '@/Components/Cards/RatingsStatisticsCard';
 import Authenticated from '@/Layouts/AuthenticatedLayout';
-import { Housing, PageProps } from '@/types';
+import { type Housing, type PageProps, type Rating } from '@/types';
 
 export default function ManagerDashboard({
-  auth, housings, reviews, views,
-}: PageProps & { housings: Housing[], reviews: never[], views: never[] }) {
+  auth, housings, ratings, views,
+}: PageProps & { housings: Housing[], ratings: Rating[], views: never[] }) {
   const housingNames = housings.map((housing) => housing.name);
   return (
     <Authenticated
@@ -23,7 +23,7 @@ export default function ManagerDashboard({
             <ProfileViewsCard names={housingNames} views={views}/>
           </div>
           <aside>
-            <ReviewsStatisticsCard reviews={reviews} />
+            <RatingsStatisticsCard ratings={ratings} />
           </aside>
         </Grid>
       </Container>

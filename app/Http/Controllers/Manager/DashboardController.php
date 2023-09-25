@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $housings = $request->user()->managedHousings;
         $range = CarbonPeriod::create(now()->subDays(8), now()->subDay());
         $views = [];
-        $reviews = null;
+        $ratings = null;
         foreach ($range as $date) {
             $views[] = [
                 'Day' => $date->format('M d'),
@@ -46,7 +46,7 @@ class DashboardController extends Controller
                     $views[$key][$housing->name] = $housingViews->where('day', $date->format('Y-m-d'))->first()->getAttribute('count');
                 }
             }
-            $reviews[] = [
+            $ratings[] = [
                 'name' => $housing->name,
                 'score' => $housing->score,
                 'total' => Review::where([
@@ -69,7 +69,7 @@ class DashboardController extends Controller
 
         return inertia('Manager/Dashboard', [
             'housings' => $housings,
-            'reviews' => $reviews,
+            'ratings' => $ratings,
             'views' => $views,
         ]);
     }
