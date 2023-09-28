@@ -19,7 +19,7 @@ export default function MainDashboard({ auth, views }: PageProps & { views: neve
       <Head title="Admin Dashboard" />
 
       <div className="max-w-8xl mx-auto space-y-8 sm:px-6 lg:px-8">
-        <h2 className="text-slate-200">
+        <h2 className="text-slate-900 dark:text-slate-200">
           Admin Dashboard
         </h2>
         <Card className="w-full">

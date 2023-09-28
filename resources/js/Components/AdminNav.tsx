@@ -149,13 +149,13 @@ export default function AdminNav({ user }: NavProps) {
                         className={classNames(
                           item.components.includes(component)
                             ? 'bg-sky-700 text-white'
-                            : 'text-sky-200 hover:text-white hover:bg-slate-700/50',
+                            : 'text-sky-700 dark:text-sky-200 hover:text-white hover:bg-sky-700/50 dark:hover:bg-sky-700/50',
                           'group flex gap-x-3 rounded-2xl px-3 py-2 text-sm leading-6 font-semibold',
                         )}
                       >
                         <item.icon
                           className={classNames(
-                            item.components.includes(component) ? 'text-white' : 'text-sky-200 group-hover:text-white',
+                            item.components.includes(component) ? 'text-white' : 'text-sky-700 dark:text-sky-200 group-hover:text-white',
                             'h-6 w-6 shrink-0',
                           )}
                           aria-hidden="true"

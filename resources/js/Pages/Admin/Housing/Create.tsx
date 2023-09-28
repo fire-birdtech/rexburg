@@ -36,7 +36,9 @@ export default function HousingCreate({ auth }: PageProps) {
       <Head title="Housing Create" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-slate-200">Add new student housing</h2>
+        <h2 className="text-slate-800 dark:text-slate-200">
+          Add new student housing
+        </h2>
         <form className="mt-4" onSubmit={submit}>
           <div className="space-y-6 sm:space-y-5">
             <div>

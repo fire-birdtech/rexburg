@@ -4,7 +4,7 @@ import { User } from '@/types';
 
 export default function Admin({ user, children }: PropsWithChildren<{ user: User }>) {
   return (
-    <div className="min-h-screen bg-slate-900 bg-dots-lighter selection:bg-sky-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 bg-dots-lighter selection:bg-sky-500 selection:text-white">
       <AdminNav user={user} />
 
       <div className="lg:pl-72">

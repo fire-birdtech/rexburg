@@ -50,10 +50,10 @@ export default function UserShow({
               </div>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-slate-200">
+              <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
                 {user.name}
               </h1>
-              <p className="text-sm font-medium text-gray-500">
+              <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
                 User since{' '}
                 <time dateTime={convertDateTime(user.created_at)}>
                   {convertDate(user.created_at)}
@@ -106,19 +106,19 @@ export default function UserShow({
             ) : null}
 
             <section aria-labelledby="actions-title">
-              <div className="bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
-                <div className="divide-y divide-slate-700">
+              <div className="bg-white dark:bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+                <div className="divide-y divide-slate-300 dark:divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
-                    <h2 id="actions-title" className="text-lg font-medium text-slate-200">
+                    <h2 id="actions-title" className="text-lg font-medium text-slate-800 dark:text-slate-200">
                       Actions
                     </h2>
                   </div>
                   <div className="flex items-center justify-between px-4 py-6 sm:px-6">
                     <div>
-                      <h3 className="text-base font-medium leading-6 text-slate-200">
+                      <h3 className="text-base font-medium leading-6 text-slate-800 dark:text-slate-200">
                         Suspend this user account
                       </h3>
-                      <p className="mt-1 max-w-2xl text-sm text-slate-400">
+                      <p className="mt-1 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
                         User information will not be affected.
                       </p>
                     </div>
@@ -134,10 +134,10 @@ export default function UserShow({
 
                   <div className="flex items-center justify-between px-4 py-6 sm:px-6">
                     <div>
-                      <h3 className="text-base font-medium leading-6 text-slate-200">
+                      <h3 className="text-base font-medium leading-6 text-slate-800 dark:text-slate-200">
                         Delete this user account
                       </h3>
-                      <p className="mt-1 max-w-2xl text-sm text-slate-400">
+                      <p className="mt-1 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
                         Once you delete this user, there is no going back.
                       </p>
                     </div>
@@ -156,25 +156,25 @@ export default function UserShow({
           </div>
 
           <section aria-labelledby="stats-title" className="lg:col-span-1 lg:col-start-3">
-            <div className="bg-slate-800 shadow sm:rounded-lg">
+            <div className="bg-white dark:bg-slate-800 shadow sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
-                <h2 id="stats-title" className="text-lg font-medium text-slate-200">
+                <h2 id="stats-title" className="text-lg font-medium text-slate-800 dark:text-slate-200">
                   User Statistics
                 </h2>
               </div>
 
-              <div className="flow-root border-t border-slate-700">
-                <ul role="list" className="divide-y divide-slate-700">
+              <div className="flow-root border-t border-slate-300 dark:border-slate-700">
+                <ul role="list" className="divide-y divide-slate-300 dark:divide-slate-700">
                   <li className="px-6 py-4">
                     <div className="relative">
                       <div className="relative flex space-x-3">
                         <div className="flex min-w-0 flex-1 justify-between space-x-4">
                           <div>
-                            <p className="text-sm text-slate-400">
+                            <p className="text-sm text-slate-600 dark:text-slate-400">
                               Reviews
                             </p>
                           </div>
-                          <div className="whitespace-nowrap text-right text-sm text-slate-400">
+                          <div className="whitespace-nowrap text-right text-sm text-slate-600 dark:text-slate-400">
                             {user.reviews_count}
                           </div>
                         </div>
