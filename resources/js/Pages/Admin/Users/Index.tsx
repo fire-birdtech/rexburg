@@ -42,7 +42,7 @@ export default function UserIndex({ auth, users }: PageProps & { users: User[] }
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-300 dark:divide-slate-700 bg-white dark:bg-slate-800">
+                  <tbody className="divide-y divide-slate-300 bg-white dark:divide-slate-700 dark:bg-slate-800">
                     {users.map((user) => (
                       <tr key={user.email}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-slate-700 dark:text-slate-300 sm:pl-6">

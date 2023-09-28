@@ -58,13 +58,13 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="housing-information-title">
-              <div className="relative bg-white dark:bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+              <div className="relative bg-white shadow dark:bg-slate-800 sm:overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 sm:px-6">
                   <h2 id="housing-information-title" className="text-lg font-medium leading-6 text-slate-700 dark:text-slate-300">
                     Housing Information
                   </h2>
                 </div>
-                <div className="border-t border-slate-200 dark:border-slate-700 px-4 py-5 sm:px-6">
+                <div className="border-t border-slate-200 px-4 py-5 dark:border-slate-700 sm:px-6">
                   <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                     <div className="sm:col-span-1">
                       <dt className="text-sm font-medium text-slate-600 dark:text-slate-400">
@@ -116,7 +116,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="reviews-title">
-              <div className="bg-white dark:bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+              <div className="bg-white shadow dark:bg-slate-800 sm:overflow-hidden sm:rounded-lg">
                 <div className="divide-y divide-slate-300 dark:divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
                     <h2 id="reviews-title" className="text-lg font-medium text-slate-800 dark:text-slate-200">
@@ -159,7 +159,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                   </div>
                 </div>
                 <div>
-                  <Link href="#" className="block bg-white dark:bg-slate-800 p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 sm:rounded-b-lg">
+                  <Link href="#" className="block bg-white p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 dark:bg-slate-800 sm:rounded-b-lg">
                     View all reviews
                   </Link>
                 </div>
@@ -167,7 +167,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="actions-title">
-              <div className="bg-white dark:bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+              <div className="bg-white shadow dark:bg-slate-800 sm:overflow-hidden sm:rounded-lg">
                 <div className="divide-y divide-slate-300 dark:divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
                     <h2 id="actions-title" className="text-lg font-medium text-slate-800 dark:text-slate-200">
@@ -192,7 +192,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
             </section>
 
             <section aria-labelledby="managers-title">
-              <div className="bg-white dark:bg-slate-800 shadow sm:overflow-hidden sm:rounded-lg">
+              <div className="bg-white shadow dark:bg-slate-800 sm:overflow-hidden sm:rounded-lg">
                 <div className="divide-y divide-slate-300 dark:divide-slate-700">
                   <div className="px-4 py-5 sm:px-6">
                     <h2 id="managers-title" className="text-lg font-medium text-slate-800 dark:text-slate-200">
@@ -232,7 +232,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
           </div>
 
           <section aria-labelledby="revision-history-title" className="lg:col-span-1 lg:col-start-3">
-            <div className="bg-white dark:bg-slate-800 shadow sm:rounded-lg">
+            <div className="bg-white shadow dark:bg-slate-800 sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
                 <h2 id="revision-history-title" className="text-lg font-medium text-slate-800 dark:text-slate-200">
                   Revision History
@@ -269,7 +269,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                 </ul>
               </div>
               <div>
-                <Link href="#" className="block bg-white dark:bg-slate-800 p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 sm:rounded-b-lg">
+                <Link href="#" className="block bg-white p-4 text-center text-sm font-medium text-sky-500 hover:text-sky-700 dark:bg-slate-800 sm:rounded-b-lg">
                   View full history
                 </Link>
               </div>

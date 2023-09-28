@@ -24,8 +24,8 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
     >
       <Head title={`Edit ${housing.name}`} />
 
-      <div className="mx-auto max-w-5xl overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow">
-        <div className="border-b border-slate-300 dark:border-slate-700 px-4 py-5 sm:px-6">
+      <div className="mx-auto max-w-5xl overflow-hidden rounded-lg bg-white shadow dark:bg-slate-800">
+        <div className="border-b border-slate-300 px-4 py-5 dark:border-slate-700 sm:px-6">
           <div className="-ml-4 -mt-2 flex flex-wrap items-center justify-between sm:flex-nowrap">
             <div className="ml-4 mt-2">
               <h3 className="text-2xl font-medium leading-6 text-slate-800 dark:text-slate-200">

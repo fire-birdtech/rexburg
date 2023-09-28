@@ -66,13 +66,13 @@ export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim })
         </div>
 
         <div className="mt-6 grid grid-cols-3 gap-x-4">
-          <div className="col-span-2 overflow-hidden bg-white dark:bg-slate-800 shadow sm:rounded-lg">
+          <div className="col-span-2 overflow-hidden bg-white shadow dark:bg-slate-800 sm:rounded-lg">
             <div className="px-4 py-5 sm:px-6">
               <h3 className="text-lg font-medium leading-6 text-slate-800 dark:text-slate-200">
                 Claim Information
               </h3>
             </div>
-            <div className="border-t border-slate-300 dark:border-slate-700 px-4 py-5 sm:px-6">
+            <div className="border-t border-slate-300 px-4 py-5 dark:border-slate-700 sm:px-6">
               <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                 <div className="sm:col-span-1">
                   <dt className="text-sm font-medium text-slate-600 dark:text-slate-400">
@@ -104,13 +104,13 @@ export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim })
             </div>
           </div>
 
-          <div className="col-span-1 overflow-hidden bg-white dark:bg-slate-800 shadow sm:rounded-lg">
+          <div className="col-span-1 overflow-hidden bg-white shadow dark:bg-slate-800 sm:rounded-lg">
             <div className="px-4 py-5 sm:px-6">
               <h3 className="text-lg font-medium leading-6 text-slate-800 dark:text-slate-200">
                 User Information
               </h3>
             </div>
-            <div className="space-y-8 border-t border-slate-300 dark:border-slate-700 px-4 py-5 sm:px-6">
+            <div className="space-y-8 border-t border-slate-300 px-4 py-5 dark:border-slate-700 sm:px-6">
               <div>
                 <dt className="text-sm font-medium text-slate-400">
                   Name

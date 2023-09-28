@@ -42,7 +42,7 @@ export default function ClaimIndex({ auth, claims }: PageProps & { claims: Claim
                       <span className="sr-only">View</span>
                     </th>
                   </thead>
-                  <tbody className="divide-y divide-slate-300 dark:divide-slate-700 bg-white dark:bg-slate-800">
+                  <tbody className="divide-y divide-slate-300 bg-white dark:divide-slate-700 dark:bg-slate-800">
                     {claims.map((claim) => (
                       <tr key={claim.id}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-slate-700 dark:text-slate-300 sm:pl-6">
