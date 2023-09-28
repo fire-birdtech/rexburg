@@ -1,38 +1,38 @@
-import { Fragment, useState } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
-import { Head, router, useForm } from '@inertiajs/react';
-import { ExclamationTriangleIcon, XCircleIcon } from '@heroicons/react/24/solid';
-import Admin from '@/Layouts/AdminLayout';
-import { convertDate, convertDateTime } from '@/Utils/convertDate';
-import { PageProps, User } from '@/types';
+import { Fragment, type ReactElement, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { Head, router, useForm } from '@inertiajs/react'
+import { ExclamationTriangleIcon, XCircleIcon } from '@heroicons/react/24/solid'
+import Admin from '@/Layouts/AdminLayout'
+import { convertDate, convertDateTime } from '@/Utils/convertDate'
+import { type PageProps, type User } from '@/types'
 
-export default function UserShow({
+export default function UserShow ({
   auth,
-  user,
-}: PageProps & { user: User }) {
-  const [openSuspend, setOpenSuspend] = useState(false);
-  const [openDelete, setOpenDelete] = useState(false);
+  user
+}: PageProps<{ user: User }>): ReactElement {
+  const [openSuspend, setOpenSuspend] = useState(false)
+  const [openDelete, setOpenDelete] = useState(false)
 
   const {
     data: suspended,
     setData: setSuspended,
     post,
     processing: suspendProcessing,
-    errors,
+    errors
   } = useForm({
-    reason: '',
-  });
+    reason: ''
+  })
 
-  const suspend = () => {
+  const suspend = (): void => {
     post(route('admin.users.suspend', [user.id]), {
       preserveScroll: true,
-      onSuccess: () => setOpenSuspend(false),
-    });
-  };
+      onSuccess: (): void => { setOpenSuspend(false) }
+    })
+  }
 
-  const deleteUser = () => {
-    router.delete(route('admin.user.delete', [user.id]));
-  };
+  const deleteUser = (): void => {
+    router.delete(route('admin.user.delete', [user.id]))
+  }
 
   return (
     <Admin
@@ -124,7 +124,7 @@ export default function UserShow({
                     </div>
                     <button
                       type="button"
-                      onClick={() => setOpenSuspend(true)}
+                      onClick={() => { setOpenSuspend(true) }}
                       disabled={auth.user.id === user.id}
                       className="inline-flex items-center rounded-md border border-transparent bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-700 hover:bg-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500"
                     >
@@ -143,7 +143,7 @@ export default function UserShow({
                     </div>
                     <button
                       type="button"
-                      onClick={() => setOpenDelete(true)}
+                      onClick={() => { setOpenDelete(true) }}
                       disabled={auth.user.id === user.id}
                       className="inline-flex items-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500"
                     >
@@ -232,7 +232,7 @@ export default function UserShow({
                           <textarea
                             rows={4}
                             value={suspended.reason}
-                            onChange={(e) => setSuspended('reason', e.target.value)}
+                            onChange={(e) => { setSuspended('reason', e.target.value) }}
                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             defaultValue={''}
                           />
@@ -246,11 +246,11 @@ export default function UserShow({
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button onClick={() => suspend()} disabled={suspendProcessing}
+                    <button onClick={() => { suspend() }} disabled={suspendProcessing}
                             className="inline-flex w-full justify-center rounded-md border border-transparent bg-yellow-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
                       Suspend
                     </button>
-                    <button onClick={() => setOpenSuspend(false)}
+                    <button onClick={() => { setOpenSuspend(false) }}
                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">
                       Cancel
                     </button>
@@ -312,11 +312,11 @@ export default function UserShow({
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button onClick={() => deleteUser()}
+                    <button onClick={() => { deleteUser() }}
                             className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
                       Delete
                     </button>
-                    <button onClick={() => setOpenDelete(false)}
+                    <button onClick={() => { setOpenDelete(false) }}
                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm">
                       Cancel
                     </button>
@@ -328,5 +328,5 @@ export default function UserShow({
         </Dialog>
       </Transition.Root>
     </Admin>
-  );
+  )
 }

@@ -1,36 +1,36 @@
 import {
-  TextareaHTMLAttributes, forwardRef, useEffect, useImperativeHandle, useRef,
-} from 'react';
-import classNames from '@/Utils/classNames';
+  type TextareaHTMLAttributes, forwardRef, useEffect, useImperativeHandle, useRef
+} from 'react'
+import classNames from '@/Utils/classNames'
 
 const TextArea = forwardRef((
   { className = '', isFocused = false, ...props }: TextareaHTMLAttributes<HTMLTextAreaElement> & { isFocused?: boolean },
-  ref,
+  ref
 ) => {
-  const localRef = useRef<HTMLTextAreaElement>(null);
+  const localRef = useRef<HTMLTextAreaElement>(null)
 
   useImperativeHandle(ref, () => ({
-    focus: () => localRef.current?.focus(),
-  }));
+    focus: () => localRef.current?.focus()
+  }))
 
   useEffect(() => {
     if (isFocused) {
-      localRef.current?.focus();
+      localRef.current?.focus()
     }
-  }, []);
+  }, [])
 
   return (
     <textarea
       {...props}
       className={classNames(
         'prose-lg text-base h-52 w-full py-2 px-3 rounded-md resize-none border border-slate-700 bg-slate-900 text-slate-300 focus:outline-none focus:ring-1 focus:border-slate-600 focus:ring-slate-600 overflow-y-auto',
-        className,
+        className
       )}
       ref={localRef}
     ></textarea>
-  );
-});
+  )
+})
 
-TextArea.displayName = 'TextArea';
+TextArea.displayName = 'TextArea'
 
-export default TextArea;
+export default TextArea

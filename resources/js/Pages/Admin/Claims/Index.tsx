@@ -1,8 +1,9 @@
-import { Head, Link } from '@inertiajs/react';
-import Admin from '@/Layouts/AdminLayout';
-import { Claim, PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head, Link } from '@inertiajs/react'
+import Admin from '@/Layouts/AdminLayout'
+import { type Claim, type PageProps } from '@/types'
 
-export default function ClaimIndex({ auth, claims }: PageProps & { claims: Claim[] }) {
+export default function ClaimIndex ({ auth, claims }: PageProps<{ claims: Claim[] }>): ReactElement {
   return (
     <Admin
       user={auth.user}
@@ -83,5 +84,5 @@ export default function ClaimIndex({ auth, claims }: PageProps & { claims: Claim
         </div>
       </div>
     </Admin>
-  );
+  )
 }

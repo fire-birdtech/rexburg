@@ -1,35 +1,35 @@
-import { useState } from 'react';
+import { type ReactElement, useState } from 'react'
 import {
-  ChevronDownIcon, ChevronRightIcon, HomeModernIcon, UserIcon, UsersIcon,
-} from '@heroicons/react/24/solid';
-import { Link } from '@inertiajs/react';
+  ChevronDownIcon, ChevronRightIcon, HomeModernIcon, UserIcon, UsersIcon
+} from '@heroicons/react/24/solid'
+import { Link } from '@inertiajs/react'
 
 const actions = [
   {
     name: 'Find single student housing',
     description: 'Private and shared rooms available.',
     href: route('housing.single'),
-    icon: UserIcon,
+    icon: UserIcon
   },
   {
     name: 'Find married student housing',
     description: 'Space for the two of you plus any extras.',
     href: route('housing.married'),
-    icon: UsersIcon,
-  },
-];
+    icon: UsersIcon
+  }
+]
 
 const otherActions = [
   {
     name: 'Manage a student housing profile',
     description: 'Claim the profile for your student housing.',
     href: route('claims.index'),
-    icon: HomeModernIcon,
-  },
-];
+    icon: HomeModernIcon
+  }
+]
 
-export default function EmptyDashboard() {
-  const [showOtherActions, setShowOtherActions] = useState(false);
+export default function EmptyDashboard (): ReactElement {
+  const [showOtherActions, setShowOtherActions] = useState(false)
 
   return (
     <div className="mx-auto max-w-lg px-4">
@@ -92,12 +92,12 @@ export default function EmptyDashboard() {
         </ul>
       ) : (
         <div className="mt-3 flex justify-center">
-          <button onClick={() => setShowOtherActions(true)} className="flex flex-col items-center rounded-2xl bg-slate-800/30 px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/40">
+          <button onClick={() => { setShowOtherActions(true) }} className="flex flex-col items-center rounded-2xl bg-slate-800/30 px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/40">
             Other actions
             <ChevronDownIcon className="h-3 w-3 text-slate-200" />
           </button>
         </div>
       )}
     </div>
-  );
+  )
 }

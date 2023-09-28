@@ -1,24 +1,24 @@
 import {
-  forwardRef, InputHTMLAttributes, useEffect, useImperativeHandle, useRef,
-} from 'react';
+  forwardRef, type InputHTMLAttributes, useEffect, useImperativeHandle, useRef
+} from 'react'
 
 const TextInputWithAddon = forwardRef((
   {
     type = 'text', className = '', isFocused = false, placeholder, addonText = '', ...props
   }: InputHTMLAttributes<HTMLInputElement> & { isFocused?: boolean, addonText: string },
-  ref,
+  ref
 ) => {
-  const localRef = useRef<HTMLInputElement>(null);
+  const localRef = useRef<HTMLInputElement>(null)
 
   useImperativeHandle(ref, () => ({
-    focus: () => localRef.current?.focus(),
-  }));
+    focus: () => localRef.current?.focus()
+  }))
 
   useEffect(() => {
     if (isFocused) {
-      localRef.current?.focus();
+      localRef.current?.focus()
     }
-  }, []);
+  }, [])
 
   return (
     <div className={`mt-1 flex rounded-md ${className}`}>
@@ -33,9 +33,9 @@ const TextInputWithAddon = forwardRef((
         placeholder={placeholder}
       />
     </div>
-  );
-});
+  )
+})
 
-TextInputWithAddon.displayName = 'TextInputWithAddon';
+TextInputWithAddon.displayName = 'TextInputWithAddon'
 
-export default TextInputWithAddon;
+export default TextInputWithAddon

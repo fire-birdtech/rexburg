@@ -1,13 +1,14 @@
-import { Head, Link } from '@inertiajs/react';
-import { EyeIcon, PencilSquareIcon } from '@heroicons/react/24/solid';
-import { UserIcon } from '@heroicons/react/24/outline';
-import Admin from '@/Layouts/AdminLayout';
-import { convertDateFromNow } from '@/Utils/convertDate';
-import convertKey from '@/Utils/convertKey';
-import classNames from '@/Utils/classNames';
-import { Housing, PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head, Link } from '@inertiajs/react'
+import { EyeIcon, PencilSquareIcon } from '@heroicons/react/24/solid'
+import { UserIcon } from '@heroicons/react/24/outline'
+import Admin from '@/Layouts/AdminLayout'
+import { convertDateFromNow } from '@/Utils/convertDate'
+import convertKey from '@/Utils/convertKey'
+import classNames from '@/Utils/classNames'
+import { type Housing, type PageProps } from '@/types'
 
-export default function HousingShow({ auth, housing }: PageProps & { housing: Housing }) {
+export default function HousingShow ({ auth, housing }: PageProps<{ housing: Housing }>): ReactElement {
   return (
     <Admin
       user={auth.user}
@@ -245,7 +246,7 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
                       <div
                         className={classNames(
                           itemIdx === housing.revision_history.length - 1 ? 'h-6' : '-bottom-6',
-                          'absolute left-0 top-0 flex w-6 justify-center',
+                          'absolute left-0 top-0 flex w-6 justify-center'
                         )}
                       >
                         <div className="w-px bg-gray-200" />
@@ -278,5 +279,5 @@ export default function HousingShow({ auth, housing }: PageProps & { housing: Ho
         </div>
       </div>
     </Admin>
-  );
+  )
 }

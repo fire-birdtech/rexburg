@@ -1,11 +1,12 @@
-import { Head } from '@inertiajs/react';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
-import UpdatePasswordForm from './Partials/UpdatePasswordForm';
-import DeleteUserForm from './Partials/DeleteUserForm';
-import { PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head } from '@inertiajs/react'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm'
+import UpdatePasswordForm from './Partials/UpdatePasswordForm'
+import DeleteUserForm from './Partials/DeleteUserForm'
+import { type PageProps } from '@/types'
 
-export default function Edit({ auth, mustVerifyEmail, status }: PageProps<{ mustVerifyEmail: boolean, status?: string }>) {
+export default function Edit ({ auth, mustVerifyEmail, status }: PageProps<{ mustVerifyEmail: boolean, status?: string }>): ReactElement {
   return (
     <Authenticated
       user={auth.user}
@@ -32,5 +33,5 @@ export default function Edit({ auth, mustVerifyEmail, status }: PageProps<{ must
         </div>
       </div>
     </Authenticated>
-  );
+  )
 }

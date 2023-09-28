@@ -1,27 +1,27 @@
-import { useEffect, FormEventHandler } from 'react';
-import { Head, useForm } from '@inertiajs/react';
-import Guest from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import { PrimaryButton } from '@/Components/Buttons';
-import TextInput from '@/Components/TextInput';
+import { useEffect, type FormEventHandler, type ReactElement } from 'react'
+import { Head, useForm } from '@inertiajs/react'
+import Guest from '@/Layouts/GuestLayout'
+import InputError from '@/Components/InputError'
+import InputLabel from '@/Components/InputLabel'
+import { PrimaryButton } from '@/Components/Buttons'
+import TextInput from '@/Components/TextInput'
 
-export default function ConfirmPassword() {
+export default function ConfirmPassword (): ReactElement {
   const {
-    data, setData, post, processing, errors, reset,
+    data, setData, post, processing, errors, reset
   } = useForm({
-    password: '',
-  });
+    password: ''
+  })
 
-  useEffect(() => () => {
-    reset('password');
-  }, []);
+  useEffect(() => (): void => {
+    reset('password')
+  }, [])
 
-  const submit: FormEventHandler = (e) => {
-    e.preventDefault();
+  const submit: FormEventHandler = (e): void => {
+    e.preventDefault()
 
-    post(route('password.confirm'));
-  };
+    post(route('password.confirm'))
+  }
 
   return (
     <Guest>
@@ -42,7 +42,7 @@ export default function ConfirmPassword() {
             value={data.password}
             className="mt-1 block w-full"
             isFocused={true}
-            onChange={(e) => setData('password', e.target.value)}
+            onChange={(e) => { setData('password', e.target.value) }}
           />
 
           <InputError message={errors.password} className="mt-2" />
@@ -55,5 +55,5 @@ export default function ConfirmPassword() {
         </div>
       </form>
     </Guest>
-  );
+  )
 }

@@ -1,15 +1,15 @@
-import { Fragment, useState } from 'react';
-import { Link } from '@inertiajs/react';
+import { Fragment, type ReactElement, useState } from 'react'
+import { Link } from '@inertiajs/react'
 import {
-  Dialog, Menu, Popover, Transition,
-} from '@headlessui/react';
-import { Bars3Icon } from '@heroicons/react/24/outline';
+  Dialog, Menu, Popover, Transition
+} from '@headlessui/react'
+import { Bars3Icon } from '@heroicons/react/24/outline'
 import {
-  ChevronDownIcon, UserIcon, UsersIcon, XMarkIcon,
-} from '@heroicons/react/24/solid';
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import classNames from '@/Utils/classNames';
-import { NavProps, User } from '@/types';
+  ChevronDownIcon, UserIcon, UsersIcon, XMarkIcon
+} from '@heroicons/react/24/solid'
+import ApplicationLogo from '@/Components/ApplicationLogo'
+import classNames from '@/Utils/classNames'
+import { type NavProps } from '@/types'
 
 const navigation = [
   {
@@ -19,54 +19,54 @@ const navigation = [
         name: 'Single Housing',
         href: route('housing.single'),
         icon: UserIcon,
-        description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.',
+        description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.'
       },
       {
         name: 'Married Housing',
         href: route('housing.married'),
         icon: UsersIcon,
-        description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.',
-      },
-    ],
-  },
+        description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.'
+      }
+    ]
+  }
   //   { name: 'Businesses', href: '#' },
   //   { name: 'Jobs', href: '#' },
   //   { name: 'Rides', href: '#' },
   //   { name: 'Activities', href: '#' },
-];
+]
 
 const mobileNavigation = [
   {
     name: 'Single Housing',
-    href: route('housing.single'),
+    href: route('housing.single')
   },
   {
     name: 'Married Housing',
-    href: route('housing.married'),
-  },
-];
+    href: route('housing.married')
+  }
+]
 
-export default function MainNav({ user }: NavProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+export default function MainNav ({ user }: NavProps): ReactElement {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const dashboardLink = () => {
-    const isManager = user?.roles.map((role: { name: string; }) => role.name)
-      .indexOf('manager');
-    const isAdmin = user?.roles.map((role: { name: string; }) => role.name)
-      .indexOf('admin');
+  const dashboardLink = (): string => {
+    const isManager = user?.roles.map((role: { name: string }) => role.name)
+      .indexOf('manager')
+    const isAdmin = user?.roles.map((role: { name: string }) => role.name)
+      .indexOf('admin')
 
     if (user !== null) {
       if (isManager !== -1) {
-        return route('manager.dashboard');
+        return route('manager.dashboard')
       }
       if (isAdmin !== -1) {
-        return route('admin.dashboards.main');
+        return route('admin.dashboards.main')
       }
-      return route('dashboard');
+      return route('dashboard')
     }
 
-    return route('welcome');
-  };
+    return route('welcome')
+  }
 
   return (
     <header className="absolute inset-x-0 top-0 z-10">
@@ -78,7 +78,7 @@ export default function MainNav({ user }: NavProps) {
           </Link>
         </div>
         <div className="flex lg:hidden">
-          <button onClick={() => setMobileMenuOpen(true)}
+          <button onClick={() => { setMobileMenuOpen(true) }}
                   className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-200">
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
@@ -133,7 +133,7 @@ export default function MainNav({ user }: NavProps) {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-          {user ? (
+          {user !== null ? (
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button
@@ -162,7 +162,7 @@ export default function MainNav({ user }: NavProps) {
                           href={route('profile.edit')}
                           className={classNames(
                             active ? 'text-white' : 'text-slate-300',
-                            'block p-2 text-sm',
+                            'block p-2 text-sm'
                           )}
                         >
                           Profile
@@ -177,7 +177,7 @@ export default function MainNav({ user }: NavProps) {
                           as="button"
                           className={classNames(
                             active ? 'text-white' : 'text-slate-300',
-                            'block w-full text-left p-2 text-sm',
+                            'block w-full text-left p-2 text-sm'
                           )}
                         >
                           Log Out
@@ -206,14 +206,14 @@ export default function MainNav({ user }: NavProps) {
         <Dialog.Panel
           className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-slate-800 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <Link className="-m-1.5 p-1.5" href={user ? route('dashboard') : route('welcome')}>
+            <Link className="-m-1.5 p-1.5" href={user !== null ? route('dashboard') : route('welcome')}>
               <span className="sr-only">RexburgGuru</span>
               <ApplicationLogo className="h-6 w-auto"/>
             </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-slate-200"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false) }}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
@@ -271,5 +271,5 @@ export default function MainNav({ user }: NavProps) {
         </Dialog.Panel>
       </Dialog>
     </header>
-  );
+  )
 }

@@ -1,32 +1,32 @@
-import { useEffect, FormEventHandler } from 'react';
-import { Head, Link, useForm } from '@inertiajs/react';
-import Guest from '@/Layouts/GuestLayout';
-import Checkbox from '@/Components/Checkbox';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import { PrimaryButton } from '@/Components/Buttons';
-import TextInput from '@/Components/TextInput';
+import { useEffect, type FormEventHandler, type ReactElement } from 'react'
+import { Head, Link, useForm } from '@inertiajs/react'
+import Guest from '@/Layouts/GuestLayout'
+import Checkbox from '@/Components/Checkbox'
+import InputError from '@/Components/InputError'
+import InputLabel from '@/Components/InputLabel'
+import { PrimaryButton } from '@/Components/Buttons'
+import TextInput from '@/Components/TextInput'
 
-export default function Register() {
+export default function Register (): ReactElement {
   const {
-    data, setData, post, processing, errors, reset,
+    data, setData, post, processing, errors, reset
   } = useForm({
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
-    terms: false,
-  });
+    terms: false
+  })
 
   useEffect(() => () => {
-    reset('password', 'password_confirmation');
-  }, []);
+    reset('password', 'password_confirmation')
+  }, [])
 
   const submit: FormEventHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    post(route('register'));
-  };
+    post(route('register'))
+  }
 
   return (
     <Guest>
@@ -43,7 +43,7 @@ export default function Register() {
             className="mt-1 block w-full"
             autoComplete="name"
             isFocused={true}
-            onChange={(e) => setData('name', e.target.value)}
+            onChange={(e) => { setData('name', e.target.value) }}
             required
           />
 
@@ -60,7 +60,7 @@ export default function Register() {
             value={data.email}
             className="mt-1 block w-full"
             autoComplete="username"
-            onChange={(e) => setData('email', e.target.value)}
+            onChange={(e) => { setData('email', e.target.value) }}
             required
           />
 
@@ -77,7 +77,7 @@ export default function Register() {
             value={data.password}
             className="mt-1 block w-full"
             autoComplete="new-password"
-            onChange={(e) => setData('password', e.target.value)}
+            onChange={(e) => { setData('password', e.target.value) }}
             required
           />
 
@@ -94,7 +94,7 @@ export default function Register() {
             value={data.password_confirmation}
             className="mt-1 block w-full"
             autoComplete="new-password"
-            onChange={(e) => setData('password_confirmation', e.target.value)}
+            onChange={(e) => { setData('password_confirmation', e.target.value) }}
             required
           />
 
@@ -106,7 +106,7 @@ export default function Register() {
             <Checkbox
               name="terms"
               checked={data.terms}
-              onChange={(e) => setData('terms', e.target.checked)}
+              onChange={(e) => { setData('terms', e.target.checked) }}
             />
             <span className="ml-2 text-sm text-slate-400">
               I agree to the{' '}
@@ -143,5 +143,5 @@ export default function Register() {
         </div>
       </form>
     </Guest>
-  );
+  )
 }

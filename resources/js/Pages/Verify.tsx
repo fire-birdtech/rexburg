@@ -1,24 +1,24 @@
-import { FormEventHandler } from 'react';
-import { Head, useForm } from '@inertiajs/react';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import InputLabel from '@/Components/InputLabel';
-import TextInput from '@/Components/TextInput';
-import InputError from '@/Components/InputError';
-import { PrimaryButton } from '@/Components/Buttons';
-import { PageProps } from '@/types';
+import { type FormEventHandler, type ReactElement } from 'react'
+import { Head, useForm } from '@inertiajs/react'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import InputLabel from '@/Components/InputLabel'
+import TextInput from '@/Components/TextInput'
+import InputError from '@/Components/InputError'
+import { PrimaryButton } from '@/Components/Buttons'
+import { type PageProps } from '@/types'
 
-export default function VerifyClaim({ auth }: PageProps) {
+export default function VerifyClaim ({ auth }: PageProps): ReactElement {
   const {
-    data, setData, put, processing, errors,
+    data, setData, put, processing, errors
   } = useForm({
-    verification_code: '',
-  });
+    verification_code: ''
+  })
 
   const submit: FormEventHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    put(route('claims.verify'));
-  };
+    put(route('claims.verify'))
+  }
 
   return (
     <Authenticated
@@ -44,12 +44,12 @@ export default function VerifyClaim({ auth }: PageProps) {
                   type="text"
                   className="mt-1 block w-full"
                   value={data.verification_code}
-                  onChange={(e) => setData('verification_code', e.target.value)}
+                  onChange={(e) => { setData('verification_code', e.target.value) }}
                   required
                   autoFocus
                 />
 
-                <InputError message={errors.verification_code || errors.message} className="mt-2" />
+                <InputError message={errors.verification_code ?? errors.message} className="mt-2" />
               </div>
 
               <PrimaryButton className="flex w-full justify-center" disabled={processing}>
@@ -60,5 +60,5 @@ export default function VerifyClaim({ auth }: PageProps) {
         </div>
       </div>
     </Authenticated>
-  );
+  )
 }

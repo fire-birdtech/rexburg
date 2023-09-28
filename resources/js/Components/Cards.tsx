@@ -1,22 +1,22 @@
-import { Link } from '@inertiajs/react';
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
-import { DevicePhoneMobileIcon, EnvelopeIcon as EnvelopeOutlineIcon } from '@heroicons/react/24/outline';
-import { MouseEventHandler } from 'react';
-import Stars from './Stars';
-import { Claimable, Housing } from '@/types';
+import { type MouseEventHandler, type ReactElement } from 'react'
+import { Link } from '@inertiajs/react'
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid'
+import { DevicePhoneMobileIcon, EnvelopeIcon as EnvelopeOutlineIcon } from '@heroicons/react/24/outline'
+import Stars from './Stars'
+import { type Claimable, type Housing } from '@/types'
 
-type HousingCardProps = {
-  housing: Housing;
+interface HousingCardProps {
+  housing: Housing
 }
 
-type ContactCardProps = {
-  name: string;
-  websiteUrl: string;
-  email: string;
-  phone: string;
+interface ContactCardProps {
+  name: string
+  websiteUrl: string
+  email: string
+  phone: string
 }
 
-export function HousingCard({ housing }: HousingCardProps) {
+export function HousingCard ({ housing }: HousingCardProps): ReactElement {
   return (
     <Link
       href={route('housing.show', [housing.slug])}
@@ -52,15 +52,15 @@ export function HousingCard({ housing }: HousingCardProps) {
         </div>
       </div>
     </Link>
-  );
+  )
 }
 
-export function ContactCard({
+export function ContactCard ({
   name,
   websiteUrl,
   email,
-  phone,
-}: ContactCardProps) {
+  phone
+}: ContactCardProps): ReactElement {
   return (
     <div className="sticky top-12">
       <div className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-5 shadow sm:p-6">
@@ -68,7 +68,7 @@ export function ContactCard({
           <div className="text-xl font-bold text-slate-100">
             Contact {name}
           </div>
-          {websiteUrl && (
+          {websiteUrl !== undefined && (
             <div className="mt-6 w-full">
               <a
                 href={`https://${websiteUrl}`}
@@ -80,7 +80,7 @@ export function ContactCard({
               </a>
             </div>
           )}
-          {phone && (
+          {phone !== undefined && (
             <>
               <a href={`tel:${phone}`} className="mt-4 inline-flex w-full justify-center rounded-md border border-slate-700 bg-slate-700/40 px-4 py-2 text-sm font-medium text-slate-200 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 xl:hidden">
                 <PhoneIcon className="-ml-1 mr-2 h-5 w-5 text-slate-400" aria-hidden="true" />
@@ -94,7 +94,7 @@ export function ContactCard({
               </div>
             </>
           )}
-          {email && (
+          {email !== undefined && (
             <>
               <a href={`mailto:${email}`} className="mt-4 inline-flex w-full justify-center rounded-md border border-slate-700 bg-slate-700/40 px-4 py-2 text-sm font-medium text-slate-200 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 xl:hidden">
                 <EnvelopeIcon className="-ml-1 mr-2 h-5 w-5 text-slate-400" aria-hidden="true" />
@@ -111,10 +111,10 @@ export function ContactCard({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export function ClaimableCard({ claimable, onClick }: { claimable: Claimable, onClick: MouseEventHandler<HTMLButtonElement> }) {
+export function ClaimableCard ({ claimable, onClick }: { claimable: Claimable, onClick: MouseEventHandler<HTMLButtonElement> }): ReactElement {
   return (
     <button
       onClick={onClick}
@@ -133,5 +133,5 @@ export function ClaimableCard({ claimable, onClick }: { claimable: Claimable, on
         </div>
       </div>
     </button>
-  );
+  )
 }

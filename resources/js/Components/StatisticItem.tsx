@@ -1,9 +1,11 @@
-type StatisticItemProps = {
-  name: string;
-  stat: string;
+import { type ReactElement } from 'react'
+
+interface StatisticItemProps {
+  name: string
+  stat: string
 }
 
-export default function StatisticItem({ name, stat }: StatisticItemProps) {
+export default function StatisticItem ({ name, stat }: StatisticItemProps): ReactElement {
   return (
     <div className="overflow-hidden rounded-xl border border-slate-600 bg-slate-900 px-4 py-5 shadow sm:p-6">
       <div className="truncate text-sm font-medium text-slate-400">
@@ -13,5 +15,5 @@ export default function StatisticItem({ name, stat }: StatisticItemProps) {
         {stat}
       </div>
     </div>
-  );
+  )
 }

@@ -1,16 +1,17 @@
-import { Head } from '@inertiajs/react';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import CoverImage from '@/Components/CoverImage';
-import ProfileImage from '@/Components/ProfileImage';
-import { PrimaryButton } from '@/Components/Buttons';
-import ReviewList from '@/Components/ReviewList';
-import Container from '@/Components/Container';
-import { Housing, PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head } from '@inertiajs/react'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import CoverImage from '@/Components/CoverImage'
+import ProfileImage from '@/Components/ProfileImage'
+import { PrimaryButton } from '@/Components/Buttons'
+import ReviewList from '@/Components/ReviewList'
+import Container from '@/Components/Container'
+import { type Housing, type PageProps } from '@/types'
 
-export default function StudentHousingReviews({
+export default function StudentHousingReviews ({
   auth,
-  housing,
-}: PageProps & { housing: Housing }) {
+  housing
+}: PageProps & { housing: Housing }): ReactElement {
   return (
     <Authenticated
       user={auth.user}
@@ -65,5 +66,5 @@ export default function StudentHousingReviews({
         </div>
       </Container>
     </Authenticated>
-  );
+  )
 }

@@ -1,22 +1,23 @@
-import { Head, useForm } from '@inertiajs/react';
-import { PrimaryButton } from '@/Components/Buttons';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import TextInput from '@/Components/TextInput';
-import TextInputWithAddon from '@/Components/TextInputWithAddon';
-import Admin from '@/Layouts/AdminLayout';
-import { Housing, PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head, useForm } from '@inertiajs/react'
+import { PrimaryButton } from '@/Components/Buttons'
+import InputError from '@/Components/InputError'
+import InputLabel from '@/Components/InputLabel'
+import TextInput from '@/Components/TextInput'
+import TextInputWithAddon from '@/Components/TextInputWithAddon'
+import Admin from '@/Layouts/AdminLayout'
+import { type Housing, type PageProps } from '@/types'
 
-export default function HousingEdit({ auth, housing }: PageProps & { housing: Housing }) {
+export default function HousingEdit ({ auth, housing }: PageProps<{ housing: Housing }>): ReactElement {
   const {
-    data, setData, put, processing, errors,
+    data, setData, put, processing, errors
   } = useForm({
-    ...housing,
-  });
+    ...housing
+  })
 
-  const submit = () => {
-    put(route('admin.housing.update', [housing.id]));
-  };
+  const submit = (): void => {
+    put(route('admin.housing.update', [housing.id]))
+  }
 
   return (
     <Admin
@@ -62,7 +63,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="housing-name"
                         className="mt-1 block w-full"
                         value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
+                        onChange={(e) => { setData('name', e.target.value) }}
                       />
                       <InputError message={errors.name} className="mt-1"/>
                     </div>
@@ -74,7 +75,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="housing-website"
                         className="mt-1 block w-full"
                         value={data.website_url}
-                        onChange={(e) => setData('website_url', e.target.value)}
+                        onChange={(e) => { setData('website_url', e.target.value) }}
                       />
                       <InputError message={errors.website_url} className="mt-1"/>
                     </div>
@@ -85,7 +86,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="email-address"
                         className="mt-1 block w-full"
                         value={data.email_address}
-                        onChange={(e) => setData('email_address', e.target.value)}
+                        onChange={(e) => { setData('email_address', e.target.value) }}
                       />
                       <InputError message={errors.email_address} className="mt-1"/>
                     </div>
@@ -96,7 +97,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="phone-number"
                         className="mt-1 block w-full"
                         value={data.phone_number}
-                        onChange={(e) => setData('phone_number', e.target.value)}
+                        onChange={(e) => { setData('phone_number', e.target.value) }}
                       />
                       <InputError message={errors.phone_number} className="mt-1"/>
                     </div>
@@ -107,7 +108,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="street-addres"
                         className="mt-1 block w-full"
                         value={data.street}
-                        onChange={(e) => setData('street', e.target.value)}
+                        onChange={(e) => { setData('street', e.target.value) }}
                       />
                       <InputError message={errors.street} className="mt-1"/>
                     </div>
@@ -118,7 +119,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="city"
                         className="mt-1 block w-full"
                         value={data.city}
-                        onChange={(e) => setData('city', e.target.value)}
+                        onChange={(e) => { setData('city', e.target.value) }}
                       />
                       <InputError message={errors.city} className="mt-1"/>
                     </div>
@@ -129,7 +130,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="postal-code"
                         className="mt-1 block w-full"
                         value={data.postal_code}
-                        onChange={(e) => setData('postal_code', e.target.value)}
+                        onChange={(e) => { setData('postal_code', e.target.value) }}
                       />
                       <InputError message={errors.postal_code} className="mt-1"/>
                     </div>
@@ -140,7 +141,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="rent"
                         className="mt-1 block w-full"
                         value={data.rent_range}
-                        onChange={(e) => setData('rent_range', e.target.value)}
+                        onChange={(e) => { setData('rent_range', e.target.value) }}
                       />
                       <InputError message={errors.rent_range} className="mt-1"/>
                     </div>
@@ -151,7 +152,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="bedrooms"
                         className="mt-1 block w-full"
                         value={data.bedroom_range}
-                        onChange={(e) => setData('bedroom_range', e.target.value)}
+                        onChange={(e) => { setData('bedroom_range', e.target.value) }}
                       />
                       <InputError message={errors.bedroom_range} className="mt-1"/>
                     </div>
@@ -162,7 +163,7 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
                         name="bathrooms"
                         className="mt-1 block w-full"
                         value={data.bathroom_range}
-                        onChange={(e) => setData('bathroom_range', e.target.value)}
+                        onChange={(e) => { setData('bathroom_range', e.target.value) }}
                       />
                       <InputError message={errors.bathroom_range} className="mt-1"/>
                     </div>
@@ -174,5 +175,5 @@ export default function HousingEdit({ auth, housing }: PageProps & { housing: Ho
         </div>
       </div>
     </Admin>
-  );
+  )
 }

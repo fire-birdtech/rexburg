@@ -1,14 +1,15 @@
-import { StarIcon } from '@heroicons/react/24/solid';
-import { convertDateWithDay } from '@/Utils/convertDate';
-import { Review } from '@/types';
+import { type ReactElement } from 'react'
+import { StarIcon } from '@heroicons/react/24/solid'
+import { convertDateWithDay } from '@/Utils/convertDate'
+import { type Review } from '@/types'
 
-export default function ReviewItem({ review }: { review: Review }) {
+export default function ReviewItem ({ review }: { review: Review }): ReactElement {
   return (
     <blockquote className="flex flex-col">
       <div className="flex">
         <div className="inline-flex shrink-0 rounded-full border-2 border-sky-600">
           <img src={review.user.profile_photo_url} alt={review.user.name}
-               className="h-12 w-12 rounded-full object-cover"/>
+            className="h-12 w-12 rounded-full object-cover"/>
         </div>
         <div className="ml-4">
           <div className="flex items-center text-base font-medium leading-6 text-slate-200">
@@ -33,5 +34,5 @@ export default function ReviewItem({ review }: { review: Review }) {
         </p>
       </div>
     </blockquote>
-  );
+  )
 }

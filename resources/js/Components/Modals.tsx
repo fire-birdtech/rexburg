@@ -1,59 +1,59 @@
 import {
-  FormEventHandler, Fragment, PropsWithChildren, useEffect,
-} from 'react';
-import { Dialog, RadioGroup, Transition } from '@headlessui/react';
-import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
-import { CheckBadgeIcon, StarIcon } from '@heroicons/react/24/solid';
-import { useForm } from '@inertiajs/react';
-import classNames from '@/Utils/classNames';
-import InputError from './InputError';
-import TextArea from './TextArea';
-import { PrimaryButton, SecondaryButton } from './Buttons';
-import InputLabel from './InputLabel';
-import TextInput from './TextInput';
+  type FormEventHandler, Fragment, type PropsWithChildren, type ReactElement, useEffect
+} from 'react'
+import { Dialog, RadioGroup, Transition } from '@headlessui/react'
+import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline'
+import { CheckBadgeIcon, StarIcon } from '@heroicons/react/24/solid'
+import { useForm } from '@inertiajs/react'
+import classNames from '@/Utils/classNames'
+import InputError from './InputError'
+import TextArea from './TextArea'
+import { PrimaryButton, SecondaryButton } from './Buttons'
+import InputLabel from './InputLabel'
+import TextInput from './TextInput'
 
-type ReviewModalProps = {
-  id: number;
-  type: string;
-  name: string;
-  open: boolean;
-  setOpen: () => void;
+interface ReviewModalProps {
+  id: number
+  type: string
+  name: string
+  open: boolean
+  setOpen: () => void
 }
 
-type ClaimHousingModalProps = {
-  id: number | undefined;
-  type: string;
-  name: string | undefined;
-  open: boolean;
-  setOpen: () => void;
+interface ClaimHousingModalProps {
+  id: number | undefined
+  type: string
+  name: string | undefined
+  open: boolean
+  setOpen: () => void
 }
 
-const ratings = [5, 4, 3, 2, 1];
+const ratings = [5, 4, 3, 2, 1]
 
-const tenantOptions = ['Yes', 'No'];
+const tenantOptions = ['Yes', 'No']
 
-export function ReviewModal({
-  id, type, name, open, setOpen,
-}: ReviewModalProps) {
+export function ReviewModal ({
+  id, type, name, open, setOpen
+}: ReviewModalProps): ReactElement {
   const {
-    data, setData, post, processing, errors, reset,
+    data, setData, post, processing, errors, reset
   } = useForm({
     id,
     type,
     body: '',
     rating: null,
-    livedHere: null,
-  });
+    livedHere: null
+  })
 
-  const submit = () => {
+  const submit = (): void => {
     post(route('reviews.create'), {
       preserveScroll: true,
       onSuccess: () => {
-        reset();
-        setOpen();
-      },
-    });
-  };
+        reset()
+        setOpen()
+      }
+    })
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -91,7 +91,7 @@ export function ReviewModal({
                       Write a review of {name}
                     </Dialog.Title>
                     <div className="mt-6">
-                      <RadioGroup value={data.rating} onChange={(value) => setData('rating', value)} className="mt-2">
+                      <RadioGroup value={data.rating} onChange={(value) => { setData('rating', value) }} className="mt-2">
                         <div className="grid grid-cols-3 gap-4 sm:grid-cols-6">
                           {ratings.map((value, index) => (
                             <RadioGroup.Option
@@ -100,7 +100,7 @@ export function ReviewModal({
                               className={({ checked, active }) => classNames(
                                 active ? 'border-slate-300 ring-2 ring-sky-500' : 'border-slate-500',
                                 checked ? 'border-transparent bg-sky-600 text-white hover:bg-sky-700' : '',
-                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-700',
+                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-700'
                               )}
                             >
                               {({ checked }) => (
@@ -110,7 +110,7 @@ export function ReviewModal({
                                       {value}
                                       <StarIcon className={classNames(
                                         checked ? 'text-slate-200' : 'text-slate-400',
-                                        'ml-1 h-5 w-5',
+                                        'ml-1 h-5 w-5'
                                       )} />
                                     </RadioGroup.Label>
                                   </div>
@@ -125,14 +125,14 @@ export function ReviewModal({
                     <div className="mt-4">
                       <TextArea
                         value={data.body}
-                        onChange={(e) => setData('body', e.target.value)}
+                        onChange={(e) => { setData('body', e.target.value) }}
                       />
                     </div>
                     <div className="mt-4">
                       <p className="text-slate-300">
                         Have you lived at {name}?
                       </p>
-                      <RadioGroup value={data.livedHere} onChange={(value) => setData('livedHere', value)} className="mt-2">
+                      <RadioGroup value={data.livedHere} onChange={(value) => { setData('livedHere', value) }} className="mt-2">
                         <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
                           {tenantOptions.map((value, index) => (
                             <RadioGroup.Option
@@ -141,7 +141,7 @@ export function ReviewModal({
                               className={({ checked, active }) => classNames(
                                 active ? 'border-slate-300 ring-2 ring-sky-500' : 'border-slate-500',
                                 checked ? 'border-transparent bg-sky-600 text-white hover:bg-sky-700' : '',
-                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-700',
+                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-700'
                               )}
                             >
                               {() => (
@@ -161,7 +161,7 @@ export function ReviewModal({
                   </div>
                 </div>
                 <div className="mt-5 sm:ml-10 sm:flex sm:pl-6 md:mt-8">
-                  <PrimaryButton onClick={() => submit()} disabled={processing}>
+                  <PrimaryButton onClick={() => { submit() }} disabled={processing}>
                     Submit review
                   </PrimaryButton>
                   <SecondaryButton onClick={setOpen}>
@@ -174,46 +174,46 @@ export function ReviewModal({
         </div>
       </Dialog>
     </Transition.Root>
-  );
+  )
 }
 
-export function ClaimHousingModal({
-  id, type, name, open, setOpen,
-}: ClaimHousingModalProps) {
+export function ClaimHousingModal ({
+  id, type, name, open, setOpen
+}: ClaimHousingModalProps): ReactElement {
   const {
-    data, setData, post, processing, errors, reset,
+    data, setData, post, processing, errors, reset
   } = useForm({
     id,
     type,
     street_address: '',
     city: '',
-    postal_code: '',
-  });
+    postal_code: ''
+  })
 
   useEffect(() => {
-    setData('id', id);
-  }, [id]);
+    setData('id', id)
+  }, [id])
 
   const submit: FormEventHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     post(route('claims.store'), {
       preserveScroll: true,
       onSuccess: () => {
-        reset();
-        setOpen();
-      },
-    });
-  };
+        reset()
+        setOpen()
+      }
+    })
+  }
 
-  const onClose = () => {
-    setOpen();
-    reset();
-  };
+  const onClose = (): void => {
+    setOpen()
+    reset()
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="fixed inset-0 z-20 overflow-y-auto" onClose={() => onClose()}>
+      <Dialog as="div" className="fixed inset-0 z-20 overflow-y-auto" onClose={() => { onClose() }}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -262,7 +262,7 @@ export function ClaimHousingModal({
                             name="street_address"
                             value={data.street_address}
                             className="mt-1 block w-full"
-                            onChange={(e) => setData('street_address', e.target.value)}
+                            onChange={(e) => { setData('street_address', e.target.value) }}
                           />
                           <InputError message={errors.street_address} className="mt-2" />
                         </div>
@@ -276,7 +276,7 @@ export function ClaimHousingModal({
                             name="city"
                             value={data.city}
                             className="mt-1 block w-full"
-                            onChange={(e) => setData('city', e.target.value)}
+                            onChange={(e) => { setData('city', e.target.value) }}
                           />
 
                           <InputError message={errors.city} className="mt-2" />
@@ -291,7 +291,7 @@ export function ClaimHousingModal({
                             name="postal_code"
                             value={data.postal_code}
                             className="mt-1 block w-full"
-                            onChange={(e) => setData('postal_code', e.target.value)}
+                            onChange={(e) => { setData('postal_code', e.target.value) }}
                           />
 
                           <InputError message={errors.postal_code} className="mt-2" />
@@ -306,7 +306,7 @@ export function ClaimHousingModal({
                         <PrimaryButton type="submit" disabled={data.street_address === '' || data.city === '' || data.postal_code === '' || processing}>
                           Claim
                         </PrimaryButton>
-                        <SecondaryButton type="button" onClick={() => onClose()}>
+                        <SecondaryButton type="button" onClick={() => { onClose() }}>
                           Cancel
                         </SecondaryButton>
                       </div>
@@ -319,34 +319,34 @@ export function ClaimHousingModal({
         </div>
       </Dialog>
     </Transition.Root>
-  );
+  )
 }
 
-export function Modal({
+export function Modal ({
   children,
   show = false,
   maxWidth = '2xl',
   closeable = true,
-  onClose = () => { },
+  onClose = () => { }
 }: PropsWithChildren<{
-  show: boolean;
-  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-  closeable?: boolean;
-  onClose: CallableFunction;
-}>) {
-  const close = () => {
+  show: boolean
+  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+  closeable?: boolean
+  onClose: CallableFunction
+}>): ReactElement {
+  const close = (): void => {
     if (closeable) {
-      onClose();
+      onClose()
     }
-  };
+  }
 
   const maxWidthClass = {
     sm: 'sm:max-w-sm',
     md: 'sm:max-w-md',
     lg: 'sm:max-w-lg',
     xl: 'sm:max-w-xl',
-    '2xl': 'sm:max-w-2xl',
-  }[maxWidth];
+    '2xl': 'sm:max-w-2xl'
+  }[maxWidth]
 
   return (
     <Transition show={show} as={Fragment} leave="duration-200">
@@ -385,5 +385,5 @@ export function Modal({
         </Transition.Child>
       </Dialog>
     </Transition>
-  );
+  )
 }

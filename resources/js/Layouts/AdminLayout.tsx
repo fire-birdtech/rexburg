@@ -1,8 +1,8 @@
-import { PropsWithChildren } from 'react';
-import AdminNav from '@/Components/AdminNav';
-import { User } from '@/types';
+import { type PropsWithChildren, type ReactElement } from 'react'
+import AdminNav from '@/Components/AdminNav'
+import { type User } from '@/types'
 
-export default function Admin({ user, children }: PropsWithChildren<{ user: User }>) {
+export default function Admin ({ user, children }: PropsWithChildren<{ user: User }>): ReactElement {
   return (
     <div className="min-h-screen bg-slate-50 bg-dots-lighter selection:bg-sky-500 selection:text-white dark:bg-slate-900">
       <AdminNav user={user} />
@@ -15,5 +15,5 @@ export default function Admin({ user, children }: PropsWithChildren<{ user: User
         </main>
       </div>
     </div>
-  );
+  )
 }

@@ -1,17 +1,18 @@
-import { Head, router } from '@inertiajs/react';
-import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid';
-import Admin from '@/Layouts/AdminLayout';
-import { DangerButton, PrimaryButton } from '@/Components/Buttons';
-import { convertDate } from '@/Utils/convertDate';
-import { Claim, PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head, router } from '@inertiajs/react'
+import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/solid'
+import Admin from '@/Layouts/AdminLayout'
+import { DangerButton, PrimaryButton } from '@/Components/Buttons'
+import { convertDate } from '@/Utils/convertDate'
+import { type Claim, type PageProps } from '@/types'
 
-export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim }) {
-  const approve = () => {
-    router.put(route('admin.claims.approve', [claim.id]));
-  };
-  const reject = () => {
-    router.put(route('admin.claims.reject', [claim.id]));
-  };
+export default function ClaimShow ({ auth, claim }: PageProps<{ claim: Claim }>): ReactElement {
+  const approve = (): void => {
+    router.put(route('admin.claims.approve', [claim.id]))
+  }
+  const reject = (): void => {
+    router.put(route('admin.claims.reject', [claim.id]))
+  }
 
   return (
     <Admin
@@ -33,12 +34,12 @@ export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim })
             {claim.status === 'pending' ? (
               <>
                 <DangerButton
-                  onClick={() => reject()}
+                  onClick={() => { reject() }}
                 >
                   Reject
                 </DangerButton>
                 <PrimaryButton
-                  onClick={() => approve()}
+                  onClick={() => { approve() }}
                 >
                   Approve
                 </PrimaryButton>
@@ -132,5 +133,5 @@ export default function ClaimShow({ auth, claim }: PageProps & { claim: Claim })
         </div>
       </div>
     </Admin>
-  );
+  )
 }

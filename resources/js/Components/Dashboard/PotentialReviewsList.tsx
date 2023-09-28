@@ -1,7 +1,8 @@
-import { Link } from '@inertiajs/react';
-import { View } from '@/types';
+import { type ReactElement } from 'react'
+import { Link } from '@inertiajs/react'
+import { type View } from '@/types'
 
-export default function PotentialReviewsList({ views }: { views: View[] }) {
+export default function PotentialReviewsList ({ views }: { views: View[] }): ReactElement {
   return (
     <div>
       <h3 className="text-base font-semibold leading-6 text-slate-100">Are you able to review these places?</h3>
@@ -33,5 +34,5 @@ export default function PotentialReviewsList({ views }: { views: View[] }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

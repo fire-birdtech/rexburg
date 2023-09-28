@@ -1,9 +1,10 @@
-import { Head, Link } from '@inertiajs/react';
-import Admin from '@/Layouts/AdminLayout';
-import { convertDate } from '@/Utils/convertDate';
-import { PageProps, User } from '@/types';
+import { type ReactElement } from 'react'
+import { Head, Link } from '@inertiajs/react'
+import Admin from '@/Layouts/AdminLayout'
+import { convertDate } from '@/Utils/convertDate'
+import { type PageProps, type User } from '@/types'
 
-export default function UserIndex({ auth, users }: PageProps & { users: User[] }) {
+export default function UserIndex ({ auth, users }: PageProps<{ users: User[] }>): ReactElement {
   return (
     <Admin
       user={auth.user}
@@ -65,5 +66,5 @@ export default function UserIndex({ auth, users }: PageProps & { users: User[] }
         </div>
       </div>
     </Admin>
-  );
+  )
 }

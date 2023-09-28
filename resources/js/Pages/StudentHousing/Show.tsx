@@ -1,34 +1,34 @@
-import { useState } from 'react';
-import { Head, Link } from '@inertiajs/react';
+import { type ReactElement, useState } from 'react'
+import { Head, Link } from '@inertiajs/react'
 import {
   CheckCircleIcon,
   CheckIcon,
   MapPinIcon,
   UserIcon,
-  UsersIcon,
-} from '@heroicons/react/24/solid';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import { PrimaryButton } from '@/Components/Buttons';
-import Address from '@/Components/Address';
-import MetaDataItem from '@/Components/MetaDataItem';
-import Stars from '@/Components/Stars';
-import StatisticItem from '@/Components/StatisticItem';
-import CoverImage from '@/Components/CoverImage';
-import ProfileImage from '@/Components/ProfileImage';
-import { ContactCard } from '@/Components/Cards';
-import ReviewList from '@/Components/ReviewList';
-import { ClaimHousingModal } from '@/Components/Modals';
-import Container from '@/Components/Container';
-import { Housing, PageProps } from '@/types';
+  UsersIcon
+} from '@heroicons/react/24/solid'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import { PrimaryButton } from '@/Components/Buttons'
+import Address from '@/Components/Address'
+import MetaDataItem from '@/Components/MetaDataItem'
+import Stars from '@/Components/Stars'
+import StatisticItem from '@/Components/StatisticItem'
+import CoverImage from '@/Components/CoverImage'
+import ProfileImage from '@/Components/ProfileImage'
+import { ContactCard } from '@/Components/Cards'
+import ReviewList from '@/Components/ReviewList'
+import { ClaimHousingModal } from '@/Components/Modals'
+import Container from '@/Components/Container'
+import { type Housing, type PageProps } from '@/types'
 
-export default function StudentHousingShow({
+export default function StudentHousingShow ({
   auth,
   canEdit,
-  housing,
-}: PageProps & { housing: Housing, canEdit: boolean }) {
-  const isClaimed = housing.managers.length || housing.claim !== null;
+  housing
+}: PageProps & { housing: Housing, canEdit: boolean }): ReactElement {
+  const isClaimed = (housing.managers.length > 0) || housing.claim !== null
 
-  const [claimDialogOpen, setClaimDialogOpen] = useState(false);
+  const [claimDialogOpen, setClaimDialogOpen] = useState(false)
 
   return (
     <Authenticated
@@ -68,8 +68,8 @@ export default function StudentHousingShow({
               {housing.name}
             </h1>
           </div>
-          {auth.user && !isClaimed && (
-            <button onClick={() => setClaimDialogOpen(true)} className="group mt-6 inline-flex space-x-4">
+          {auth.user !== undefined && !isClaimed && (
+            <button onClick={() => { setClaimDialogOpen(true) }} className="group mt-6 inline-flex space-x-4">
               <span
                 className="rounded bg-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 group-hover:bg-slate-50">
                 Claim this housing
@@ -88,7 +88,7 @@ export default function StudentHousingShow({
           />
           <div
             className="flex flex-col space-y-3 pt-4 text-slate-300 sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 sm:space-y-0">
-            {housing.byui_approved && <MetaDataItem icon={<CheckIcon/>} value="BYU-Idaho Approved"/>}
+            {housing.byui_approved === true && <MetaDataItem icon={<CheckIcon/>} value="BYU-Idaho Approved"/>}
             {housing.housing_type === 'single' ? (
               <MetaDataItem icon={<UserIcon/>} value="Single Housing"/>
             ) : (
@@ -157,7 +157,7 @@ export default function StudentHousingShow({
                     </div>
                   </>
                 )}
-                {housing.about && (
+                {housing.about !== undefined && (
                   <>
                     <h2 className="text-3xl text-slate-100">
                       About {housing.name}
@@ -196,9 +196,9 @@ export default function StudentHousingShow({
           type="housing"
           name={housing.name}
           open={claimDialogOpen}
-          setOpen={() => setClaimDialogOpen(false)}
+          setOpen={() => { setClaimDialogOpen(false) }}
         />
       </Container>
     </Authenticated>
-  );
+  )
 }

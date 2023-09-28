@@ -1,7 +1,8 @@
-import { Link } from '@inertiajs/react';
+import { type ReactElement } from 'react'
+import { Link } from '@inertiajs/react'
 
-import singleHousing from '../../images/single-housing.jpg';
-import marriedHousing from '../../images/married-housing.jpg';
+import singleHousing from '../../images/single-housing.jpg'
+import marriedHousing from '../../images/married-housing.jpg'
 
 const links = [
   {
@@ -9,18 +10,18 @@ const links = [
     href: route('housing.single'),
     image: singleHousing,
     alt: 'Group of students',
-    description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.',
+    description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.'
   },
   {
     name: 'Married Housing',
     href: route('housing.married'),
     image: marriedHousing,
     alt: 'Young married couple',
-    description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.',
-  },
-];
+    description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.'
+  }
+]
 
-export default function Hero() {
+export default function Hero (): ReactElement {
   return (
     <main className="isolate">
       <div className="relative isolate -z-10 overflow-hidden bg-gradient-to-b from-slate-400/20 pt-14">
@@ -74,5 +75,5 @@ export default function Hero() {
         </div>
       </div>
     </main>
-  );
+  )
 }

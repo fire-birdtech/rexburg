@@ -1,17 +1,12 @@
-import { Head, Link } from '@inertiajs/react';
-import { ChevronRightIcon } from '@heroicons/react/24/outline';
+import { type ReactElement } from 'react'
+import { Head } from '@inertiajs/react'
 import {
-  AreaChart, Card, Flex, Text,
-} from '@tremor/react';
-import Admin from '@/Layouts/AdminLayout';
-import { PageProps } from '@/types';
+  AreaChart, Card, Flex, Text
+} from '@tremor/react'
+import Admin from '@/Layouts/AdminLayout'
+import { type PageProps } from '@/types'
 
-const links = [
-  { name: 'Housing', route: route('admin.housing.index') },
-  { name: 'Claims', route: route('admin.claims.index') },
-];
-
-export default function MainDashboard({ auth, views }: PageProps & { views: never[] }) {
+export default function MainDashboard ({ auth, views }: PageProps<{ views: never[] }>): ReactElement {
   return (
     <Admin
       user={auth.user}
@@ -41,23 +36,7 @@ export default function MainDashboard({ auth, views }: PageProps & { views: neve
             showLegend={false}
           />
         </Card>
-        <div className="mt-4 overflow-hidden bg-white shadow sm:rounded-md">
-          <ul className="divide-y divide-gray-200" role="list">
-            {links.map((link, index) => (
-              <Link key={index} href={link.route}>
-                <div className="flex items-center p-4 sm:px-6">
-                  <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
-                    {link.name}
-                  </div>
-                  <div className="ml-5 shrink-0">
-                    <ChevronRightIcon className="h-5 w-5 text-gray-400" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </ul>
-        </div>
       </div>
     </Admin>
-  );
+  )
 }

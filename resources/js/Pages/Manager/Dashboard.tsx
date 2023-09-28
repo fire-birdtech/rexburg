@@ -1,15 +1,16 @@
-import { Head } from '@inertiajs/react';
-import { Grid } from '@tremor/react';
-import Container from '@/Components/Container';
-import ProfileViewsCard from '@/Components/Cards/ProfileViewsCard';
-import RatingsStatisticsCard from '@/Components/Cards/RatingsStatisticsCard';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import { type Housing, type PageProps, type Rating } from '@/types';
+import { type ReactElement } from 'react'
+import { Head } from '@inertiajs/react'
+import { Grid } from '@tremor/react'
+import Container from '@/Components/Container'
+import ProfileViewsCard from '@/Components/Cards/ProfileViewsCard'
+import RatingsStatisticsCard from '@/Components/Cards/RatingsStatisticsCard'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import { type Housing, type PageProps, type Rating } from '@/types'
 
-export default function ManagerDashboard({
-  auth, housings, ratings, views,
-}: PageProps & { housings: Housing[], ratings: Rating[], views: never[] }) {
-  const housingNames = housings.map((housing) => housing.name);
+export default function ManagerDashboard ({
+  auth, housings, ratings, views
+}: PageProps<{ housings: Housing[], ratings: Rating[], views: never[] }>): ReactElement {
+  const housingNames = housings.map((housing) => housing.name)
   return (
     <Authenticated
       user={auth.user}
@@ -28,5 +29,5 @@ export default function ManagerDashboard({
         </Grid>
       </Container>
     </Authenticated>
-  );
+  )
 }

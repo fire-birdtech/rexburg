@@ -1,13 +1,14 @@
-import { Head } from '@inertiajs/react';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import { HousingCard } from '@/Components/Cards';
-import Container from '@/Components/Container';
-import { Housing, PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head } from '@inertiajs/react'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import { HousingCard } from '@/Components/Cards'
+import Container from '@/Components/Container'
+import { type Housing, type PageProps } from '@/types'
 
-export default function StudentHousingIndex({
+export default function StudentHousingIndex ({
   auth,
-  housings,
-}: PageProps & { housings: Housing[] }) {
+  housings
+}: PageProps & { housings: Housing[] }): ReactElement {
   return (
     <Authenticated
       user={auth.user}
@@ -20,5 +21,5 @@ export default function StudentHousingIndex({
         </div>
       </Container>
     </Authenticated>
-  );
+  )
 }

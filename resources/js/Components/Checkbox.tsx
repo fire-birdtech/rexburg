@@ -1,9 +1,9 @@
-import { InputHTMLAttributes } from 'react';
+import { type InputHTMLAttributes, type ReactElement } from 'react'
 
-export default function Checkbox({
+export default function Checkbox ({
   className = '',
   ...props
-}: InputHTMLAttributes<HTMLInputElement>) {
+}: InputHTMLAttributes<HTMLInputElement>): ReactElement {
   return (
     <input
       {...props}
@@ -12,5 +12,5 @@ export default function Checkbox({
         `rounded border-slate-700 bg-slate-900 text-slate-500 shadow-sm focus:ring-slate-500 focus:ring-offset-slate-800 ${className}`
       }
     />
-  );
+  )
 }

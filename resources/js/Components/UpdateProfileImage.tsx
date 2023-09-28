@@ -1,31 +1,31 @@
-import { useRef, useState, ChangeEvent } from 'react';
-import InputLabel from './InputLabel';
-import { DangerButton, PrimaryButton } from './Buttons';
-import InputError from './InputError';
+import { useRef, useState, type ChangeEvent, type ReactElement } from 'react'
+import InputLabel from './InputLabel'
+import { DangerButton, PrimaryButton } from './Buttons'
+import InputError from './InputError'
 
-type UpdateProfileImageProps = {
-  error: string | undefined;
-  imagePath: string;
-  imageUrl: string;
-  onChange: (value: File) => void;
-  name: string;
+interface UpdateProfileImageProps {
+  error: string | undefined
+  imagePath: string
+  imageUrl: string
+  onChange: (value: File) => void
+  name: string
 }
 
-export default function UpdateProfileImage({
-  error, imagePath, imageUrl, onChange, name,
-}: UpdateProfileImageProps) {
-  const [imagePreview, setImagePreview] = useState<string>();
+export default function UpdateProfileImage ({
+  error, imagePath, imageUrl, onChange, name
+}: UpdateProfileImageProps): ReactElement {
+  const [imagePreview, setImagePreview] = useState<string>()
 
-  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { files } = e.target;
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const { files } = e.target
 
-    if (files) {
-      setImagePreview(URL.createObjectURL(files[0]));
-      onChange(files[0]);
+    if (files !== null) {
+      setImagePreview(URL.createObjectURL(files[0]))
+      onChange(files[0])
     }
-  };
+  }
 
-  const localRef = useRef<HTMLInputElement>(null);
+  const localRef = useRef<HTMLInputElement>(null)
 
   return (
     <div>
@@ -33,7 +33,7 @@ export default function UpdateProfileImage({
         type="file"
         accept="image/*"
         className="hidden"
-        onChange={(e) => handleImageChange(e)}
+        onChange={(e) => { handleImageChange(e) }}
         ref={localRef}
       />
 
@@ -47,7 +47,7 @@ export default function UpdateProfileImage({
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center center',
-              backgroundImage: `url('${imagePreview}')`,
+              backgroundImage: `url('${imagePreview}')`
             }} />
             <p className="mt-2 text-sm text-slate-400">
               Click &ldquo;Save changes&rdquo; to finalize.
@@ -73,7 +73,7 @@ export default function UpdateProfileImage({
           </DangerButton>
         ) : null}
         {imagePreview !== undefined ? (
-          <DangerButton type="button" onClick={() => setImagePreview(undefined)}>
+          <DangerButton type="button" onClick={() => { setImagePreview(undefined) }}>
             Undo
           </DangerButton>
         ) : null}
@@ -81,5 +81,5 @@ export default function UpdateProfileImage({
 
       <InputError message={error} className="mt-2" />
     </div>
-  );
+  )
 }

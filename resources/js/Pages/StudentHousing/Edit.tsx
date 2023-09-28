@@ -1,68 +1,68 @@
-import { Fragment } from 'react';
-import { Head, useForm } from '@inertiajs/react';
-import { Listbox, Transition } from '@headlessui/react';
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import { PrimaryButton, SecondaryButton } from '@/Components/Buttons';
-import InputLabel from '@/Components/InputLabel';
-import TextArea from '@/Components/TextArea';
-import InputError from '@/Components/InputError';
-import TextInput from '@/Components/TextInput';
-import TextInputWithAddon from '@/Components/TextInputWithAddon';
-import classNames from '@/Utils/classNames';
-import Checkbox from '@/Components/Checkbox';
-import capitalize from '@/Utils/strings';
-import UpdateProfileImage from '@/Components/UpdateProfileImage';
-import UpdateCoverImage from '@/Components/UpdateCoverImage';
-import { Amenity, Housing, PageProps } from '@/types';
+import { Fragment, type ReactElement } from 'react'
+import { Head, useForm } from '@inertiajs/react'
+import { Listbox, Transition } from '@headlessui/react'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import { PrimaryButton, SecondaryButton } from '@/Components/Buttons'
+import InputLabel from '@/Components/InputLabel'
+import TextArea from '@/Components/TextArea'
+import InputError from '@/Components/InputError'
+import TextInput from '@/Components/TextInput'
+import TextInputWithAddon from '@/Components/TextInputWithAddon'
+import classNames from '@/Utils/classNames'
+import Checkbox from '@/Components/Checkbox'
+import capitalize from '@/Utils/strings'
+import UpdateProfileImage from '@/Components/UpdateProfileImage'
+import UpdateCoverImage from '@/Components/UpdateCoverImage'
+import { type Amenity, type Housing, type PageProps } from '@/types'
 
 const housingTypes = [
   { name: 'Single', value: 'single' },
-  { name: 'Married', value: 'married' },
-];
+  { name: 'Married', value: 'married' }
+]
 
-export default function StudentHousingEdit({ availableAmenities, auth, housing }: PageProps & { availableAmenities: Amenity[], housing: Housing }) {
+export default function StudentHousingEdit ({ availableAmenities, auth, housing }: PageProps<{ availableAmenities: Amenity[], housing: Housing }>): ReactElement {
   const {
-    data, setData, errors, put, reset, processing,
+    data, setData, errors, put, reset, processing
   } = useForm({
     ...housing,
     cover: {},
-    profile: {},
-  });
+    profile: {}
+  })
 
-  const updateProfile = (value: File) => {
-    let { profile } = data;
-    profile = value;
-    setData('profile', profile);
-  };
+  const updateProfile = (value: File): void => {
+    let { profile } = data
+    profile = value
+    setData('profile', profile)
+  }
 
-  const updateCover = (value: File) => {
-    let { cover } = data;
-    cover = value;
-    setData('cover', cover);
-  };
+  const updateCover = (value: File): void => {
+    let { cover } = data
+    cover = value
+    setData('cover', cover)
+  }
 
-  const findAmenity = (selectedAmenity: Amenity) => (data.amenities.indexOf(selectedAmenity) !== -1);
+  const findAmenity = (selectedAmenity: Amenity): boolean => data.amenities.includes(selectedAmenity)
 
-  const updateAmenities = (selectedAmenity: Amenity) => {
-    const index = data.amenities.indexOf(selectedAmenity);
-    const { amenities } = data;
+  const updateAmenities = (selectedAmenity: Amenity): void => {
+    const index = data.amenities.indexOf(selectedAmenity)
+    const { amenities } = data
 
     if (index < 0) {
-      amenities.push(selectedAmenity);
-      setData({ ...data, amenities });
+      amenities.push(selectedAmenity)
+      setData({ ...data, amenities })
     } else {
-      amenities.splice(index, 1);
-      setData({ ...data, amenities });
+      amenities.splice(index, 1)
+      setData({ ...data, amenities })
     }
-  };
+  }
 
-  const submit = () => {
+  const submit = (): void => {
     put(route('housing.update'), {
       preserveScroll: true,
-      onSuccess: () => reset(),
-    });
-  };
+      onSuccess: () => { reset() }
+    })
+  }
 
   return (
     <Authenticated
@@ -110,8 +110,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                           <InputLabel htmlFor="about" value="About" />
 
                           <TextArea
-                            value={data.about || ''}
-                            onChange={(e) => setData('about', e.target.value)}
+                            value={data.about !== undefined || ''}
+                            onChange={(e) => { setData('about', e.target.value) }}
                             className="mt-1 block w-full"
                           />
 
@@ -131,7 +131,7 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                           name={housing.name}
                           imageUrl={housing.profile_image_url}
                           imagePath={housing.profile_image_path}
-                          onChange={(value) => updateProfile(value)}
+                          onChange={(value) => { updateProfile(value) }}
                           error={errors.profile}
                         />
 
@@ -139,7 +139,7 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                           name={housing.name}
                           imageUrl={housing.cover_image_url}
                           imagePath={housing.cover_image_path}
-                          onChange={(value) => updateCover(value)}
+                          onChange={(value) => { updateCover(value) }}
                           error={errors.cover}
                         />
                       </div>
@@ -171,8 +171,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="name"
                               name="name"
                               className="mt-1 block w-full"
-                              value={data.name || ''}
-                              onChange={(e) => setData('name', e.target.value)}
+                              value={data.name}
+                              onChange={(e) => { setData('name', e.target.value) }}
                             />
 
                             <InputError message={errors.name} className="mt-1" />
@@ -184,8 +184,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                             <TextInputWithAddon
                               id="website"
                               name="website"
-                              value={data.website_url || ''}
-                              onChange={(e) => setData('website_url', e.target.value)}
+                              value={data.website_url}
+                              onChange={(e) => { setData('website_url', e.target.value) }}
                               placeholder="www.example.com"
                               addonText="https://"
                             />
@@ -201,8 +201,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               type="email"
                               name="email"
                               className="mt-1 block w-full"
-                              value={data.email_address || ''}
-                              onChange={(e) => setData('email_address', e.target.value)}
+                              value={data.email_address}
+                              onChange={(e) => { setData('email_address', e.target.value) }}
                             />
 
                             <InputError message={errors.email_address} className="mt-1" />
@@ -215,8 +215,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="phone"
                               name="phone"
                               className="mt-1 block w-full"
-                              value={data.phone_number || ''}
-                              onChange={(e) => setData('phone_number', e.target.value)}
+                              value={data.phone_number}
+                              onChange={(e) => { setData('phone_number', e.target.value) }}
                             />
 
                             <InputError message={errors.phone_number} className="mt-1" />
@@ -229,8 +229,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="street"
                               name="street"
                               className="mt-1 block w-full"
-                              value={data.street || ''}
-                              onChange={(e) => setData('street', e.target.value)}
+                              value={data.street}
+                              onChange={(e) => { setData('street', e.target.value) }}
                             />
 
                             <InputError message={errors.street} className="mt-1" />
@@ -243,8 +243,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="city"
                               name="city"
                               className="mt-1 block w-full"
-                              value={data.city || ''}
-                              onChange={(e) => setData('city', e.target.value)}
+                              value={data.city}
+                              onChange={(e) => { setData('city', e.target.value) }}
                             />
 
                             <InputError message={errors.city} className="mt-1" />
@@ -257,8 +257,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="postal_code"
                               name="postal_code"
                               className="mt-1 block w-full"
-                              value={data.postal_code || ''}
-                              onChange={(e) => setData('postal_code', e.target.value)}
+                              value={data.postal_code}
+                              onChange={(e) => { setData('postal_code', e.target.value) }}
                             />
 
                             <InputError message={errors.postal_code} className="mt-1" />
@@ -271,8 +271,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="rent"
                               name="rent"
                               className="mt-1 block w-full"
-                              value={data.rent_range || ''}
-                              onChange={(e) => setData('rent_range', e.target.value)}
+                              value={data.rent_range}
+                              onChange={(e) => { setData('rent_range', e.target.value) }}
                             />
 
                             <InputError message={errors.rent_range} className="mt-1" />
@@ -285,8 +285,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="bedroom"
                               name="bedroom"
                               className="mt-1 block w-full"
-                              value={data.bedroom_range || ''}
-                              onChange={(e) => setData('bedroom_range', e.target.value)}
+                              value={data.bedroom_range}
+                              onChange={(e) => { setData('bedroom_range', e.target.value) }}
                             />
 
                             <InputError message={errors.bedroom_range} className="mt-1" />
@@ -299,15 +299,15 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               id="bathroom"
                               name="bathroom"
                               className="mt-1 block w-full"
-                              value={data.bathroom_range || ''}
-                              onChange={(e) => setData('bathroom_range', e.target.value)}
+                              value={data.bathroom_range}
+                              onChange={(e) => { setData('bathroom_range', e.target.value) }}
                             />
 
                             <InputError message={errors.bathroom_range} className="mt-1" />
                           </div>
 
                           <div className="col-span-6 sm:col-span-3">
-                            <Listbox value={data.housing_type} onChange={(value) => setData('housing_type', value)}>
+                            <Listbox value={data.housing_type} onChange={(value) => { setData('housing_type', value) }}>
                               {({ open }) => (
                                 <>
                                   <Listbox.Label className="block text-sm font-medium text-slate-300">
@@ -347,7 +347,7 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                                                   <span
                                                     className={classNames(
                                                       active ? 'text-white' : 'text-sky-600',
-                                                      'absolute inset-y-0 right-0 flex items-center pr-4',
+                                                      'absolute inset-y-0 right-0 flex items-center pr-4'
                                                     )}
                                                   >
                                                     <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -371,8 +371,8 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                                 <Checkbox
                                   id="byui_approved"
                                   name="byui_approved"
-                                  checked={data.byui_approved || false}
-                                  onChange={(e) => setData('byui_approved', e.target.checked)}
+                                  checked={data.byui_approved}
+                                  onChange={(e) => { setData('byui_approved', e.target.checked) }}
                                 />
                                 <span className="ml-2 text-slate-400">
                                   BYU-Idaho Approved
@@ -411,7 +411,7 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
                               <label className="flex items-center">
                                 <Checkbox
                                   checked={findAmenity(amenity)}
-                                  onChange={() => updateAmenities(amenity)}
+                                  onChange={() => { updateAmenities(amenity) }}
                                 />
                                 <span className="ml-3 text-slate-400">
                                   {amenity.name}
@@ -437,5 +437,5 @@ export default function StudentHousingEdit({ availableAmenities, auth, housing }
         </div>
       </div>
     </Authenticated>
-  );
+  )
 }

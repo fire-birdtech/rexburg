@@ -1,14 +1,14 @@
-import { useRef, useState, FormEventHandler } from 'react';
-import { useForm } from '@inertiajs/react';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import { Modal } from '@/Components/Modals';
-import { DangerButton, SecondaryButton } from '@/Components/Buttons';
-import TextInput from '@/Components/TextInput';
+import { useRef, useState, type FormEventHandler, type ReactElement } from 'react'
+import { useForm } from '@inertiajs/react'
+import InputError from '@/Components/InputError'
+import InputLabel from '@/Components/InputLabel'
+import { Modal } from '@/Components/Modals'
+import { DangerButton, SecondaryButton } from '@/Components/Buttons'
+import TextInput from '@/Components/TextInput'
 
-export default function DeleteUserForm({ className = '' }: { className?: string }) {
-  const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
-  const passwordInput = useRef<HTMLInputElement>();
+export default function DeleteUserForm ({ className = '' }: { className?: string }): ReactElement {
+  const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
+  const passwordInput = useRef<HTMLInputElement>()
 
   const {
     data,
@@ -16,31 +16,31 @@ export default function DeleteUserForm({ className = '' }: { className?: string 
     delete: destroy,
     processing,
     reset,
-    errors,
+    errors
   } = useForm({
-    password: '',
-  });
+    password: ''
+  })
 
-  const confirmUserDeletion = () => {
-    setConfirmingUserDeletion(true);
-  };
+  const confirmUserDeletion = (): void => {
+    setConfirmingUserDeletion(true)
+  }
 
-  const closeModal = () => {
-    setConfirmingUserDeletion(false);
+  const closeModal = (): void => {
+    setConfirmingUserDeletion(false)
 
-    reset();
-  };
+    reset()
+  }
 
-  const deleteUser: FormEventHandler = (e) => {
-    e.preventDefault();
+  const deleteUser: FormEventHandler = (e): void => {
+    e.preventDefault()
 
     destroy(route('profile.destroy'), {
       preserveScroll: true,
-      onSuccess: () => closeModal(),
+      onSuccess: () => { closeModal() },
       onError: () => passwordInput.current?.focus(),
-      onFinish: () => reset(),
-    });
-  };
+      onFinish: () => { reset() }
+    })
+  }
 
   return (
     <section className={`space-y-6 ${className}`}>
@@ -75,7 +75,7 @@ export default function DeleteUserForm({ className = '' }: { className?: string 
               name="password"
               ref={passwordInput}
               value={data.password}
-              onChange={(e) => setData('password', e.target.value)}
+              onChange={(e) => { setData('password', e.target.value) }}
               className="mt-1 block w-full"
               isFocused
               placeholder="Password"
@@ -94,5 +94,5 @@ export default function DeleteUserForm({ className = '' }: { className?: string 
         </form>
       </Modal>
     </section>
-  );
+  )
 }

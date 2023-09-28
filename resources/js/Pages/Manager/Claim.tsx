@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Head } from '@inertiajs/react';
-import Authenticated from '@/Layouts/AuthenticatedLayout';
-import { ClaimHousingModal } from '@/Components/Modals';
-import Container from '@/Components/Container';
-import { ClaimableCard } from '@/Components/Cards';
-import { Claimable, PageProps } from '@/types';
+import { type ReactElement, useState } from 'react'
+import { Head } from '@inertiajs/react'
+import Authenticated from '@/Layouts/AuthenticatedLayout'
+import { ClaimHousingModal } from '@/Components/Modals'
+import Container from '@/Components/Container'
+import { ClaimableCard } from '@/Components/Cards'
+import { type Claimable, type PageProps } from '@/types'
 
-export default function ManagerProfileClaim({ auth, claimables }: PageProps & { claimables: Claimable[] }) {
-  const [open, setOpen] = useState<boolean>(false);
-  const [selectedClaimable, setSelectedClaimable] = useState<Claimable>();
+export default function ManagerProfileClaim ({ auth, claimables }: PageProps<{ claimables: Claimable[] }>): ReactElement {
+  const [open, setOpen] = useState<boolean>(false)
+  const [selectedClaimable, setSelectedClaimable] = useState<Claimable>()
 
-  const handleClick = (claimable: Claimable) => {
-    setSelectedClaimable(claimable);
-    setOpen(true);
-  };
+  const handleClick = (claimable: Claimable): void => {
+    setSelectedClaimable(claimable)
+    setOpen(true)
+  }
 
   return (
     <Authenticated
@@ -27,7 +27,7 @@ export default function ManagerProfileClaim({ auth, claimables }: PageProps & { 
             <ClaimableCard
               key={claimable.id}
               claimable={claimable}
-              onClick={() => handleClick(claimable)}
+              onClick={() => { handleClick(claimable) }}
             />
           ))}
         </div>
@@ -38,8 +38,8 @@ export default function ManagerProfileClaim({ auth, claimables }: PageProps & { 
         type="housing"
         name={selectedClaimable?.name}
         open={open}
-        setOpen={() => setOpen(false)}
+        setOpen={() => { setOpen(false) }}
       />
     </Authenticated>
-  );
+  )
 }

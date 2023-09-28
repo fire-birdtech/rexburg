@@ -1,30 +1,30 @@
-import { useState } from 'react';
-import ReviewItem from '@/Components/ReviewItem';
-import Stars from './Stars';
-import { PrimaryButton, SecondaryButton } from './Buttons';
-import { ReviewModal } from './Modals';
-import { Review, User } from '@/types';
+import { type ReactElement, useState } from 'react'
+import ReviewItem from '@/Components/ReviewItem'
+import Stars from './Stars'
+import { PrimaryButton, SecondaryButton } from './Buttons'
+import { ReviewModal } from './Modals'
+import { type Review, type User } from '@/types'
 
-type ReviewListProps = {
-  id: number;
-  name: string;
-  reviews: Review[];
-  reviewsCount: number;
-  score: number;
-  scoreDescription: string;
-  user: User;
+interface ReviewListProps {
+  id: number
+  name: string
+  reviews: Review[]
+  reviewsCount: number
+  score: number
+  scoreDescription: string
+  user: User
 }
 
-export default function ReviewList({
+export default function ReviewList ({
   id,
   name,
   reviews,
   reviewsCount,
   score,
   scoreDescription,
-  user,
-}: ReviewListProps) {
-  const [open, setOpen] = useState(false);
+  user
+}: ReviewListProps): ReactElement {
+  const [open, setOpen] = useState(false)
 
   return (
     <>
@@ -64,10 +64,10 @@ export default function ReviewList({
                     </div>
                   </div>
                   <div className="flex-1">
-                    {user ? (
+                    {user !== null ? (
                       <>
                         <p className="text-lg">Share details of your own experience with {name}.</p>
-                        <PrimaryButton className="mt-3" onClick={() => setOpen(true)}>
+                        <PrimaryButton className="mt-3" onClick={() => { setOpen(true) }}>
                           Write my review
                         </PrimaryButton>
                       </>
@@ -89,8 +89,8 @@ export default function ReviewList({
                   </div>
                 </div>
                 <div className="md:hidden">
-                  {user ? (
-                    <PrimaryButton onClick={() => setOpen(true)}>
+                  {user !== null ? (
+                    <PrimaryButton onClick={() => { setOpen(true) }}>
                       Write my review
                     </PrimaryButton>
                   ) : (
@@ -123,8 +123,8 @@ export default function ReviewList({
               <p className="mt-3 text-base text-slate-400">
                 Be the first to share details of your own experience.
               </p>
-              {user ? (
-                <PrimaryButton onClick={() => setOpen(true)} className="mt-4">
+              {user !== null ? (
+                <PrimaryButton onClick={() => { setOpen(true) }} className="mt-4">
                   Write my review
                 </PrimaryButton>
               ) : (
@@ -146,8 +146,8 @@ export default function ReviewList({
         type="housing"
         name={name}
         open={open}
-        setOpen={() => setOpen(false)}
+        setOpen={() => { setOpen(false) }}
       />
     </>
-  );
+  )
 }

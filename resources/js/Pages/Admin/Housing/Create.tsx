@@ -1,33 +1,33 @@
-import { FormEventHandler, Fragment } from 'react';
-import { Head, useForm } from '@inertiajs/react';
-import { Listbox, Transition } from '@headlessui/react';
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid';
-import { PrimaryButton } from '@/Components/Buttons';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import TextInput from '@/Components/TextInput';
-import Admin from '@/Layouts/AdminLayout';
-import classNames from '@/Utils/classNames';
-import { PageProps } from '@/types';
+import { type FormEventHandler, Fragment, type ReactElement } from 'react'
+import { Head, useForm } from '@inertiajs/react'
+import { Listbox, Transition } from '@headlessui/react'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/solid'
+import { PrimaryButton } from '@/Components/Buttons'
+import InputError from '@/Components/InputError'
+import InputLabel from '@/Components/InputLabel'
+import TextInput from '@/Components/TextInput'
+import Admin from '@/Layouts/AdminLayout'
+import classNames from '@/Utils/classNames'
+import { type PageProps } from '@/types'
 
 const types = [
   { id: 1, name: 'Single', value: 'single' },
-  { id: 2, name: 'Married', value: 'married' },
-];
+  { id: 2, name: 'Married', value: 'married' }
+]
 
-export default function HousingCreate({ auth }: PageProps) {
+export default function HousingCreate ({ auth }: PageProps): ReactElement {
   const {
-    data, setData, post, processing, errors,
+    data, setData, post, processing, errors
   } = useForm({
     name: '',
-    housing_type: types[0],
-  });
+    housing_type: types[0]
+  })
 
-  const submit: FormEventHandler = (e) => {
-    e.preventDefault();
+  const submit: FormEventHandler = (e): void => {
+    e.preventDefault()
 
-    post(route('admin.housing.store'));
-  };
+    post(route('admin.housing.store'))
+  }
 
   return (
     <Admin
@@ -49,14 +49,14 @@ export default function HousingCreate({ auth }: PageProps) {
                 name="housing-name"
                 value={data.name}
                 className="mt-1 block w-full max-w-md"
-                onChange={(e) => setData('name', e.target.value)}
+                onChange={(e) => { setData('name', e.target.value) }}
               />
 
               <InputError message={errors.name} className="mt-1"/>
             </div>
 
             <div>
-              <Listbox value={data.housing_type} onChange={(value) => setData('housing_type', value)}>
+              <Listbox value={data.housing_type} onChange={(value) => { setData('housing_type', value) }}>
                 {({ open }) => (
                   <>
                     <Listbox.Label className="block text-sm font-medium leading-6 text-slate-300">
@@ -85,7 +85,7 @@ export default function HousingCreate({ auth }: PageProps) {
                               key={index}
                               className={({ active }) => classNames(
                                 active ? 'bg-slate-900 text-white' : 'text-slate-200',
-                                'relative cursor-default select-none py-2 pl-3 pr-9',
+                                'relative cursor-default select-none py-2 pl-3 pr-9'
                               )}
                               value={type}
                             >
@@ -98,7 +98,7 @@ export default function HousingCreate({ auth }: PageProps) {
                                     <span
                                       className={classNames(
                                         active ? 'text-white' : 'text-sky-600',
-                                        'absolute inset-y-0 right-0 flex items-center pr-4',
+                                        'absolute inset-y-0 right-0 flex items-center pr-4'
                                       )}
                                     >
                                       <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -129,5 +129,5 @@ export default function HousingCreate({ auth }: PageProps) {
         </form>
       </div>
     </Admin>
-  );
+  )
 }

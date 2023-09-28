@@ -1,10 +1,11 @@
-import { Head } from '@inertiajs/react';
-import MainNav from '@/Components/MainNav';
-import Hero from '@/Components/Hero';
-import { PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head } from '@inertiajs/react'
+import MainNav from '@/Components/MainNav'
+import Hero from '@/Components/Hero'
+import { type PageProps } from '@/types'
 
-export default function Welcome({ auth }: PageProps) {
-  const { user } = auth;
+export default function Welcome ({ auth }: PageProps): ReactElement {
+  const { user } = auth
 
   return (
     <>
@@ -15,5 +16,5 @@ export default function Welcome({ auth }: PageProps) {
         <Hero />
       </div>
     </>
-  );
+  )
 }

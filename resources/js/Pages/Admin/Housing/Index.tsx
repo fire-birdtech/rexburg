@@ -1,9 +1,10 @@
-import { Head, Link } from '@inertiajs/react';
-import { PrimaryButton } from '@/Components/Buttons';
-import Admin from '@/Layouts/AdminLayout';
-import { Housing, PageProps } from '@/types';
+import { type ReactElement } from 'react'
+import { Head, Link } from '@inertiajs/react'
+import { PrimaryButton } from '@/Components/Buttons'
+import Admin from '@/Layouts/AdminLayout'
+import { type Housing, type PageProps } from '@/types'
 
-export default function HousingIndex({ auth, housings }: PageProps & { housings: Housing[] }) {
+export default function HousingIndex ({ auth, housings }: PageProps<{ housings: Housing[] }>): ReactElement {
   return (
     <Admin
       user={auth.user}
@@ -72,5 +73,5 @@ export default function HousingIndex({ auth, housings }: PageProps & { housings:
         </div>
       </div>
     </Admin>
-  );
+  )
 }
