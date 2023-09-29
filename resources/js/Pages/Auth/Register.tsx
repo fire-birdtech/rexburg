@@ -108,20 +108,20 @@ export default function Register (): ReactElement {
               checked={data.terms}
               onChange={(e) => { setData('terms', e.target.checked) }}
             />
-            <span className="ml-2 text-sm text-slate-400">
+            <span className="ml-2 text-sm text-slate-600 dark:text-slate-400">
               I agree to the{' '}
               <a
                 href={route('terms-of-service')}
                 target="_blank"
                 rel="noreferrer noopener nofollow"
-                className="text-sm underline hover:text-white"
+                className="text-sm underline hover:text-slate-900 dark:hover:text-white"
               >Terms of Service</a>{' '}
               and{' '}
               <a
                 href={route('privacy-policy')}
                 target="_blank"
                 rel="noreferrer noopener nofollow"
-                className="text-sm underline hover:text-white"
+                className="text-sm underline hover:text-slate-900 dark:hover:text-white"
               >Privacy Policy</a>
             </span>
           </label>
@@ -132,7 +132,7 @@ export default function Register (): ReactElement {
         <div className="mt-4 flex items-center justify-end">
           <Link
             href={route('login')}
-            className="rounded-md text-sm text-slate-400 underline hover:text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="rounded-md text-sm text-slate-600 underline hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-slate-400 dark:hover:text-slate-100"
           >
             Already registered?
           </Link>

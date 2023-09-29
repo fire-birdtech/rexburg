@@ -27,7 +27,7 @@ export default function ConfirmPassword (): ReactElement {
     <Guest>
       <Head title="Confirm Password" />
 
-      <div className="mb-4 text-sm text-slate-400">
+      <div className="mb-4 text-sm text-slate-600 dark:text-slate-400">
         This is a secure area of the application. Please confirm your password before continuing.
       </div>
 

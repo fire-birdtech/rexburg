@@ -16,7 +16,7 @@ export default function VerifyEmail ({ status }: { status?: string }): ReactElem
     <Guest>
       <Head title="Email Verification" />
 
-      <div className="mb-4 text-sm text-slate-400">
+      <div className="mb-4 text-sm text-slate-600 dark:text-slate-400">
         Thanks for signing up! Before getting started, could you verify your email address by clicking on the
         link we just emailed to you? If you didn&apos;t receive the email, we will gladly send you another.
       </div>
@@ -35,7 +35,7 @@ export default function VerifyEmail ({ status }: { status?: string }): ReactElem
             href={route('logout')}
             method="post"
             as="button"
-            className="rounded-md text-sm text-slate-400 underline hover:text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="rounded-md text-sm text-slate-600 underline hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-slate-400 dark:hover:text-slate-100"
           >
             Log Out
           </Link>
