@@ -42,8 +42,8 @@ export default function Hero (): ReactElement {
             </div>
             <div className="mt-10 aspect-[6/5] max-w-lg space-y-6 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2">
               {links.map((link, index) => (
-                <Link href={link.href} key={index} className="flex scale-100 rounded-lg bg-slate-50 dark:bg-slate-800/50 bg-gradient-to-bl from-slate-700/50 via-transparent p-6 shadow-none shadow-slate-500/20 ring-1 ring-inset ring-white/5 transition-all duration-300 focus:outline focus:outline-2 focus:outline-sky-500 motion-safe:hover:scale-[1.01]">
-                  <img src={link.image} alt={link.alt} className="absolute inset-0 h-full w-full rounded-lg object-cover brightness-60 dark:brightness-50 saturate-50" />
+                <Link href={link.href} key={index} className="flex scale-100 rounded-lg bg-slate-50 bg-gradient-to-bl from-slate-700/50 via-transparent p-6 shadow-none shadow-slate-500/20 ring-1 ring-inset ring-white/5 transition-all duration-300 focus:outline focus:outline-2 focus:outline-sky-500 motion-safe:hover:scale-[1.01] dark:bg-slate-800/50">
+                  <img src={link.image} alt={link.alt} className="absolute inset-0 h-full w-full rounded-lg object-cover brightness-60 saturate-50 dark:brightness-50" />
                   <div className="hidden md:absolute md:bottom-16 md:left-[50rem] md:block md:transform-gpu md:blur-3xl" aria-hidden="true">
                     <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#ff4694] to-[#776fff] opacity-25" style={{ clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' }} />
                   </div>

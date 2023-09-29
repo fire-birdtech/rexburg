@@ -9,7 +9,7 @@ interface StarsProps {
 export default function Stars ({ className = '', score }: StarsProps): ReactElement[] {
   return [...Array(5)].map((n, index) => (
     <StarIcon key={index} className={
-      `fill-current ${n <= score ? 'text-sky-500' : 'text-sky-300'} ${className}`
+      `${index + 1 <= score ? 'text-sky-600 dark:text-sky-500' : 'text-sky-300'} ${className} ${n}`
     } />
   ))
 }

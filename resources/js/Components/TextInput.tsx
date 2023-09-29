@@ -24,12 +24,12 @@ const TextInput = forwardRef((
     <input
     {...props}
     type={type}
-    className={`rounded-md border-slate-700 bg-slate-900 text-slate-300 shadow-sm focus:border-slate-600 focus:ring-slate-600 ${className}`}
+    className={`focus:borer-slate-200 rounded-md border-slate-300 bg-white text-slate-700 shadow-sm focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:focus:border-slate-600 dark:focus:ring-slate-600 ${className}`}
     ref={localRef}
     />
   )
 })
 
-TextInput.displayName = 'TextInut'
+TextInput.displayName = 'TextInput'
 
 export default TextInput

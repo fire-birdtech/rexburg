@@ -9,7 +9,7 @@ export default function InputLabel ({
   value?: string
 }): ReactElement {
   return (
-    <label {...props} className={`block text-sm font-medium text-gray-300 ${className}`}>
+    <label {...props} className={`block text-sm font-medium text-slate-700 dark:text-slate-300 ${className}`}>
       {value ?? children}
     </label>
   )

@@ -9,6 +9,7 @@ import {
 } from '@heroicons/react/24/solid'
 import Authenticated from '@/Layouts/AuthenticatedLayout'
 import { PrimaryButton } from '@/Components/Buttons'
+import { Header2 } from '@/Components/Typography/Headers'
 import Address from '@/Components/Address'
 import MetaDataItem from '@/Components/MetaDataItem'
 import Stars from '@/Components/Stars'
@@ -48,7 +49,7 @@ export default function StudentHousingShow ({
               </div>
               <div className="mt-6 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                 <div className="mt-6 flex min-w-0 flex-1 items-center sm:hidden md:flex">
-                  <h1 className="truncate text-2xl font-bold text-slate-100 md:text-4xl">
+                  <h1 className="truncate text-2xl font-bold text-slate-900 dark:text-slate-100 md:text-4xl">
                     {housing.name}
                   </h1>
                   {/* {housing.verified && <CheckBadgeIcon className="ml-4 h-6 w-6 text-sky-500" />} */}
@@ -87,7 +88,7 @@ export default function StudentHousingShow ({
             postalCode={housing.postal_code}
           />
           <div
-            className="flex flex-col space-y-3 pt-4 text-slate-300 sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 sm:space-y-0">
+            className="flex flex-col space-y-3 pt-4 text-slate-700 dark:text-slate-300 sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 sm:space-y-0">
             {housing.byui_approved === true && <MetaDataItem icon={<CheckIcon/>} value="BYU-Idaho Approved"/>}
             {housing.housing_type === 'single' ? (
               <MetaDataItem icon={<UserIcon/>} value="Single Housing"/>
@@ -103,8 +104,8 @@ export default function StudentHousingShow ({
                   <Stars className="h-6 w-6" score={housing.score}/>
                 </div>
               </div>
-              <div className="text-slate-200">({housing.score})</div>
-              <Link href="#review-list" className="text-slate-400 hover:underline hover:underline-offset-2">
+              <div className="text-slate-800 dark:text-slate-200">({housing.score})</div>
+              <Link href="#review-list" className="text-slate-600 hover:underline hover:underline-offset-2 dark:text-slate-400">
                 See reviews
               </Link>
             </div>
@@ -140,9 +141,9 @@ export default function StudentHousingShow ({
               <div className="space-y-10">
                 {housing.amenities.length > 0 && (
                   <>
-                    <h2 className="text-3xl">
+                    <Header2>
                       Amenities
-                    </h2>
+                    </Header2>
                     <div className="py-4">
                       <dl className="grid grid-cols-1 gap-x-3 gap-y-4 sm:grid-cols-2 sm:gap-y-2 xl:grid-cols-3">
                         {housing.amenities.map((amenity, index) => (
@@ -159,9 +160,9 @@ export default function StudentHousingShow ({
                 )}
                 {housing.about !== undefined && (
                   <>
-                    <h2 className="text-3xl text-slate-100">
+                    <Header2>
                       About {housing.name}
-                    </h2>
+                    </Header2>
                     <div
                       className="prose prose-invert mt-4 max-w-none"
                       dangerouslySetInnerHTML={{ __html: housing.about }}

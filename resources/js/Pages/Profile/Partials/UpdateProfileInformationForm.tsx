@@ -26,9 +26,9 @@ export default function UpdateProfileInformation ({ mustVerifyEmail, status, cla
   return (
     <section className={className}>
       <header>
-        <h2 className="text-lg font-medium text-slate-100">Profile Information</h2>
+        <h2 className="text-lg font-medium text-slate-900 dark:text-slate-100">Profile Information</h2>
 
-        <p className="mt-1 text-sm text-slate-400">
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
           Update your account&apos;s profile information and email address.
         </p>
       </header>

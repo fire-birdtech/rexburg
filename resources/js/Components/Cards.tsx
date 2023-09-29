@@ -25,7 +25,7 @@ export function HousingCard ({ housing }: HousingCardProps): ReactElement {
       <img
         src={housing.cover_image_url}
         alt={housing.name}
-        className="saturate-40 absolute inset-0 h-full w-full rounded-lg object-cover brightness-50"
+        className="absolute inset-0 h-full w-full rounded-lg object-cover brightness-60 saturate-50 dark:brightness-50"
       />
       <div className="relative flex">
         <div className="pt-32">
@@ -63,9 +63,9 @@ export function ContactCard ({
 }: ContactCardProps): ReactElement {
   return (
     <div className="sticky top-12">
-      <div className="rounded-xl border border-slate-600 bg-slate-900 px-4 py-5 shadow sm:p-6">
+      <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-5 shadow dark:border-slate-600 dark:bg-slate-900 sm:p-6">
         <div className="flex flex-col items-center">
-          <div className="text-xl font-bold text-slate-100">
+          <div className="text-xl font-bold text-slate-900 dark:text-slate-100">
             Contact {name}
           </div>
           {websiteUrl !== undefined && (
@@ -87,8 +87,8 @@ export function ContactCard ({
                 {phone}
               </a>
               <div className="mt-4 hidden xl:flex xl:items-center">
-                <DevicePhoneMobileIcon className="h-6 w-6 shrink-0 text-slate-400" />
-                <span className="ml-2 text-base font-medium text-slate-300 lg:text-lg">
+                <DevicePhoneMobileIcon className="h-6 w-6 shrink-0 text-slate-600 dark:text-slate-400" />
+                <span className="ml-2 text-base font-medium text-slate-700 dark:text-slate-300 lg:text-lg">
                   {phone}
                 </span>
               </div>
@@ -101,8 +101,8 @@ export function ContactCard ({
                 Send an email
               </a>
               <div className="mt-4 hidden xl:flex xl:items-center">
-                <EnvelopeOutlineIcon className="h-6 w-6 shrink-0 text-slate-400" />
-                <span className="ml-2 text-base font-medium text-slate-300 lg:text-lg">
+                <EnvelopeOutlineIcon className="h-6 w-6 shrink-0 text-slate-600 dark:text-slate-400" />
+                <span className="ml-2 text-base font-medium text-slate-700 dark:text-slate-300 lg:text-lg">
                   {email}
                 </span>
               </div>

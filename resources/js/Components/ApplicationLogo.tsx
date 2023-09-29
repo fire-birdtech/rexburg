@@ -1,7 +1,7 @@
 import classNames from '@/Utils/classNames'
 import { type ReactElement, type SVGAttributes } from 'react'
 
-export default function ApplicationLogo ({ className = ''}: SVGAttributes<SVGElement>): ReactElement {
+export default function ApplicationLogo ({ className = '' }: SVGAttributes<SVGElement>): ReactElement {
   return (
     <svg className={classNames('fill-sky-700 dark:fill-[#DBEDF3]', className)} viewBox="0 0 971 132" xmlns="http://www.w3.org/2000/svg">
       <g stroke="none" strokeWidth="1" fillRule="evenodd">

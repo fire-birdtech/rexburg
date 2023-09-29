@@ -1,3 +1,4 @@
+import { Header2 } from '@/Components/Typography/Headers'
 import { type ReactElement, useState } from 'react'
 import ReviewItem from '@/Components/ReviewItem'
 import Stars from './Stars'
@@ -28,9 +29,9 @@ export default function ReviewList ({
 
   return (
     <>
-      <h2 className="text-3xl text-slate-100">
+      <Header2>
         Reviews of {name}
-      </h2>
+      </Header2>
       {reviewsCount > 0 ? (
         <>
           <div className="mt-8 flex flex-col space-y-6 sm:flex-row sm:space-x-4 sm:space-y-0 md:space-x-8">
@@ -49,7 +50,7 @@ export default function ReviewList ({
                 </div>
               </div>
             </div>
-            <div className="flex-1 overflow-hidden rounded-md bg-slate-800 text-slate-300">
+            <div className="flex-1 overflow-hidden rounded-md border border-slate-200 bg-slate-50 text-slate-700 shadow dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300">
               <div className="flex flex-col space-y-4 p-8 xl:p-10">
                 <div className="flex flex-col justify-center space-y-8 sm:flex-row sm:items-center sm:space-x-6 sm:space-y-0 xl:space-x-10">
                   <div className="shrink-0">
@@ -114,13 +115,13 @@ export default function ReviewList ({
           </div>
         </>
       ) : (
-        <div className="mt-8 flex-1 overflow-hidden rounded-xl border border-slate-600 bg-slate-900">
+        <div className="mt-8 flex-1 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow dark:border-slate-600 dark:bg-slate-900">
           <div className="flex flex-col items-center justify-center space-x-10 px-4 py-5 sm:p-6 md:flex-row">
             <div className="flex-1">
-              <p className="text-lg text-slate-200">
+              <p className="text-lg text-slate-800 dark:text-slate-200">
                 We currently don&apos;t have any reviews for {name}.
               </p>
-              <p className="mt-3 text-base text-slate-400">
+              <p className="mt-3 text-base text-slate-600 dark:text-slate-400">
                 Be the first to share details of your own experience.
               </p>
               {user !== null ? (

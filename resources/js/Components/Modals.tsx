@@ -67,7 +67,7 @@ export function ReviewModal ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-700/75 transition-opacity"></div>
+          <div className="fixed inset-0 bg-slate-300/75 transition-opacity dark:bg-slate-700/75"></div>
         </Transition.Child>
 
         <div className="fixed inset-0 z-20 overflow-y-auto">
@@ -81,13 +81,13 @@ export function ReviewModal ({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative inline-block w-full overflow-hidden rounded-xl bg-slate-800 px-4 pb-4 pt-5 text-left align-bottom transition-all sm:my-8 sm:max-w-2xl sm:p-6 sm:align-middle">
+              <Dialog.Panel className="relative inline-block w-full overflow-hidden rounded-xl bg-slate-50 px-4 pb-4 pt-5 text-left align-bottom transition-all dark:bg-slate-800 sm:my-8 sm:max-w-2xl sm:p-6 sm:align-middle">
                 <div className="sm:flex sm:items-start">
-                  <div className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sky-700/40 sm:mx-0 sm:h-10 sm:w-10">
+                  <div className="mx-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sky-300/40 dark:bg-sky-700/40 sm:mx-0 sm:h-10 sm:w-10">
                     <ChatBubbleBottomCenterTextIcon className="h-6 w-6 text-sky-600 dark:text-sky-500" aria-hidden="true" />
                   </div>
                   <div className="mt-3 w-full text-center sm:ml-6 sm:mt-0 sm:text-left">
-                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-slate-200">
+                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-slate-800 dark:text-slate-200">
                       Write a review of {name}
                     </Dialog.Title>
                     <div className="mt-6">
@@ -98,18 +98,18 @@ export function ReviewModal ({
                               key={index}
                               value={value}
                               className={({ checked, active }) => classNames(
-                                active ? 'border-slate-300 ring-2 ring-sky-500' : 'border-slate-500',
-                                checked ? 'border-transparent bg-sky-600 text-white hover:bg-sky-700' : '',
-                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-700'
+                                active ? 'border-slate-700 dark:border-slate-300 ring-2 ring-sky-500' : 'border-slate-500',
+                                checked ? 'border-transparent bg-sky-400 dark:bg-sky-600 text-white hover:bg-sky-700' : '',
+                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-300 dark:hover:bg-slate-700'
                               )}
                             >
                               {({ checked }) => (
                                 <>
                                   <div className="flex flex-1">
-                                    <RadioGroup.Label as="span" className="inline-flex items-center text-sm font-medium uppercase text-slate-200">
+                                    <RadioGroup.Label as="span" className="inline-flex items-center text-sm font-medium text-slate-800 dark:text-slate-200">
                                       {value}
                                       <StarIcon className={classNames(
-                                        checked ? 'text-slate-200' : 'text-slate-400',
+                                        checked ? 'text-slate-800 dark:text-slate-200' : 'text-slate-600 dark:text-slate-400',
                                         'ml-1 h-5 w-5'
                                       )} />
                                     </RadioGroup.Label>
@@ -129,7 +129,7 @@ export function ReviewModal ({
                       />
                     </div>
                     <div className="mt-4">
-                      <p className="text-slate-300">
+                      <p className="text-slate-700 dark:text-slate-300">
                         Have you lived at {name}?
                       </p>
                       <RadioGroup value={data.livedHere} onChange={(value) => { setData('livedHere', value) }} className="mt-2">
@@ -139,15 +139,15 @@ export function ReviewModal ({
                               key={index}
                               value={value}
                               className={({ checked, active }) => classNames(
-                                active ? 'border-slate-300 ring-2 ring-sky-500' : 'border-slate-500',
-                                checked ? 'border-transparent bg-sky-600 text-white hover:bg-sky-700' : '',
-                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-700'
+                                active ? 'border-slate-700 dark:border-slate-300 ring-2 ring-sky-500' : 'border-slate-500',
+                                checked ? 'border-transparent bg-sky-400 dark:bg-sky-600 text-white hover:bg-sky-700' : '',
+                                'flex flex-col cursor-pointer items-center justify-center p-3 rounded-md border focus:outline-none hover:bg-slate-300 dark:hover:bg-slate-700'
                               )}
                             >
                               {() => (
                                 <>
                                   <div className="flex flex-1">
-                                    <RadioGroup.Label as="span" className="inline-flex items-center text-sm font-medium uppercase text-slate-200">
+                                    <RadioGroup.Label as="span" className="inline-flex items-center text-sm font-medium uppercase text-slate-800 dark:text-slate-200">
                                       {value}
                                     </RadioGroup.Label>
                                   </div>

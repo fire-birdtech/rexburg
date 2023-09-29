@@ -3,7 +3,7 @@ import ApplicationLogo from '@/Components/ApplicationLogo'
 
 export default function LegalLayout ({ content }: { content: string }): ReactElement {
   return (
-    <div className="bg-dots-darker bg-slate-900 font-sans text-slate-100 antialiased">
+    <div className="bg-slate-900 bg-dots-darker font-sans text-slate-100 antialiased">
       <div>
         <div className="flex min-h-screen flex-col items-center py-6 sm:pt-0">
           <ApplicationLogo className="mt-6 h-12 w-auto"/>

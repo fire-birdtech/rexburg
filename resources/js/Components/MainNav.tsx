@@ -92,7 +92,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
             // </Link>
             <Popover key={item.name} className="relative">
               <Popover.Button
-                className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white focus:outline-none">
+                className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-600 hover:text-slate-950 focus:outline-none dark:text-slate-400 dark:hover:text-white">
                 <span>{item.name}</span>
                 <ChevronDownIcon className="h-3 w-3" aria-hidden="true"/>
               </Popover.Button>
@@ -108,14 +108,14 @@ export default function MainNav ({ user }: NavProps): ReactElement {
               >
                 <Popover.Panel className="absolute left-1/2 z-10 mt-4 flex w-screen max-w-max -translate-x-1/2 px-4">
                   <div
-                    className="w-screen max-w-md flex-auto overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-800 text-sm leading-6 shadow-lg ring-1 ring-slate-900/5">
+                    className="w-screen max-w-md flex-auto overflow-hidden rounded-2xl bg-slate-50 text-sm leading-6 shadow-lg ring-1 ring-slate-900/5 dark:bg-slate-800">
                     <div className="p-4">
                       {item.links.map((link, index) => (
                         <div key={index} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-slate-200 dark:hover:bg-slate-700">
                           <div
-                            className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-slate-300 dark:bg-slate-600 group-hover:bg-slate-400 dark:group-hover:bg-slate-500"
+                            className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-slate-300 group-hover:bg-slate-400 dark:bg-slate-600 dark:group-hover:bg-slate-500"
                           >
-                            <link.icon className="h-6 w-6 text-slate-700 dark:text-slate-300 group-hover:text-slate-800 dark:group-hover:text-slate-200" aria-hidden="true"/>
+                            <link.icon className="h-6 w-6 text-slate-700 group-hover:text-slate-800 dark:text-slate-300 dark:group-hover:text-slate-200" aria-hidden="true"/>
                           </div>
                           <div>
                             <Link href={link.href} className="font-semibold text-slate-800 dark:text-slate-100">
@@ -138,7 +138,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button
-                  className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white">
+                  className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white">
                   <span className="sr-only">Open menu</span>
                   {user.name}
                   <ChevronDownIcon className="-mr-0.5 h-3 w-3"/>
@@ -155,7 +155,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
                 leaveTo="opacity-0 translate-y-1"
               >
                 <Menu.Items
-                  className="absolute right-0 z-10 mt-4 w-48 origin-top-right rounded-2xl bg-slate-50 dark:bg-slate-800 shadow-lg ring-1 ring-slate-900/5 focus:outline-none">
+                  className="absolute right-0 z-10 mt-4 w-48 origin-top-right rounded-2xl bg-slate-50 shadow-lg ring-1 ring-slate-900/5 focus:outline-none dark:bg-slate-800">
                   <div className="p-4 font-semibold">
                     <Menu.Item>
                       {({ active }) => (
@@ -196,7 +196,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
               >
                 Register
               </Link>
-              <Link href={route('login')} className="text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white">
+              <Link href={route('login')} className="text-sm font-semibold leading-6 text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white">
                 Log in <span aria-hidden="true">&rarr;</span>
               </Link>
             </>
