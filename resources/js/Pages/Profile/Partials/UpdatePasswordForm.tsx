@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react'
 import InputError from '@/Components/InputError'
 import InputLabel from '@/Components/InputLabel'
 import { PrimaryButton } from '@/Components/Buttons'
-import TextInput from '@/Components/TextInput'
+import { TextInput } from '@/Components/TextInput'
 
 export default function UpdatePasswordForm ({ className = '' }: { className?: string }): ReactElement {
   const passwordInput = useRef<HTMLInputElement>()

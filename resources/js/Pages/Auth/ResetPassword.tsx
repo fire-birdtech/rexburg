@@ -4,7 +4,7 @@ import Guest from '@/Layouts/GuestLayout'
 import InputError from '@/Components/InputError'
 import InputLabel from '@/Components/InputLabel'
 import { PrimaryButton } from '@/Components/Buttons'
-import TextInput from '@/Components/TextInput'
+import { TextInput } from '@/Components/TextInput'
 
 export default function ResetPassword ({ token, email }: { token: string, email: string }): ReactElement {
   const {

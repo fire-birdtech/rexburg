@@ -3,7 +3,7 @@ import { Head, useForm } from '@inertiajs/react'
 import Guest from '@/Layouts/GuestLayout'
 import InputError from '@/Components/InputError'
 import { PrimaryButton } from '@/Components/Buttons'
-import TextInput from '@/Components/TextInput'
+import { TextInput } from '@/Components/TextInput'
 
 export default function ForgotPassword ({ status }: { status?: string }): ReactElement {
   const {

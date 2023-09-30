@@ -23,7 +23,7 @@ const TextArea = forwardRef((
     <textarea
       {...props}
       className={classNames(
-        'prose-lg text-base h-52 w-full py-2 px-3 rounded-md resize-none border border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-1 focus:border-slate-600 focus:ring-slate-600 overflow-y-auto',
+        'prose-lg text-base h-52 w-full py-2 px-3 rounded-md resize-none border border-slate-300 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-1 focus:border-sky-200 dark:focus:border-slate-600 focus:ring-sky-200 dark:focus:ring-slate-600 overflow-y-auto',
         className
       )}
       ref={localRef}

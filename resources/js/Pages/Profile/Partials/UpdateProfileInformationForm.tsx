@@ -4,7 +4,7 @@ import { Transition } from '@headlessui/react'
 import InputError from '@/Components/InputError'
 import InputLabel from '@/Components/InputLabel'
 import { PrimaryButton } from '@/Components/Buttons'
-import TextInput from '@/Components/TextInput'
+import { TextInput } from '@/Components/TextInput'
 import { type PageProps } from '@/types'
 
 export default function UpdateProfileInformation ({ mustVerifyEmail, status, className = '' }: { mustVerifyEmail: boolean, status?: string, className?: string }): ReactElement {

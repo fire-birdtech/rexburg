@@ -4,7 +4,7 @@ import InputError from '@/Components/InputError'
 import InputLabel from '@/Components/InputLabel'
 import { Modal } from '@/Components/Modals'
 import { DangerButton, SecondaryButton } from '@/Components/Buttons'
-import TextInput from '@/Components/TextInput'
+import { TextInput } from '@/Components/TextInput'
 
 export default function DeleteUserForm ({ className = '' }: { className?: string }): ReactElement {
   const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)

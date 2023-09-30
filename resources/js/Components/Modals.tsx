@@ -6,11 +6,11 @@ import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline'
 import { CheckBadgeIcon, StarIcon } from '@heroicons/react/24/solid'
 import { useForm } from '@inertiajs/react'
 import classNames from '@/Utils/classNames'
-import InputError from './InputError'
-import TextArea from './TextArea'
-import { PrimaryButton, SecondaryButton } from './Buttons'
-import InputLabel from './InputLabel'
-import TextInput from './TextInput'
+import InputError from '@/Components/InputError'
+import TextArea from '@/Components/TextArea'
+import { PrimaryButton, SecondaryButton } from '@/Components/Buttons'
+import InputLabel from '@/Components/InputLabel'
+import { TextInput } from '@/Components/TextInput'
 
 interface ReviewModalProps {
   id: number
@@ -237,19 +237,19 @@ export function ClaimHousingModal ({
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative inline-block w-full overflow-hidden rounded-xl bg-slate-800 px-4 pb-4 pt-5 text-left align-bottom transition-all sm:my-8 sm:max-w-lg sm:p-6 sm:align-middle">
+              <Dialog.Panel className="relative inline-block w-full overflow-hidden rounded-xl bg-slate-50 px-4 pb-4 pt-5 text-left align-bottom transition-all dark:bg-slate-800 sm:my-8 sm:max-w-lg sm:p-6 sm:align-middle">
                 <div>
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-700/40">
-                    <CheckBadgeIcon className="h-6 w-6 text-sky-500" aria-hidden="true" />
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-300/40 dark:bg-sky-700/40">
+                    <CheckBadgeIcon className="h-6 w-6 text-sky-600 dark:text-sky-500" aria-hidden="true" />
                   </div>
                   <div className="mt-3 text-center sm:mt-5">
-                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-slate-200">
+                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-slate-800 dark:text-slate-200">
                       Claim {name}
                     </Dialog.Title>
                   </div>
                   <div className="mt-3">
                     <form onSubmit={submit}>
-                      <p className="text-sm text-slate-300">
+                      <p className="text-sm text-slate-700 dark:text-slate-300">
                         Please enter the address of {name}.
                       </p>
                       <div className="mt-3 grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-6">
@@ -298,7 +298,7 @@ export function ClaimHousingModal ({
                         </div>
                       </div>
                       <div className="mt-6">
-                        <p className="text-sm text-slate-300">
+                        <p className="text-sm text-slate-700 dark:text-slate-300">
                           By clicking &ldquo;Claim&rdquo; below, you verify that you are either the owner or manager of {name} and accept the responsibility of maintaining this profile.
                         </p>
                       </div>
