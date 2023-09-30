@@ -245,6 +245,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
                     </Link>
                     <Link
                       href={route('logout')}
+                      as="button"
                       method="post"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
                     >
