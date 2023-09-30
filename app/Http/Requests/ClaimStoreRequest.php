@@ -8,8 +8,6 @@ class ClaimStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
      */
     public function authorize(): bool
     {
@@ -26,7 +24,7 @@ class ClaimStoreRequest extends FormRequest
         return [
             'street_address' => 'required|string',
             'city' => 'required|string',
-            'postal_code' => 'required|string'
+            'postal_code' => 'required|string',
         ];
     }
 }
