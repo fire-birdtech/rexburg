@@ -1,5 +1,5 @@
 import { type FormEventHandler, type ReactElement } from 'react'
-import { Head, useForm } from '@inertiajs/react'
+import { Head, useForm, usePage } from '@inertiajs/react';
 import Authenticated from '@/Layouts/AuthenticatedLayout'
 import InputLabel from '@/Components/InputLabel'
 import { TextInput } from '@/Components/TextInput'
@@ -8,6 +8,8 @@ import { PrimaryButton } from '@/Components/Buttons'
 import { type PageProps } from '@/types'
 
 export default function VerifyClaim ({ auth }: PageProps): ReactElement {
+  const { errors: pageErrors } = usePage().props
+
   const {
     data, setData, put, processing, errors
   } = useForm({
@@ -49,7 +51,7 @@ export default function VerifyClaim ({ auth }: PageProps): ReactElement {
                   autoFocus
                 />
 
-                <InputError message={errors.verification_code ?? errors.message} className="mt-2" />
+                <InputError message={errors.verification_code ?? pageErrors.message} className="mt-2" />
               </div>
 
               <PrimaryButton className="flex w-full justify-center" disabled={processing}>
