@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ClaimStatus;
+use App\Http\Requests\ClaimStoreRequest;
 use App\Http\Requests\ClaimVerifyRequest;
 use App\Models\Claim;
 use App\Models\Housing;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Response;
 use Inertia\ResponseFactory;
 
@@ -20,7 +20,7 @@ class ClaimController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ClaimStoreRequest $request): RedirectResponse
     {
         $housing = Housing::find($request->id);
         $housing?->claim()->save(new Claim([
