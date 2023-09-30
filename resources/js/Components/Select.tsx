@@ -28,7 +28,7 @@ export default function Select ({ data, options, setData }: SelectProps): ReactE
           <div className="relative mt-1">
             <Listbox.Button className={classNames(
               baseInputStyles,
-	            'relative w-full cursor-default rounded-md border py-2 pl-3 pr-10 text-left'
+              'relative w-full cursor-default rounded-md border py-2 pl-3 pr-10 text-left'
             )}>
               <span className="block truncate">
                 {capitalize(data)}
@@ -45,7 +45,7 @@ export default function Select ({ data, options, setData }: SelectProps): ReactE
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white dark:bg-slate-900 py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none">
+              <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-slate-900">
                 {options.map((option: Option, index: number) => (
                   <Listbox.Option
                     key={index}

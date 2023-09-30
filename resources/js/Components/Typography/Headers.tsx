@@ -13,5 +13,5 @@ export function Header3 ({ children }: PropsWithChildren): ReactElement {
     <h3 className="text-lg font-medium leading-6 text-slate-800 dark:text-slate-200">
       {children}
     </h3>
-  );
+  )
 }
