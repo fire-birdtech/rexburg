@@ -175,7 +175,7 @@ export default function AdminNav ({ user }: NavProps): ReactElement {
             <li className="mt-auto space-y-6">
               <Menu as="div" className="w-full">
                 <Menu.Button
-                  className="group -mx-2 flex w-full items-center justify-between rounded-2xl px-3 py-2 text-sm font-semibold leading-6 text-sky-200 hover:bg-slate-700/50 hover:text-white"
+                  className="group -mx-2 flex w-full items-center justify-between rounded-2xl px-3 py-2 text-sm font-semibold leading-6 text-sky-700 hover:bg-sky-700/50 hover:text-white dark:text-sky-200 dark:hover:bg-sky-700/50"
                 >
                   <span className="sr-only">Open user menu</span>
                   <div className="flex flex-1 items-center gap-x-3">
@@ -188,7 +188,7 @@ export default function AdminNav ({ user }: NavProps): ReactElement {
                       {user.name}
                     </span>
                   </div>
-                  <ChevronRightIcon className="ml-auto h-5 w-5 text-gray-400" aria-hidden="true"/>
+                  <ChevronRightIcon className="ml-auto h-5 w-5 text-slate-400 group-hover:text-white" aria-hidden="true"/>
                 </Menu.Button>
 
                 <Transition
