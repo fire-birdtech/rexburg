@@ -12,9 +12,10 @@ class HousingController extends Controller
     public function index(Request $request)
     {
         return inertia('StudentHousing/Index', [
-            'housings' => $request->is('student-housing/single') ?
-                Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get() :
-                Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
+            'housings' => $request->is('student-housing/single')
+                ? Housing::singleHousing()->withCount('reviews')->orderBy('name', 'asc')->get()
+                : Housing::marriedHousing()->withCount('reviews')->orderBy('name', 'asc')->get(),
+            'type' => $request->is('student-housing/single') ? 'single' : 'married',
         ]);
     }
 

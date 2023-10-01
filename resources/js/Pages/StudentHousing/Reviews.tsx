@@ -16,7 +16,10 @@ export default function StudentHousingReviews ({
     <Authenticated
       user={auth.user}
     >
-      <Head title={`${housing.name} Reviews`}/>
+      <Head>
+        <title>{`${housing.name} Reviews`}</title>
+        <meta name="description" content={`Read reviews about ${housing.name} ${housing.housing_type} student housing at BYU-Idaho on Rexburg Guru!`}/>
+      </Head>
 
       <Container>
         <div>

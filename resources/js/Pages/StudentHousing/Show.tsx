@@ -35,7 +35,10 @@ export default function StudentHousingShow ({
     <Authenticated
       user={auth.user}
     >
-      <Head title={housing.name}/>
+      <Head>
+        <title>{housing.name}</title>
+        <meta name="description" content={`Check out ${housing.name} ${housing.housing_type} student housing at BYU-Idaho on Rexburg Guru!`}/>
+      </Head>
 
       <Container>
         <div>
