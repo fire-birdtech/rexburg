@@ -4,3 +4,4 @@ resources/js/types
 storage
 vendor
 tailwind.config.js
+vite.config.js
