@@ -201,7 +201,7 @@ export default function AdminNav ({ user }: NavProps): ReactElement {
                   leaveTo="transform opacity-0 scale-95"
                 >
                   <Menu.Items
-                    className="absolute -right-24 bottom-8 z-10 mt-2.5 w-32 origin-bottom-left rounded-2xl bg-slate-800 shadow-lg ring-1 ring-slate-900/5 focus:outline-none"
+                    className="absolute -right-24 bottom-8 z-10 mt-2.5 w-32 origin-bottom-left rounded-2xl bg-white shadow-lg ring-1 ring-slate-900/5 focus:outline-none dark:bg-slate-800"
                   >
                     <div className="p-4 font-semibold">
                       <Menu.Item>
@@ -209,7 +209,7 @@ export default function AdminNav ({ user }: NavProps): ReactElement {
                           <Link
                             href={route('profile.edit')}
                             className={classNames(
-                              active ? 'text-white' : 'text-slate-300',
+                              active ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300',
                               'block p-2 text-sm'
                             )}
                           >
@@ -223,7 +223,7 @@ export default function AdminNav ({ user }: NavProps): ReactElement {
                             href={route('logout')}
                             method="post"
                             className={classNames(
-                              active ? 'text-white' : 'text-slate-300',
+                              active ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300',
                               'block text-left p-2 text-sm'
                             )}
                           >
