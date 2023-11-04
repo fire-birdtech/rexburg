@@ -36,7 +36,7 @@ export function ReviewModal ({
   id, type, name, open, setOpen
 }: ReviewModalProps): ReactElement {
   const {
-    data, setData, post, processing, errors, reset, isDirty
+    data, setData, post, processing, errors, reset
   } = useForm({
     id,
     type,
@@ -67,7 +67,7 @@ export function ReviewModal ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-300/75 transition-opacity dark:bg-slate-700/75"></div>
+          <div className="fixed inset-0 bg-slate-300/75 transition-opacity dark:bg-slate-700/75"/>
         </Transition.Child>
 
         <div className="fixed inset-0 z-20 overflow-y-auto">
