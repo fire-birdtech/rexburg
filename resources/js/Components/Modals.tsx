@@ -303,7 +303,7 @@ export function ClaimHousingModal ({
                         </p>
                       </div>
                       <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                        <PrimaryButton type="button" disabled={!isDirty || data.street_address === '' || data.city === '' || data.postal_code === '' || processing}>
+                        <PrimaryButton type="button" disabled={data.street_address === '' || data.city === '' || data.postal_code === '' || processing}>
                           Claim
                         </PrimaryButton>
                         <SecondaryButton type="button" onClick={() => { onClose() }}>
