@@ -75,13 +75,12 @@ export default function StudentHousingShow ({
           {auth.user !== undefined && !isClaimed && (
             <button onClick={() => { setClaimDialogOpen(true) }} className="group mt-6 inline-flex space-x-4">
               <span
-                className="rounded bg-slate-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 group-hover:bg-slate-300 dark:group-hover:bg-slate-50">
+                className="rounded-lg bg-sky-200 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-sky-700 group-hover:bg-sky-300 dark:group-hover:bg-slate-50">
                 Claim this housing
               </span>
               <span
-                className="inline-flex items-center space-x-1 text-sm font-medium text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-50">
+                className="inline-flex items-center space-x-1 text-sm font-medium text-sky-500 group-hover:text-sky-600 dark:group-hover:text-slate-50">
                 <span>Do you manage {housing.name}? &rarr;</span>
-                {/* <ChevronRightIcon className="h-5 w-5" aria-hidden="true" /> */}
               </span>
             </button>
           )}
