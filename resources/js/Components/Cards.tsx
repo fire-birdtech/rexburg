@@ -74,7 +74,7 @@ export function ContactCard ({
                 href={`https://${websiteUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full rounded-xl bg-sky-300 px-3.5 py-2.5 text-center text-sm font-semibold text-slate-900 shadow-sm transition duration-150 ease-in-out hover:bg-sky-400 dark:hover:bg-sky-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:bg-[#B3D9E6]/80"
+                className="block w-full rounded-xl bg-sky-300 px-3.5 py-2.5 text-center text-sm font-semibold text-slate-900 shadow-sm transition duration-150 ease-in-out hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:bg-[#B3D9E6]/80 dark:hover:bg-sky-200"
               >
                 Visit website
               </a>
