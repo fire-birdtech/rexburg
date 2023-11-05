@@ -92,7 +92,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
             // </Link>
             <Popover key={item.name} className="relative">
               <Popover.Button
-                className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-600 hover:text-slate-950 focus:outline-none dark:text-slate-400 dark:hover:text-white">
+                className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-sky-500 hover:text-sky-700 focus:outline-none dark:hover:text-sky-300">
                 <span>{item.name}</span>
                 <ChevronDownIcon className="h-3 w-3" aria-hidden="true"/>
               </Popover.Button>
@@ -192,11 +192,11 @@ export default function MainNav ({ user }: NavProps): ReactElement {
           ) : (
             <>
               <Link href={route('register')}
-                className="rounded-md bg-[#B3D9E6] px-3.5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-[#DBEDF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
+                className="rounded-xl bg-sky-300 px-3.5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:hover:bg-sky-200"
               >
                 Register
               </Link>
-              <Link href={route('login')} className="text-sm font-semibold leading-6 text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white">
+              <Link href={route('login')} className="text-sm font-semibold leading-6 text-sky-500 hover:text-sky-700 dark:hover:text-sky-300">
                 Log in <span aria-hidden="true">&rarr;</span>
               </Link>
             </>

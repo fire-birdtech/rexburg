@@ -24,13 +24,13 @@ const links = [
 export default function Hero (): ReactElement {
   return (
     <main className="isolate">
-      <div className="relative isolate -z-10 overflow-hidden bg-gradient-to-b from-slate-400/20 pt-14">
+      <div className="relative isolate -z-10 overflow-hidden pt-14">
         <div className="mx-auto max-w-7xl px-6 py-12 sm:py-36 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-            <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-6xl lg:col-span-2 xl:col-auto">
+            <h1 className="max-w-2xl bg-gradient-to-r from-indigo-400 via-sky-600 to-indigo-400 bg-clip-text py-1 text-4xl font-bold tracking-tight text-transparent dark:from-indigo-200 dark:via-sky-400 dark:to-indigo-200 sm:text-6xl lg:col-span-2 xl:col-auto">
               We&apos;re changing the way students enjoy Rexburg.
             </h1>
-            <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
+            <div className="mt-5 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
               <p className="text-lg leading-8 text-slate-700 dark:text-slate-300">
                 Are you a college student in Rexburg, Idaho struggling to find the perfect
                 place to live? Look no further than RexburgGuru, designed specifically for

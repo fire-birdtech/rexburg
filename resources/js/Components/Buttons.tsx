@@ -1,4 +1,4 @@
-import classNames from '@/Utils/classNames';
+import classNames from '@/Utils/classNames'
 import { type ButtonHTMLAttributes, type ReactElement } from 'react'
 import { Link } from '@inertiajs/react'
 
@@ -11,9 +11,8 @@ export function PrimaryButton ({
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
   href?: string
 }): ReactElement {
-  // const classes = ` ${disabled === true && 'opacity-25'} ${className}`
   const classes = classNames(
-    'rounded-md bg-[#B3D9E6] px-3.5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-[#DBEDF3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 transition ease-in-out duration-150',
+    'rounded-xl bg-sky-300 px-3.5 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-sky-400 dark:hover:bg-sky-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 transition ease-in-out duration-150',
     disabled === true ? 'opacity-25 cursor-not-allowed' : '',
     className
   )
