@@ -59,9 +59,11 @@ export function DangerButton ({
   return (
     <button
       {...props}
-      className={
-        `rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-red-50 shadow-sm transition duration-150 ease-in-out hover:bg-red-500/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed ${disabled === true && 'opacity-25'} ${className}`
-      }
+      className={classNames(
+        'rounded-xl bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-red-50 shadow-sm transition duration-150 ease-in-out hover:bg-red-500/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed',
+        disabled === true ? 'opacity-25' : '',
+        className
+      )}
       disabled={disabled}
     >
       {children}
