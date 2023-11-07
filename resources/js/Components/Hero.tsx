@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react'
 
 import singleHousing from '../../images/single-housing.jpg'
 import marriedHousing from '../../images/married-housing.jpg'
-import blurCyanImage from '../../images/blur-cyan.png';
+import blurCyanImage from '../../images/blur-cyan.png'
 
 const links = [
   {
@@ -43,7 +43,7 @@ export default function Hero (): ReactElement {
             </div>
             <div className="relative mt-10 aspect-[6/5] max-w-lg space-y-6 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2">
               <img
-                className="absolute -top-32 -right-56"
+                className="absolute -right-56 -top-32"
                 src={blurCyanImage}
                 alt=""
               />
