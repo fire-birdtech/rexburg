@@ -3,6 +3,7 @@ import { Link } from '@inertiajs/react'
 
 import singleHousing from '../../images/single-housing.jpg'
 import marriedHousing from '../../images/married-housing.jpg'
+import blurCyanImage from '../../images/blur-cyan.png';
 
 const links = [
   {
@@ -40,7 +41,17 @@ export default function Hero (): ReactElement {
                 budget. Start your search today!
               </p>
             </div>
-            <div className="mt-10 aspect-[6/5] max-w-lg space-y-6 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2">
+            <div className="relative mt-10 aspect-[6/5] max-w-lg space-y-6 sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2">
+              <img
+                className="absolute -top-32 -right-56"
+                src={blurCyanImage}
+                alt=""
+              />
+              <img
+                className="absolute -bottom-40 -right-16"
+                src={blurCyanImage}
+                alt=""
+              />
               {links.map((link, index) => (
                 <Link href={link.href} key={index} className="flex scale-100 rounded-2xl bg-slate-50 bg-gradient-to-bl from-slate-700/50 via-transparent p-6 shadow-none shadow-slate-500/20 ring-1 ring-inset ring-white/5 transition-all duration-300 focus:outline focus:outline-2 focus:outline-sky-500 motion-safe:hover:scale-[1.01] dark:bg-slate-800/50">
                   <img src={link.image} alt={link.alt} className="saturate-80 absolute inset-0 h-full w-full rounded-2xl object-cover brightness-60 dark:brightness-50" />
