@@ -1,7 +1,6 @@
 import { type MouseEventHandler, type ReactElement } from 'react'
 import { Link } from '@inertiajs/react'
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid'
-import { DevicePhoneMobileIcon, EnvelopeIcon as EnvelopeOutlineIcon } from '@heroicons/react/24/outline'
+import { Icon } from '@/Components/Icon'
 import Stars from './Stars'
 import { type Claimable, type Housing } from '@/types'
 
@@ -80,28 +79,28 @@ export function ContactCard ({
               </a>
             </div>
           )}
-          {phone !== undefined && (
+          {phone !== null && (
             <>
               <a href={`tel:${phone}`} className="mt-4 inline-flex w-full justify-center rounded-md border border-slate-700 bg-slate-700/40 px-4 py-2 text-sm font-medium text-slate-200 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 xl:hidden">
-                <PhoneIcon className="-ml-1 mr-2 h-5 w-5 text-slate-400" aria-hidden="true" />
+                <Icon icon="mobilephone" className="h-6 w-6 shrink-0"/>
                 {phone}
               </a>
               <div className="mt-4 hidden xl:flex xl:items-center">
-                <DevicePhoneMobileIcon className="h-6 w-6 shrink-0 text-slate-600 dark:text-slate-400" />
+                <Icon icon="mobilephone" className="h-6 w-6 shrink-0"/>
                 <span className="ml-2 text-base font-medium text-slate-700 dark:text-slate-300 lg:text-lg">
                   {phone}
                 </span>
               </div>
             </>
           )}
-          {email !== undefined && (
+          {email !== null && (
             <>
               <a href={`mailto:${email}`} className="mt-4 inline-flex w-full justify-center rounded-md border border-slate-700 bg-slate-700/40 px-4 py-2 text-sm font-medium text-slate-200 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 xl:hidden">
-                <EnvelopeIcon className="-ml-1 mr-2 h-5 w-5 text-slate-400" aria-hidden="true" />
+                <Icon icon="envelope" className="h-6 w-6 shrink-0"/>
                 Send an email
               </a>
               <div className="mt-4 hidden xl:flex xl:items-center">
-                <EnvelopeOutlineIcon className="h-6 w-6 shrink-0 text-slate-600 dark:text-slate-400" />
+                <Icon icon="envelope" className="h-6 w-6 shrink-0" />
                 <span className="ml-2 text-base font-medium text-slate-700 dark:text-slate-300 lg:text-lg">
                   {email}
                 </span>

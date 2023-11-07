@@ -1,21 +1,22 @@
 import { type ReactElement, useState } from 'react'
 import {
-  ChevronDownIcon, ChevronRightIcon, HomeModernIcon, UserIcon, UsersIcon
+  ChevronDownIcon, ChevronRightIcon
 } from '@heroicons/react/24/solid'
 import { Link } from '@inertiajs/react'
+import { Icon } from '@/Components/Icon'
 
 const actions = [
   {
     name: 'Find single student housing',
     description: 'Private and shared rooms available.',
     href: route('housing.single'),
-    icon: UserIcon
+    icon: (props: any) => <Icon icon="student" {...props}/>
   },
   {
     name: 'Find married student housing',
     description: 'Space for the two of you plus any extras.',
     href: route('housing.married'),
-    icon: UsersIcon
+    icon: (props: any) => <Icon icon="students" {...props}/>
   }
 ]
 
@@ -24,7 +25,7 @@ const otherActions = [
     name: 'Manage a student housing profile',
     description: 'Claim the profile for your student housing.',
     href: route('claims.index'),
-    icon: HomeModernIcon
+    icon: (props: any) => <Icon icon="home" {...props}/>
   }
 ]
 
@@ -40,9 +41,7 @@ export default function EmptyDashboard (): ReactElement {
           <li key={actionIdx}>
             <div className="group relative flex items-start space-x-3 rounded-2xl bg-slate-800/50 p-4 hover:bg-slate-800/80">
               <div className="shrink-0">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-600">
-                  <action.icon className="h-6 w-6 text-white" aria-hidden="true" />
-                </span>
+                <action.icon className="h-10 w-10 text-white" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-medium text-slate-200">
@@ -68,9 +67,7 @@ export default function EmptyDashboard (): ReactElement {
             <li key={actionIdx}>
               <div className="group relative flex items-start space-x-3 rounded-2xl bg-slate-800/50 p-4 hover:bg-slate-800/80">
                 <div className="shrink-0">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-600">
-                    <action.icon className="h-6 w-6 text-white" aria-hidden="true" />
-                  </span>
+                  <action.icon className="h-10 w-10 text-white" aria-hidden="true" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-sm font-medium text-slate-200">

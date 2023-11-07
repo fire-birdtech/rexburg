@@ -129,6 +129,11 @@ export interface Rating {
   total: number;
 }
 
+export interface Icon {
+  id: string
+  color: string
+}
+
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
         user: User;

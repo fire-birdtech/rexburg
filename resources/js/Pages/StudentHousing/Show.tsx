@@ -1,11 +1,7 @@
 import { type ReactElement, useState } from 'react'
 import { Head, Link } from '@inertiajs/react'
 import {
-  CheckCircleIcon,
-  CheckIcon,
-  MapPinIcon,
-  UserIcon,
-  UsersIcon
+  CheckCircleIcon
 } from '@heroicons/react/24/solid'
 import Authenticated from '@/Layouts/AuthenticatedLayout'
 import { PrimaryButton } from '@/Components/Buttons'
@@ -91,13 +87,13 @@ export default function StudentHousingShow ({
           />
           <div
             className="flex flex-col space-y-3 pt-4 text-slate-700 dark:text-slate-300 sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 sm:space-y-0">
-            {housing.byui_approved === true && <MetaDataItem icon={<CheckIcon/>} value="BYU-Idaho Approved"/>}
+            {housing.byui_approved === true && <MetaDataItem icon="check" value="BYU-Idaho Approved"/>}
             {housing.housing_type === 'single' ? (
-              <MetaDataItem icon={<UserIcon/>} value="Single Housing"/>
+              <MetaDataItem icon="student" value="Single Housing"/>
             ) : (
-              <MetaDataItem icon={<UsersIcon/>} value="Married Housing"/>
+              <MetaDataItem icon="students" value="Married Housing"/>
             )}
-            <MetaDataItem icon={<MapPinIcon/>} value={housing.city}/>
+            <MetaDataItem icon="mapPin" value={housing.city}/>
           </div>
           {housing.reviews_count > 0 && (
             <div className="flex items-end space-x-2">
