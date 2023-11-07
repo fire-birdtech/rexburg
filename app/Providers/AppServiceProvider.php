@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Feature::define('businesses', fn (User $user) => match (true) {
             $user->hasRole('admin') => true,
+            $user->doesntHaveRole('admin') => false,
         });
     }
 }
