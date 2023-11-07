@@ -5,9 +5,10 @@ import {
 } from '@headlessui/react'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import {
-  ChevronDownIcon, UserIcon, UsersIcon, XMarkIcon
+  ChevronDownIcon, XMarkIcon
 } from '@heroicons/react/24/solid'
 import ApplicationLogo from '@/Components/ApplicationLogo'
+import { Icon } from '@/Components/Icon'
 import classNames from '@/Utils/classNames'
 import { type NavProps } from '@/types'
 
@@ -18,13 +19,13 @@ const navigation = [
       {
         name: 'Single Housing',
         href: route('housing.single'),
-        icon: UserIcon,
+        icon: (props: any) => <Icon icon="student" {...props}/>,
         description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.'
       },
       {
         name: 'Married Housing',
         href: route('housing.married'),
-        icon: UsersIcon,
+        icon: (props: any) => <Icon icon="students" {...props}/>,
         description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.'
       }
     ]
@@ -112,11 +113,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
                     <div className="p-4">
                       {item.links.map((link, index) => (
                         <div key={index} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-slate-200 dark:hover:bg-slate-700">
-                          <div
-                            className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-slate-300 group-hover:bg-slate-400 dark:bg-slate-600 dark:group-hover:bg-slate-500"
-                          >
-                            <link.icon className="h-6 w-6 text-slate-700 group-hover:text-slate-800 dark:text-slate-300 dark:group-hover:text-slate-200" aria-hidden="true"/>
-                          </div>
+                          <link.icon className="mt-1 h-10 w-10 flex-none" aria-hidden="true"/>
                           <div>
                             <Link href={link.href} className="font-semibold text-slate-800 dark:text-slate-100">
                               {link.name}
