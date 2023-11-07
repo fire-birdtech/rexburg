@@ -49,10 +49,10 @@ class HousingController extends Controller
 
         $housing = Housing::where('id', $request['id'])->first();
 
-        if (null !== $request->file('profile')) {
+        if ($request->file('profile') !== null) {
             $housing->updateProfileImage($request->file('profile'));
         }
-        if (null !== $request->file('cover')) {
+        if ($request->file('cover') !== null) {
             $housing->updateCoverImage($request->file('cover'));
         }
 
