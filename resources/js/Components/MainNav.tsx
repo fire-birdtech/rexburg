@@ -1,53 +1,53 @@
-import { Fragment, type ReactElement, useState } from 'react'
-import { Link } from '@inertiajs/react'
-import {
-  Dialog, Menu, Popover, Transition
-} from '@headlessui/react'
-import { Bars3Icon } from '@heroicons/react/24/outline'
-import {
-  ChevronDownIcon, XMarkIcon
-} from '@heroicons/react/24/solid'
 import ApplicationLogo from '@/Components/ApplicationLogo'
 import { Icon } from '@/Components/Icon'
-import classNames from '@/Utils/classNames'
+import NavPopover from '@/Components/NavPopover'
 import { type NavProps } from '@/types'
-
-const navigation = [
-  {
-    name: 'Housing',
-    links: [
-      {
-        name: 'Single Housing',
-        href: route('housing.single'),
-        icon: (props: any) => <Icon icon="student" {...props}/>,
-        description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.'
-      },
-      {
-        name: 'Married Housing',
-        href: route('housing.married'),
-        icon: (props: any) => <Icon icon="students" {...props}/>,
-        description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.'
-      }
-    ]
-  }
-  //   { name: 'Businesses', href: '#' },
-  //   { name: 'Jobs', href: '#' },
-  //   { name: 'Rides', href: '#' },
-  //   { name: 'Activities', href: '#' },
-]
-
-const mobileNavigation = [
-  {
-    name: 'Single Housing',
-    href: route('housing.single')
-  },
-  {
-    name: 'Married Housing',
-    href: route('housing.married')
-  }
-]
+import classNames from '@/Utils/classNames'
+import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Bars3Icon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/solid'
+import { Link, usePage } from '@inertiajs/react'
+import { Fragment, type ReactElement, useState } from 'react'
+import NavLink from '@/Components/NavLink'
 
 export default function MainNav ({ user }: NavProps): ReactElement {
+  const { hasBusinessesAccess } = usePage().props.flags
+  const navigation = [
+    {
+      name: 'Housing',
+      show: true,
+      links: [
+        {
+          name: 'Single Housing',
+          href: route('housing.single'),
+          icon: (props: any) => <Icon icon="student" {...props}/>,
+          description: 'Find BYU-I approved housing for single students. You can get private rooms or apartments ranging from 4-8 people.'
+        },
+        {
+          name: 'Married Housing',
+          href: route('housing.married'),
+          icon: (props: any) => <Icon icon="students" {...props}/>,
+          description: 'Married housing is crucial, but difficult to find. We\'re making it easier. You can find different sizes and amenities.'
+        }
+      ]
+    },
+    { name: 'Businesses', show: hasBusinessesAccess, href: '#' }
+    //   { name: 'Jobs', href: '#' },
+    //   { name: 'Rides', href: '#' },
+    //   { name: 'Activities', href: '#' },
+  ]
+
+  const mobileNavigation = [
+    {
+      name: 'Single Housing',
+      href: route('housing.single')
+    },
+    {
+      name: 'Married Housing',
+      href: route('housing.married')
+    }
+  ]
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const dashboardLink = (): string => {
@@ -79,7 +79,10 @@ export default function MainNav ({ user }: NavProps): ReactElement {
           </Link>
         </div>
         <div className="flex lg:hidden">
-          <button onClick={() => { setMobileMenuOpen(true) }}
+          <button
+            onClick={() => {
+              setMobileMenuOpen(true)
+            }}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-sky-700 dark:text-slate-200"
           >
             <span className="sr-only">Open main menu</span>
@@ -87,48 +90,13 @@ export default function MainNav ({ user }: NavProps): ReactElement {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            // <Link href={item.href} key={item.name} className="text-sm font-semibold leading-6 text-slate-400 hover:text-white">
-            //   {item.name}
-            // </Link>
-            <Popover key={item.name} className="relative">
-              <Popover.Button
-                className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-sky-500 hover:text-sky-700 focus:outline-none dark:hover:text-sky-300">
-                <span>{item.name}</span>
-                <ChevronDownIcon className="h-3 w-3" aria-hidden="true"/>
-              </Popover.Button>
-
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-200"
-                enterFrom="opacity-0 translate-y-1"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition ease-in duration-150"
-                leaveFrom="opacity-100 translate-y-0"
-                leaveTo="opacity-0 translate-y-1"
-              >
-                <Popover.Panel className="absolute left-1/2 z-10 mt-4 flex w-screen max-w-max -translate-x-1/2 px-4">
-                  <div
-                    className="w-screen max-w-md flex-auto overflow-hidden rounded-2xl bg-slate-50 text-sm leading-6 shadow-lg ring-1 ring-slate-900/5 dark:bg-slate-800">
-                    <div className="p-4">
-                      {item.links.map((link, index) => (
-                        <div key={index} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-slate-200 dark:hover:bg-slate-700">
-                          <link.icon className="mt-1 h-10 w-10 flex-none" aria-hidden="true"/>
-                          <div>
-                            <Link href={link.href} className="font-semibold text-slate-800 dark:text-slate-100">
-                              {link.name}
-                              <span className="absolute inset-0"/>
-                            </Link>
-                            <p className="mt-1 text-slate-600 dark:text-slate-400">{link.description}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </Popover.Panel>
-              </Transition>
-            </Popover>
-          ))}
+          {navigation.map((item) => <>
+            {item.links !== undefined ? (
+              <NavPopover links={item.links} name={item.name} show={item.show}/>
+            ) : (
+              <NavLink href={item.href} name={item.name} show={item.show}/>
+            )}
+          </>)}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
           {user !== null ? (
@@ -193,7 +161,9 @@ export default function MainNav ({ user }: NavProps): ReactElement {
               >
                 Register
               </Link>
-              <Link href={route('login')} className="text-sm font-semibold leading-6 text-sky-500 hover:text-sky-700 dark:hover:text-sky-300">
+              <Link href={route('login')}
+                className="text-sm font-semibold leading-6 text-sky-500 hover:text-sky-700 dark:hover:text-sky-300"
+              >
                 Log in <span aria-hidden="true">&rarr;</span>
               </Link>
             </>
@@ -212,7 +182,9 @@ export default function MainNav ({ user }: NavProps): ReactElement {
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-slate-200"
-              onClick={() => { setMobileMenuOpen(false) }}
+              onClick={() => {
+                setMobileMenuOpen(false)
+              }}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
