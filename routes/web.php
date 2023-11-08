@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HousingController;
@@ -33,6 +34,12 @@ Route::get('student-housing/single', [HousingController::class, 'index'])->name(
 Route::get('student-housing/married', [HousingController::class, 'index'])->name('housing.married');
 Route::get('student-housing/{housing}', [HousingController::class, 'show'])->name('housing.show');
 Route::get('student-housing/{slug}/reviews', [PagesController::class, 'housingReviews'])->name('housing.reviews');
+
+Route::prefix('businesses')
+    ->name('businesses.')
+    ->controller(BusinessController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
 
 Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
