@@ -14,6 +14,6 @@ class BusinessController extends Controller
 
     public function index(): Response
     {
-        //
+        return inertia('Businesses/Index');
     }
 }

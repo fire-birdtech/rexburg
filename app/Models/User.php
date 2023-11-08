@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasProfilePhoto;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,7 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * The roles that belong to the user
      */
-    public function roles()
+    public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);
     }
@@ -70,7 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Check that the user has a specified role
      */
-    public function hasRole($role)
+    public function hasRole($role): bool
     {
         if ($this->roles()->where('name', $role)->first()) {
             return true;
