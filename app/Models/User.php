@@ -81,7 +81,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function doesntHaveRole($role): bool
     {
-        return !$this->hasRole($role);
+        return ! $this->hasRole($role);
     }
 
     /**
