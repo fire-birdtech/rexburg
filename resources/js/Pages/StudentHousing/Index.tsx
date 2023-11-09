@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react'
 import { Head } from '@inertiajs/react'
 import Authenticated from '@/Layouts/AuthenticatedLayout'
-import { HousingCard } from '@/Components/Cards'
+import HousingCard from '@/Components/Cards/HousingCard'
 import Container from '@/Components/Container'
 import { type Housing, type PageProps } from '@/types'
 
