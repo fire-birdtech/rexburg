@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react'
 import Authenticated from '@/Layouts/AuthenticatedLayout'
 import { ClaimHousingModal } from '@/Components/Modals'
 import Container from '@/Components/Container'
-import { ClaimableCard } from '@/Components/Cards'
+import ClaimableCard from '@/Components/Cards/ClaimableCard'
 import { type Claimable, type PageProps } from '@/types'
 
 export default function ManagerProfileClaim ({ auth, claimables }: PageProps<{ claimables: Claimable[] }>): ReactElement {
