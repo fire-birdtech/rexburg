@@ -105,7 +105,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button
-                  className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white">
+                  className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-sky-500 hover:text-sky-700 dark:hover:text-sky-300">
                   <span className="sr-only">Open menu</span>
                   {user.name}
                   <ChevronDownIcon className="-mr-0.5 h-3 w-3"/>
