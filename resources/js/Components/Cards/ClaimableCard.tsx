@@ -1,7 +1,7 @@
 import { type MouseEventHandler, type ReactElement } from 'react'
 import { type Claimable } from '@/types'
 
-export function ClaimableCard ({ claimable, onClick }: { claimable: Claimable, onClick: MouseEventHandler<HTMLButtonElement> }): ReactElement {
+export default function ClaimableCard ({ claimable, onClick }: { claimable: Claimable, onClick: MouseEventHandler<HTMLButtonElement> }): ReactElement {
   return (
 		<button
 			onClick={onClick}
