@@ -32,7 +32,8 @@ module.exports = {
     "rules": {
         "react/react-in-jsx-scope": "off",
         "multiline-ternary": "off",
-        "tailwindcss/no-custom-classname": "off",
+        "no-tabs": ["error", { allowIndentationTabs: true }],
+        "tailwindcss/no-custom-classname": "off"
     },
     "settings": {
         "react": {
