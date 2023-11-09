@@ -31,7 +31,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
         }
       ]
     },
-    { name: 'Businesses', show: hasBusinessesAccess, href: '#' }
+    { name: 'Businesses', show: hasBusinessesAccess, href: route('businesses.index') }
     //   { name: 'Jobs', href: '#' },
     //   { name: 'Rides', href: '#' },
     //   { name: 'Activities', href: '#' },
