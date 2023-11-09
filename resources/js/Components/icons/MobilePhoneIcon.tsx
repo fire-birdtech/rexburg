@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react'
-import { DarkMode, Gradient, LightMode } from '@/Components/Icon'
+import { Circle, DarkMode, Gradient, LightMode } from '@/Components/Icon'
 import { type Icon } from '@/types'
 
 export function MobilePhoneIcon ({ id, color }: Icon): ReactElement {
@@ -18,7 +18,7 @@ export function MobilePhoneIcon ({ id, color }: Icon): ReactElement {
         />
       </defs>
       <LightMode>
-        <circle cx={20} cy={20} r={12} fill={`url(#${id}-gradient)`} />
+        <Circle fill={`url(#${id}-gradient)`}/>
         <path
           d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
           fillOpacity={0.5}

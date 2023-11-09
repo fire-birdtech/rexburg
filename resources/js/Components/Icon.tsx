@@ -101,6 +101,10 @@ export function Gradient ({
   )
 }
 
+export function Circle ({ fill }: { fill: string }): ReactElement {
+  return <circle cx={16} cy={14} r={6} fill={fill} />
+}
+
 export function LightMode ({ className, children, ...props }: PropsWithChildren & { className?: string }): ReactElement {
   return <g className={classNames('dark:hidden', className as string)} {...props}>
     {children}

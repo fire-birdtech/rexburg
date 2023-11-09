@@ -1,4 +1,4 @@
-import { DarkMode, Gradient, LightMode } from '@/Components/Icon'
+import { Circle, DarkMode, Gradient, LightMode } from '@/Components/Icon'
 import { type ReactElement } from 'react'
 import { type Icon } from '@/types'
 
@@ -18,7 +18,7 @@ export function MapPinIcon ({ id, color }: Icon): ReactElement {
         />
       </defs>
       <LightMode>
-        <circle cx={20} cy={20} r={12} fill={`url(#${id}-gradient)`} />
+        <Circle fill={`url(#${id}-gradient)`}/>
         <path
           d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
           fillOpacity={0.5}
@@ -30,7 +30,7 @@ export function MapPinIcon ({ id, color }: Icon): ReactElement {
         <path
           d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
           fillOpacity={0.5}
-          className="fill-[var(--icon-background)] stroke-[color:var(--icon-foreground)]"
+          className="stroke-[color:var(--icon-foreground)]"
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"

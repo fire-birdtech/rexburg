@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react'
-import { DarkMode, Gradient, LightMode } from '@/Components/Icon'
+import { Circle, DarkMode, Gradient, LightMode } from '@/Components/Icon'
 import { type Icon } from '@/types'
 
 export function EnvelopeIcon ({ id, color }: Icon): ReactElement {
@@ -18,7 +18,7 @@ export function EnvelopeIcon ({ id, color }: Icon): ReactElement {
         />
       </defs>
       <LightMode>
-        <circle cx={12} cy={12} r={12} fill={`url(#${id}-gradient)`} />
+        <Circle fill={`url(#${id}-gradient)`}/>
         <path
           d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
           fillOpacity={0.5}

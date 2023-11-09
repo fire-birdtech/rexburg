@@ -1,4 +1,4 @@
-import { DarkMode, Gradient, LightMode } from '@/Components/Icon'
+import { Circle, DarkMode, Gradient, LightMode } from '@/Components/Icon'
 import { type ReactElement } from 'react'
 import { type Icon } from '@/types'
 
@@ -18,7 +18,7 @@ export function CheckIcon ({ id, color }: Icon): ReactElement {
         />
       </defs>
       <LightMode>
-        <circle cx={20} cy={20} r={12} fill={`url(#${id}-gradient)`} />
+        <Circle fill={`url(#${id}-gradient)`}/>
         <path
           d="M4.5 12.75l6 6 9-13.5"
           fillOpacity={0.5}
