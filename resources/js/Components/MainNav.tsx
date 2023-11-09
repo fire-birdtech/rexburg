@@ -71,6 +71,8 @@ export default function MainNav ({ user }: NavProps): ReactElement {
 
   return (
     <header className="absolute inset-x-0 top-0 z-10">
+
+      {/* Desktop Navigation */}
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 lg:py-10" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link className="-m-1.5 p-1.5" href={dashboardLink()}>
@@ -170,10 +172,12 @@ export default function MainNav ({ user }: NavProps): ReactElement {
           )}
         </div>
       </nav>
+
+      {/* Mobile Navigation */}
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50"/>
         <Dialog.Panel
-          className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-slate-800 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-slate-50 p-6 dark:bg-slate-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link className="-m-1.5 p-1.5" href={user !== null ? route('dashboard') : route('welcome')}>
               <span className="sr-only">RexburgGuru</span>
@@ -181,7 +185,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-slate-200"
+              className="-m-2.5 rounded-md p-2.5 text-sky-700 dark:text-slate-200"
               onClick={() => {
                 setMobileMenuOpen(false)
               }}
@@ -191,13 +195,13 @@ export default function MainNav ({ user }: NavProps): ReactElement {
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-slate-200/10">
+            <div className="-my-6 divide-y divide-slate-800/10 dark:divide-slate-200/10">
               <div className="space-y-2 py-6">
                 {mobileNavigation.map((item, index) => (
                   <Link
                     key={index}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-600 dark:text-slate-400"
                   >
                     {item.name}
                   </Link>
@@ -208,7 +212,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
                   <>
                     <Link
                       href={route('profile.edit')}
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-600 dark:text-slate-400"
                     >
                       Profile
                     </Link>
@@ -216,7 +220,7 @@ export default function MainNav ({ user }: NavProps): ReactElement {
                       href={route('logout')}
                       as="button"
                       method="post"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-600 dark:text-slate-400"
                     >
                       Log out
                     </Link>
@@ -225,13 +229,13 @@ export default function MainNav ({ user }: NavProps): ReactElement {
                   <>
                     <Link
                       href={route('login')}
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-600 dark:text-slate-400"
                     >
                       Log in
                     </Link>
                     <Link
                       href={route('register')}
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-400 hover:bg-slate-700"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-600 dark:text-slate-400"
                     >
                       Register
                     </Link>
