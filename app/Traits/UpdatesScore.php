@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 trait UpdatesScore
 {
-    public static function bootUpdatesScore()
+    public static function bootUpdatesScore(): void
     {
         static::created(function (Model $model) {
             $model->updateReviewableScore();
         });
     }
 
-    public function updateReviewableScore()
+    public function updateReviewableScore(): void
     {
         $reviewableReviews = $this->reviewable->reviews;
         $ratingTotal = null;

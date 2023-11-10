@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('verified');
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $housing = Housing::find($request->id);
