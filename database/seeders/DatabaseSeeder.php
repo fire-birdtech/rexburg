@@ -11,10 +11,11 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         if (env('APP_ENV') === 'local') {
             $this->call(HousingSeeder::class);
+            $this->call(BusinessesSeeder::class);
         }
         $this->call(RoleSeeder::class);
         $this->call(AmenitySeeder::class);
