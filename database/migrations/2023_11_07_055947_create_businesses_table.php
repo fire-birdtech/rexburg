@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->foreignId('user_id')->nullable()->references('id')->on('users');
+            $table->string('type')->nullable();
             $table->longText('about')->nullable();
             $table->string('city')->nullable();
             $table->string('cover_image_path', 2048)->nullable();
