@@ -2,17 +2,13 @@
 
 namespace App\Traits;
 
+use App\Models\Business;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 trait HasProfileImage
 {
-    /**
-     * Update the housing's cover image.
-     *
-     * @return void
-     */
-    public function updateProfileImage(UploadedFile $photo)
+    public function updateProfileImage(UploadedFile $photo): void
     {
         tap($this->profile_image_path, function ($previous) use ($photo) {
             $this->forceFill([
@@ -27,12 +23,7 @@ trait HasProfileImage
         });
     }
 
-    /**
-     * Delete the housing's cover image.
-     *
-     * @return void
-     */
-    public function deleteProfileImage()
+    public function deleteProfileImage(): void
     {
         Storage::disk($this->profileImageDisk())->delete($this->profile_image_path);
 
@@ -41,34 +32,23 @@ trait HasProfileImage
         ])->save();
     }
 
-    /**
-     * Get the URL to the housing's cover image.
-     *
-     * @return string
-     */
-    public function getProfileImageUrlAttribute()
+    public function getProfileImageUrlAttribute(): string
     {
         return $this->profile_image_path
                     ? Storage::disk($this->profileImageDisk())->url($this->profile_image_path)
                     : $this->defaultProfileImageUrl();
     }
 
-    /**
-     * Get the default cover image URL if no cover image has been uploaded.
-     *
-     * @return string
-     */
-    protected function defaultProfileImageUrl()
+    protected function defaultProfileImageUrl(): string
     {
+        if (get_class($this) === Business::class) {
+            return asset('images/default-business-image.jpg');
+        }
+
         return asset('images/default-apartment-image.jpg');
     }
 
-    /**
-     * Get the disk that cover images should be stored on.
-     *
-     * @return string
-     */
-    protected function profileImageDisk()
+    protected function profileImageDisk(): string
     {
         return 'public';
     }
