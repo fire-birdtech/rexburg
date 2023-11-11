@@ -1,3 +1,5 @@
+import { BusinessType } from '@/enums';
+
 export interface Suspension {
     user_id: number;
     reason: string;
@@ -132,6 +134,23 @@ export interface Rating {
 export interface Icon {
   id: string
   color: string
+}
+
+export interface Business {
+  name: string
+  slug: string
+  type: BusinessType
+  about: string
+  city: string
+  cover_image_path: string
+  cover_image_url: string
+  email_address: string
+  phone_number: string
+  postal_code: string
+  profile_image_path: string
+  profile_image_url: string
+  street: string
+  website_url: string
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
