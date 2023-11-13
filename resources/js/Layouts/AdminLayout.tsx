@@ -4,7 +4,7 @@ import { type User } from '@/types'
 
 export default function Admin ({ user, children }: PropsWithChildren<{ user: User }>): ReactElement {
   return (
-    <div className="bg-dots-darker dark:bg-dots-lighter min-h-screen bg-slate-50 selection:bg-sky-500 selection:text-white dark:bg-slate-900">
+    <>
       <AdminNav user={user} />
 
       <div className="lg:pl-72">
@@ -14,6 +14,6 @@ export default function Admin ({ user, children }: PropsWithChildren<{ user: Use
           </div>
         </main>
       </div>
-    </div>
+    </>
   )
 }
