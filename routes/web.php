@@ -39,6 +39,7 @@ Route::prefix('businesses')
     ->name('businesses.')
     ->controller(BusinessController::class)->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('{business}', 'show')->name('show');
     });
 
 Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');

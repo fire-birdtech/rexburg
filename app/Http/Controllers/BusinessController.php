@@ -19,4 +19,11 @@ class BusinessController extends Controller
             'businesses' => Business::orderBy('name', 'desc')->get(),
         ]);
     }
+
+    public function show(Business $business): Response
+    {
+        return inertia('Businesses/Show', [
+            'business' => $business,
+        ]);
+    }
 }

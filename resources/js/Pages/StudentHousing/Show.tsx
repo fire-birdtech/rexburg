@@ -162,7 +162,7 @@ export default function StudentHousingShow ({
                       About {housing.name}
                     </Header2>
                     <div
-                      className="prose prose-invert mt-4 max-w-none"
+                      className="prose mt-4 max-w-none dark:prose-invert"
                       dangerouslySetInnerHTML={{ __html: housing.about }}
                     />
                   </>

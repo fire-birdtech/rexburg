@@ -5,7 +5,7 @@ import { type Business } from '@/types'
 export default function BusinessCard ({ business }: { business: Business }): ReactElement {
   return (
 		<Link
-			href="#"
+			href={route('businesses.show', [business.slug])}
 			className="duration-250 flex scale-100 rounded-2xl bg-slate-800/50 bg-gradient-to-bl from-slate-700/50 via-transparent p-6 ring-1 ring-inset ring-white/5 transition-all focus:outline focus:outline-2 focus:outline-sky-500 motion-safe:hover:scale-[1.01]"
 		>
 			<img

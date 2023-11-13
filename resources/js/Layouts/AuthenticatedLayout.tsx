@@ -7,7 +7,7 @@ export default function Authenticated ({ user, children }: PropsWithChildren<{ u
     <>
       <MainNav user={user} />
 
-      <main className="py-20">
+      <main className="py-10 lg:py-20">
         {children}
       </main>
     </>
