@@ -7,6 +7,7 @@ interface MetaDataItemProps {
 }
 
 const icons = {
+  business: (props: any) => <Icon icon="business" {...props}/>,
   check: (props: any) => <Icon icon="check" {...props}/>,
   mapPin: (props: any) => <Icon icon="mapPin" {...props}/>,
   student: (props: any) => <Icon icon="student" {...props}/>,

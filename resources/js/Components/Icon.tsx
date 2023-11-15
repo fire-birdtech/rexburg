@@ -1,10 +1,12 @@
+import { type ReactElement, useId, type Key, type SVGProps, type PropsWithChildren } from 'react'
+import { BusinessIcon } from '@/Components/icons/BusinessIcon'
 import { CheckIcon } from '@/Components/icons/CheckIcon'
 import { HomeIcon } from '@/Components/icons/HomeIcon'
 import { MapPinIcon } from '@/Components/icons/MapPinIcon'
 import { MarriedPeopleIcon } from '@/Components/icons/MarriedPeopleIcon'
-import { type ReactElement, useId, type Key, type SVGProps, type PropsWithChildren } from 'react'
 import { type JSX } from 'react/jsx-runtime'
 import classNames from '@/Utils/classNames'
+import { type Icon as IconType } from '@/types'
 
 import { EnvelopeIcon } from '@/Components/icons/EnvelopeIcon'
 import { MobilePhoneIcon } from '@/Components/icons/MobilePhoneIcon'
@@ -17,6 +19,7 @@ interface Props {
 }
 
 const icons = {
+  business: BusinessIcon,
   check: CheckIcon,
   envelope: EnvelopeIcon,
   home: HomeIcon,
@@ -98,6 +101,23 @@ export function Gradient ({
         <stop key={stopIndex} {...stop} />
       ))}
     </radialGradient>
+  )
+}
+
+export function DefineGradients ({ color, id }: IconType): ReactElement {
+  return (
+    <defs>
+      <Gradient
+        id={`${id}-gradient`}
+        color={color}
+        gradientTransform="matrix(0 21 -21 0 12 3)"
+      />
+      <Gradient
+        id={`${id}-gradient-dark`}
+        color={color}
+        gradientTransform="matrix(0 21 -21 0 16 7)"
+      />
+    </defs>
   )
 }
 

@@ -1,5 +1,8 @@
 import Address from '@/Components/Address'
+import MetaDataItem from '@/Components/MetaDataItem'
+import MetadataWrapper from '@/Components/MetadataWrapper'
 import { Header2 } from '@/Components/Typography/Headers'
+import { capitalizeWords } from '@/Utils/strings'
 import { type ReactElement } from 'react'
 import { Head } from '@inertiajs/react'
 import Container from '@/Components/Container'
@@ -43,6 +46,9 @@ export default function BusinessesShow ({ auth, business }: PageProps<{ business
               city={business.city}
               postalCode={business.postal_code}
             />
+            <MetadataWrapper>
+              <MetaDataItem icon="business" value={capitalizeWords(business.type)}/>
+            </MetadataWrapper>
             <div className="lg:flex">
               <aside className="mt-8 md:order-2 md:ml-5 md:w-1/3"/>
               <div className="mt-8 md:order-1 md:w-2/3">
