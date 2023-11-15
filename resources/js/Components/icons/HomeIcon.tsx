@@ -1,22 +1,11 @@
-import { Circle, DarkMode, Gradient, LightMode } from '@/Components/Icon'
+import { Circle, DarkMode, DefineGradients, LightMode } from '@/Components/Icon'
 import { type ReactElement } from 'react'
 import { type Icon } from '@/types'
 
 export function HomeIcon ({ id, color }: Icon): ReactElement {
   return (
     <>
-      <defs>
-        <Gradient
-          id={`${id}-gradient`}
-          color={color}
-          gradientTransform="rotate(65.924 1.519 20.92) scale(25.7391)"
-        />
-        <Gradient
-          id={`${id}-gradient-dark`}
-          color={color}
-          gradientTransform="matrix(0 24.5 -24.5 0 16 5.5)"
-        />
-      </defs>
+      <DefineGradients id={id} color={color}/>
       <LightMode>
         <Circle fill={`url(#${id}-gradient)`}/>
         <path

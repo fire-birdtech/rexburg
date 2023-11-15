@@ -1,22 +1,11 @@
 import { type ReactElement } from 'react'
-import { Circle, DarkMode, Gradient, LightMode } from '@/Components/Icon'
+import { Circle, DarkMode, DefineGradients, LightMode } from '@/Components/Icon'
 import { type Icon } from '@/types'
 
 export function EnvelopeIcon ({ id, color }: Icon): ReactElement {
   return (
     <>
-      <defs>
-        <Gradient
-          id={`${id}-gradient`}
-          color={color}
-          gradientTransform="matrix(0 21 -21 0 12 3)"
-        />
-        <Gradient
-          id={`${id}-gradient-dark`}
-          color={color}
-          gradientTransform="matrix(0 21 -21 0 16 7)"
-        />
-      </defs>
+      <DefineGradients id={id} color={color}/>
       <LightMode>
         <Circle fill={`url(#${id}-gradient)`}/>
         <path
