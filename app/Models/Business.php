@@ -6,6 +6,7 @@ use App\Traits\HasCoverImage;
 use App\Traits\HasProfileImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -41,5 +42,10 @@ class Business extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function reviews(): MorphMany
+    {
+        return $this->morphMany(Review::class, 'reviewable');
     }
 }
