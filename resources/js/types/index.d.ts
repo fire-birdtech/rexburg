@@ -137,6 +137,7 @@ export interface Icon {
 }
 
 export interface Business {
+  id: number
   name: string
   slug: string
   type: BusinessType
