@@ -7,7 +7,7 @@ import InputLabel from '@/Components/InputLabel'
 import { PrimaryButton } from '@/Components/Buttons'
 import { TextInput } from '@/Components/TextInput'
 
-export default function Register (): ReactElement {
+export default function Register ({ status }: { status?: string }): ReactElement {
   const {
     data, setData, post, processing, errors, reset
   } = useForm({
@@ -31,6 +31,8 @@ export default function Register (): ReactElement {
   return (
     <Guest>
       <Head title="Register" />
+
+      {status !== undefined && <div className="mb-4 text-sm font-medium text-red-400">{status}</div>}
 
       <form onSubmit={submit}>
         <div>
