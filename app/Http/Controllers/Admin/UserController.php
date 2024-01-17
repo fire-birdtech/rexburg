@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BlockedEmail;
 use App\Models\User;
 use App\Models\UserSuspension;
 use Carbon\Carbon;
@@ -41,6 +42,10 @@ class UserController extends Controller
 
     public function destroy(User $user): RedirectResponse
     {
+        BlockedEmail::create([
+            'email' => $user->email,
+        ]);
+
         $user->delete();
 
         return redirect()->route('admin.users.index')->with('notification', 'User deleted successfully.');
