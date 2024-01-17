@@ -31,7 +31,7 @@ export default function UserShow ({
   }
 
   const deleteUser = (): void => {
-    router.delete(route('admin.user.delete', [user.id]))
+    router.delete(route('admin.users.delete', [user.id]))
   }
 
   return (

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\UserSuspension;
 use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -38,10 +39,10 @@ class UserController extends Controller
         return back();
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user): RedirectResponse
     {
         $user->delete();
 
-        return redirect()->route('admin.users.index')->banner('User deleted successfully.');
+        return redirect()->route('admin.users.index')->with('notification', 'User deleted successfully.');
     }
 }
