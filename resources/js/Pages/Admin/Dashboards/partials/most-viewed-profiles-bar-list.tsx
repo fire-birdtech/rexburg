@@ -1,5 +1,5 @@
 import { type ReactElement } from 'react'
-import { BarList, Bold, Card, Flex, Text, Title } from '@tremor/react'
+import { BarList, Bold, Card, Flex, Subtitle, Text, Title } from '@tremor/react'
 
 interface MostViewedProfilesBarListProps {
   data: any[]
@@ -11,6 +11,9 @@ export default function MostViewedProfilesBarList ({ data }: MostViewedProfilesB
       <Title>
         Most Viewed
       </Title>
+      <Subtitle className="text-sm">
+        Last 30 days
+      </Subtitle>
       <Flex className="mt-4">
         <Text>
           <Bold>Profile</Bold>
