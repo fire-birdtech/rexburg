@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Housing;
 use App\Models\View;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -55,7 +54,6 @@ class AdminDashboardDataService
             ->take(4)
             ->get();
 
-//        $topViews = View::with('viewable')->get()->take(6);
         foreach ($topViews as $topView) {
             $views[] = $topView;
         }
