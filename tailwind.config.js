@@ -46,7 +46,7 @@ module.exports = {
             DEFAULT: "#e5e7eb", // gray-200
           },
           content: {
-            subtle: "#9ca3af", // gray-400
+            subtle: "#64748b", // slate-500
             DEFAULT: "#6b7280", // gray-500
             emphasis: "#374151", // gray-700
             strong: "#111827", // gray-900
@@ -76,7 +76,7 @@ module.exports = {
             DEFAULT: "#1e293b", // slate-800
           },
           content: {
-            subtle: "#475569", // slate-600
+            subtle: "#94a3b8", // slate-400
             DEFAULT: "#cbd5e1", // slate-300
             emphasis: "#e2e8f0", // slate-200
             strong: "#f8fafc", // slate-50
