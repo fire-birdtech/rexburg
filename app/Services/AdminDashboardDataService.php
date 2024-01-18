@@ -51,7 +51,7 @@ class AdminDashboardDataService
             ->whereDate('views.created_at', '>', Carbon::now()->subDays(30))
             ->groupBy(['viewable_type', 'viewable_id'])
             ->orderByDesc('value')
-            ->take(4)
+            ->take(5)
             ->get();
 
         foreach ($topViews as $topView) {
