@@ -6,7 +6,6 @@ use App\Models\Housing;
 use App\Models\View;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
-use Illuminate\Support\Facades\DB;
 
 class AdminDashboardDataService
 {
