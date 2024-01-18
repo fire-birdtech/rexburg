@@ -1,10 +1,16 @@
+import MostViewedProfilesBarList from '@/Pages/Admin/Dashboards/partials/most-viewed-profiles-bar-list'
 import { type ReactElement } from 'react'
 import { Head } from '@inertiajs/react'
 import Admin from '@/Layouts/AdminLayout'
 import ProfileViewsLineGraph from '@/Pages/Admin/Dashboards/partials/profile-views-line-graph'
 import { type PageProps } from '@/types'
 
-export default function MainDashboard ({ auth, views }: PageProps<{ views: never[] }>): ReactElement {
+type MainDashboardProps = {
+  topViews: any[]
+  view: any[]
+} & PageProps
+
+export default function MainDashboard ({ auth, topViews, views }: MainDashboardProps): ReactElement {
   return (
     <Admin
       user={auth.user}
@@ -16,6 +22,9 @@ export default function MainDashboard ({ auth, views }: PageProps<{ views: never
           Admin Dashboard
         </h2>
         <ProfileViewsLineGraph views={views}/>
+        <div className="grid grid-cols-3 gap-x-6">
+          <MostViewedProfilesBarList data={topViews}/>
+        </div>
       </div>
     </Admin>
   )

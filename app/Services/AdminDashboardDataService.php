@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Housing;
 use App\Models\View;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -34,6 +35,29 @@ class AdminDashboardDataService
             } else {
                 $views[$key]['Views'] = $profileViews->where('day', $date->format('Y-m-d'))->first()->getAttribute('count');
             }
+        }
+
+        return $views;
+    }
+
+    public function getTopViewedProfiles(): array
+    {
+        $views = [];
+
+        $topViews = View::query()
+            ->join('housings', function ($join) {
+                $join->on('viewable_id', '=', 'housings.id')
+                    ->where('viewable_type', '=', 'App\\Models\\Housing');
+            })
+            ->selectRaw('count(*) as value, housings.name')
+            ->groupBy(['viewable_type', 'viewable_id'])
+            ->orderByDesc('value')
+            ->take(4)
+            ->get();
+
+//        $topViews = View::with('viewable')->get()->take(6);
+        foreach ($topViews as $topView) {
+            $views[] = $topView;
         }
 
         return $views;

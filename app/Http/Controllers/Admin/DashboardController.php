@@ -13,6 +13,7 @@ class DashboardController extends Controller
     {
         return inertia('Admin/Dashboards/Main', [
             'views' => $service->getLastThirtyDaysProfileViews(),
+            'topViews' => $service->getTopViewedProfiles(),
         ]);
     }
 }
