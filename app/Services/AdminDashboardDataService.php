@@ -19,10 +19,8 @@ class AdminDashboardDataService
                 'Day' => $date->format('M d'),
             ];
         }
-        $profileViews = View::select([
-            DB::raw('count(*) as count'),
-            DB::raw('DATE(created_at) as day'),
-        ])
+        $profileViews = View::query()
+            ->selectRaw('count(*) as count, DATE(created_at) as day')
             ->where([
                 ['created_at', '!=', Carbon::now()],
                 ['created_at', '>', Carbon::now()->subDays(30)],
