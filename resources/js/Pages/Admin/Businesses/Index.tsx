@@ -62,7 +62,7 @@ export default function BusinessesIndex ({ auth, businesses }: BusinessesIndexPr
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-slate-600 dark:text-slate-400">{business.type}</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-slate-600 dark:text-slate-400">{business.reviews_count}</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <Link href="#" className="text-sky-600 hover:text-sky-500">
+                        <Link href={route('admin.businesses.show', [business])} className="text-sky-600 hover:text-sky-500">
                           View<span className="sr-only">, {business.name}</span>
                         </Link>
                       </td>

@@ -7,12 +7,14 @@ use App\Traits\HasProfileImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Business extends Model
 {
-    use HasCoverImage, HasFactory, HasProfileImage, HasSlug;
+    use HasCoverImage, HasFactory, HasProfileImage, HasSlug, RevisionableTrait;
 
     protected $fillable = [
         'name',
@@ -44,8 +46,17 @@ class Business extends Model
         return 'slug';
     }
 
+    protected bool $revisionCreationsEnabled = true;
+
+    protected $dontKeepRevisionOf = ['score'];
+
     public function reviews(): MorphMany
     {
         return $this->morphMany(Review::class, 'reviewable');
+    }
+
+    public function managers(): MorphToMany
+    {
+        return $this->morphToMany(User::class, 'manageable');
     }
 }

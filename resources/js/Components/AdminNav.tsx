@@ -33,7 +33,7 @@ const navigation = [
     name: 'Businesses',
     href: route('admin.businesses.index'),
     icon: BuildingOffice2Icon,
-    components: ['Admin/Businesses/Index']
+    components: ['Admin/Businesses/Index', 'Admin/Businesses/Show']
   },
   {
     name: 'Claims',

@@ -112,7 +112,6 @@ export interface Revision {
     new_value: string;
     created_at: string;
     updated_at: string;
-    reviews_count: number;
 }
 
 export interface View {
@@ -153,6 +152,10 @@ export interface Business {
   profile_image_url: string
   street: string
   website_url: string
+  reviews: Review[]
+  reviews_count: number
+  managers: Manager[]
+  revision_history: Revision[]
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {

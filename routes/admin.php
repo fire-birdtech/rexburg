@@ -32,6 +32,7 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(functio
         });
         Route::prefix('businesses')->name('businesses.')->group(function () {
             Route::get('/', [BusinessesController::class, 'index'])->name('index');
+            Route::get('{business:id}', [BusinessesController::class, 'show'])->name('show');
         });
     });
 });
