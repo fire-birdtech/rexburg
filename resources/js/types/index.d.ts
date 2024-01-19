@@ -112,6 +112,7 @@ export interface Revision {
     new_value: string;
     created_at: string;
     updated_at: string;
+    reviews_count: number;
 }
 
 export interface View {

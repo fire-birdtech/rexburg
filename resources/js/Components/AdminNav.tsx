@@ -31,9 +31,9 @@ const navigation = [
   },
   {
     name: 'Businesses',
-    href: '#',
+    href: route('admin.businesses.index'),
     icon: BuildingOffice2Icon,
-    components: []
+    components: ['Admin/Businesses/Index']
   },
   {
     name: 'Claims',

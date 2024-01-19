@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BusinessesController;
 use App\Http\Controllers\Admin\ClaimsController as AdminClaimsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HousingController as AdminHousingController;
@@ -28,6 +29,9 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(functio
             Route::get('{id}', [AdminClaimsController::class, 'show'])->name('show');
             Route::put('{claim}/approve', [AdminClaimsController::class, 'approve'])->name('approve');
             Route::put('{claim}/reject', [AdminClaimsController::class, 'reject'])->name('reject');
+        });
+        Route::prefix('businesses')->name('businesses.')->group(function () {
+            Route::get('/', [BusinessesController::class, 'index'])->name('index');
         });
     });
 });
