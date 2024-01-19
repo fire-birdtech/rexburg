@@ -2,7 +2,14 @@ import { Fragment, type ReactElement, useState } from 'react'
 import { Link, usePage } from '@inertiajs/react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
-  ArrowRightOnRectangleIcon, Bars3Icon, CheckBadgeIcon, HomeIcon, Squares2X2Icon, UsersIcon, XMarkIcon
+  ArrowRightOnRectangleIcon,
+  Bars3Icon,
+  BuildingOffice2Icon,
+  CheckBadgeIcon,
+  HomeIcon,
+  Squares2X2Icon,
+  UsersIcon,
+  XMarkIcon
 } from '@heroicons/react/24/outline'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import ApplicationLogo from '@/Components/ApplicationLogo'
@@ -21,6 +28,12 @@ const navigation = [
     href: route('admin.housing.index'),
     icon: HomeIcon,
     components: ['Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show', 'Admin/Housing/Edit']
+  },
+  {
+    name: 'Businesses',
+    href: '#',
+    icon: BuildingOffice2Icon,
+    components: []
   },
   {
     name: 'Claims',
