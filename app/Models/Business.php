@@ -59,4 +59,9 @@ class Business extends Model
     {
         return $this->morphToMany(User::class, 'manageable');
     }
+
+    public function views(): MorphMany
+    {
+        return $this->morphMany(View::class, 'viewable');
+    }
 }
