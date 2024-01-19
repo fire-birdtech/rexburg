@@ -6,7 +6,7 @@ import {
   Bars3Icon,
   BuildingOffice2Icon,
   CheckBadgeIcon,
-  HomeIcon,
+  HomeModernIcon,
   Squares2X2Icon,
   UsersIcon,
   XMarkIcon
@@ -26,7 +26,7 @@ const navigation = [
   {
     name: 'Housing',
     href: route('admin.housing.index'),
-    icon: HomeIcon,
+    icon: HomeModernIcon,
     components: ['Admin/Housing/Index', 'Admin/Housing/Create', 'Admin/Housing/Show', 'Admin/Housing/Edit']
   },
   {
