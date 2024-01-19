@@ -7,7 +7,7 @@ interface MostViewedProfilesBarListProps {
 
 export default function MostViewedProfilesBarList ({ data }: MostViewedProfilesBarListProps): ReactElement {
   return (
-    <Card className="max-w-sm">
+    <Card>
       <Title>
         Most Viewed
       </Title>

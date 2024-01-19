@@ -22,7 +22,7 @@ export default function MainDashboard ({ auth, topViews, views }: MainDashboardP
           Admin Dashboard
         </h2>
         <ProfileViewsLineGraph views={views}/>
-        <div className="grid grid-cols-3 gap-x-6">
+        <div className="sm:grid sm:grid-cols-1 sm:gap-x-6 lg:grid-cols-2 xl:grid-cols-3">
           <MostViewedProfilesBarList data={topViews}/>
         </div>
       </div>
