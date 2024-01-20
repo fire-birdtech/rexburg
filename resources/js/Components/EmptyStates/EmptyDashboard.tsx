@@ -23,6 +23,12 @@ const otherActions = [
     description: 'Claim the profile for your student housing.',
     href: route('claims.index'),
     icon: 'home'
+  },
+  {
+    name: 'Manage a business profile',
+    description: 'Claim the profile for you business',
+    href: route('claims.index'),
+    icon: 'business'
   }
 ]
 
