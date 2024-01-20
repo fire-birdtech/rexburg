@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Business;
-use App\Models\Housing;
 use App\Models\View;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -23,7 +21,7 @@ class AdminDashboardDataService
             ->selectRaw('count(*) as count, DATE(created_at) as day')
             ->whereBetween('created_at', [
                 Carbon::now()->subDays(30)->startOfDay(),
-                Carbon::now()->subDay()->endOfDay()
+                Carbon::now()->subDay()->endOfDay(),
             ])
             ->groupBy('day')
             ->get();
@@ -46,7 +44,7 @@ class AdminDashboardDataService
             ->selectRaw('count(*) as value, viewable_id, viewable_type')
             ->whereBetween('views.created_at', [
                 Carbon::now()->subDays(30)->startOfDay(),
-                Carbon::now()->subDay()->endOfDay()
+                Carbon::now()->subDay()->endOfDay(),
             ])
             ->groupBy(['viewable_type', 'viewable_id'])
             ->orderByDesc('value')
