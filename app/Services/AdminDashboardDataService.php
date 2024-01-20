@@ -21,9 +21,9 @@ class AdminDashboardDataService
         }
         $profileViews = View::query()
             ->selectRaw('count(*) as count, DATE(created_at) as day')
-            ->where([
-                ['created_at', '!=', Carbon::now()],
-                ['created_at', '>', Carbon::now()->subDays(30)],
+            ->whereBetween('created_at', [
+                Carbon::now()->subDays(30)->startOfDay(),
+                Carbon::now()->subDay()->endOfDay()
             ])
             ->groupBy('day')
             ->get();
