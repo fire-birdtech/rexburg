@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Business;
 use App\Models\Housing;
 use App\Models\View;
 use Carbon\Carbon;
@@ -42,15 +43,14 @@ class AdminDashboardDataService
         $views = [];
 
         $topViews = View::query()
-            ->selectRaw('count(*) as value, housings.name')
-            ->join('housings', function ($join) {
-                $join->on('viewable_id', '=', 'housings.id')
-                    ->where('viewable_type', '=', Housing::class);
-            })
-            ->whereDate('views.created_at', '!=', Carbon::now())
-            ->whereDate('views.created_at', '>', Carbon::now()->subDays(30))
+            ->selectRaw('count(*) as value, viewable_id, viewable_type')
+            ->whereBetween('views.created_at', [
+                Carbon::now()->subDays(30)->startOfDay(),
+                Carbon::now()->subDay()->endOfDay()
+            ])
             ->groupBy(['viewable_type', 'viewable_id'])
             ->orderByDesc('value')
+            ->with('viewable')
             ->take(5)
             ->get();
 

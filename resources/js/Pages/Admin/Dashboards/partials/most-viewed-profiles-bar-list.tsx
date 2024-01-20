@@ -6,6 +6,13 @@ interface MostViewedProfilesBarListProps {
 }
 
 export default function MostViewedProfilesBarList ({ data }: MostViewedProfilesBarListProps): ReactElement {
+  const listData = data.map((item) => {
+    return {
+      value: item.value,
+      name: item.viewable.name
+    }
+  })
+
   return (
     <Card>
       <Title>
@@ -22,7 +29,7 @@ export default function MostViewedProfilesBarList ({ data }: MostViewedProfilesB
           <Bold>Views</Bold>
         </Text>
       </Flex>
-      <BarList data={data} className="mt-2"/>
+      <BarList data={listData} className="mt-2"/>
     </Card>
   )
 }
