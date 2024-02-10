@@ -8,10 +8,11 @@ interface Action {
   description: string
   href: string
   icon: string
+  show?: boolean
 }
 
-export default function EmptyDashboardAction ({ action }: { action: Action }): ReactElement {
-  return (
+export default function EmptyDashboardAction ({ action }: { action: Action }): ReactElement | null {
+  return ((action?.show) === true) ? (
     <li>
       <div className="group relative flex items-start space-x-3 rounded-2xl bg-slate-200/50 p-4 hover:bg-slate-200/80 dark:bg-slate-800/50 dark:hover:bg-slate-800/80">
         <div className="shrink-0">
@@ -33,5 +34,5 @@ export default function EmptyDashboardAction ({ action }: { action: Action }): R
         </div>
       </div>
     </li>
-  )
+  ) : null
 }

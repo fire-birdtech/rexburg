@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\ClaimStatus;
 use App\Http\Requests\ClaimStoreRequest;
 use App\Http\Requests\ClaimVerifyRequest;
+use App\Models\Business;
 use App\Models\Claim;
 use App\Models\Housing;
 use Illuminate\Http\RedirectResponse;
@@ -17,6 +18,13 @@ class ClaimController extends Controller
     {
         return inertia('Manager/Claim', [
             'claimables' => Housing::doesntHave('claim')->doesntHave('managers')->orderBy('name', 'asc')->get(),
+        ]);
+    }
+
+    public function businessIndex(): Response
+    {
+        return inertia('Manager/Claim/Business', [
+            'businesses' => Business::doesntHave('claim')->doesntHave('managers')->orderBy('name', 'asc')->get(),
         ]);
     }
 

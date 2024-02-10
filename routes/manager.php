@@ -4,11 +4,15 @@ use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\Manager\DashboardController;
 use App\Http\Controllers\Manager\HousingController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Pennant\Middleware\EnsureFeaturesAreActive;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('manager/claim', [ClaimController::class, 'index'])->name('claims.index');
-    Route::post('manager/claim', [ClaimController::class, 'store'])->name('claims.store');
-    Route::put('manager/claim', [ClaimController::class, 'verify'])->name('claims.verify');
+Route::prefix('manager')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('claim', [ClaimController::class, 'index'])->name('claims.index');
+    Route::get('claim/business', [ClaimController::class, 'businessIndex'])
+        ->name('claims.business.index')
+        ->middleware(EnsureFeaturesAreActive::using('businesses'));
+    Route::post('claim', [ClaimController::class, 'store'])->name('claims.store');
+    Route::put('claim', [ClaimController::class, 'verify'])->name('claims.verify');
 });
 Route::middleware(['auth', 'verified', 'manager'])->group(function () {
     Route::get('manager/dashboard', DashboardController::class)->name('manager.dashboard');

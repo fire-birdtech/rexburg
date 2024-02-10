@@ -1,53 +1,58 @@
 import EmptyDashboardAction from '@/Components/EmptyStates/EmptyDashboardAction'
+import { type FeatureFlags } from '@/types'
 import { type ReactElement, useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
-const actions = [
-  {
-    name: 'Find single student housing',
-    description: 'Private and shared rooms available.',
-    href: route('housing.single'),
-    icon: 'student'
-  },
-  {
-    name: 'Find married student housing',
-    description: 'Space for the two of you plus any extras.',
-    href: route('housing.married'),
-    icon: 'students'
-  }
-]
-
-const otherActions = [
-  {
-    name: 'Manage a student housing profile',
-    description: 'Claim the profile for your student housing.',
-    href: route('claims.index'),
-    icon: 'home'
-  },
-  {
-    name: 'Manage a business profile',
-    description: 'Claim the profile for you business',
-    href: route('claims.index'),
-    icon: 'business'
-  }
-]
-
-export default function EmptyDashboard (): ReactElement {
+export default function EmptyDashboard ({ flags }: { flags: FeatureFlags }): ReactElement {
   const [showOtherActions, setShowOtherActions] = useState(false)
+
+  const mainActions = [
+    {
+      name: 'Find single student housing',
+      description: 'Private and shared rooms available.',
+      href: route('housing.single'),
+      icon: 'student',
+      show: true
+    },
+    {
+      name: 'Find married student housing',
+      description: 'Space for the two of you plus any extras.',
+      href: route('housing.married'),
+      icon: 'students',
+      show: true
+    }
+  ]
+
+  const secondaryActions = [
+    {
+      name: 'Manage a student housing profile',
+      description: 'Claim the profile for your student housing.',
+      href: route('claims.index'),
+      icon: 'home',
+      show: true
+    },
+    {
+      name: 'Manage a business profile',
+      description: 'Claim the profile for you business',
+      href: route('claims.business.index'),
+      icon: 'business',
+      show: flags.hasBusinessesAccess
+    }
+  ]
 
   return (
     <div className="mx-auto max-w-lg px-4">
       <h2 className="tex-slate-800 text-xl font-semibold leading-6 dark:text-slate-100 md:text-3xl">Welcome to RexburgGuru!</h2>
       <p className="mt-2 text-sm text-slate-500">Get started by selecting what you want to do.</p>
       <ul role="list" className="mt-6 space-y-3">
-        {actions.map((action, actionIdx) => (
+        {mainActions.map((action, actionIdx) => (
           <EmptyDashboardAction key={actionIdx} action={action}/>
         ))}
       </ul>
       {showOtherActions ? (
         <ul role="list" className="mt-3 space-y-3">
-          {otherActions.map((action, actionIdx) => (
-            <EmptyDashboardAction key={actionIdx} action={action}/>
+          {secondaryActions.map((action, actionIdx) => (
+            <EmptyDashboardAction key={actionIdx} action={action} />
           ))}
         </ul>
       ) : (

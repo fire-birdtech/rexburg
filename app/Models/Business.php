@@ -7,6 +7,7 @@ use App\Traits\HasProfileImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -58,6 +59,11 @@ class Business extends Model
     public function managers(): MorphToMany
     {
         return $this->morphToMany(User::class, 'manageable');
+    }
+
+    public function claim(): MorphOne
+    {
+        return $this->morphOne(Claim::class, 'claimable');
     }
 
     public function views(): MorphMany

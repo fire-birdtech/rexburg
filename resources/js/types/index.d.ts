@@ -158,6 +158,10 @@ export interface Business {
   revision_history: Revision[]
 }
 
+export type FeatureFlags = {
+  [key: string]: boolean
+}
+
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
         user: User;

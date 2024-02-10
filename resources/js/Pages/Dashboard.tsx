@@ -5,13 +5,14 @@ import { ApprovedClaimBanner, PendingClaimBanner } from '@/Components/Banners'
 import PotentialReviewsList from '@/Components/Dashboard/PotentialReviewsList'
 import EmptyDashboard from '@/Components/EmptyStates/EmptyDashboard'
 import Container from '@/Components/Container'
-import { type Claim, type PageProps, type View } from '@/types'
+import { type Claim, type FeatureFlags, type PageProps, type View } from '@/types'
 
 export default function Dashboard ({
   auth,
   claims,
+  flags,
   views
-}: PageProps & { claims: Claim[], views: View[] }): ReactElement {
+}: PageProps & { claims: Claim[], flags: FeatureFlags, views: View[] }): ReactElement {
   return (
     <Authenticated
       user={auth.user}
@@ -34,7 +35,7 @@ export default function Dashboard ({
         {views.length > 0 ? (
           <PotentialReviewsList views={views}/>
         ) : (
-          <EmptyDashboard/>
+          <EmptyDashboard flags={flags}/>
         )}
       </Container>
     </Authenticated>
